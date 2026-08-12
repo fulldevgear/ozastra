@@ -2,11 +2,14 @@ import {
   HeadContent,
   Scripts,
   createRootRoute,
+  useLocation,
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 
 import { PrivacyAnalytics } from '../components/PrivacyAnalytics'
-import { organizationStructuredData } from '../lib/seo'
+import { getLocaleDefinition, localizePath } from '../i18n/locales'
+import type { Locale } from '../i18n/locales'
+import { resolvePathLocale } from '../i18n/navigation'
 import { themeBootstrapScript } from '../lib/theme'
 import appCss from '../styles.css?url'
 
@@ -22,27 +25,13 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Ozastra conçoit et développe des expériences web, des produits SaaS, des applications mobiles et des solutions IA.',
+          'Ozastra designs and builds web experiences, SaaS products, mobile applications and applied AI solutions.',
       },
       { name: 'theme-color', content: '#07090F' },
     ],
     scripts: [
       {
         children: themeBootstrapScript,
-      },
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify(organizationStructuredData),
-      },
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'Ozastra',
-          url: 'https://ozastra.com',
-          inLanguage: 'fr-FR',
-        }),
       },
     ],
     links: [
@@ -56,21 +45,31 @@ export const Route = createRootRoute({
 })
 
 function NotFoundPage() {
+  const locale = resolvePathLocale(useLocation().pathname)
+  const content = notFoundFallback[locale]
+
   return (
     <main className="not-found">
-      <p className="eyebrow">Erreur 404</p>
-      <h1>Cette orbite ne mène nulle part.</h1>
-      <p>La page recherchée a peut-être changé de trajectoire.</p>
-      <a className="button-primary" href="/">
-        Revenir à l’accueil
+      <p className="eyebrow">{content.eyebrow}</p>
+      <h1>{content.title}</h1>
+      <p>{content.description}</p>
+      <a className="button-primary" href={localizePath(locale, '/')}>
+        {content.action}
       </a>
     </main>
   )
 }
 
 function RootDocument({ children }: { children: ReactNode }) {
+  const locale = resolvePathLocale(useLocation().pathname)
+  const definition = getLocaleDefinition(locale)
+
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html
+      lang={definition.htmlLang}
+      dir={definition.direction}
+      suppressHydrationWarning
+    >
       <head>
         <HeadContent />
       </head>
@@ -82,3 +81,21 @@ function RootDocument({ children }: { children: ReactNode }) {
     </html>
   )
 }
+
+const notFoundFallback = {
+  en: {
+    eyebrow: 'Error 404',
+    title: 'This orbit leads nowhere.',
+    description: 'The page you are looking for may have changed trajectory.',
+    action: 'Return home',
+  },
+  fr: {
+    eyebrow: 'Erreur 404',
+    title: 'Cette orbite ne mène nulle part.',
+    description: 'La page recherchée a peut-être changé de trajectoire.',
+    action: 'Revenir à l’accueil',
+  },
+} satisfies Record<
+  Locale,
+  { eyebrow: string; title: string; description: string; action: string }
+>

@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  resolvePathLocale,
+  resolveRouteLocale,
   routeLocaleParam,
   switchLocalePath,
   unlocalizePath,
@@ -10,6 +12,13 @@ describe('localized navigation', () => {
   it('uses an omitted route parameter for English', () => {
     expect(routeLocaleParam('en')).toBeUndefined()
     expect(routeLocaleParam('fr')).toBe('fr')
+  })
+
+  it('resolves route and document locales with an English fallback', () => {
+    expect(resolveRouteLocale(undefined)).toBe('en')
+    expect(resolveRouteLocale('fr')).toBe('fr')
+    expect(resolvePathLocale('/fr/work/orbit')).toBe('fr')
+    expect(resolvePathLocale('/work/orbit')).toBe('en')
   })
 
   it('removes only published locale prefixes', () => {

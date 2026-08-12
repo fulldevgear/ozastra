@@ -2,17 +2,18 @@ import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
-import { routeLocaleParam } from '../i18n/navigation'
+import { resolveRouteLocale, routeLocaleParam } from '../i18n/navigation'
+import { seoCopy } from '../i18n/seo-copy'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/services')({
-  head: () =>
-    createSeoHead({
-      title: 'Services — Ozastra',
-      description:
-        'Product engineering, web, SaaS, IA appliquée, mobile et renfort produit : découvrez comment Ozastra peut intervenir.',
+  head: ({ params }) => {
+    const locale = resolveRouteLocale(params.locale)
+    return createSeoHead({
+      locale,
+      ...seoCopy[locale].services,
       path: '/services',
       structuredData: [
         {
@@ -21,9 +22,11 @@ export const Route = createFileRoute('/{-$locale}/services')({
           provider: { '@type': 'Organization', name: 'Ozastra' },
           serviceType: 'Product engineering',
           areaServed: 'Worldwide',
+          inLanguage: locale,
         },
       ],
-    }),
+    })
+  },
   component: ServicesPage,
 })
 

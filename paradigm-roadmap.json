@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 195
+    "revision": 197
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 88,
-    "last_activity_at": "2026-08-12T09:23:08.897Z",
+    "overall_progress_percent": 89,
+    "last_activity_at": "2026-08-12T09:26:18.145Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2625,6 +2625,22 @@
         "deliverable": 6,
         "description": "Pipeline MDX localisé, validé et chargé à la demande",
         "evidence": "Manifestes EN/FR validés par Zod et chargés par locale; corps MDX fractionnés en 4 chunks à la demande; 29 tests, build 18 pages, rendu SSR bilingue et budget 149.5/200 kB validés"
+      },
+      {
+        "timestamp": "2026-08-12T09:23:20.643Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 7,
+        "description": "SEO multilingue généré depuis le registre des locales",
+        "note": "SEO localisé, alternates, Open Graph, données structurées et attributs html dérivés de la locale"
+      },
+      {
+        "timestamp": "2026-08-12T09:26:18.144Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 7,
+        "description": "SEO multilingue généré depuis le registre des locales",
+        "evidence": "SEO EN/FR issu du registre: html lang/dir, titres/descriptions, canonical, hreflang/x-default, OG et JSON-LD validés dans le pré-rendu; 33 tests, typecheck, build 18 pages et budget UI 150.5/200 kB réussis"
       }
     ]
   },
@@ -3517,7 +3533,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 55,
+        "progress_percent": 64,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3555,11 +3571,17 @@
             "description": "Pipeline MDX localisé, validé et chargé à la demande",
             "completed_at": "2026-08-12T09:23:08.896Z",
             "evidence": "Manifestes EN/FR validés par Zod et chargés par locale; corps MDX fractionnés en 4 chunks à la demande; 29 tests, build 18 pages, rendu SSR bilingue et budget 149.5/200 kB validés"
+          },
+          {
+            "index": 7,
+            "description": "SEO multilingue généré depuis le registre des locales",
+            "completed_at": "2026-08-12T09:26:18.144Z",
+            "evidence": "SEO EN/FR issu du registre: html lang/dir, titres/descriptions, canonical, hreflang/x-default, OG et JSON-LD validés dans le pré-rendu; 33 tests, typecheck, build 18 pages et budget UI 150.5/200 kB réussis"
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:23:08.897Z"
+        "last_updated_at": "2026-08-12T09:26:18.144Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

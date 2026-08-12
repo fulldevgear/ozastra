@@ -10,6 +10,15 @@ export function routeLocaleParam(locale: Locale) {
   return locale === defaultLocale ? undefined : locale
 }
 
+export function resolveRouteLocale(locale: string | undefined): Locale {
+  return isPublishedLocale(locale) ? locale : defaultLocale
+}
+
+export function resolvePathLocale(pathname: string): Locale {
+  const [firstSegment] = pathname.split('/').filter(Boolean)
+  return resolveRouteLocale(firstSegment)
+}
+
 export function unlocalizePath(pathname: string) {
   const [firstSegment] = pathname.split('/').filter(Boolean)
   if (!isPublishedLocale(firstSegment) || firstSegment === defaultLocale) {

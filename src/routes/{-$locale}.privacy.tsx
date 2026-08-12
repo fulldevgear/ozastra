@@ -2,17 +2,20 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
+import { resolveRouteLocale } from '../i18n/navigation'
+import { seoCopy } from '../i18n/seo-copy'
 import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/privacy')({
-  head: () =>
-    createSeoHead({
-      title: 'Confidentialité — Ozastra',
-      description:
-        'Découvrez quelles données Ozastra collecte, pourquoi elles sont traitées et comment exercer vos droits.',
+  head: ({ params }) => {
+    const locale = resolveRouteLocale(params.locale)
+    return createSeoHead({
+      locale,
+      ...seoCopy[locale].privacy,
       path: '/privacy',
-    }),
+    })
+  },
   component: PrivacyPage,
 })
 

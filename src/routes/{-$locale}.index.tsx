@@ -4,23 +4,33 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import { ProjectVisual } from '../components/ProjectVisual'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
-import { routeLocaleParam } from '../i18n/navigation'
+import { resolveRouteLocale, routeLocaleParam } from '../i18n/navigation'
+import { seoCopy } from '../i18n/seo-copy'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
-import { createSeoHead } from '../lib/seo'
+import {
+  createSeoHead,
+  organizationStructuredData,
+  websiteStructuredData,
+} from '../lib/seo'
 
 const OrbitalExperience = lazy(
   () => import('../features/orbital/OrbitalExperience'),
 )
 
 export const Route = createFileRoute('/{-$locale}/')({
-  head: () =>
-    createSeoHead({
-      title: 'Ozastra — Product engineering studio',
-      description:
-        'Ozastra conçoit et développe des expériences web, produits SaaS, applications mobiles et solutions IA remarquables.',
+  head: ({ params }) => {
+    const locale = resolveRouteLocale(params.locale)
+    return createSeoHead({
+      locale,
+      ...seoCopy[locale].home,
       path: '/',
-    }),
+      structuredData: [
+        organizationStructuredData(locale),
+        websiteStructuredData(locale),
+      ],
+    })
+  },
   component: Home,
 })
 
