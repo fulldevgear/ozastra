@@ -1,0 +1,12 @@
+.env
+.env.*
+.git
+.github
+.lighthouseci
+.output
+.pnpm-store
+.tanstack
+dist
+node_modules
+playwright-report
+test-results

@@ -1,0 +1,3480 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "document": {
+    "name": "paradigm-roadmap",
+    "title": "Ozastra — Paradigm Roadmap",
+    "version": "1.1.0",
+    "language": "fr-FR",
+    "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
+    "status": "creative_and_technical_direction_defined",
+    "last_updated": "2026-08-12",
+    "revision": 183
+  },
+  "brand": {
+    "name": "Ozastra",
+    "company_type": "LLC",
+    "category": "Studio de product engineering",
+    "positioning": "Ozastra transforme des idées ambitieuses en produits numériques remarquables.",
+    "core_promise": "Concevoir et développer des expériences numériques abouties, de l’idée au lancement.",
+    "services": [
+      "Développement web",
+      "Intelligence artificielle appliquée",
+      "Produits SaaS",
+      "Applications mobiles",
+      "Missions freelance et renfort produit"
+    ],
+    "brand_idea": "Spatial precision",
+    "brand_idea_description": "Une identité inspirée par l’ingénierie, l’architecture, l’orbite et la transformation progressive d’une idée en produit, sans imagerie science-fiction cliché.",
+    "desired_perception": [
+      "Professionnel",
+      "Soigné",
+      "Premium",
+      "Précis",
+      "Contemporain",
+      "Cultivé visuellement",
+      "Fiable",
+      "Ambitieux"
+    ],
+    "strategic_principle": "Présenter Ozastra comme un studio capable de conduire et construire un produit, et non comme un prestataire qui empile des technologies.",
+    "freelance_role": "Les missions freelance sont une modalité de collaboration et non l’identité principale de l’entreprise.",
+    "tone_of_voice": [
+      "Clair",
+      "Confiant sans arrogance",
+      "Direct",
+      "Élégant",
+      "Peu jargonisant",
+      "Orienté résultats"
+    ]
+  },
+  "creative_direction": {
+    "name": "Quiet deep-tech",
+    "summary": "Un studio technologique premium mêlant minimalisme éditorial, esthétique architecturale, technologie discrète et détails tridimensionnels raffinés.",
+    "principles": [
+      "Le calme visuel exprime la maîtrise.",
+      "La typographie, l’espace et le rythme priment sur les effets décoratifs.",
+      "La 3D sert la narration du produit.",
+      "Les accents colorés restent rares et intentionnels.",
+      "Chaque animation doit donner une sensation de matière, de précision ou de progression."
+    ],
+    "avoid": [
+      "Robots ou cerveaux pour symboliser l’IA",
+      "Globe 3D générique",
+      "Pluie de particules ou constellation décorative",
+      "Néons omniprésents",
+      "Gradients arc-en-ciel",
+      "Esthétique gaming",
+      "Glassmorphism excessif",
+      "Cartes arrondies utilisées partout",
+      "Longues listes de technologies sans contexte",
+      "Animations appliquées à chaque élément"
+    ]
+  },
+  "visual_system": {
+    "color_palette": {
+      "background_primary": {
+        "value": "#07090F",
+        "role": "Fond principal bleu-noir"
+      },
+      "surface_primary": {
+        "value": "#10131C",
+        "role": "Surfaces et panneaux"
+      },
+      "surface_elevated": {
+        "value": "#161A25",
+        "role": "Éléments légèrement surélevés"
+      },
+      "text_primary": {
+        "value": "#F3F0E8",
+        "role": "Texte principal ivoire"
+      },
+      "text_secondary": {
+        "value": "#969CAC",
+        "role": "Texte secondaire gris bleuté"
+      },
+      "accent_primary": {
+        "value": "#5B7CFF",
+        "role": "Bleu électrique utilisé avec retenue"
+      },
+      "accent_secondary": {
+        "value": "#9B7BFF",
+        "role": "Violet astral pour les détails ponctuels"
+      },
+      "border_subtle": {
+        "value": "rgba(243, 240, 232, 0.12)",
+        "role": "Bordures fines et séparateurs"
+      },
+      "light_soft": {
+        "value": "rgba(91, 124, 255, 0.18)",
+        "role": "Halos et lumière atmosphérique"
+      }
+    },
+    "light_color_palette": {
+      "background_primary": {
+        "value": "#F3F0E8",
+        "role": "Fond ivoire minéral, lumineux sans être blanc clinique"
+      },
+      "surface_primary": {
+        "value": "#E9E6DE",
+        "role": "Surfaces architecturales légèrement plus denses"
+      },
+      "surface_elevated": {
+        "value": "#FCFAF5",
+        "role": "Éléments surélevés révélés par contraste tonal"
+      },
+      "text_primary": {
+        "value": "#11141C",
+        "role": "Graphite profond pour préserver la précision éditoriale"
+      },
+      "text_secondary": {
+        "value": "#5F6675",
+        "role": "Gris ardoise pour les textes secondaires"
+      },
+      "accent_primary": {
+        "value": "#3457D5",
+        "role": "Bleu orbital densifié pour rester accessible sur ivoire"
+      },
+      "accent_secondary": {
+        "value": "#7556D8",
+        "role": "Violet minéral réservé aux détails narratifs"
+      },
+      "border_subtle": {
+        "value": "rgba(17, 20, 28, 0.14)",
+        "role": "Séparateurs graphite très fins"
+      },
+      "light_soft": {
+        "value": "rgba(52, 87, 213, 0.12)",
+        "role": "Lumière bleue diffuse, jamais néon"
+      }
+    },
+    "color_usage": [
+      "Maintenir une majorité de tons neutres sombres.",
+      "Dans le thème clair, employer un ivoire minéral et des contrastes graphite plutôt qu’un blanc pur.",
+      "Réserver le bleu électrique aux actions, états actifs et moments narratifs.",
+      "Utiliser le violet comme accent secondaire, jamais comme remplissage dominant.",
+      "Garantir un contraste accessible pour les textes et contrôles dans les deux thèmes.",
+      "Conserver le noyau orbital sombre dans le thème clair afin de préserver l’idée de matière et de gravité."
+    ],
+    "typography": {
+      "direction": "Sans-serif moderne et nette pour l’interface, avec une serif éditoriale facultative pour quelques mots à forte charge narrative.",
+      "display_style": "Titres très lisibles, généreux, à interlignage serré et largeur contrôlée.",
+      "body_style": "Corps confortable, sobre, à interlignage ample.",
+      "accent_usage": "La serif ne doit apparaître que sur un mot ou une courte expression, par exemple « gravity ».",
+      "responsive_rule": "Utiliser une échelle fluide fondée sur clamp() pour les titres et espacements majeurs.",
+      "sample_lockup": {
+        "line_1": "We build digital products",
+        "line_2": "with gravity.",
+        "accent_text": "gravity"
+      }
+    },
+    "layout": {
+      "style": "Grille éditoriale structurée avec compositions asymétriques maîtrisées.",
+      "content_width": "Largeur de lecture contrôlée et sections visuelles pleine largeur lorsque nécessaire.",
+      "spacing": "Respiration verticale généreuse et densité réduite.",
+      "borders": "Bordures fines semi-transparentes.",
+      "radii": "Rayons modérés, réservés aux composants qui en bénéficient.",
+      "shadows": "Éviter les ombres traditionnelles lourdes ; privilégier profondeur tonale, lumière et contraste.",
+      "surfaces": "Créer la profondeur par de faibles variations de luminosité entre les surfaces."
+    },
+    "motion": {
+      "character": "Lent, précis, organique, presque physique et jamais gaming.",
+      "micro_interactions_ms": [
+        200,
+        300
+      ],
+      "section_transitions_ms": [
+        400,
+        500
+      ],
+      "principles": [
+        "Utiliser des accélérations et décélérations douces.",
+        "Éviter les rebonds exagérés.",
+        "Faire apparaître les contenus avec de faibles translations et variations d’opacité.",
+        "Ne jamais compromettre la lecture au profit de l’animation.",
+        "Respecter prefers-reduced-motion."
+      ]
+    }
+  },
+  "threejs_artifact": {
+    "name": "Artefact orbital abstrait",
+    "role": "Métaphore visuelle centrale du passage de l’idée au produit final.",
+    "narrative": "Dans le hero, l’objet paraît abstrait. Au scroll, ses éléments se séparent et accompagnent les différentes expertises du site. À la fin, ils se réunissent autour du CTA. La 3D raconte ainsi le passage de l’idée au produit final.",
+    "components": {
+      "core": {
+        "meaning": "L’idée ou le produit",
+        "appearance": "Noyau sombre, dense, légèrement réfléchissant, révélé par une lumière rasante douce.",
+        "behavior": "Stable et central ; il inspire la gravité et la cohérence."
+      },
+      "rings": [
+        {
+          "label": "Web",
+          "appearance": "Anneau très fin et précis",
+          "meaning": "Expériences et plateformes web"
+        },
+        {
+          "label": "IA",
+          "appearance": "Anneau très fin avec une variation lumineuse subtile",
+          "meaning": "Intelligence artificielle appliquée"
+        },
+        {
+          "label": "SaaS",
+          "appearance": "Anneau très fin, modulaire et structuré",
+          "meaning": "Produits logiciels et systèmes"
+        },
+        {
+          "label": "Mobile",
+          "appearance": "Anneau très fin avec une courbe plus dynamique",
+          "meaning": "Applications et expériences mobiles"
+        }
+      ],
+      "alignment_elements": {
+        "appearance": "Petites pièces géométriques ou repères orbitaux sobres.",
+        "behavior": "Ils s’alignent progressivement lorsque la souris se déplace, avec inertie et retard maîtrisés.",
+        "purpose": "Exprimer la capacité d’Ozastra à transformer le désordre initial en système cohérent."
+      },
+      "lighting": {
+        "style": "Lumière douce, directionnelle et cinématographique.",
+        "behavior": "Elle révèle progressivement la matière sans produire de flash ou de halo agressif.",
+        "colors": [
+          "Ivoire froid",
+          "Bleu électrique très diffus",
+          "Violet astral ponctuel"
+        ]
+      }
+    },
+    "interaction_states": {
+      "idle": {
+        "description": "Rotation lente et respiration presque imperceptible.",
+        "goal": "Donner vie à l’artefact sans détourner l’attention du message."
+      },
+      "pointer": {
+        "description": "Les éléments orbitaux cherchent un alignement en fonction de la position normalisée du pointeur.",
+        "constraints": [
+          "Amplitude faible",
+          "Inertie visible",
+          "Aucun suivi direct ou nerveux",
+          "Retour progressif à l’état de repos"
+        ]
+      },
+      "scroll_expertise": {
+        "description": "Les anneaux se séparent du noyau et accompagnent chacun une expertise.",
+        "mapping": {
+          "Web": "Web Experiences",
+          "IA": "Applied AI",
+          "SaaS": "SaaS Products",
+          "Mobile": "Mobile Apps"
+        }
+      },
+      "scroll_reassembly": {
+        "description": "Après les études de cas et la méthode, les anneaux reviennent progressivement vers le noyau.",
+        "meaning": "Toutes les disciplines convergent vers un produit cohérent."
+      },
+      "final_cta": {
+        "description": "L’artefact se recompose derrière ou à proximité du CTA final, dans un état plus aligné et lumineux qu’au début.",
+        "meaning": "L’idée abstraite est devenue un produit prêt à être lancé."
+      }
+    },
+    "scroll_storyboard": [
+      {
+        "stage": 1,
+        "section": "Hero",
+        "state": "Abstraction",
+        "visual": "Le noyau et les anneaux forment une silhouette intrigante mais non littérale.",
+        "message": "Une ambition prend forme."
+      },
+      {
+        "stage": 2,
+        "section": "Expertises",
+        "state": "Séparation",
+        "visual": "Les anneaux quittent leur orbite initiale et occupent différents plans de profondeur.",
+        "message": "Chaque discipline apporte une fonction précise."
+      },
+      {
+        "stage": 3,
+        "section": "Projets et méthode",
+        "state": "Organisation",
+        "visual": "Les repères orbitaux s’alignent et les mouvements deviennent plus structurés.",
+        "message": "Ozastra transforme la complexité en système."
+      },
+      {
+        "stage": 4,
+        "section": "CTA final",
+        "state": "Convergence",
+        "visual": "Le noyau et les anneaux se réunissent dans une composition stable, précise et lumineuse.",
+        "message": "Le produit est cohérent, construit et prêt à avancer."
+      }
+    ],
+    "rendering_guidelines": [
+      "Privilégier des géométries simples et une forte qualité de composition.",
+      "Limiter le nombre de matériaux, lumières et effets de post-traitement.",
+      "Préférer des réflexions et lueurs subtiles à un bloom visible.",
+      "Utiliser une densité de pixels plafonnée sur les écrans haute résolution.",
+      "Suspendre ou réduire le rendu lorsque le canvas n’est pas visible.",
+      "Prévoir une image ou composition CSS statique de remplacement.",
+      "Sur mobile, conserver la narration avec des mouvements prédéfinis et sans dépendre du pointeur."
+    ],
+    "accessibility": {
+      "canvas_semantics": "Considérer le canvas comme décoratif et ne pas y placer d’information indispensable.",
+      "reduced_motion": "Afficher une composition statique ou des transitions fortement réduites lorsque prefers-reduced-motion est actif.",
+      "fallback": "L’intégralité du message et des services doit rester compréhensible sans WebGL.",
+      "contrast": "La lumière de l’artefact ne doit jamais réduire le contraste des textes du hero."
+    }
+  },
+  "site_architecture": {
+    "navigation": {
+      "items": [
+        "Projets",
+        "Expertises",
+        "Approche",
+        "À propos"
+      ],
+      "primary_cta": "Démarrer un projet",
+      "behavior": "Navigation légère, lisible, éventuellement translucide après le premier scroll."
+    },
+    "homepage": [
+      {
+        "order": 1,
+        "id": "hero",
+        "name": "Hero",
+        "goal": "Positionner Ozastra en quelques secondes et introduire l’artefact orbital.",
+        "headline_primary": "Digital products, engineered with taste.",
+        "headline_alternative_fr": "Des produits numériques conçus avec exigence.",
+        "supporting_copy": "Ozastra conçoit et développe des expériences web, des produits SaaS, des applications mobiles et des solutions alimentées par l’IA.",
+        "primary_cta": "Démarrer un projet",
+        "secondary_cta": "Découvrir notre approche",
+        "visual": "Artefact orbital dans son état abstrait initial."
+      },
+      {
+        "order": 2,
+        "id": "capability-strip",
+        "name": "Preuve immédiate",
+        "goal": "Clarifier instantanément le périmètre d’Ozastra.",
+        "copy": "Web · AI · SaaS · Mobile · Product Engineering",
+        "metrics_policy": "N’afficher que des indicateurs réels et vérifiables. Il vaut mieux ne rien afficher que d’inventer des chiffres."
+      },
+      {
+        "order": 3,
+        "id": "selected-work",
+        "name": "Sélection de projets",
+        "goal": "Démontrer le niveau de conception et d’exécution.",
+        "project_fields": [
+          "Problème",
+          "Intervention d’Ozastra",
+          "Résultat",
+          "Grande image ou animation du produit",
+          "Fiche technique discrète"
+        ],
+        "launch_policy": "En l’absence de projets clients publics, produire deux ou trois études de cas conceptuelles crédibles et clairement présentées comme telles."
+      },
+      {
+        "order": 4,
+        "id": "expertise",
+        "name": "Expertises",
+        "goal": "Présenter des capacités intégrées plutôt qu’une liste de technologies.",
+        "items": [
+          {
+            "name": "Web Experiences",
+            "description": "Sites vitrines et plateformes rapides, accessibles et mémorables.",
+            "artifact_mapping": "Web"
+          },
+          {
+            "name": "SaaS Products",
+            "description": "Conception et développement de produits logiciels complets.",
+            "artifact_mapping": "SaaS"
+          },
+          {
+            "name": "Applied AI",
+            "description": "Automatisation, agents et fonctionnalités IA réellement utiles.",
+            "artifact_mapping": "IA"
+          },
+          {
+            "name": "Mobile Apps",
+            "description": "Expériences mobiles fluides, cohérentes et centrées sur l’usage.",
+            "artifact_mapping": "Mobile"
+          },
+          {
+            "name": "Embedded Expertise",
+            "description": "Missions freelance et renfort produit intégrés aux équipes.",
+            "artifact_mapping": "Repères orbitaux"
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "id": "process",
+        "name": "Méthode",
+        "goal": "Rassurer sur la capacité d’Ozastra à conduire un projet au-delà de la seule production de code.",
+        "steps": [
+          {
+            "order": 1,
+            "label": "Clarifier"
+          },
+          {
+            "order": 2,
+            "label": "Concevoir"
+          },
+          {
+            "order": 3,
+            "label": "Construire"
+          },
+          {
+            "order": 4,
+            "label": "Lancer"
+          },
+          {
+            "order": 5,
+            "label": "Améliorer"
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "id": "about",
+        "name": "À propos",
+        "goal": "Humaniser la marque et expliquer la conviction derrière Ozastra.",
+        "key_message": "Ozastra associe réflexion produit, sens du design et ingénierie pour créer des expériences numériques cohérentes."
+      },
+      {
+        "order": 7,
+        "id": "contact",
+        "name": "Contact et CTA final",
+        "goal": "Transformer l’intérêt en conversation qualifiée.",
+        "headline": "Let’s build something with gravity.",
+        "fields": [
+          "Nom",
+          "Email",
+          "Type de projet",
+          "Message"
+        ],
+        "artifact_state": "Artefact orbital entièrement recomposé."
+      }
+    ]
+  },
+  "tailwind_system": {
+    "objective": "Traduire l’identité d’Ozastra en primitives visuelles réutilisables et cohérentes.",
+    "design_tokens": [
+      "Couleurs sémantiques",
+      "Échelle typographique fluide",
+      "Échelle d’espacement",
+      "Largeurs de contenu",
+      "Rayons modérés",
+      "Bordures translucides",
+      "Durées et courbes d’animation",
+      "Niveaux de surface"
+    ],
+    "component_families": [
+      "Container et grille éditoriale",
+      "Navigation",
+      "Boutons primaires et secondaires",
+      "Eyebrows et labels",
+      "Titres display",
+      "Cartes de projets",
+      "Lignes d’expertise",
+      "Étapes de méthode",
+      "Formulaire de contact",
+      "Footer"
+    ],
+    "implementation_rules": [
+      "Centraliser les tokens de couleur et de mouvement.",
+      "Créer des composants avant de répéter de longues chaînes de classes.",
+      "Utiliser une grille responsive cohérente sur toutes les sections.",
+      "Conserver des états focus visibles et élégants.",
+      "Dimensionner les zones tactiles pour mobile.",
+      "Éviter les valeurs arbitraires lorsque le token peut être partagé.",
+      "Prévoir les états hover, focus, active, disabled et loading.",
+      "Utiliser les animations CSS pour les micro-interactions simples et réserver Three.js à la narration 3D."
+    ]
+  },
+  "technical_architecture": {
+    "decision": {
+      "id": "ADR-001",
+      "title": "Utiliser TanStack Start comme fondation applicative",
+      "status": "accepted",
+      "date": "2026-08-07",
+      "choice": "TanStack Start avec React, TypeScript et Vite",
+      "rationale": [
+        "Conserver une base entièrement React sans utiliser Next.js.",
+        "Obtenir un routage typé, le pré-rendu statique, le SSR et des fonctions serveur dans un même cadre.",
+        "Faciliter la coordination entre le DOM, GSAP et la scène React Three Fiber.",
+        "Préserver une évolution possible vers des fonctionnalités plus applicatives.",
+        "Rester compatible avec un déploiement statique ou un runtime Node.js selon les besoins."
+      ],
+      "framework_status_at_decision": "TanStack Start est en Release Candidate : les fonctionnalités sont annoncées comme complètes et l’API comme stable, mais la version 1.0 n’est pas encore finale.",
+      "risk_response": [
+        "Verrouiller les versions exactes dans le lockfile.",
+        "Ne pas utiliser les React Server Components expérimentaux.",
+        "Privilégier les primitives stables : Router, pré-rendu, routes serveur et fonctions serveur.",
+        "Faire passer build, typecheck et tests end-to-end avant toute mise à jour de dépendance.",
+        "Éviter de coupler le contenu ou la scène 3D à des API spécifiques difficiles à remplacer."
+      ]
+    },
+    "internationalization_decision": {
+      "id": "ADR-002",
+      "title": "Adopter une architecture multilingue URL-first avec l’anglais par défaut",
+      "status": "accepted",
+      "date": "2026-08-12",
+      "choice": "TanStack Router pour la locale et les URLs, Lingui pour les messages React, et contenus MDX distincts par langue",
+      "rationale": [
+        "Faire de l’anglais la langue publique par défaut afin d’élargir la portée internationale d’Ozastra.",
+        "Conserver une URL canonique stable et indexable pour chaque langue sans dépendre d’une détection côté client.",
+        "Permettre l’ajout d’une langue par configuration et contenu, sans dupliquer l’arbre de routes ni modifier les composants métier.",
+        "Extraire et valider les messages avec des identifiants stables et des catalogues adaptés aux outils de traduction.",
+        "Éviter que le nombre total de langues augmente le JavaScript ou les contenus téléchargés par un visiteur."
+      ],
+      "url_contract": {
+        "default_locale": "en",
+        "source_locale": "en",
+        "default_locale_prefix": "Aucun préfixe : /, /services et /work/orbit servent l’anglais.",
+        "non_default_locale_prefix": "Préfixe obligatoire : /fr, /fr/services et /fr/work/orbit servent le français ; les futures langues suivent la même convention.",
+        "english_alias": "Les éventuelles URLs /en et /en/* redirigent de manière permanente vers les URLs anglaises sans préfixe.",
+        "source_of_truth": "La locale résolue depuis l’URL gouverne le rendu, les contenus, les métadonnées et l’hydratation."
+      },
+      "scalability_rules": [
+        "Centraliser code, préfixe, libellé, direction, locale Open Graph et statut de publication dans un registre typé.",
+        "Distinguer les locales draft des locales published afin qu’une traduction incomplète ne soit jamais exposée publiquement.",
+        "Charger uniquement le catalogue Lingui de la locale active.",
+        "Charger uniquement le module MDX correspondant à la locale et au slug demandés.",
+        "Générer routes pré-rendues, sitemap, hreflang et tests depuis le registre des locales publiées.",
+        "Faire échouer la validation lorsqu’une locale publiée possède un message, une page, une métadonnée ou un contenu requis manquant."
+      ]
+    },
+    "stack": {
+      "package_manager": "pnpm",
+      "runtime": "Version active LTS de Node.js compatible avec la version retenue de TanStack Start",
+      "language": "TypeScript en mode strict",
+      "framework": "TanStack Start",
+      "router": "TanStack Router avec routage basé sur les fichiers",
+      "build_tool": "Vite",
+      "ui": "React",
+      "styling": "Tailwind CSS avec tokens sémantiques centralisés",
+      "three_dimensional_rendering": "Three.js via React Three Fiber",
+      "three_helpers": "Drei, importé de manière sélective",
+      "scroll_choreography": "GSAP avec ScrollTrigger",
+      "content": "MDX local et métadonnées TypeScript validées par Zod",
+      "internationalization": "Lingui avec catalogues compilés par locale, locale résolue par TanStack Router et contenus MDX séparés par langue",
+      "form_validation": "Zod côté client pour le feedback et côté serveur comme autorité finale",
+      "unit_testing": "Vitest et Testing Library",
+      "end_to_end_testing": "Playwright",
+      "performance_testing": "Lighthouse CI et mesures Web Vitals",
+      "formatting_and_linting": "Outils compatibles avec TanStack Start et TypeScript, configurés sans règles redondantes"
+    },
+    "explicit_non_choices": [
+      {
+        "technology": "Next.js",
+        "decision": "Non retenu à la demande du porteur du projet."
+      },
+      {
+        "technology": "Astro",
+        "decision": "Non retenu afin de conserver une architecture entièrement React et une coordination directe avec la scène 3D."
+      },
+      {
+        "technology": "TanStack Query",
+        "decision": "Non inclus dans le MVP car le contenu est local et pré-rendu. À ajouter uniquement si des données distantes et fréquemment mises à jour apparaissent."
+      },
+      {
+        "technology": "React Server Components",
+        "decision": "Fonctionnalité expérimentale désactivée pour le MVP."
+      },
+      {
+        "technology": "CMS",
+        "decision": "Aucun CMS au lancement. Les projets et contenus sont versionnés dans le dépôt."
+      },
+      {
+        "technology": "Global state manager",
+        "decision": "Pas de Redux, Zustand ou équivalent tant que les refs React, l’état local et le Router suffisent."
+      },
+      {
+        "technology": "Smooth-scroll library",
+        "decision": "Le scroll natif est conservé. GSAP orchestre les animations sans remplacer le comportement du navigateur."
+      },
+      {
+        "technology": "WebGPU obligatoire",
+        "decision": "Le lancement repose sur le renderer stable compatible du projet avec fallback non-WebGL."
+      }
+    ],
+    "rendering_strategy": {
+      "mode": "Static-first hybride",
+      "public_pages": "Pré-rendues en HTML au build pour la vitesse, le SEO et la résilience.",
+      "dynamic_capabilities": "Limitées au formulaire de contact, aux protections anti-abus et aux futurs besoins explicitement validés.",
+      "prerender_configuration": [
+        "Activer le pré-rendu TanStack Start.",
+        "Activer la découverte automatique des routes statiques.",
+        "Activer le parcours des liens internes.",
+        "Générer explicitement les slugs des études de cas dynamiques.",
+        "Faire échouer le build si une route publique ne peut pas être pré-rendue."
+      ],
+      "hydration_boundary": "L’expérience orbitale et les contrôles réellement interactifs sont hydratés côté client ; le contenu éditorial reste disponible dans le HTML initial.",
+      "threejs_loading": "La scène est isolée dans un chunk client distinct, chargée après l’affichage du shell HTML et remplacée immédiatement par un fallback visuel jusqu’à son initialisation.",
+      "no_javascript_behavior": "Le positionnement, les projets, les expertises, la méthode et le CTA restent lisibles et navigables sans la scène 3D."
+    },
+    "routing": {
+      "strategy": "Routage TanStack basé sur les fichiers avec génération automatique et typée de l’arbre des routes.",
+      "mvp_routes": [
+        {
+          "path": "/",
+          "purpose": "Page d’accueil et narration orbitale complète",
+          "rendering": "prerendered"
+        },
+        {
+          "path": "/work",
+          "purpose": "Index des études de cas",
+          "rendering": "prerendered"
+        },
+        {
+          "path": "/work/$slug",
+          "purpose": "Détail d’une étude de cas",
+          "rendering": "prerendered_from_content_slugs"
+        },
+        {
+          "path": "/about",
+          "purpose": "Présentation d’Ozastra et de son approche",
+          "rendering": "prerendered"
+        },
+        {
+          "path": "/contact",
+          "purpose": "Contact détaillé et alternative au CTA de la page d’accueil",
+          "rendering": "prerendered_with_server_submission"
+        },
+        {
+          "path": "/legal",
+          "purpose": "Mentions légales",
+          "rendering": "prerendered"
+        },
+        {
+          "path": "/privacy",
+          "purpose": "Politique de confidentialité",
+          "rendering": "prerendered"
+        },
+        {
+          "path": "404",
+          "purpose": "Page introuvable cohérente avec l’identité",
+          "rendering": "static_fallback"
+        }
+      ],
+      "navigation_behavior": "La page d’accueil utilise des ancres pour les sections principales ; les études de cas possèdent des URL dédiées partageables et indexables.",
+      "localization_strategy": {
+        "route_pattern": "Segment de locale facultatif piloté par TanStack Router : absence de segment pour l’anglais, préfixe obligatoire pour toute autre langue publiée.",
+        "validation": "Toute locale est validée depuis un registre typé ; les locales inconnues ou encore en brouillon ne sont pas routables publiquement.",
+        "switching": "Le sélecteur de langue conserve la famille de route et le slug courants lorsque la traduction correspondante existe.",
+        "detection": "La détection navigateur peut suggérer une langue mais ne remplace jamais la locale explicite de l’URL après le rendu.",
+        "api_routes": "Les routes API restent hors du segment de locale."
+      },
+      "route_rules": [
+        "Définir les métadonnées SEO au niveau de chaque route.",
+        "Conserver les paramètres, loaders et liens entièrement typés.",
+        "Ne jamais modifier manuellement l’arbre de routes généré.",
+        "Précharger les routes de projets uniquement sur intention utilisateur raisonnable."
+      ]
+    },
+    "target_project_structure": [
+      {
+        "path": "src/routes/__root.tsx",
+        "responsibility": "Document racine, métadonnées globales, polices, styles et erreurs globales"
+      },
+      {
+        "path": "src/routes/index.tsx",
+        "responsibility": "Composition de la page d’accueil"
+      },
+      {
+        "path": "src/routes/work/index.tsx",
+        "responsibility": "Index des études de cas"
+      },
+      {
+        "path": "src/routes/work/$slug.tsx",
+        "responsibility": "Route typée d’une étude de cas"
+      },
+      {
+        "path": "src/routes/about.tsx",
+        "responsibility": "Page À propos"
+      },
+      {
+        "path": "src/routes/contact.tsx",
+        "responsibility": "Page et soumission du formulaire de contact"
+      },
+      {
+        "path": "src/components/ui",
+        "responsibility": "Primitives d’interface accessibles et indépendantes du domaine"
+      },
+      {
+        "path": "src/components/sections",
+        "responsibility": "Sections éditoriales composant les pages"
+      },
+      {
+        "path": "src/features/orbital",
+        "responsibility": "Scène R3F, objets orbitaux, éclairage, timeline, contrôleur qualité et fallback"
+      },
+      {
+        "path": "src/content/projects",
+        "responsibility": "Études de cas MDX et métadonnées"
+      },
+      {
+        "path": "src/lib/content",
+        "responsibility": "Chargement, validation et tri du contenu"
+      },
+      {
+        "path": "src/lib/seo",
+        "responsibility": "Génération des métadonnées et données structurées"
+      },
+      {
+        "path": "src/styles/app.css",
+        "responsibility": "Import Tailwind, tokens, styles globaux et règles reduced motion"
+      },
+      {
+        "path": "public",
+        "responsibility": "Favicons, manifeste, fallback orbital et ressources publiques optimisées"
+      },
+      {
+        "path": "tests/e2e",
+        "responsibility": "Parcours Playwright critiques"
+      }
+    ],
+    "component_boundaries": {
+      "page_layer": "Les routes chargent et valident les données puis composent les sections.",
+      "section_layer": "Les sections portent la sémantique, la mise en page et les marqueurs de narration.",
+      "ui_layer": "Les composants UI restent génériques, accessibles et sans connaissance de Three.js.",
+      "orbital_layer": "La feature orbitale ne contient aucun texte indispensable et communique avec les sections par des marqueurs DOM typés.",
+      "server_layer": "Les fonctions serveur gèrent validation finale, anti-abus, journalisation minimale et transmission du contact.",
+      "rule": "Une couche ne peut importer qu’une couche située au même niveau ou plus bas ; la scène 3D ne doit pas devenir le conteneur de la page."
+    },
+    "orbital_implementation": {
+      "decision_id": "ADR-002",
+      "canvas_strategy": "Un seul canvas persistant sur la page d’accueil, fixé dans le viewport et indépendant du flux éditorial.",
+      "scene_modules": [
+        "OrbitalExperience",
+        "OrbitalCanvas",
+        "OrbitalScene",
+        "Core",
+        "ServiceRing",
+        "OrbitalMarkers",
+        "LightingRig",
+        "PointerField",
+        "ScrollDirector",
+        "QualityController",
+        "OrbitalFallback"
+      ],
+      "stage_contract": [
+        "hero",
+        "selected-work",
+        "web",
+        "ai",
+        "saas",
+        "mobile",
+        "process",
+        "convergence"
+      ],
+      "dom_contract": "Chaque section narrative expose un attribut data-orbital-stage correspondant à une valeur du contrat de stages.",
+      "animation_ownership": {
+        "tailwind_and_css": "Hover, focus, couleurs, opacité et micro-transitions simples.",
+        "gsap_scrolltrigger": "Timeline principale, activation des stages, scrub et transitions liées au scroll.",
+        "react_three_fiber": "Cycle de rendu, interpolation par frame, matériaux, géométrie, lumière et réaction amortie au pointeur."
+      },
+      "state_policy": [
+        "Utiliser des refs pour les valeurs modifiées à chaque frame afin d’éviter les rerenders React.",
+        "Utiliser l’état React uniquement pour les états UI ou capacités du navigateur.",
+        "Conserver une seule timeline GSAP maîtresse et des sous-timelines explicitement nommées.",
+        "Nettoyer tous les ScrollTriggers, listeners et ressources WebGL au démontage.",
+        "Ne pas coupler la progression de la scène à une position en pixels codée en dur."
+      ],
+      "fallbacks": {
+        "loading": "Image ou composition CSS alignée visuellement avec l’état initial de l’artefact.",
+        "reduced_motion": "Composition statique avec changements de section discrets et sans scrub continu.",
+        "no_webgl": "Fallback statique et contenu HTML complet.",
+        "mobile_low_power": "Réduction du DPR, de la géométrie, des effets et de la fréquence de rendu."
+      }
+    },
+    "content_model": {
+      "storage": "Fichiers MDX locaux versionnés dans le dépôt.",
+      "project_fields": [
+        "slug",
+        "title",
+        "summary",
+        "year",
+        "status: client | internal | concept",
+        "services",
+        "challenge",
+        "approach",
+        "outcome",
+        "cover",
+        "gallery",
+        "featured",
+        "seoTitle",
+        "seoDescription"
+      ],
+      "validation": "Tous les frontmatters sont validés au build par un schéma Zod ; une entrée invalide fait échouer le build.",
+      "integrity_rules": [
+        "Les projets conceptuels portent explicitement le statut concept.",
+        "Les résultats chiffrés nécessitent une source interne vérifiable.",
+        "Toutes les images possèdent dimensions, texte alternatif et format optimisé.",
+        "Les slugs sont uniques et stables."
+      ]
+    },
+    "contact_pipeline": {
+      "transport": "Fonction serveur TanStack Start ou route serveur dédiée.",
+      "fields": [
+        "name",
+        "email",
+        "projectType",
+        "budgetRange facultatif",
+        "message",
+        "consent"
+      ],
+      "server_responsibilities": [
+        "Valider et normaliser les entrées.",
+        "Rejeter les champs inattendus.",
+        "Appliquer une limite de taille.",
+        "Utiliser un honeypot et une limitation de débit.",
+        "Transmettre le message sans exposer de secret au client.",
+        "Retourner un résultat typé sans révéler de détails internes."
+      ],
+      "provider": "À sélectionner avant le lancement ; l’interface du fournisseur doit rester encapsulée.",
+      "fallback": "Afficher une adresse email professionnelle si le service de formulaire est indisponible.",
+      "privacy": "Ne conserver que les informations nécessaires au traitement de la demande."
+    },
+    "seo_architecture": {
+      "route_metadata": "Titre, description, URL canonique, Open Graph et carte sociale définis par route.",
+      "localization": "Chaque route publiée expose un canonical dans sa langue, les alternates hreflang de toutes les variantes disponibles et un x-default pointant vers l’anglais sans préfixe.",
+      "structured_data": [
+        "Organization ou ProfessionalService selon validation finale",
+        "WebSite",
+        "BreadcrumbList sur les études de cas"
+      ],
+      "technical_outputs": [
+        "sitemap.xml",
+        "robots.txt",
+        "favicon et manifest",
+        "page 404",
+        "images sociales dédiées"
+      ],
+      "rules": [
+        "Un seul h1 par page.",
+        "Hiérarchie de titres cohérente.",
+        "Aucune information SEO essentielle générée uniquement côté client.",
+        "Les études de cas possèdent une URL canonique et un résumé unique.",
+        "Les attributs html lang et dir, les locales Open Graph, les données structurées et le sitemap proviennent du registre des locales publiées."
+      ]
+    },
+    "performance_budgets": {
+      "core_web_vitals_targets": {
+        "LCP": "≤ 2.5 s au 75e percentile",
+        "INP": "≤ 200 ms au 75e percentile",
+        "CLS": "≤ 0.1 au 75e percentile"
+      },
+      "asset_targets": {
+        "initial_ui_payload_gzip": "≤ 200 kB hors chunk 3D",
+        "threejs_experience_gzip": "Cible ≤ 450 kB, chargée séparément et mesurée après prototype",
+        "hero_media": "Aucune texture non optimisée ; dimensions et compression explicites",
+        "localization_loading": "Une page ne télécharge que le catalogue de sa locale active et le contenu MDX de la route demandée ; l’ajout d’une langue ne doit pas augmenter la charge utile des autres langues."
+      },
+      "webgl_targets": {
+        "desktop_frame_rate": "Cible 60 fps sur matériel courant",
+        "mobile_frame_rate": "Cible stable de 30 à 60 fps selon la classe d’appareil",
+        "maximum_dpr": "1.5 par défaut, abaissé sur mobile ou appareil contraint",
+        "draw_calls": "Cible inférieure à 50",
+        "triangles": "Cible inférieure à 100 000 pour la scène orbitale"
+      },
+      "enforcement": [
+        "Mesurer avant et après l’ajout de la scène 3D.",
+        "Échouer la CI sur régression majeure de build ou de parcours critique.",
+        "Documenter toute exception au budget avec une justification visuelle et une mesure."
+      ]
+    },
+    "testing_strategy": {
+      "unit": [
+        "Validation du contenu",
+        "Helpers SEO",
+        "Mappage des stages orbitaux",
+        "Validation du formulaire"
+      ],
+      "component": [
+        "Navigation clavier",
+        "Boutons et liens",
+        "Formulaire et messages d’erreur",
+        "Cartes de projets"
+      ],
+      "end_to_end": [
+        "Chargement et navigation de la page d’accueil",
+        "Ouverture d’une étude de cas",
+        "Soumission valide et invalide du formulaire",
+        "Fallback sans WebGL",
+        "Comportement prefers-reduced-motion",
+        "Navigation mobile"
+      ],
+      "visual": [
+        "Hero desktop",
+        "Hero mobile",
+        "États principaux de la timeline orbitale",
+        "CTA final recomposé",
+        "Page d’étude de cas"
+      ],
+      "browser_matrix": [
+        "Chrome courant",
+        "Safari courant sur macOS et iOS",
+        "Firefox courant",
+        "Edge courant"
+      ]
+    },
+    "security_and_privacy": {
+      "rules": [
+        "Aucun secret dans les variables exposées au client.",
+        "Validation serveur obligatoire pour toute entrée utilisateur.",
+        "Dépendances minimales et audit régulier.",
+        "En-têtes de sécurité définis au déploiement.",
+        "Analytics sans données personnelles inutiles.",
+        "Consentement et politique de confidentialité cohérents avec les outils réellement activés."
+      ],
+      "environment_files": "Fournir un .env.example sans valeur secrète et documenter chaque variable.",
+      "logging": "Ne jamais journaliser le contenu intégral des messages de contact ou des secrets."
+    },
+    "deployment_strategy": {
+      "decision_id": "ADR-003",
+      "target": "Déploiement provider-neutral compatible Node.js, avec pages publiques pré-rendues.",
+      "server_requirement": "Un runtime serveur n’est nécessaire que pour le formulaire et les futures fonctionnalités dynamiques.",
+      "static_alternative": "Si aucun runtime n’est retenu, utiliser un fournisseur de formulaire externe encapsulé et publier uniquement les fichiers pré-rendus.",
+      "pipeline": [
+        "Installation reproductible depuis le lockfile",
+        "Lint",
+        "Typecheck",
+        "Tests unitaires",
+        "Build avec pré-rendu",
+        "Tests end-to-end sur le build",
+        "Audit performance",
+        "Déploiement",
+        "Smoke test public",
+        "Monitoring des erreurs et disponibilités"
+      ],
+      "environments": [
+        "local",
+        "preview",
+        "production"
+      ],
+      "rollback": "Conserver le dernier artefact de production validé et documenter une procédure de retour arrière."
+    },
+    "dependency_policy": {
+      "lockfile": "Obligatoire et versionné.",
+      "updates": "Mises à jour groupées et validées par build, tests et contrôle visuel de la scène.",
+      "tanstack_start": "Évaluer chaque changement de version tant que le framework n’a pas atteint une version stable finale.",
+      "threejs_ecosystem": "Maintenir ensemble les versions compatibles de Three.js, React Three Fiber et Drei.",
+      "prohibited": "Aucune dépendance ne doit être ajoutée si une primitive React, navigateur, Tailwind, GSAP ou Three.js couvre proprement le besoin."
+    },
+    "definition_of_done": [
+      "Toutes les routes MVP sont pré-rendues ou explicitement documentées comme dynamiques.",
+      "Le site reste lisible et navigable sans WebGL.",
+      "Le mode reduced motion est vérifié automatiquement et manuellement.",
+      "La scène orbitale respecte les budgets établis sur desktop et mobile.",
+      "Les tests critiques passent sur le build de production.",
+      "Le formulaire est validé, protégé et possède un fallback.",
+      "Les métadonnées, données structurées, sitemap et pages légales sont présents.",
+      "Aucun contenu, chiffre ou témoignage fictif n’est présenté comme réel.",
+      "La procédure de déploiement et de rollback est documentée."
+    ]
+  },
+  "content_strategy": {
+    "language_strategy": "L’anglais devient la langue publique et la langue source par défaut dès que sa version complète est disponible ; le français est alors servi sous /fr et les futures langues sous leur préfixe BCP 47.",
+    "localization_rules": [
+      "Employer des identifiants de messages explicites et stables afin que l’évolution du texte source anglais ne rompe pas les traductions.",
+      "Conserver les signatures et noms d’expertises en anglais lorsqu’ils participent volontairement à l’identité de marque.",
+      "Maintenir les longs contenus éditoriaux et études de cas dans des fichiers MDX distincts par langue plutôt que dans les catalogues d’interface.",
+      "Ne jamais publier une locale incomplète ni mélanger silencieusement plusieurs langues sur une même page.",
+      "Soumettre les traductions légales à une validation humaine avant publication."
+    ],
+    "message_hierarchy": [
+      "Ce qu’Ozastra construit",
+      "Pour qui et dans quel but",
+      "Pourquoi faire confiance à Ozastra",
+      "Comment Ozastra travaille",
+      "Comment démarrer une collaboration"
+    ],
+    "copy_rules": [
+      "Titres courts et mémorables.",
+      "Paragraphes compacts.",
+      "Verbes d’action concrets.",
+      "Peu de superlatifs non prouvés.",
+      "Résultats et enjeux avant les technologies.",
+      "Aucune promesse vague autour de l’IA."
+    ],
+    "seo_topics": [
+      "Développement web sur mesure",
+      "Développement SaaS",
+      "Solutions IA appliquées",
+      "Développement d’applications mobiles",
+      "Product engineering",
+      "Développeur freelance et renfort produit"
+    ]
+  },
+  "quality_requirements": {
+    "performance": [
+      "Charger l’expérience 3D de manière progressive.",
+      "Ne pas bloquer l’affichage du contenu principal sur l’initialisation WebGL.",
+      "Optimiser géométries, textures, matériaux et post-traitement.",
+      "Définir un budget de poids pour les ressources initiales.",
+      "Tester sur appareils mobiles réels et GPU modestes.",
+      "Éviter les décalages de mise en page au chargement."
+    ],
+    "accessibility": [
+      "Navigation intégrale au clavier.",
+      "Focus visible.",
+      "Contrastes conformes.",
+      "Structure sémantique avec titres cohérents.",
+      "Libellés explicites pour le formulaire.",
+      "Respect de prefers-reduced-motion.",
+      "Expérience complète sans canvas ni JavaScript avancé."
+    ],
+    "responsive": [
+      "Composition éditoriale adaptée, et non simplement réduite.",
+      "Artefact recentré et simplifié sur mobile.",
+      "Interactions tactiles non dépendantes du hover.",
+      "Typographie et espacements fluides.",
+      "CTA principal accessible sans scroll excessif."
+    ],
+    "seo_and_trust": [
+      "Métadonnées complètes et partage social soigné.",
+      "Données structurées adaptées à l’entreprise.",
+      "Mentions légales et politique de confidentialité.",
+      "Coordonnées et identité de l’entreprise cohérentes.",
+      "Projets conceptuels explicitement identifiés comme tels.",
+      "Aucun témoignage ou chiffre inventé."
+    ]
+  },
+  "project_tracking": {
+    "source_of_truth": "paradigm-roadmap.json",
+    "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
+    "current_phase": null,
+    "current_deliverable": null,
+    "overall_progress_percent": 82,
+    "last_activity_at": "2026-08-12T08:56:12.152Z",
+    "allowed_phase_statuses": [
+      "pending",
+      "partially_defined",
+      "in_progress",
+      "blocked",
+      "ready_for_review",
+      "completed"
+    ],
+    "workflow": [
+      {
+        "event": "start_step",
+        "command": "node scripts/update-roadmap.mjs start-step <phase> <deliverable> [note]",
+        "effect": "Passe la phase en cours, définit le livrable actif et ajoute une entrée horodatée au journal."
+      },
+      {
+        "event": "complete_step",
+        "command": "node scripts/update-roadmap.mjs complete-step <phase> <deliverable> <evidence>",
+        "effect": "Marque le livrable comme réalisé, enregistre sa preuve et recalcule la progression."
+      },
+      {
+        "event": "block_step",
+        "command": "node scripts/update-roadmap.mjs block-step <phase> <deliverable> <reason>",
+        "effect": "Documente le blocage sans déclarer le livrable terminé."
+      },
+      {
+        "event": "verify_phase",
+        "command": "node scripts/update-roadmap.mjs verify-phase <phase> <evidence>",
+        "effect": "Clôt la phase uniquement lorsque tous ses livrables sont terminés et que la vérification finale est fournie."
+      },
+      {
+        "event": "add_note",
+        "command": "node scripts/update-roadmap.mjs note <phase> <message>",
+        "effect": "Ajoute une décision, une observation ou une information de chantier sans modifier artificiellement la progression."
+      },
+      {
+        "event": "validate",
+        "command": "node scripts/update-roadmap.mjs validate",
+        "effect": "Contrôle la cohérence des phases, index, statuts, pourcentages et références actives."
+      }
+    ],
+    "update_rules": [
+      "Une étape n’est jamais déclarée terminée sans preuve concise : test, fichier, capture, build, mesure ou validation explicite.",
+      "Terminer tous les livrables place une phase en ready_for_review, pas directement en completed.",
+      "La commande verify-phase est obligatoire pour clôturer une phase.",
+      "Une modification de périmètre doit être ajoutée à la roadmap avant ou pendant son implémentation.",
+      "Le journal d’activité est append-only ; une correction produit une nouvelle entrée.",
+      "Après chaque modification automatique, le JSON est réécrit atomiquement puis validé.",
+      "La roadmap et le code correspondant doivent faire partie de la même livraison ou du même commit lorsque Git sera initialisé."
+    ],
+    "automation": {
+      "script": "scripts/update-roadmap.mjs",
+      "write_mode": "atomic",
+      "timestamp_format": "ISO-8601 UTC",
+      "progress_calculation": "Nombre de livrables terminés divisé par le nombre total de livrables.",
+      "package_scripts_to_add_during_bootstrap": {
+        "roadmap": "node scripts/update-roadmap.mjs",
+        "roadmap:validate": "node scripts/update-roadmap.mjs validate"
+      },
+      "ci_requirement": "Exécuter roadmap:validate avec le typecheck, les tests et le build."
+    },
+    "activity_log": [
+      {
+        "timestamp": "2026-08-07T13:45:41.372Z",
+        "event": "note",
+        "phase": 2,
+        "message": "Mise en place du suivi automatique de chantier : script atomique, journal d’activité et règles AGENTS.md obligatoires."
+      },
+      {
+        "timestamp": "2026-08-07T13:52:26.014Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 1,
+        "description": "Projet TanStack Start initialisé avec React, TypeScript strict et Vite",
+        "note": "Scaffold et premier jet fonctionnel TanStack Start pour Ozastra."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:12.758Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 1,
+        "description": "Projet TanStack Start initialisé avec React, TypeScript strict et Vite",
+        "evidence": "TanStack Start scaffoldé; pnpm typecheck et pnpm build réussis le 2026-08-07."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:12.794Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 2,
+        "description": "pnpm et lockfile configurés",
+        "note": "Verrouillage reproductible des dépendances pnpm."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:12.828Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 2,
+        "description": "pnpm et lockfile configurés",
+        "evidence": "pnpm-lock.yaml généré par pnpm 11.20.0 après installation réussie."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:12.873Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 3,
+        "description": "Routage basé sur les fichiers opérationnel",
+        "note": "Validation du routage fichier et de l’arbre généré."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:12.918Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 3,
+        "description": "Routage basé sur les fichiers opérationnel",
+        "evidence": "src/routeTree.gen.ts généré par tsr; route racine compilée par TypeScript et Vite."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:17.554Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 4,
+        "description": "Pré-rendu activé avec échec sur erreur",
+        "note": "Activation du pré-rendu statique strict pour les routes publiques."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:46.062Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 4,
+        "description": "Pré-rendu activé avec échec sur erreur",
+        "evidence": "pnpm build réussi avec pré-rendu strict; dist/client/index.html généré pour la route /."
+      },
+      {
+        "timestamp": "2026-08-07T13:56:46.098Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 5,
+        "description": "Tailwind CSS installé avec les premiers tokens",
+        "note": "Mise en place des tokens Tailwind et du premier langage visuel Ozastra."
+      },
+      {
+        "timestamp": "2026-08-07T13:57:25.203Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 5,
+        "description": "Tailwind CSS installé avec les premiers tokens",
+        "evidence": "Tokens Tailwind Ozastra, thème sombre, focus visible et reduced-motion compilés; typecheck et build réussis."
+      },
+      {
+        "timestamp": "2026-08-07T13:57:25.240Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 3,
+        "description": "Première version des textes",
+        "note": "Rédaction et intégration de la première version des textes du site vitrine."
+      },
+      {
+        "timestamp": "2026-08-07T13:58:25.408Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 3,
+        "description": "Première version des textes",
+        "evidence": "Première version française intégrée pour Hero, projets conceptuels, expertises, méthode, manifeste et CTA; TypeScript validé."
+      },
+      {
+        "timestamp": "2026-08-07T13:58:25.443Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 6,
+        "description": "Sections Hero, Projets, Expertises, Méthode, À propos et Contact",
+        "note": "Composition et stylisation responsive des sections du premier jet."
+      },
+      {
+        "timestamp": "2026-08-07T13:59:37.583Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 6,
+        "description": "Sections Hero, Projets, Expertises, Méthode, À propos et Contact",
+        "evidence": "Sections Hero, Projets conceptuels, Expertises, Méthode, manifeste et Contact composées en responsive; typecheck et pré-rendu réussis."
+      },
+      {
+        "timestamp": "2026-08-07T13:59:37.619Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 3,
+        "description": "Noyau et quatre anneaux procéduraux",
+        "note": "Premier artefact procédural : noyau sombre et quatre anneaux de services."
+      },
+      {
+        "timestamp": "2026-08-07T14:04:32.045Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 3,
+        "description": "Noyau et quatre anneaux procéduraux",
+        "evidence": "Noyau icosaédrique sombre et quatre anneaux procéduraux R3F compilés; chunk 3D séparé à 279.35 kB gzip, sous le budget de 450 kB."
+      },
+      {
+        "timestamp": "2026-08-07T14:04:32.082Z",
+        "event": "note",
+        "phase": 5,
+        "message": "Le premier jet inclut déjà des versions initiales du canvas, fallback, repères, éclairage, idle motion, pointer damping, DPR plafonné et nettoyage; ces livrables restent à vérifier individuellement avant clôture."
+      },
+      {
+        "timestamp": "2026-08-07T14:20:35.039Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 6,
+        "description": "Vitest et Playwright configurés",
+        "note": "Configuration des tests unitaires, composants et end-to-end."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:34.615Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 6,
+        "description": "Vitest et Playwright configurés",
+        "evidence": "Vitest, Testing Library et Playwright configurés; 1 test unitaire et 4 parcours E2E desktop/mobile réussis."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:34.651Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 7,
+        "description": "Scripts dev, build, typecheck, lint et test",
+        "note": "Validation de l’ensemble des scripts de développement et de qualité."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:34.688Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 7,
+        "description": "Scripts dev, build, typecheck, lint et test",
+        "evidence": "Scripts dev, generate-routes, build, preview, typecheck, lint, test, test:e2e, format et roadmap présents dans package.json; lint/typecheck/tests validés."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:34.726Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 8,
+        "description": ".env.example et documentation de démarrage",
+        "note": "Documentation du démarrage et des variables d’environnement."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:53.498Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 8,
+        "description": ".env.example et documentation de démarrage",
+        "evidence": "README.md et .env.example créés avec démarrage, contrôles, règles roadmap et variables sans secrets."
+      },
+      {
+        "timestamp": "2026-08-07T14:22:53.535Z",
+        "event": "start_step",
+        "phase": 2,
+        "deliverable": 9,
+        "description": "CI minimale exécutant typecheck, tests et build",
+        "note": "Ajout de la CI minimale reproductible."
+      },
+      {
+        "timestamp": "2026-08-07T14:23:07.994Z",
+        "event": "complete_step",
+        "phase": 2,
+        "deliverable": 9,
+        "description": "CI minimale exécutant typecheck, tests et build",
+        "evidence": "Workflow .github/workflows/ci.yml créé : install frozen, roadmap, lint, typecheck, unit, E2E et build."
+      },
+      {
+        "timestamp": "2026-08-07T14:23:08.030Z",
+        "event": "verify_phase",
+        "phase": 2,
+        "evidence": "Les 9 livrables sont réalisés; installation lockfile reproductible, lint, typecheck, Vitest, Playwright et build pré-rendu ont réussi localement."
+      },
+      {
+        "timestamp": "2026-08-07T14:23:45.352Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 1,
+        "description": "Valider le positionnement et la proposition de valeur",
+        "note": "Formalisation des fondations de marque retenues pour le MVP."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.075Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 1,
+        "description": "Valider le positionnement et la proposition de valeur",
+        "evidence": "Positionnement et proposition formalisés dans docs/brand-foundations.md à partir de la direction acceptée par l’utilisateur."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.113Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 2,
+        "description": "Choisir la langue principale",
+        "note": "Fixation de la stratégie linguistique."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.150Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 2,
+        "description": "Choisir la langue principale",
+        "evidence": "Français retenu comme langue principale avec signatures internationales contrôlées; documenté dans docs/brand-foundations.md."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.189Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 3,
+        "description": "Finaliser le wordmark Ozastra",
+        "note": "Formalisation du wordmark MVP."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.226Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 3,
+        "description": "Finaliser le wordmark Ozastra",
+        "evidence": "Wordmark typographique Ozastra avec point orbital bleu défini et déjà implémenté dans le header/footer."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.291Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 4,
+        "description": "Valider palette et typographies",
+        "note": "Validation des fondations couleur et typographie."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.344Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 4,
+        "description": "Valider palette et typographies",
+        "evidence": "Palette complète et duo typographique documentés et implémentés dans les tokens Tailwind."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.407Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 5,
+        "description": "Rassembler les preuves et projets disponibles",
+        "note": "Inventaire des preuves et projets disponibles."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.470Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 5,
+        "description": "Rassembler les preuves et projets disponibles",
+        "evidence": "docs/content-inventory.md distingue les deux concepts, les éléments disponibles et les preuves absentes à ne pas inventer."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.521Z",
+        "event": "start_step",
+        "phase": 1,
+        "deliverable": 6,
+        "description": "Définir les coordonnées légales et professionnelles à publier",
+        "note": "Définition des coordonnées publiques minimales du MVP."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.608Z",
+        "event": "complete_step",
+        "phase": 1,
+        "deliverable": 6,
+        "description": "Définir les coordonnées légales et professionnelles à publier",
+        "evidence": "Coordonnées MVP fixées à Ozastra LLC, ozastra.com et hello@ozastra.com; aucune donnée personnelle non confirmée publiée."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:09.689Z",
+        "event": "verify_phase",
+        "phase": 1,
+        "evidence": "Direction acceptée au fil des échanges utilisateur; fondations et inventaire documentés, cohérents avec le premier jet construit."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:18.166Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 1,
+        "description": "Wireframe de la page d’accueil",
+        "note": "Documentation du wireframe et des objectifs de chaque section."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:37.886Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 1,
+        "description": "Wireframe de la page d’accueil",
+        "evidence": "Wireframe neuf blocs documenté dans docs/information-architecture.md et reflété par la page d’accueil."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:37.924Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 2,
+        "description": "Arborescence des routes MVP",
+        "note": "Formalisation des routes MVP."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:37.986Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 2,
+        "description": "Arborescence des routes MVP",
+        "evidence": "Arborescence /, /work, /work/, /about, /contact, /legal, /privacy et 404 documentée avec stratégie de rendu."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:38.054Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 7,
+        "description": "Parcours de contact",
+        "note": "Formalisation du parcours de conversion."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:38.098Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 7,
+        "description": "Parcours de contact",
+        "evidence": "Parcours découverte → preuve → formulaire → validation serveur → états et fallback documenté."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:38.142Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 8,
+        "description": "Stratégie de métadonnées par route",
+        "note": "Définition de la stratégie de métadonnées par route."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:38.215Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 8,
+        "description": "Stratégie de métadonnées par route",
+        "evidence": "Titres, descriptions, canoniques, social et règles de pré-rendu définis dans docs/information-architecture.md."
+      },
+      {
+        "timestamp": "2026-08-07T14:24:38.268Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 4,
+        "description": "Schéma Zod des études de cas",
+        "note": "Création du schéma typé des études de cas."
+      },
+      {
+        "timestamp": "2026-08-07T14:25:35.563Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 4,
+        "description": "Schéma Zod des études de cas",
+        "evidence": "Schéma Zod strict créé et couvert par tests d’acceptation/rejet; Vitest, typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-07T14:25:35.600Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 5,
+        "description": "Pipeline MDX local",
+        "note": "Mise en place du pipeline MDX local et validation au build."
+      },
+      {
+        "timestamp": "2026-08-07T14:28:06.948Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 5,
+        "description": "Pipeline MDX local",
+        "evidence": "Pipeline MDX validé: import.meta.glob charge orbit.mdx et axiom.mdx, métadonnées Zod vérifiées, Vitest 5/5, typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-07T14:28:06.989Z",
+        "event": "start_step",
+        "phase": 3,
+        "deliverable": 6,
+        "description": "Structure des pages work, about, contact, legal et privacy",
+        "note": "Création et validation de toutes les pages publiques, routes projets dynamiques et page 404."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:14.887Z",
+        "event": "complete_step",
+        "phase": 3,
+        "deliverable": 6,
+        "description": "Structure des pages work, about, contact, legal et privacy",
+        "evidence": "Routes publiques /work, /work/, /about, /contact, /legal, /privacy et 404 implémentées; 10 pages pré-rendues sans erreur; tests, types et lint au vert."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:14.925Z",
+        "event": "verify_phase",
+        "phase": 3,
+        "evidence": "Architecture éditoriale complète: inventaire, arborescence, contenus FR, schéma Zod, pipeline MDX, études de cas et parcours de contact; build de 10 routes validé."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.250Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 1,
+        "description": "Tokens sémantiques complets",
+        "note": "Audit dédié des tokens sémantiques Tailwind et CSS."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.299Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 1,
+        "description": "Tokens sémantiques complets",
+        "evidence": "Palette ink/panel/ivory/muted/electric/astral/line, familles typographiques et easing orbital déclarés dans @theme et employés par les composants."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.370Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 2,
+        "description": "Polices et échelle typographique fluide",
+        "note": "Audit de l’échelle typographique fluide."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.439Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 2,
+        "description": "Polices et échelle typographique fluide",
+        "evidence": "Échelle clamp() vérifiée sur hero, titres de pages, études de cas et corps; sans-serif UI et serif éditoriale limitées aux accents narratifs."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.512Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 3,
+        "description": "Grille, conteneurs et rythme vertical",
+        "note": "Audit de la grille, des conteneurs et du rythme vertical."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.569Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 3,
+        "description": "Grille, conteneurs et rythme vertical",
+        "evidence": "Grille 12 colonnes, conteneur 90rem, gouttières et espacements fluides partagés entre toutes les routes et validés au build."
+      },
+      {
+        "timestamp": "2026-08-07T14:32:43.659Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 4,
+        "description": "Navigation desktop et mobile",
+        "note": "Implémentation d’une navigation mobile accessible et validation des liens desktop."
+      },
+      {
+        "timestamp": "2026-08-07T14:33:43.018Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 4,
+        "description": "Navigation desktop et mobile",
+        "evidence": "Navigation desktop et menu mobile natif <details> validés sur Chromium et Pixel 7 émulé; 7 tests E2E passés, parcours vers /about confirmé."
+      },
+      {
+        "timestamp": "2026-08-07T14:33:43.058Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 5,
+        "description": "Boutons, liens, formulaires et focus states",
+        "note": "Conception des contrôles, états de focus et formulaire de contact accessible."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.329Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 5,
+        "description": "Boutons, liens, formulaires et focus states",
+        "evidence": "Boutons, liens, champs, select et textarea accessibles avec labels, tailles tactiles, hover et focus-visible; typecheck, lint et 5 tests unitaires validés."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.398Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 7,
+        "description": "Layout des études de cas",
+        "note": "Validation dédiée du layout des études de cas."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.470Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 7,
+        "description": "Layout des études de cas",
+        "evidence": "Layout MDX avec hero, visuel 16:8, enjeux/approche/résultat, contenu éditorial et CTA; routes Orbit/Axiom pré-rendues et testées en E2E."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.522Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 8,
+        "description": "Fallback orbital statique",
+        "note": "Validation du fallback orbital statique et du rendu SSR."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.642Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 8,
+        "description": "Fallback orbital statique",
+        "evidence": "Fallback CSS noyau + quatre anneaux rendu côté serveur pendant ClientOnly/Suspense; contenu et navigation restent dans le HTML pré-rendu."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.694Z",
+        "event": "start_step",
+        "phase": 4,
+        "deliverable": 9,
+        "description": "Mode clair non prévu et thème sombre verrouillé",
+        "note": "Verrouillage explicite du thème sombre."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:21.848Z",
+        "event": "complete_step",
+        "phase": 4,
+        "deliverable": 9,
+        "description": "Mode clair non prévu et thème sombre verrouillé",
+        "evidence": "color-scheme: dark, fond ink racine/body, theme-color et surfaces sombres fixés; aucun basculement clair exposé."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:22.119Z",
+        "event": "verify_phase",
+        "phase": 4,
+        "evidence": "Design system complet et shell accessible: navigation clavier/mobile, formulaire labellisé, routes lisibles au SSR, fallback statique, grilles responsive; tests E2E desktop/mobile, lint et types au vert."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.357Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 1,
+        "description": "Chunk client isolé pour l’expérience orbitale",
+        "note": "Mesure et validation du chargement différé de la 3D."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.454Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 1,
+        "description": "Chunk client isolé pour l’expérience orbitale",
+        "evidence": "OrbitalExperience importé via React.lazy/ClientOnly; chunk autonome OrbitalExperience à 279.37 kB gzip, sous le budget 450 kB."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.501Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 2,
+        "description": "Canvas persistant et fallback de chargement",
+        "note": "Validation du Canvas persistant et du fallback de chargement."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.549Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 2,
+        "description": "Canvas persistant et fallback de chargement",
+        "evidence": "Canvas fixé dans une couche persistante, chargé une seule fois sur l’accueil; fallback CSS présent dans ClientOnly, Suspense et Canvas."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.600Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 4,
+        "description": "Repères orbitaux",
+        "note": "Validation des repères orbitaux procéduraux."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.651Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 4,
+        "description": "Repères orbitaux",
+        "evidence": "Dix repères orbitaux procéduraux répartis sur une ellipse, hiérarchisés par taille, couleur et opacité."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.704Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 5,
+        "description": "Direction de matière et lumière",
+        "note": "Validation de la direction matière et lumière."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.759Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 5,
+        "description": "Direction de matière et lumière",
+        "evidence": "Noyau physical material sombre, anneaux métalliques, spot ivoire et lumières bleu/violet douces implémentés sans texture externe."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.816Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 6,
+        "description": "Mouvement au repos",
+        "note": "Validation du mouvement au repos."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.876Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 6,
+        "description": "Mouvement au repos",
+        "evidence": "Respiration du noyau et rotations lentes des anneaux pilotées par delta et damp, amplitudes faibles et physiques."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:43.939Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 7,
+        "description": "Réaction inertielle au pointeur",
+        "note": "Validation de la réaction inertielle au pointeur."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:44.004Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 7,
+        "description": "Réaction inertielle au pointeur",
+        "evidence": "Pointeur normalisé, amplitudes réduites, interpolation exponentielle et retour au repos sur pointerleave."
+      },
+      {
+        "timestamp": "2026-08-07T14:35:44.090Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 8,
+        "description": "QualityController avec DPR adaptatif",
+        "note": "Ajout d’un QualityController mesurant la fluidité et adaptant le DPR."
+      },
+      {
+        "timestamp": "2026-08-07T14:36:22.338Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 8,
+        "description": "QualityController avec DPR adaptatif",
+        "evidence": "QualityController échantillonne 90 frames, estime les FPS et ajuste le DPR entre 1 et 1.5 selon fluidité, viewport et devicePixelRatio; types/lint/tests au vert."
+      },
+      {
+        "timestamp": "2026-08-07T14:36:22.376Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 9,
+        "description": "Gestion du nettoyage WebGL",
+        "note": "Validation du démontage Canvas et du nettoyage des ressources/écouteurs."
+      },
+      {
+        "timestamp": "2026-08-07T14:39:21.536Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 9,
+        "description": "Gestion du nettoyage WebGL",
+        "evidence": "R3F démonte géométries/matériaux; WebGLLifecycle libère renderLists; ScrollTrigger et listeners sont supprimés. Navigation accueil→about→accueil validée sur desktop/mobile (11 E2E passés)."
+      },
+      {
+        "timestamp": "2026-08-07T14:39:21.577Z",
+        "event": "start_step",
+        "phase": 5,
+        "deliverable": 10,
+        "description": "Fallback no-WebGL et reduced motion",
+        "note": "Validation des branches no-WebGL et prefers-reduced-motion."
+      },
+      {
+        "timestamp": "2026-08-07T14:39:21.619Z",
+        "event": "complete_step",
+        "phase": 5,
+        "deliverable": 10,
+        "description": "Fallback no-WebGL et reduced motion",
+        "evidence": "Canvas possède un fallback CSS no-WebGL; prefers-reduced-motion empêche le montage Canvas et affiche l’artefact statique. Test E2E desktop/mobile: aucun canvas en mouvement réduit."
+      },
+      {
+        "timestamp": "2026-08-07T14:39:21.681Z",
+        "event": "verify_phase",
+        "phase": 5,
+        "evidence": "Prototype orbital procédural distinctif, chunk 279.37 kB gzip, DPR adaptatif, lifecycle propre et fallbacks testés; 11 tests E2E passés sur profils desktop/mobile."
+      },
+      {
+        "timestamp": "2026-08-07T14:40:06.338Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 1,
+        "description": "Marqueurs data-orbital-stage sur les sections",
+        "note": "Audit des marqueurs narratifs du DOM."
+      },
+      {
+        "timestamp": "2026-08-07T14:40:06.378Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 1,
+        "description": "Marqueurs data-orbital-stage sur les sections",
+        "evidence": "Marqueurs data-orbital-stage présents sur hero, selected-work, web, ai, saas, mobile, process et convergence."
+      },
+      {
+        "timestamp": "2026-08-07T14:40:06.415Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 2,
+        "description": "Timeline GSAP maîtresse",
+        "note": "Construction de la timeline GSAP maîtresse pilotée par les positions réelles des marqueurs."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:28.417Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 2,
+        "description": "Timeline GSAP maîtresse",
+        "evidence": "Timeline GSAP maître pilotée par huit offsets DOM mesurés; interpolation pure testée, ScrollTrigger invalidateOnRefresh et refresh dynamique; aucun seuil en pixels."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:28.455Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 3,
+        "description": "État abstrait du Hero",
+        "note": "Validation de l’état abstrait initial du Hero."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:28.492Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 3,
+        "description": "État abstrait du Hero",
+        "evidence": "Au stage hero, noyau sombre, quatre orbites inclinées et repères composent une silhouette abstraite; aucune discipline n’est isolée ni littérale."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:28.532Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 4,
+        "description": "Séparation des anneaux dans les expertises",
+        "note": "Chorégraphie de séparation progressive des quatre anneaux dans la zone Expertises."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.243Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 4,
+        "description": "Séparation des anneaux dans les expertises",
+        "evidence": "Enveloppe GSAP/story progressive: départ après le Hero, séparation X/Y/Z amortie, retour déclenché avant convergence; amplitudes distinctes par anneau."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.281Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 5,
+        "description": "Alignement progressif au pointeur",
+        "note": "Validation de l’alignement progressif piloté par le pointeur."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.320Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 5,
+        "description": "Alignement progressif au pointeur",
+        "evidence": "Coordonnées pointeur normalisées influencent rotations et position de l’assemblage avec damping exponentiel, faible amplitude et retour neutre."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.361Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 6,
+        "description": "Accompagnement des stages Web, IA, SaaS et Mobile",
+        "note": "Association explicite des anneaux aux stages Web, IA, SaaS et Mobile."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.402Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 6,
+        "description": "Accompagnement des stages Web, IA, SaaS et Mobile",
+        "evidence": "Centres narratifs mappés aux indices Web/IA/SaaS/Mobile; chaque anneau reçoit un focus spatial et un léger gain d’échelle à son stage."
+      },
+      {
+        "timestamp": "2026-08-07T14:41:48.461Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 7,
+        "description": "Recomposition autour du CTA",
+        "note": "Recomposition finale et révélation lumineuse autour du CTA."
+      },
+      {
+        "timestamp": "2026-08-07T14:42:06.173Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 7,
+        "description": "Recomposition autour du CTA",
+        "evidence": "À l’approche de convergence, les anneaux reviennent au noyau, l’assemblage glisse vers le centre du CTA et le matériau gagne une lumière bleue douce."
+      },
+      {
+        "timestamp": "2026-08-07T14:42:06.210Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 8,
+        "description": "Transitions responsive",
+        "note": "Ajustement des amplitudes et positions narratives aux viewports mobiles et desktop."
+      },
+      {
+        "timestamp": "2026-08-07T14:42:48.208Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 8,
+        "description": "Transitions responsive",
+        "evidence": "Amplitudes de séparation réduites à 58% mobile et 80% tablette; assemblage, échelle, position et DPR répondent au viewport sans breakpoint de scroll."
+      },
+      {
+        "timestamp": "2026-08-07T14:42:48.245Z",
+        "event": "start_step",
+        "phase": 6,
+        "deliverable": 9,
+        "description": "Variante reduced motion sans scrub continu",
+        "note": "Validation de la narration alternative en mouvement réduit."
+      },
+      {
+        "timestamp": "2026-08-07T14:44:31.878Z",
+        "event": "complete_step",
+        "phase": 6,
+        "deliverable": 9,
+        "description": "Variante reduced motion sans scrub continu",
+        "evidence": "prefers-reduced-motion remplace entièrement Canvas et ScrollTrigger par l’artefact CSS; test E2E mobile confirmé sans canvas ni scrub."
+      },
+      {
+        "timestamp": "2026-08-07T14:44:31.919Z",
+        "event": "verify_phase",
+        "phase": 6,
+        "evidence": "Timeline basée sur huit positions DOM recalculées, stages Web→convergence testés en navigateur, séparation/focus/recomposition responsive et variante reduced-motion; interpolation couverte par Vitest."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.341Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 1,
+        "description": "Études de cas finalisées",
+        "note": "Relecture et validation finale des études de cas conceptuelles."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.380Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 1,
+        "description": "Études de cas finalisées",
+        "evidence": "Orbit et Axiom finalisés en MDX avec enjeu, approche, résultat, narration longue et mention Concept product explicite."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.417Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 2,
+        "description": "Visuels de produits optimisés",
+        "note": "Validation des visuels produits et de leur coût réseau."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.457Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 2,
+        "description": "Visuels de produits optimisés",
+        "evidence": "Visuels Orbit/Axiom procéduraux en CSS, responsive et sans image réseau; tonalités pilotées par métadonnées, coût image nul."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.496Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 3,
+        "description": "Page À propos",
+        "note": "Validation de la page À propos et de ses signaux de confiance."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.538Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 3,
+        "description": "Page À propos",
+        "evidence": "Page À propos complète: positionnement indépendant, continuité stratégie-design-tech, trois principes et CTA."
+      },
+      {
+        "timestamp": "2026-08-07T14:45:00.579Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 4,
+        "description": "Services détaillés",
+        "note": "Création d’une page Services détaillée avec périmètres, livrables et modalités de collaboration."
+      },
+      {
+        "timestamp": "2026-08-07T14:46:01.335Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 4,
+        "description": "Services détaillés",
+        "evidence": "Page /services détaillée: Web, IA, SaaS, Mobile, partenariat produit, périmètres et trois formats d’engagement; route, types, lint et tests validés."
+      },
+      {
+        "timestamp": "2026-08-07T14:46:01.372Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 5,
+        "description": "Mentions légales et politique de confidentialité",
+        "note": "Finalisation des mentions légales et de la politique de confidentialité."
+      },
+      {
+        "timestamp": "2026-08-07T14:46:01.421Z",
+        "event": "block_step",
+        "phase": 7,
+        "deliverable": 5,
+        "description": "Mentions légales et politique de confidentialité",
+        "reason": "Contenu et routes prêts, mais juridiction d’immatriculation, numéro/adresse de la LLC et hébergeur de production doivent être fournis; aucune donnée légale ne sera inventée."
+      },
+      {
+        "timestamp": "2026-08-07T14:46:01.470Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 6,
+        "description": "Formulaire branché à une fonction serveur",
+        "note": "Branchement du formulaire à une fonction serveur TanStack Start et sélection du transport email."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.281Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 6,
+        "description": "Formulaire branché à une fonction serveur",
+        "evidence": "Formulaire React branché à createServerFn POST TanStack Start; adaptateur Resend encapsulé côté serveur selon l’API officielle; E2E desktop/mobile validé sans secret."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.321Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 7,
+        "description": "Validation Zod et protections anti-abus",
+        "note": "Validation Zod, honeypot, garde temporelle et limite de débit."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.360Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 7,
+        "description": "Validation Zod et protections anti-abus",
+        "evidence": "Schéma Zod strict (tailles, email, enum), honeypot caché, soumission minimale 800ms, rate limit configurable et résultat typé; 4 tests contact passent."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.406Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 8,
+        "description": "Fallback email",
+        "note": "Validation du repli email en cas d’absence ou panne du fournisseur."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.447Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 8,
+        "description": "Fallback email",
+        "evidence": "Email direct visible en permanence et état fallback générant un lien mailto; branche sans clé Resend testée en unité et E2E."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.486Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 9,
+        "description": "États succès, erreur et chargement",
+        "note": "Validation des états idle, validation, chargement, succès et erreur."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.527Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 9,
+        "description": "États succès, erreur et chargement",
+        "evidence": "Bouton gardé jusqu’à hydratation, aria-busy pendant l’envoi, aria-live pour succès/erreur/fallback et reset uniquement après succès."
+      },
+      {
+        "timestamp": "2026-08-07T14:50:30.568Z",
+        "event": "start_step",
+        "phase": 7,
+        "deliverable": 10,
+        "description": "Métadonnées et données structurées",
+        "note": "Normalisation des métadonnées, canonical, Open Graph et JSON-LD sur toutes les routes."
+      },
+      {
+        "timestamp": "2026-08-07T14:52:52.795Z",
+        "event": "complete_step",
+        "phase": 7,
+        "deliverable": 10,
+        "description": "Métadonnées et données structurées",
+        "evidence": "Canonical, titres/descriptions, Open Graph et Twitter uniques via helper partagé; Organization, WebSite, Service et BreadcrumbList JSON-LD présents au pré-rendu. Aucun secret/provider dans le bundle client."
+      },
+      {
+        "timestamp": "2026-08-07T14:53:16.784Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 1,
+        "description": "Audit responsive",
+        "note": "Audit responsive automatisé de toutes les routes aux largeurs mobile, tablette et desktop."
+      },
+      {
+        "timestamp": "2026-08-07T14:54:15.937Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 1,
+        "description": "Audit responsive",
+        "evidence": "Les neuf routes publiques passent sans overflow ni hiérarchie H1 cassée à 360×780, 768×1024 et 1440×900 (27 combinaisons)."
+      },
+      {
+        "timestamp": "2026-08-07T14:54:15.983Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 2,
+        "description": "Audit accessibilité",
+        "note": "Installation et exécution d’un audit axe automatisé, complété par les parcours clavier existants."
+      },
+      {
+        "timestamp": "2026-08-07T14:55:52.163Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 2,
+        "description": "Audit accessibilité",
+        "evidence": "Audit axe WCAG A/AA sur les neuf routes: zéro violation détectable après correction du lien email; parcours clavier, skip link, focus et reduced-motion couverts."
+      },
+      {
+        "timestamp": "2026-08-07T14:55:52.201Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 3,
+        "description": "Audit performance",
+        "note": "Mise en place de Lighthouse CI et contrôle des budgets performance/accessibilité/SEO."
+      },
+      {
+        "timestamp": "2026-08-07T15:02:04.769Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 3,
+        "description": "Audit performance",
+        "evidence": "Lighthouse CI production passe les seuils: accueil 97 performance/LCP 2078ms/TBT 10ms/CLS 0; services 98; contact 98; SEO 100. WebGL activé à la première interaction."
+      },
+      {
+        "timestamp": "2026-08-07T15:02:04.806Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 4,
+        "description": "Tests multi-navigateurs",
+        "note": "Ajout et exécution des suites Chromium, Firefox et WebKit, avec profil mobile Chrome."
+      },
+      {
+        "timestamp": "2026-08-07T15:05:51.442Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 4,
+        "description": "Tests multi-navigateurs",
+        "evidence": "Parcours critiques validés sur Chromium desktop/mobile, Firefox 153 et WebKit 26.5; différences natives de focus Safari documentées dans les skips ciblés, tests fonctionnels WebKit au vert."
+      },
+      {
+        "timestamp": "2026-08-07T15:05:51.482Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 5,
+        "description": "Tests visuels des stages orbitaux",
+        "note": "Création de baselines visuelles déterministes pour les stages Hero, Web et Convergence."
+      },
+      {
+        "timestamp": "2026-08-07T15:07:50.413Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 5,
+        "description": "Tests visuels des stages orbitaux",
+        "evidence": "Baselines Chromium inspectées et comparées pour Hero, Web et Convergence; Canvas figé via contrôleur test-only, seuil de diff 1%, test de non-régression au vert."
+      },
+      {
+        "timestamp": "2026-08-07T15:07:50.449Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 6,
+        "description": "Tests end-to-end des parcours critiques",
+        "note": "Consolidation des parcours critiques E2E: navigation, projets, contact, WebGL, reduced-motion et stages."
+      },
+      {
+        "timestamp": "2026-08-07T15:07:50.485Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 6,
+        "description": "Tests end-to-end des parcours critiques",
+        "evidence": "Parcours accueil, clavier, mobile, projets, cycle Canvas, reduced-motion, stages et formulaire serveur couverts; Chromium/mobile/Firefox/WebKit validés avec skips moteurs ciblés."
+      },
+      {
+        "timestamp": "2026-08-07T15:07:50.525Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 7,
+        "description": "Optimisation des chunks et ressources",
+        "note": "Automatisation des budgets gzip des chunks UI et Three.js."
+      },
+      {
+        "timestamp": "2026-08-07T15:09:10.860Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 7,
+        "description": "Optimisation des chunks et ressources",
+        "evidence": "Budgets automatisés et branchés en CI: UI total 131.9 kB gzip / 200 kB; chunk orbital 270.4 kB / 450 kB; 3D chargée uniquement à la première interaction."
+      },
+      {
+        "timestamp": "2026-08-07T15:09:10.896Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 8,
+        "description": "Sitemap, robots, favicon et manifest",
+        "note": "Génération des sorties SEO techniques et d’une image sociale Ozastra unique."
+      },
+      {
+        "timestamp": "2026-08-07T15:12:45.553Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 8,
+        "description": "Sitemap, robots, favicon et manifest",
+        "evidence": "--evidence Build production validé; sitemap XML, robots.txt, favicon SVG, manifeste web et image Open Graph 1200x630 présents dans dist/client; métadonnées OG/Twitter vérifiées dans le HTML pré-rendu."
+      },
+      {
+        "timestamp": "2026-08-07T15:12:52.875Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 9,
+        "description": "En-têtes de sécurité",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:15:43.013Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 9,
+        "description": "En-têtes de sécurité",
+        "evidence": "--evidence Middleware global TanStack Start ajouté avec protection CSRF same-origin des server functions; CSP, HSTS, COOP, CORP, Permissions-Policy, Referrer-Policy, nosniff et anti-framing appliqués; tests unitaires, typecheck, lint, build et test HTTP Playwright validés."
+      },
+      {
+        "timestamp": "2026-08-07T15:15:43.049Z",
+        "event": "start_step",
+        "phase": 8,
+        "deliverable": 10,
+        "description": "Revue des dépendances",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:19:33.184Z",
+        "event": "complete_step",
+        "phase": 8,
+        "deliverable": 10,
+        "description": "Revue des dépendances",
+        "evidence": "--evidence Dépendances directes et dev verrouillées sur des versions exactes; Node >=22.13 documenté; audit npm production et complet: 0 vulnérabilité; overrides tmp 0.2.7 et uuid 11.1.1 appliqués à Lighthouse CI; lockfile, supply-chain policies, typecheck, lint, 12 tests unitaires, budgets bundle et Lighthouse (97-98 perf, 98-100 accessibilité, 96 bonnes pratiques, 100 SEO) validés."
+      },
+      {
+        "timestamp": "2026-08-07T15:20:43.889Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 1,
+        "description": "Environnement preview validé",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:21:55.418Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 1,
+        "description": "Environnement preview validé",
+        "evidence": "--evidence Preview de production démarré depuis le build candidat; 9 routes publiques, sitemap, robots, favicon, manifest et image OG répondent en 200; route inconnue en 404; en-têtes de sécurité vérifiés sur la réponse HTML."
+      },
+      {
+        "timestamp": "2026-08-07T15:21:55.457Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 2,
+        "description": "Configuration de production",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:29:04.348Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 2,
+        "description": "Configuration de production",
+        "evidence": "--evidence Adaptateur Nitro node-server, commande start, endpoint /api/health, Dockerfile multi-stage non-root, Compose Caddy/HTTPS, healthchecks, variables de production et smoke test automatisé ajoutés; build local, image Docker 60 MB, compose config, conteneur healthy, 14 endpoints, typecheck, lint, budgets et audit 0 vulnérabilité validés."
+      },
+      {
+        "timestamp": "2026-08-07T15:29:04.386Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 3,
+        "description": "Variables secrètes installées côté serveur",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:29:04.423Z",
+        "event": "block_step",
+        "phase": 9,
+        "deliverable": 3,
+        "description": "Variables secrètes installées côté serveur",
+        "reason": "--reason Le contrat des variables et le stockage côté serveur sont prêts, mais CONTACT_PROVIDER_API_KEY, l’expéditeur Resend vérifié et la cible VPS doivent être fournis/sélectionnés avant installation; aucun secret ne sera inventé ou copié vers une cible ambiguë."
+      },
+      {
+        "timestamp": "2026-08-07T15:29:04.468Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 4,
+        "description": "Domaine et HTTPS",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:29:40.554Z",
+        "event": "block_step",
+        "phase": 9,
+        "deliverable": 4,
+        "description": "Domaine et HTTPS",
+        "reason": "--reason ozastra.com est délégué à Cloudflare mais n’a actuellement aucun A/AAAA public; Caddy est prêt à émettre le certificat, mais la cible VPS (1533941 sans Docker Manager ou 1876411 déjà occupé par zevent sur 80/443) et l’autorisation DNS Cloudflare doivent être confirmées."
+      },
+      {
+        "timestamp": "2026-08-07T15:29:40.592Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 5,
+        "description": "Analytics respectueux de la confidentialité",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.087Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 5,
+        "description": "Analytics respectueux de la confidentialité",
+        "evidence": "--evidence Analytics first-party sans fournisseur tiers: seuls les pathnames sont journalisés en JSON, sans query/hash, cookie, identifiant ni fingerprint; DNT et GPC bloquent la collecte; validation de payload, rétention bornée par rotation Docker, politique de confidentialité mise à jour; build, smoke endpoint 204 et 3 tests de signaux privacy validés."
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.125Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 6,
+        "description": "Monitoring des erreurs et disponibilité",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.163Z",
+        "event": "block_step",
+        "phase": 9,
+        "deliverable": 6,
+        "description": "Monitoring des erreurs et disponibilité",
+        "reason": "--reason Healthcheck applicatif, healthcheck Docker, logs structurés et rotation sont prêts; l’alerte externe d’indisponibilité/erreurs exige encore un domaine public, une cible déployée et un canal d’alerte choisi (email/Slack/etc.)."
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.202Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 7,
+        "description": "Déploiement de production",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.244Z",
+        "event": "block_step",
+        "phase": 9,
+        "deliverable": 7,
+        "description": "Déploiement de production",
+        "reason": "--reason Artefact Nitro et image Docker sont validés, mais aucun déploiement ne peut être lancé sans choisir entre le VPS 1533941 (Docker Manager absent) et le VPS 1876411 (production zevent existante sur 80/443), ni sans source/registre accessible au VPS."
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.285Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 8,
+        "description": "Smoke test public",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.327Z",
+        "event": "block_step",
+        "phase": 9,
+        "deliverable": 8,
+        "description": "Smoke test public",
+        "reason": "--reason Le script smoke:production est prêt et passe localement sur 14 endpoints plus analytics; il ne peut être exécuté publiquement avant domaine/HTTPS et déploiement."
+      },
+      {
+        "timestamp": "2026-08-07T15:32:26.365Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 9,
+        "description": "Procédure de rollback documentée",
+        "note": null
+      },
+      {
+        "timestamp": "2026-08-07T15:33:19.267Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 9,
+        "description": "Procédure de rollback documentée",
+        "evidence": "--evidence Runbook versionné ajouté: prérequis, inventaire Hostinger/DNS, variables, preflight, image immuable, procédure de lancement, critères d’arrêt, rollback applicatif/DNS/snapshot et validation post-restauration; lien README ajouté."
+      },
+      {
+        "timestamp": "2026-08-07T15:33:19.309Z",
+        "event": "note",
+        "phase": 9,
+        "message": "Aucun dépôt Git n’est initialisé dans le workspace; une source ou un registre d’image doit être créé avant tout déploiement Hostinger."
+      },
+      {
+        "timestamp": "2026-08-07T15:36:35.321Z",
+        "event": "note",
+        "phase": 8,
+        "message": "Passe finale 2026-08-07: 29 tests E2E réussis sur Chromium, mobile Chrome, Firefox et WebKit (27 skips ciblés); Lighthouse: 100 performance sur les 3 routes, 98-100 accessibilité, 100 bonnes pratiques et SEO; validation appareil physique toujours requise."
+      },
+      {
+        "timestamp": "2026-08-07T15:36:35.367Z",
+        "event": "note",
+        "phase": 9,
+        "message": "Candidat final local: build Nitro, image Docker, healthcheck et smoke test verts; audit production 0 vulnérabilité; UI 132.6 kB gzip et chunk 3D 270.5 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T07:59:48.617Z",
+        "event": "note",
+        "phase": 10,
+        "message": "La décision historique de verrouiller le thème sombre est supersédée par la demande utilisateur du 2026-08-12; le sombre reste l’atmosphère d’origine et le clair devient une interprétation ivoire minérale de la même identité."
+      },
+      {
+        "timestamp": "2026-08-12T07:59:48.691Z",
+        "event": "start_step",
+        "phase": 10,
+        "deliverable": 1,
+        "description": "Palette claire et tokens sémantiques bimodaux",
+        "note": "Définition et implémentation des tokens clair/sombre avant adaptation des composants."
+      },
+      {
+        "timestamp": "2026-08-12T08:00:50.424Z",
+        "event": "complete_step",
+        "phase": 10,
+        "deliverable": 1,
+        "description": "Palette claire et tokens sémantiques bimodaux",
+        "evidence": "Palette ivoire minérale documentée dans docs/light-theme.md et ajoutée aux tokens CSS dynamiques de src/styles.css; valeurs Tailwind ink/panel/ivory/muted/electric/astral/line/positive et primitives RGB bimodales compilées; Prettier, typecheck et lint validés."
+      },
+      {
+        "timestamp": "2026-08-12T08:00:50.461Z",
+        "event": "start_step",
+        "phase": 10,
+        "deliverable": 2,
+        "description": "Préférence système, persistance et contrôle de thème accessible",
+        "note": "Implémentation du choix système, de la persistance locale, du rendu sans flash et du contrôle accessible."
+      },
+      {
+        "timestamp": "2026-08-12T08:08:40.145Z",
+        "event": "complete_step",
+        "phase": 10,
+        "deliverable": 2,
+        "description": "Préférence système, persistance et contrôle de thème accessible",
+        "evidence": "Préférence système appliquée avant hydratation dans src/lib/theme.ts; choix persistant et contrôle clavier accessible dans ThemeToggle; 3 tests unitaires Vitest et 3 scénarios Playwright Chromium validés (système clair, persistance navigation/reload, préférence stockée sans flash)."
+      },
+      {
+        "timestamp": "2026-08-12T08:08:40.182Z",
+        "event": "start_step",
+        "phase": 10,
+        "deliverable": 3,
+        "description": "Adaptation des composants, surfaces et artefact orbital",
+        "note": "Adaptation bimodale des composants, surfaces, fallback et scène orbitale Three.js."
+      },
+      {
+        "timestamp": "2026-08-12T08:13:04.278Z",
+        "event": "complete_step",
+        "phase": 10,
+        "deliverable": 3,
+        "description": "Adaptation des composants, surfaces et artefact orbital",
+        "evidence": "Composants et surfaces migrés vers les tokens sémantiques bimodaux dans src/styles.css; palette ivoire/graphite appliquée au header, navigation, boutons, formulaires et panneaux; scène R3F/Three.js synchronisée avec des matériaux et lumières dédiés, noyau sombre préservé; fallback reduced-motion adapté. Typecheck, lint et 5 scénarios Playwright thème/WebGL/fallback validés."
+      },
+      {
+        "timestamp": "2026-08-12T08:13:04.314Z",
+        "event": "start_step",
+        "phase": 10,
+        "deliverable": 4,
+        "description": "Validation responsive, accessibilité, thèmes sans flash et build",
+        "note": "Validation finale responsive, WCAG, absence de flash, non-régression routes, build et budgets."
+      },
+      {
+        "timestamp": "2026-08-12T08:15:48.330Z",
+        "event": "complete_step",
+        "phase": 10,
+        "deliverable": 4,
+        "description": "Validation responsive, accessibilité, thèmes sans flash et build",
+        "evidence": "Typecheck et lint validés; Vitest 18/18; Playwright complet 37 tests passés et 51 scénarios hors périmètre/skippés, dont snapshots orbitaux, contrôles sombre/clair sur 9 routes, responsive 360/1440 et axe WCAG A/AA; build Nitro de 10 pages validé; budgets UI 133.3/200 kB gzip et orbital 270.8/450 kB; smoke production 14 endpoints validé."
+      },
+      {
+        "timestamp": "2026-08-12T08:15:48.366Z",
+        "event": "verify_phase",
+        "phase": 10,
+        "evidence": "Phase validée par préférence système sans flash, persistance clavier/navigation/reload, 9 routes sans débordement en clair et sombre, axe WCAG A/AA sans violation détectée, synchronisation WebGL et fallback reduced-motion, build/budgets/smoke au vert."
+      },
+      {
+        "timestamp": "2026-08-12T08:56:12.145Z",
+        "event": "note",
+        "phase": 11,
+        "message": "Décision acceptée par l’utilisateur : anglais langue source et publique par défaut sans préfixe, français sous /fr, Lingui pour les messages React, MDX par locale et chargement exclusif de la langue active."
+      }
+    ]
+  },
+  "implementation_roadmap": [
+    {
+      "phase": 1,
+      "name": "Cadrage de marque et inputs",
+      "status": "completed",
+      "dependencies": [],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Valider le positionnement et la proposition de valeur",
+            "completed_at": "2026-08-07T14:24:09.074Z",
+            "evidence": "Positionnement et proposition formalisés dans docs/brand-foundations.md à partir de la direction acceptée par l’utilisateur."
+          },
+          {
+            "index": 2,
+            "description": "Choisir la langue principale",
+            "completed_at": "2026-08-07T14:24:09.150Z",
+            "evidence": "Français retenu comme langue principale avec signatures internationales contrôlées; documenté dans docs/brand-foundations.md."
+          },
+          {
+            "index": 3,
+            "description": "Finaliser le wordmark Ozastra",
+            "completed_at": "2026-08-07T14:24:09.225Z",
+            "evidence": "Wordmark typographique Ozastra avec point orbital bleu défini et déjà implémenté dans le header/footer."
+          },
+          {
+            "index": 4,
+            "description": "Valider palette et typographies",
+            "completed_at": "2026-08-07T14:24:09.343Z",
+            "evidence": "Palette complète et duo typographique documentés et implémentés dans les tokens Tailwind."
+          },
+          {
+            "index": 5,
+            "description": "Rassembler les preuves et projets disponibles",
+            "completed_at": "2026-08-07T14:24:09.469Z",
+            "evidence": "docs/content-inventory.md distingue les deux concepts, les éléments disponibles et les preuves absentes à ne pas inventer."
+          },
+          {
+            "index": 6,
+            "description": "Définir les coordonnées légales et professionnelles à publier",
+            "completed_at": "2026-08-07T14:24:09.607Z",
+            "evidence": "Coordonnées MVP fixées à Ozastra LLC, ozastra.com et hello@ozastra.com; aucune donnée personnelle non confirmée publiée."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:24:09.687Z",
+          "evidence": "Direction acceptée au fil des échanges utilisateur; fondations et inventaire documentés, cohérents avec le premier jet construit."
+        },
+        "last_updated_at": "2026-08-07T14:24:09.689Z"
+      },
+      "deliverables": [
+        "Valider le positionnement et la proposition de valeur",
+        "Choisir la langue principale",
+        "Finaliser le wordmark Ozastra",
+        "Valider palette et typographies",
+        "Rassembler les preuves et projets disponibles",
+        "Définir les coordonnées légales et professionnelles à publier"
+      ],
+      "verification": [
+        "Relecture du message par une personne extérieure au projet",
+        "Inventaire documenté des contenus disponibles et manquants"
+      ],
+      "exit_criteria": "Le message principal, la personnalité et les règles visuelles sont assez clairs pour guider toutes les décisions suivantes."
+    },
+    {
+      "phase": 2,
+      "name": "Bootstrap TanStack Start",
+      "status": "completed",
+      "dependencies": [
+        1
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Projet TanStack Start initialisé avec React, TypeScript strict et Vite",
+            "completed_at": "2026-08-07T13:56:12.755Z",
+            "evidence": "TanStack Start scaffoldé; pnpm typecheck et pnpm build réussis le 2026-08-07."
+          },
+          {
+            "index": 2,
+            "description": "pnpm et lockfile configurés",
+            "completed_at": "2026-08-07T13:56:12.828Z",
+            "evidence": "pnpm-lock.yaml généré par pnpm 11.20.0 après installation réussie."
+          },
+          {
+            "index": 3,
+            "description": "Routage basé sur les fichiers opérationnel",
+            "completed_at": "2026-08-07T13:56:12.917Z",
+            "evidence": "src/routeTree.gen.ts généré par tsr; route racine compilée par TypeScript et Vite."
+          },
+          {
+            "index": 4,
+            "description": "Pré-rendu activé avec échec sur erreur",
+            "completed_at": "2026-08-07T13:56:46.061Z",
+            "evidence": "pnpm build réussi avec pré-rendu strict; dist/client/index.html généré pour la route /."
+          },
+          {
+            "index": 5,
+            "description": "Tailwind CSS installé avec les premiers tokens",
+            "completed_at": "2026-08-07T13:57:25.202Z",
+            "evidence": "Tokens Tailwind Ozastra, thème sombre, focus visible et reduced-motion compilés; typecheck et build réussis."
+          },
+          {
+            "index": 6,
+            "description": "Vitest et Playwright configurés",
+            "completed_at": "2026-08-07T14:22:34.614Z",
+            "evidence": "Vitest, Testing Library et Playwright configurés; 1 test unitaire et 4 parcours E2E desktop/mobile réussis."
+          },
+          {
+            "index": 7,
+            "description": "Scripts dev, build, typecheck, lint et test",
+            "completed_at": "2026-08-07T14:22:34.687Z",
+            "evidence": "Scripts dev, generate-routes, build, preview, typecheck, lint, test, test:e2e, format et roadmap présents dans package.json; lint/typecheck/tests validés."
+          },
+          {
+            "index": 8,
+            "description": ".env.example et documentation de démarrage",
+            "completed_at": "2026-08-07T14:22:53.497Z",
+            "evidence": "README.md et .env.example créés avec démarrage, contrôles, règles roadmap et variables sans secrets."
+          },
+          {
+            "index": 9,
+            "description": "CI minimale exécutant typecheck, tests et build",
+            "completed_at": "2026-08-07T14:23:07.993Z",
+            "evidence": "Workflow .github/workflows/ci.yml créé : install frozen, roadmap, lint, typecheck, unit, E2E et build."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:23:08.030Z",
+          "evidence": "Les 9 livrables sont réalisés; installation lockfile reproductible, lint, typecheck, Vitest, Playwright et build pré-rendu ont réussi localement."
+        },
+        "last_updated_at": "2026-08-07T14:23:08.030Z"
+      },
+      "deliverables": [
+        "Projet TanStack Start initialisé avec React, TypeScript strict et Vite",
+        "pnpm et lockfile configurés",
+        "Routage basé sur les fichiers opérationnel",
+        "Pré-rendu activé avec échec sur erreur",
+        "Tailwind CSS installé avec les premiers tokens",
+        "Vitest et Playwright configurés",
+        "Scripts dev, build, typecheck, lint et test",
+        ".env.example et documentation de démarrage",
+        "CI minimale exécutant typecheck, tests et build"
+      ],
+      "verification": [
+        "Le build génère la page d’accueil en HTML pré-rendu",
+        "Le projet démarre depuis une installation propre avec le lockfile",
+        "La CI passe sans secret ni dépendance globale"
+      ],
+      "exit_criteria": "Le socle TanStack Start est reproductible, strictement typé, testé et capable de pré-rendre les routes publiques."
+    },
+    {
+      "phase": 3,
+      "name": "Architecture éditoriale et contenu",
+      "status": "completed",
+      "dependencies": [
+        1,
+        2
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 3,
+            "description": "Première version des textes",
+            "completed_at": "2026-08-07T13:58:25.408Z",
+            "evidence": "Première version française intégrée pour Hero, projets conceptuels, expertises, méthode, manifeste et CTA; TypeScript validé."
+          },
+          {
+            "index": 1,
+            "description": "Wireframe de la page d’accueil",
+            "completed_at": "2026-08-07T14:24:37.885Z",
+            "evidence": "Wireframe neuf blocs documenté dans docs/information-architecture.md et reflété par la page d’accueil."
+          },
+          {
+            "index": 2,
+            "description": "Arborescence des routes MVP",
+            "completed_at": "2026-08-07T14:24:37.984Z",
+            "evidence": "Arborescence /, /work, /work/, /about, /contact, /legal, /privacy et 404 documentée avec stratégie de rendu."
+          },
+          {
+            "index": 7,
+            "description": "Parcours de contact",
+            "completed_at": "2026-08-07T14:24:38.097Z",
+            "evidence": "Parcours découverte → preuve → formulaire → validation serveur → états et fallback documenté."
+          },
+          {
+            "index": 8,
+            "description": "Stratégie de métadonnées par route",
+            "completed_at": "2026-08-07T14:24:38.214Z",
+            "evidence": "Titres, descriptions, canoniques, social et règles de pré-rendu définis dans docs/information-architecture.md."
+          },
+          {
+            "index": 4,
+            "description": "Schéma Zod des études de cas",
+            "completed_at": "2026-08-07T14:25:35.563Z",
+            "evidence": "Schéma Zod strict créé et couvert par tests d’acceptation/rejet; Vitest, typecheck et lint réussis."
+          },
+          {
+            "index": 5,
+            "description": "Pipeline MDX local",
+            "completed_at": "2026-08-07T14:28:06.947Z",
+            "evidence": "Pipeline MDX validé: import.meta.glob charge orbit.mdx et axiom.mdx, métadonnées Zod vérifiées, Vitest 5/5, typecheck et lint réussis."
+          },
+          {
+            "index": 6,
+            "description": "Structure des pages work, about, contact, legal et privacy",
+            "completed_at": "2026-08-07T14:32:14.887Z",
+            "evidence": "Routes publiques /work, /work/, /about, /contact, /legal, /privacy et 404 implémentées; 10 pages pré-rendues sans erreur; tests, types et lint au vert."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:32:14.924Z",
+          "evidence": "Architecture éditoriale complète: inventaire, arborescence, contenus FR, schéma Zod, pipeline MDX, études de cas et parcours de contact; build de 10 routes validé."
+        },
+        "last_updated_at": "2026-08-07T14:32:14.925Z"
+      },
+      "deliverables": [
+        "Wireframe de la page d’accueil",
+        "Arborescence des routes MVP",
+        "Première version des textes",
+        "Schéma Zod des études de cas",
+        "Pipeline MDX local",
+        "Structure des pages work, about, contact, legal et privacy",
+        "Parcours de contact",
+        "Stratégie de métadonnées par route"
+      ],
+      "verification": [
+        "Chaque section possède un objectif, un message et une action attendue",
+        "Un projet MDX de démonstration génère une route valide",
+        "Un contenu invalide fait échouer le build"
+      ],
+      "exit_criteria": "Le contenu est modélisé, validé et transformable en routes pré-rendues sans dépendre d’un CMS."
+    },
+    {
+      "phase": 4,
+      "name": "Design system Tailwind et shell accessible",
+      "status": "completed",
+      "dependencies": [
+        2,
+        3
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 6,
+            "description": "Sections Hero, Projets, Expertises, Méthode, À propos et Contact",
+            "completed_at": "2026-08-07T13:59:37.582Z",
+            "evidence": "Sections Hero, Projets conceptuels, Expertises, Méthode, manifeste et Contact composées en responsive; typecheck et pré-rendu réussis."
+          },
+          {
+            "index": 1,
+            "description": "Tokens sémantiques complets",
+            "completed_at": "2026-08-07T14:32:43.298Z",
+            "evidence": "Palette ink/panel/ivory/muted/electric/astral/line, familles typographiques et easing orbital déclarés dans @theme et employés par les composants."
+          },
+          {
+            "index": 2,
+            "description": "Polices et échelle typographique fluide",
+            "completed_at": "2026-08-07T14:32:43.438Z",
+            "evidence": "Échelle clamp() vérifiée sur hero, titres de pages, études de cas et corps; sans-serif UI et serif éditoriale limitées aux accents narratifs."
+          },
+          {
+            "index": 3,
+            "description": "Grille, conteneurs et rythme vertical",
+            "completed_at": "2026-08-07T14:32:43.567Z",
+            "evidence": "Grille 12 colonnes, conteneur 90rem, gouttières et espacements fluides partagés entre toutes les routes et validés au build."
+          },
+          {
+            "index": 4,
+            "description": "Navigation desktop et mobile",
+            "completed_at": "2026-08-07T14:33:43.017Z",
+            "evidence": "Navigation desktop et menu mobile natif <details> validés sur Chromium et Pixel 7 émulé; 7 tests E2E passés, parcours vers /about confirmé."
+          },
+          {
+            "index": 5,
+            "description": "Boutons, liens, formulaires et focus states",
+            "completed_at": "2026-08-07T14:35:21.325Z",
+            "evidence": "Boutons, liens, champs, select et textarea accessibles avec labels, tailles tactiles, hover et focus-visible; typecheck, lint et 5 tests unitaires validés."
+          },
+          {
+            "index": 7,
+            "description": "Layout des études de cas",
+            "completed_at": "2026-08-07T14:35:21.469Z",
+            "evidence": "Layout MDX avec hero, visuel 16:8, enjeux/approche/résultat, contenu éditorial et CTA; routes Orbit/Axiom pré-rendues et testées en E2E."
+          },
+          {
+            "index": 8,
+            "description": "Fallback orbital statique",
+            "completed_at": "2026-08-07T14:35:21.641Z",
+            "evidence": "Fallback CSS noyau + quatre anneaux rendu côté serveur pendant ClientOnly/Suspense; contenu et navigation restent dans le HTML pré-rendu."
+          },
+          {
+            "index": 9,
+            "description": "Mode clair non prévu et thème sombre verrouillé",
+            "completed_at": "2026-08-07T14:35:21.847Z",
+            "evidence": "color-scheme: dark, fond ink racine/body, theme-color et surfaces sombres fixés; aucun basculement clair exposé."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:35:22.116Z",
+          "evidence": "Design system complet et shell accessible: navigation clavier/mobile, formulaire labellisé, routes lisibles au SSR, fallback statique, grilles responsive; tests E2E desktop/mobile, lint et types au vert."
+        },
+        "last_updated_at": "2026-08-07T14:35:22.118Z"
+      },
+      "deliverables": [
+        "Tokens sémantiques complets",
+        "Polices et échelle typographique fluide",
+        "Grille, conteneurs et rythme vertical",
+        "Navigation desktop et mobile",
+        "Boutons, liens, formulaires et focus states",
+        "Sections Hero, Projets, Expertises, Méthode, À propos et Contact",
+        "Layout des études de cas",
+        "Fallback orbital statique",
+        "Mode clair non prévu et thème sombre verrouillé"
+      ],
+      "verification": [
+        "Parcours intégral au clavier",
+        "Contrastes contrôlés",
+        "Pages lisibles sans JavaScript",
+        "Contrôle responsive aux largeurs mobile, tablette et desktop"
+      ],
+      "exit_criteria": "Le site est déjà cohérent, accessible et présentable sans aucune animation Three.js."
+    },
+    {
+      "phase": 5,
+      "name": "Prototype de l’artefact React Three Fiber",
+      "status": "completed",
+      "dependencies": [
+        2,
+        4
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 3,
+            "description": "Noyau et quatre anneaux procéduraux",
+            "completed_at": "2026-08-07T14:04:32.044Z",
+            "evidence": "Noyau icosaédrique sombre et quatre anneaux procéduraux R3F compilés; chunk 3D séparé à 279.35 kB gzip, sous le budget de 450 kB."
+          },
+          {
+            "index": 1,
+            "description": "Chunk client isolé pour l’expérience orbitale",
+            "completed_at": "2026-08-07T14:35:43.453Z",
+            "evidence": "OrbitalExperience importé via React.lazy/ClientOnly; chunk autonome OrbitalExperience à 279.37 kB gzip, sous le budget 450 kB."
+          },
+          {
+            "index": 2,
+            "description": "Canvas persistant et fallback de chargement",
+            "completed_at": "2026-08-07T14:35:43.548Z",
+            "evidence": "Canvas fixé dans une couche persistante, chargé une seule fois sur l’accueil; fallback CSS présent dans ClientOnly, Suspense et Canvas."
+          },
+          {
+            "index": 4,
+            "description": "Repères orbitaux",
+            "completed_at": "2026-08-07T14:35:43.651Z",
+            "evidence": "Dix repères orbitaux procéduraux répartis sur une ellipse, hiérarchisés par taille, couleur et opacité."
+          },
+          {
+            "index": 5,
+            "description": "Direction de matière et lumière",
+            "completed_at": "2026-08-07T14:35:43.757Z",
+            "evidence": "Noyau physical material sombre, anneaux métalliques, spot ivoire et lumières bleu/violet douces implémentés sans texture externe."
+          },
+          {
+            "index": 6,
+            "description": "Mouvement au repos",
+            "completed_at": "2026-08-07T14:35:43.876Z",
+            "evidence": "Respiration du noyau et rotations lentes des anneaux pilotées par delta et damp, amplitudes faibles et physiques."
+          },
+          {
+            "index": 7,
+            "description": "Réaction inertielle au pointeur",
+            "completed_at": "2026-08-07T14:35:44.003Z",
+            "evidence": "Pointeur normalisé, amplitudes réduites, interpolation exponentielle et retour au repos sur pointerleave."
+          },
+          {
+            "index": 8,
+            "description": "QualityController avec DPR adaptatif",
+            "completed_at": "2026-08-07T14:36:22.338Z",
+            "evidence": "QualityController échantillonne 90 frames, estime les FPS et ajuste le DPR entre 1 et 1.5 selon fluidité, viewport et devicePixelRatio; types/lint/tests au vert."
+          },
+          {
+            "index": 9,
+            "description": "Gestion du nettoyage WebGL",
+            "completed_at": "2026-08-07T14:39:21.535Z",
+            "evidence": "R3F démonte géométries/matériaux; WebGLLifecycle libère renderLists; ScrollTrigger et listeners sont supprimés. Navigation accueil→about→accueil validée sur desktop/mobile (11 E2E passés)."
+          },
+          {
+            "index": 10,
+            "description": "Fallback no-WebGL et reduced motion",
+            "completed_at": "2026-08-07T14:39:21.619Z",
+            "evidence": "Canvas possède un fallback CSS no-WebGL; prefers-reduced-motion empêche le montage Canvas et affiche l’artefact statique. Test E2E desktop/mobile: aucun canvas en mouvement réduit."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:39:21.680Z",
+          "evidence": "Prototype orbital procédural distinctif, chunk 279.37 kB gzip, DPR adaptatif, lifecycle propre et fallbacks testés; 11 tests E2E passés sur profils desktop/mobile."
+        },
+        "last_updated_at": "2026-08-07T14:39:21.681Z"
+      },
+      "deliverables": [
+        "Chunk client isolé pour l’expérience orbitale",
+        "Canvas persistant et fallback de chargement",
+        "Noyau et quatre anneaux procéduraux",
+        "Repères orbitaux",
+        "Direction de matière et lumière",
+        "Mouvement au repos",
+        "Réaction inertielle au pointeur",
+        "QualityController avec DPR adaptatif",
+        "Gestion du nettoyage WebGL",
+        "Fallback no-WebGL et reduced motion"
+      ],
+      "verification": [
+        "Mesure du poids du chunk 3D",
+        "Mesure FPS desktop et mobile",
+        "Absence de fuite lors du montage et démontage",
+        "Fallback vérifié en désactivant WebGL"
+      ],
+      "exit_criteria": "L’artefact initial est distinctif, fluide, robuste et respecte les budgets avant toute chorégraphie complexe."
+    },
+    {
+      "phase": 6,
+      "name": "Narration orbitale au scroll",
+      "status": "completed",
+      "dependencies": [
+        4,
+        5
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Marqueurs data-orbital-stage sur les sections",
+            "completed_at": "2026-08-07T14:40:06.378Z",
+            "evidence": "Marqueurs data-orbital-stage présents sur hero, selected-work, web, ai, saas, mobile, process et convergence."
+          },
+          {
+            "index": 2,
+            "description": "Timeline GSAP maîtresse",
+            "completed_at": "2026-08-07T14:41:28.416Z",
+            "evidence": "Timeline GSAP maître pilotée par huit offsets DOM mesurés; interpolation pure testée, ScrollTrigger invalidateOnRefresh et refresh dynamique; aucun seuil en pixels."
+          },
+          {
+            "index": 3,
+            "description": "État abstrait du Hero",
+            "completed_at": "2026-08-07T14:41:28.492Z",
+            "evidence": "Au stage hero, noyau sombre, quatre orbites inclinées et repères composent une silhouette abstraite; aucune discipline n’est isolée ni littérale."
+          },
+          {
+            "index": 4,
+            "description": "Séparation des anneaux dans les expertises",
+            "completed_at": "2026-08-07T14:41:48.241Z",
+            "evidence": "Enveloppe GSAP/story progressive: départ après le Hero, séparation X/Y/Z amortie, retour déclenché avant convergence; amplitudes distinctes par anneau."
+          },
+          {
+            "index": 5,
+            "description": "Alignement progressif au pointeur",
+            "completed_at": "2026-08-07T14:41:48.319Z",
+            "evidence": "Coordonnées pointeur normalisées influencent rotations et position de l’assemblage avec damping exponentiel, faible amplitude et retour neutre."
+          },
+          {
+            "index": 6,
+            "description": "Accompagnement des stages Web, IA, SaaS et Mobile",
+            "completed_at": "2026-08-07T14:41:48.402Z",
+            "evidence": "Centres narratifs mappés aux indices Web/IA/SaaS/Mobile; chaque anneau reçoit un focus spatial et un léger gain d’échelle à son stage."
+          },
+          {
+            "index": 7,
+            "description": "Recomposition autour du CTA",
+            "completed_at": "2026-08-07T14:42:06.173Z",
+            "evidence": "À l’approche de convergence, les anneaux reviennent au noyau, l’assemblage glisse vers le centre du CTA et le matériau gagne une lumière bleue douce."
+          },
+          {
+            "index": 8,
+            "description": "Transitions responsive",
+            "completed_at": "2026-08-07T14:42:48.207Z",
+            "evidence": "Amplitudes de séparation réduites à 58% mobile et 80% tablette; assemblage, échelle, position et DPR répondent au viewport sans breakpoint de scroll."
+          },
+          {
+            "index": 9,
+            "description": "Variante reduced motion sans scrub continu",
+            "completed_at": "2026-08-07T14:44:31.877Z",
+            "evidence": "prefers-reduced-motion remplace entièrement Canvas et ScrollTrigger par l’artefact CSS; test E2E mobile confirmé sans canvas ni scrub."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-07T14:44:31.918Z",
+          "evidence": "Timeline basée sur huit positions DOM recalculées, stages Web→convergence testés en navigateur, séparation/focus/recomposition responsive et variante reduced-motion; interpolation couverte par Vitest."
+        },
+        "last_updated_at": "2026-08-07T14:44:31.918Z"
+      },
+      "deliverables": [
+        "Marqueurs data-orbital-stage sur les sections",
+        "Timeline GSAP maîtresse",
+        "État abstrait du Hero",
+        "Séparation des anneaux dans les expertises",
+        "Alignement progressif au pointeur",
+        "Accompagnement des stages Web, IA, SaaS et Mobile",
+        "Recomposition autour du CTA",
+        "Transitions responsive",
+        "Variante reduced motion sans scrub continu"
+      ],
+      "verification": [
+        "La timeline fonctionne sans valeurs de scroll codées en pixels",
+        "Les ScrollTriggers sont recalculés après changements de layout",
+        "Aucun bloc de contenu n’est masqué ou illisible pendant l’animation",
+        "Les captures des stages clés sont stables"
+      ],
+      "exit_criteria": "La 3D raconte clairement le passage de l’idée au produit sans dégrader le scroll natif, la lecture ou l’accessibilité."
+    },
+    {
+      "phase": 7,
+      "name": "Contenus, preuves et conversion",
+      "status": "in_progress",
+      "dependencies": [
+        3,
+        4,
+        6
+      ],
+      "tracking": {
+        "progress_percent": 90,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Études de cas finalisées",
+            "completed_at": "2026-08-07T14:45:00.379Z",
+            "evidence": "Orbit et Axiom finalisés en MDX avec enjeu, approche, résultat, narration longue et mention Concept product explicite."
+          },
+          {
+            "index": 2,
+            "description": "Visuels de produits optimisés",
+            "completed_at": "2026-08-07T14:45:00.457Z",
+            "evidence": "Visuels Orbit/Axiom procéduraux en CSS, responsive et sans image réseau; tonalités pilotées par métadonnées, coût image nul."
+          },
+          {
+            "index": 3,
+            "description": "Page À propos",
+            "completed_at": "2026-08-07T14:45:00.537Z",
+            "evidence": "Page À propos complète: positionnement indépendant, continuité stratégie-design-tech, trois principes et CTA."
+          },
+          {
+            "index": 4,
+            "description": "Services détaillés",
+            "completed_at": "2026-08-07T14:46:01.334Z",
+            "evidence": "Page /services détaillée: Web, IA, SaaS, Mobile, partenariat produit, périmètres et trois formats d’engagement; route, types, lint et tests validés."
+          },
+          {
+            "index": 6,
+            "description": "Formulaire branché à une fonction serveur",
+            "completed_at": "2026-08-07T14:50:30.280Z",
+            "evidence": "Formulaire React branché à createServerFn POST TanStack Start; adaptateur Resend encapsulé côté serveur selon l’API officielle; E2E desktop/mobile validé sans secret."
+          },
+          {
+            "index": 7,
+            "description": "Validation Zod et protections anti-abus",
+            "completed_at": "2026-08-07T14:50:30.360Z",
+            "evidence": "Schéma Zod strict (tailles, email, enum), honeypot caché, soumission minimale 800ms, rate limit configurable et résultat typé; 4 tests contact passent."
+          },
+          {
+            "index": 8,
+            "description": "Fallback email",
+            "completed_at": "2026-08-07T14:50:30.446Z",
+            "evidence": "Email direct visible en permanence et état fallback générant un lien mailto; branche sans clé Resend testée en unité et E2E."
+          },
+          {
+            "index": 9,
+            "description": "États succès, erreur et chargement",
+            "completed_at": "2026-08-07T14:50:30.526Z",
+            "evidence": "Bouton gardé jusqu’à hydratation, aria-busy pendant l’envoi, aria-live pour succès/erreur/fallback et reset uniquement après succès."
+          },
+          {
+            "index": 10,
+            "description": "Métadonnées et données structurées",
+            "completed_at": "2026-08-07T14:52:52.795Z",
+            "evidence": "Canonical, titres/descriptions, Open Graph et Twitter uniques via helper partagé; Organization, WebSite, Service et BreadcrumbList JSON-LD présents au pré-rendu. Aucun secret/provider dans le bundle client."
+          }
+        ],
+        "blocked_deliverables": [
+          {
+            "index": 5,
+            "description": "Mentions légales et politique de confidentialité",
+            "blocked_at": "2026-08-07T14:46:01.420Z",
+            "reason": "Contenu et routes prêts, mais juridiction d’immatriculation, numéro/adresse de la LLC et hébergeur de production doivent être fournis; aucune donnée légale ne sera inventée."
+          }
+        ],
+        "verification": null,
+        "last_updated_at": "2026-08-07T14:52:52.795Z"
+      },
+      "deliverables": [
+        "Études de cas finalisées",
+        "Visuels de produits optimisés",
+        "Page À propos",
+        "Services détaillés",
+        "Mentions légales et politique de confidentialité",
+        "Formulaire branché à une fonction serveur",
+        "Validation Zod et protections anti-abus",
+        "Fallback email",
+        "États succès, erreur et chargement",
+        "Métadonnées et données structurées"
+      ],
+      "verification": [
+        "Soumission de contact testée de bout en bout",
+        "Aucun secret exposé dans le bundle client",
+        "Tous les projets conceptuels sont identifiés",
+        "Toutes les routes ont des métadonnées uniques"
+      ],
+      "exit_criteria": "Le site démontre la compétence d’Ozastra, inspire confiance et convertit sans dépendre uniquement de son esthétique."
+    },
+    {
+      "phase": 8,
+      "name": "Hardening qualité",
+      "status": "ready_for_review",
+      "dependencies": [
+        5,
+        6,
+        7
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Audit responsive",
+            "completed_at": "2026-08-07T14:54:15.931Z",
+            "evidence": "Les neuf routes publiques passent sans overflow ni hiérarchie H1 cassée à 360×780, 768×1024 et 1440×900 (27 combinaisons)."
+          },
+          {
+            "index": 2,
+            "description": "Audit accessibilité",
+            "completed_at": "2026-08-07T14:55:52.163Z",
+            "evidence": "Audit axe WCAG A/AA sur les neuf routes: zéro violation détectable après correction du lien email; parcours clavier, skip link, focus et reduced-motion couverts."
+          },
+          {
+            "index": 3,
+            "description": "Audit performance",
+            "completed_at": "2026-08-07T15:02:04.769Z",
+            "evidence": "Lighthouse CI production passe les seuils: accueil 97 performance/LCP 2078ms/TBT 10ms/CLS 0; services 98; contact 98; SEO 100. WebGL activé à la première interaction."
+          },
+          {
+            "index": 4,
+            "description": "Tests multi-navigateurs",
+            "completed_at": "2026-08-07T15:05:51.434Z",
+            "evidence": "Parcours critiques validés sur Chromium desktop/mobile, Firefox 153 et WebKit 26.5; différences natives de focus Safari documentées dans les skips ciblés, tests fonctionnels WebKit au vert."
+          },
+          {
+            "index": 5,
+            "description": "Tests visuels des stages orbitaux",
+            "completed_at": "2026-08-07T15:07:50.412Z",
+            "evidence": "Baselines Chromium inspectées et comparées pour Hero, Web et Convergence; Canvas figé via contrôleur test-only, seuil de diff 1%, test de non-régression au vert."
+          },
+          {
+            "index": 6,
+            "description": "Tests end-to-end des parcours critiques",
+            "completed_at": "2026-08-07T15:07:50.484Z",
+            "evidence": "Parcours accueil, clavier, mobile, projets, cycle Canvas, reduced-motion, stages et formulaire serveur couverts; Chromium/mobile/Firefox/WebKit validés avec skips moteurs ciblés."
+          },
+          {
+            "index": 7,
+            "description": "Optimisation des chunks et ressources",
+            "completed_at": "2026-08-07T15:09:10.859Z",
+            "evidence": "Budgets automatisés et branchés en CI: UI total 131.9 kB gzip / 200 kB; chunk orbital 270.4 kB / 450 kB; 3D chargée uniquement à la première interaction."
+          },
+          {
+            "index": 8,
+            "description": "Sitemap, robots, favicon et manifest",
+            "completed_at": "2026-08-07T15:12:45.553Z",
+            "evidence": "--evidence Build production validé; sitemap XML, robots.txt, favicon SVG, manifeste web et image Open Graph 1200x630 présents dans dist/client; métadonnées OG/Twitter vérifiées dans le HTML pré-rendu."
+          },
+          {
+            "index": 9,
+            "description": "En-têtes de sécurité",
+            "completed_at": "2026-08-07T15:15:43.012Z",
+            "evidence": "--evidence Middleware global TanStack Start ajouté avec protection CSRF same-origin des server functions; CSP, HSTS, COOP, CORP, Permissions-Policy, Referrer-Policy, nosniff et anti-framing appliqués; tests unitaires, typecheck, lint, build et test HTTP Playwright validés."
+          },
+          {
+            "index": 10,
+            "description": "Revue des dépendances",
+            "completed_at": "2026-08-07T15:19:33.183Z",
+            "evidence": "--evidence Dépendances directes et dev verrouillées sur des versions exactes; Node >=22.13 documenté; audit npm production et complet: 0 vulnérabilité; overrides tmp 0.2.7 et uuid 11.1.1 appliqués à Lighthouse CI; lockfile, supply-chain policies, typecheck, lint, 12 tests unitaires, budgets bundle et Lighthouse (97-98 perf, 98-100 accessibilité, 96 bonnes pratiques, 100 SEO) validés."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": null,
+        "last_updated_at": "2026-08-07T15:19:33.184Z"
+      },
+      "deliverables": [
+        "Audit responsive",
+        "Audit accessibilité",
+        "Audit performance",
+        "Tests multi-navigateurs",
+        "Tests visuels des stages orbitaux",
+        "Tests end-to-end des parcours critiques",
+        "Optimisation des chunks et ressources",
+        "Sitemap, robots, favicon et manifest",
+        "En-têtes de sécurité",
+        "Revue des dépendances"
+      ],
+      "verification": [
+        "Budgets Web Vitals et WebGL respectés ou exceptions documentées",
+        "Build, typecheck et suites de tests au vert",
+        "Validation manuelle Safari iOS et appareil mobile réel",
+        "Expérience complète sans WebGL et avec reduced motion"
+      ],
+      "exit_criteria": "Le build candidat respecte la définition de fini technique, visuelle et éditoriale."
+    },
+    {
+      "phase": 9,
+      "name": "Déploiement et lancement",
+      "status": "in_progress",
+      "dependencies": [
+        8
+      ],
+      "tracking": {
+        "progress_percent": 44,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Environnement preview validé",
+            "completed_at": "2026-08-07T15:21:55.411Z",
+            "evidence": "--evidence Preview de production démarré depuis le build candidat; 9 routes publiques, sitemap, robots, favicon, manifest et image OG répondent en 200; route inconnue en 404; en-têtes de sécurité vérifiés sur la réponse HTML."
+          },
+          {
+            "index": 2,
+            "description": "Configuration de production",
+            "completed_at": "2026-08-07T15:29:04.345Z",
+            "evidence": "--evidence Adaptateur Nitro node-server, commande start, endpoint /api/health, Dockerfile multi-stage non-root, Compose Caddy/HTTPS, healthchecks, variables de production et smoke test automatisé ajoutés; build local, image Docker 60 MB, compose config, conteneur healthy, 14 endpoints, typecheck, lint, budgets et audit 0 vulnérabilité validés."
+          },
+          {
+            "index": 5,
+            "description": "Analytics respectueux de la confidentialité",
+            "completed_at": "2026-08-07T15:32:26.086Z",
+            "evidence": "--evidence Analytics first-party sans fournisseur tiers: seuls les pathnames sont journalisés en JSON, sans query/hash, cookie, identifiant ni fingerprint; DNT et GPC bloquent la collecte; validation de payload, rétention bornée par rotation Docker, politique de confidentialité mise à jour; build, smoke endpoint 204 et 3 tests de signaux privacy validés."
+          },
+          {
+            "index": 9,
+            "description": "Procédure de rollback documentée",
+            "completed_at": "2026-08-07T15:33:19.267Z",
+            "evidence": "--evidence Runbook versionné ajouté: prérequis, inventaire Hostinger/DNS, variables, preflight, image immuable, procédure de lancement, critères d’arrêt, rollback applicatif/DNS/snapshot et validation post-restauration; lien README ajouté."
+          }
+        ],
+        "blocked_deliverables": [
+          {
+            "index": 3,
+            "description": "Variables secrètes installées côté serveur",
+            "blocked_at": "2026-08-07T15:29:04.422Z",
+            "reason": "--reason Le contrat des variables et le stockage côté serveur sont prêts, mais CONTACT_PROVIDER_API_KEY, l’expéditeur Resend vérifié et la cible VPS doivent être fournis/sélectionnés avant installation; aucun secret ne sera inventé ou copié vers une cible ambiguë."
+          },
+          {
+            "index": 4,
+            "description": "Domaine et HTTPS",
+            "blocked_at": "2026-08-07T15:29:40.552Z",
+            "reason": "--reason ozastra.com est délégué à Cloudflare mais n’a actuellement aucun A/AAAA public; Caddy est prêt à émettre le certificat, mais la cible VPS (1533941 sans Docker Manager ou 1876411 déjà occupé par zevent sur 80/443) et l’autorisation DNS Cloudflare doivent être confirmées."
+          },
+          {
+            "index": 6,
+            "description": "Monitoring des erreurs et disponibilité",
+            "blocked_at": "2026-08-07T15:32:26.162Z",
+            "reason": "--reason Healthcheck applicatif, healthcheck Docker, logs structurés et rotation sont prêts; l’alerte externe d’indisponibilité/erreurs exige encore un domaine public, une cible déployée et un canal d’alerte choisi (email/Slack/etc.)."
+          },
+          {
+            "index": 7,
+            "description": "Déploiement de production",
+            "blocked_at": "2026-08-07T15:32:26.243Z",
+            "reason": "--reason Artefact Nitro et image Docker sont validés, mais aucun déploiement ne peut être lancé sans choisir entre le VPS 1533941 (Docker Manager absent) et le VPS 1876411 (production zevent existante sur 80/443), ni sans source/registre accessible au VPS."
+          },
+          {
+            "index": 8,
+            "description": "Smoke test public",
+            "blocked_at": "2026-08-07T15:32:26.326Z",
+            "reason": "--reason Le script smoke:production est prêt et passe localement sur 14 endpoints plus analytics; il ne peut être exécuté publiquement avant domaine/HTTPS et déploiement."
+          }
+        ],
+        "verification": null,
+        "last_updated_at": "2026-08-07T15:33:19.267Z"
+      },
+      "deliverables": [
+        "Environnement preview validé",
+        "Configuration de production",
+        "Variables secrètes installées côté serveur",
+        "Domaine et HTTPS",
+        "Analytics respectueux de la confidentialité",
+        "Monitoring des erreurs et disponibilité",
+        "Déploiement de production",
+        "Smoke test public",
+        "Procédure de rollback documentée"
+      ],
+      "verification": [
+        "Toutes les routes publiques répondent avec les bons statuts",
+        "Le formulaire fonctionne depuis le domaine public",
+        "Les métadonnées sociales sont contrôlées",
+        "Le dernier artefact stable peut être restauré"
+      ],
+      "exit_criteria": "Le site est rapide, accessible, stable, observable, indexable et prêt à représenter publiquement Ozastra."
+    },
+    {
+      "phase": 10,
+      "name": "Thème clair et continuité orbitale",
+      "status": "completed",
+      "dependencies": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Palette claire et tokens sémantiques bimodaux",
+            "completed_at": "2026-08-12T08:00:50.423Z",
+            "evidence": "Palette ivoire minérale documentée dans docs/light-theme.md et ajoutée aux tokens CSS dynamiques de src/styles.css; valeurs Tailwind ink/panel/ivory/muted/electric/astral/line/positive et primitives RGB bimodales compilées; Prettier, typecheck et lint validés."
+          },
+          {
+            "index": 2,
+            "description": "Préférence système, persistance et contrôle de thème accessible",
+            "completed_at": "2026-08-12T08:08:40.145Z",
+            "evidence": "Préférence système appliquée avant hydratation dans src/lib/theme.ts; choix persistant et contrôle clavier accessible dans ThemeToggle; 3 tests unitaires Vitest et 3 scénarios Playwright Chromium validés (système clair, persistance navigation/reload, préférence stockée sans flash)."
+          },
+          {
+            "index": 3,
+            "description": "Adaptation des composants, surfaces et artefact orbital",
+            "completed_at": "2026-08-12T08:13:04.277Z",
+            "evidence": "Composants et surfaces migrés vers les tokens sémantiques bimodaux dans src/styles.css; palette ivoire/graphite appliquée au header, navigation, boutons, formulaires et panneaux; scène R3F/Three.js synchronisée avec des matériaux et lumières dédiés, noyau sombre préservé; fallback reduced-motion adapté. Typecheck, lint et 5 scénarios Playwright thème/WebGL/fallback validés."
+          },
+          {
+            "index": 4,
+            "description": "Validation responsive, accessibilité, thèmes sans flash et build",
+            "completed_at": "2026-08-12T08:15:48.329Z",
+            "evidence": "Typecheck et lint validés; Vitest 18/18; Playwright complet 37 tests passés et 51 scénarios hors périmètre/skippés, dont snapshots orbitaux, contrôles sombre/clair sur 9 routes, responsive 360/1440 et axe WCAG A/AA; build Nitro de 10 pages validé; budgets UI 133.3/200 kB gzip et orbital 270.8/450 kB; smoke production 14 endpoints validé."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T08:15:48.366Z",
+          "evidence": "Phase validée par préférence système sans flash, persistance clavier/navigation/reload, 9 routes sans débordement en clair et sombre, axe WCAG A/AA sans violation détectée, synchronisation WebGL et fallback reduced-motion, build/budgets/smoke au vert."
+        },
+        "last_updated_at": "2026-08-12T08:15:48.366Z"
+      },
+      "deliverables": [
+        "Palette claire et tokens sémantiques bimodaux",
+        "Préférence système, persistance et contrôle de thème accessible",
+        "Adaptation des composants, surfaces et artefact orbital",
+        "Validation responsive, accessibilité, thèmes sans flash et build"
+      ],
+      "verification": [
+        "Contrastes contrôlés dans les deux thèmes",
+        "Préférence système respectée au premier rendu et choix utilisateur persisté",
+        "Bascule clavier et mobile utilisable sans décalage ni flash de thème",
+        "Fallback CSS, WebGL et reduced motion cohérents en clair et sombre",
+        "Routes publiques, tests et build de production au vert"
+      ],
+      "exit_criteria": "Le thème clair exprime la même identité quiet deep-tech qu’Ozastra, sans ressembler à une inversion générique du thème sombre."
+    },
+    {
+      "phase": 11,
+      "name": "Internationalisation et lancement multilingue",
+      "status": "pending",
+      "dependencies": [
+        2,
+        3,
+        4,
+        10
+      ],
+      "tracking": {
+        "progress_percent": 0,
+        "active_deliverable": null,
+        "completed_deliverables": [],
+        "blocked_deliverables": [],
+        "verification": null,
+        "last_updated_at": null
+      },
+      "deliverables": [
+        "Contrat international anglais par défaut et stratégie de migration",
+        "Registre typé des locales et automatisation d’ajout d’une langue",
+        "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
+        "Routage localisé scalable et sélecteur de langue accessible",
+        "Migration des messages React avec anglais source et catalogue français",
+        "Pipeline MDX localisé, validé et chargé à la demande",
+        "SEO multilingue généré depuis le registre des locales",
+        "Pré-rendu, sitemap et sorties techniques généralisés par locale",
+        "Workflow de traduction, revue éditoriale et publication progressive",
+        "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
+        "Validation des budgets de performance et du lancement bilingue"
+      ],
+      "verification": [
+        "Les routes anglaises sans préfixe et françaises sous /fr sont pré-rendues et navigables sans JavaScript.",
+        "Le sélecteur conserve la route et le slug courants, au clavier comme sur mobile.",
+        "Une locale publiée incomplète, un contenu MDX manquant ou une métadonnée non localisée fait échouer la validation.",
+        "Chaque page expose html lang et dir, canonical, hreflang, x-default, Open Graph et données structurées cohérents.",
+        "Le sitemap et la matrice de tests sont générés depuis les locales publiées et les contenus disponibles.",
+        "Le navigateur ne télécharge que le catalogue et le contenu correspondant à la langue et à la route actives.",
+        "L’ajout d’une locale en brouillon ne modifie pas les routes publiques et sa publication ne requiert aucune duplication de composant.",
+        "Typecheck, lint, tests unitaires, Playwright, build, budgets bundle, accessibilité et Lighthouse sont au vert pour l’anglais et le français."
+      ],
+      "exit_criteria": "L’anglais est la langue canonique sans préfixe, le français est intégralement disponible sous /fr, et une nouvelle langue peut être ajoutée par registre, catalogue et contenus sans modifier l’architecture ni augmenter la charge utile des autres langues."
+    }
+  ],
+  "success_criteria": {
+    "brand": [
+      "Le site paraît premium sans être ostentatoire.",
+      "Ozastra est compris comme un partenaire produit, pas seulement comme un exécutant technique.",
+      "La direction spatiale est perceptible sans devenir littérale ou cliché."
+    ],
+    "experience": [
+      "La proposition de valeur est comprise en moins de dix secondes.",
+      "La 3D soutient clairement le récit de transformation.",
+      "Le parcours reste excellent avec mouvement réduit ou WebGL indisponible.",
+      "Le CTA final semble être l’aboutissement naturel de la page."
+    ],
+    "business": [
+      "Les visiteurs identifient rapidement les expertises pertinentes.",
+      "Les projets et la méthode créent suffisamment de confiance pour initier un contact.",
+      "Le formulaire génère des demandes qualifiées plutôt que des messages génériques."
+    ]
+  },
+  "north_star": {
+    "statement": "Ozastra est un studio de product engineering capable de transformer une idée en expérience numérique aboutie.",
+    "visual_expression": "Deux atmosphères cohérentes — bleu-noir nocturne ou ivoire minéral —, composition éditoriale, typographie expressive, artefact orbital abstrait en Three.js, animations lentes et études de cas très visuelles.",
+    "decision_filter": "Toute décision de design, de contenu ou de développement doit renforcer au moins l’une de ces qualités : clarté, précision, confiance, goût ou progression de l’idée vers le produit."
+  }
+}

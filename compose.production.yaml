@@ -1,0 +1,65 @@
+name: ozastra-production
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        VITE_SITE_URL: ${VITE_SITE_URL:-https://ozastra.com}
+    environment:
+      CONTACT_PROVIDER_API_KEY: ${CONTACT_PROVIDER_API_KEY:-}
+      CONTACT_RATE_LIMIT_MAX: ${CONTACT_RATE_LIMIT_MAX:-5}
+      CONTACT_RATE_LIMIT_WINDOW_SECONDS: ${CONTACT_RATE_LIMIT_WINDOW_SECONDS:-900}
+      CONTACT_RECIPIENT: ${CONTACT_RECIPIENT:-hello@ozastra.com}
+      CONTACT_SENDER: ${CONTACT_SENDER:-Ozastra Website <website@ozastra.com>}
+      NODE_ENV: production
+      PORT: 3000
+    expose:
+      - '3000'
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then((response) => { if (!response.ok) process.exit(1) }).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-file: '3'
+        max-size: 10m
+
+  edge:
+    image: caddy:2.10.2-alpine
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      OZASTRA_DOMAIN: ${OZASTRA_DOMAIN:-ozastra.com}
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /config:size=32m,mode=0755
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ./ops/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+
+volumes:
+  caddy_data:

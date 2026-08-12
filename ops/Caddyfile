@@ -1,0 +1,12 @@
+{$OZASTRA_DOMAIN} {
+  encode zstd gzip
+
+  @immutable path /assets/*
+  header @immutable Cache-Control "public, max-age=31536000, immutable"
+
+  @publicAssets path /favicon.svg /site.webmanifest /og/*
+  header @publicAssets Cache-Control "public, max-age=86400"
+
+  header -Server
+  reverse_proxy app:3000
+}
