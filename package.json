@@ -27,9 +27,13 @@
     "check:format": "prettier --check .",
     "roadmap": "node scripts/update-roadmap.mjs",
     "roadmap:validate": "node scripts/update-roadmap.mjs validate",
-    "locale:add": "node scripts/add-locale.mjs"
+    "locale:add": "node scripts/add-locale.mjs",
+    "i18n:extract": "lingui extract --clean",
+    "i18n:compile": "lingui compile --strict"
   },
   "dependencies": {
+    "@lingui/core": "6.6.0",
+    "@lingui/react": "6.6.0",
     "@mdx-js/react": "3.1.1",
     "@react-three/drei": "10.7.8",
     "@react-three/fiber": "9.7.0",
@@ -46,8 +50,12 @@
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
     "@lhci/cli": "0.15.1",
+    "@lingui/cli": "6.6.0",
+    "@lingui/format-po": "6.6.0",
+    "@lingui/vite-plugin": "6.6.0",
     "@mdx-js/rollup": "3.1.1",
     "@playwright/test": "1.62.1",
+    "@rolldown/plugin-babel": "0.2.3",
     "@tanstack/eslint-config": "0.4.0",
     "@tanstack/router-cli": "1.167.24",
     "@testing-library/jest-dom": "7.0.0",

@@ -19,6 +19,7 @@ export default [
       'dist/**',
       '.output/**',
       'src/routeTree.gen.ts',
+      'src/locales/**/messages.js',
       'eslint.config.js',
       'prettier.config.js',
     ],

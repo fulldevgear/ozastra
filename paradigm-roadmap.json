@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 187
+    "revision": 189
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 84,
-    "last_activity_at": "2026-08-12T09:01:39.174Z",
+    "overall_progress_percent": 85,
+    "last_activity_at": "2026-08-12T09:06:16.747Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2561,6 +2561,22 @@
         "deliverable": 2,
         "description": "Registre typé des locales et automatisation d’ajout d’une langue",
         "evidence": "Registre typé créé dans src/i18n/locales.json/.ts avec anglais source/défaut, français publié, statuts draft/published, direction et helpers d’URL; commande pnpm locale:add ajoute un scaffold sûr et supporte RTL/dry-run; 23 tests Vitest, typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T09:01:55.672Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 3,
+        "description": "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
+        "note": "Installation de Lingui, configuration Vite 8/Rolldown, catalogues compilés et instances par rendu."
+      },
+      {
+        "timestamp": "2026-08-12T09:06:16.747Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 3,
+        "description": "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
+        "evidence": "Lingui 6.6.0 et formateur PO configurés avec Vite 8/Rolldown; catalogues en/fr extraits et compilés strictement; runtime à instances isolées par rendu et cache de messages testé en concurrence; 26 tests, typecheck, lint, build de 10 pages et budgets bundle réussis."
       }
     ]
   },
@@ -3453,7 +3469,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 18,
+        "progress_percent": 27,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3467,11 +3483,17 @@
             "description": "Registre typé des locales et automatisation d’ajout d’une langue",
             "completed_at": "2026-08-12T09:01:39.173Z",
             "evidence": "Registre typé créé dans src/i18n/locales.json/.ts avec anglais source/défaut, français publié, statuts draft/published, direction et helpers d’URL; commande pnpm locale:add ajoute un scaffold sûr et supporte RTL/dry-run; 23 tests Vitest, typecheck et lint réussis."
+          },
+          {
+            "index": 3,
+            "description": "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
+            "completed_at": "2026-08-12T09:06:16.746Z",
+            "evidence": "Lingui 6.6.0 et formateur PO configurés avec Vite 8/Rolldown; catalogues en/fr extraits et compilés strictement; runtime à instances isolées par rendu et cache de messages testé en concurrence; 26 tests, typecheck, lint, build de 10 pages et budgets bundle réussis."
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:01:39.174Z"
+        "last_updated_at": "2026-08-12T09:06:16.747Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",
