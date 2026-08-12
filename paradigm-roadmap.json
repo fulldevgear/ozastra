@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 206
+    "revision": 215
   },
   "brand": {
     "name": "Ozastra",
@@ -152,7 +152,7 @@
       "Réserver le bleu électrique aux actions, états actifs et moments narratifs.",
       "Utiliser le violet comme accent secondaire, jamais comme remplissage dominant.",
       "Garantir un contraste accessible pour les textes et contrôles dans les deux thèmes.",
-      "Conserver le noyau orbital sombre dans le thème clair afin de préserver l’idée de matière et de gravité."
+      "Conserver la planète et le cœur de l’artefact sombres dans le thème clair afin de préserver l’idée de matière et de gravité."
     ],
     "typography": {
       "direction": "Sans-serif moderne et nette pour l’interface, avec une serif éditoriale facultative pour quelques mots à forte charge narrative.",
@@ -189,45 +189,38 @@
     }
   },
   "threejs_artifact": {
-    "name": "Artefact orbital abstrait",
-    "role": "Métaphore visuelle centrale du passage de l’idée au produit final.",
-    "narrative": "Dans le hero, l’objet paraît abstrait. Au scroll, ses éléments se séparent et accompagnent les différentes expertises du site. À la fin, ils se réunissent autour du CTA. La 3D raconte ainsi le passage de l’idée au produit final.",
+    "name": "De l’impulsion à l’orbite",
+    "role": "Métaphore visuelle centrale d’une idée qui naît sur Ozastra, devient un produit construit, atteint son étoile cible puis rejoint une constellation de produits finis.",
+    "narrative": "Le hero cadre la surface minérale d’Ozastra et une impulsion abstraite encore ancrée au sol. Au scroll, l’idée s’élève et acquiert successivement ossature, intelligence, système et enveloppe. Elle traverse ensuite l’atmosphère sous la forme d’un artefact cohérent, atteint une étoile cible, puis complète une couronne de produits finis autour de la planète révélée au CTA.",
     "components": {
-      "core": {
-        "meaning": "L’idée ou le produit",
-        "appearance": "Noyau sombre, dense, légèrement réfléchissant, révélé par une lumière rasante douce.",
-        "behavior": "Stable et central ; il inspire la gravité et la cohérence."
+      "ozastra_planet": {
+        "meaning": "Le monde de conception et la gravité créative d’Ozastra.",
+        "appearance": "Planète graphite abstraite, sans continents réalistes, révélée d’abord comme une surface minérale puis comme une sphère complète uniquement à la conclusion.",
+        "behavior": "La courbure descend et la planète se dévoile à mesure que la caméra narrative prend de la hauteur."
       },
-      "rings": [
-        {
-          "label": "Web",
-          "appearance": "Anneau très fin et précis",
-          "meaning": "Expériences et plateformes web"
-        },
-        {
-          "label": "IA",
-          "appearance": "Anneau très fin avec une variation lumineuse subtile",
-          "meaning": "Intelligence artificielle appliquée"
-        },
-        {
-          "label": "SaaS",
-          "appearance": "Anneau très fin, modulaire et structuré",
-          "meaning": "Produits logiciels et systèmes"
-        },
-        {
-          "label": "Mobile",
-          "appearance": "Anneau très fin avec une courbe plus dynamique",
-          "meaning": "Applications et expériences mobiles"
-        }
-      ],
-      "alignment_elements": {
-        "appearance": "Petites pièces géométriques ou repères orbitaux sobres.",
-        "behavior": "Ils s’alignent progressivement lorsque la souris se déplace, avec inertie et retard maîtrisés.",
-        "purpose": "Exprimer la capacité d’Ozastra à transformer le désordre initial en système cohérent."
+      "idea_seed": {
+        "meaning": "L’idée en tant que concept, jamais représentée par un mot littéral.",
+        "appearance": "Petit noyau lumineux imparfait, contenu dans une géométrie sombre et précise.",
+        "behavior": "Il se détache du sol, respire avec retenue puis devient le cœur permanent du produit."
+      },
+      "product_artifact": {
+        "meaning": "Le produit numérique qui gagne en structure et en constance.",
+        "appearance": "Assemblage procédural compact de cadres, modules, panneaux et noyau partagé, sans forme de fusée ni d’objet technologique littéral.",
+        "behavior": "Les couches se construisent progressivement aux étapes Web, IA, SaaS et Mobile avant de se verrouiller en une forme stable."
+      },
+      "target_star": {
+        "meaning": "L’ambition et le résultat visé.",
+        "appearance": "Une étoile cible unique, ivoire froid, plus précise que le faible environnement stellaire.",
+        "behavior": "Elle guide la trajectoire, reçoit l’artefact final et déclenche son intégration orbitale."
+      },
+      "product_constellation": {
+        "meaning": "Une collection symbolique de formes de produits possibles, sans prétendre représenter des livraisons clients non documentées.",
+        "appearance": "Couronne de cinq artefacts distincts gravitant autour d’Ozastra ; de fines connexions n’apparaissent que lors de l’alignement final.",
+        "behavior": "Le produit suivi occupe une place vacante et complète brièvement une constellation cohérente."
       },
       "lighting": {
-        "style": "Lumière douce, directionnelle et cinématographique.",
-        "behavior": "Elle révèle progressivement la matière sans produire de flash ou de halo agressif.",
+        "style": "Lumière rasante, atmosphérique et cinématographique, sans bloom visible.",
+        "behavior": "Elle passe d’un signal local sur la surface à un contre-jour orbital plus ample, sans réduire le contraste éditorial.",
         "colors": [
           "Ivoire froid",
           "Bleu électrique très diffus",
@@ -237,64 +230,91 @@
     },
     "interaction_states": {
       "idle": {
-        "description": "Rotation lente et respiration presque imperceptible.",
-        "goal": "Donner vie à l’artefact sans détourner l’attention du message."
+        "description": "Respiration de l’idée, dérive orbitale lente et vibration lumineuse presque imperceptible.",
+        "goal": "Donner une sensation de matière et de potentiel sans détourner l’attention du message."
       },
       "pointer": {
-        "description": "Les éléments orbitaux cherchent un alignement en fonction de la position normalisée du pointeur.",
+        "description": "La surface, l’artefact et les repères célestes réagissent par une parallaxe lente et différenciée.",
         "constraints": [
           "Amplitude faible",
           "Inertie visible",
           "Aucun suivi direct ou nerveux",
-          "Retour progressif à l’état de repos"
+          "Aucune interaction indispensable au récit"
         ]
       },
-      "scroll_expertise": {
-        "description": "Les anneaux se séparent du noyau et accompagnent chacun une expertise.",
-        "mapping": {
-          "Web": "Web Experiences",
-          "IA": "Applied AI",
-          "SaaS": "SaaS Products",
-          "Mobile": "Mobile Apps"
-        }
+      "scroll_ascent": {
+        "description": "L’idée quitte la surface selon une trajectoire courbe révélée progressivement.",
+        "meaning": "Une ambition devient une direction concrète."
       },
-      "scroll_reassembly": {
-        "description": "Après les études de cas et la méthode, les anneaux reviennent progressivement vers le noyau.",
-        "meaning": "Toutes les disciplines convergent vers un produit cohérent."
+      "scroll_assembly": {
+        "description": "Ossature, cœur actif, modules et enveloppe rejoignent successivement l’idée aux étapes Web, IA, SaaS et Mobile.",
+        "meaning": "Les disciplines intégrées transforment l’idée en système cohérent."
+      },
+      "scroll_orbit": {
+        "description": "L’artefact traverse l’atmosphère, atteint l’étoile cible et se stabilise dans la couronne de produits.",
+        "meaning": "Le produit accompli rejoint un écosystème durable sans perdre son identité propre."
       },
       "final_cta": {
-        "description": "L’artefact se recompose derrière ou à proximité du CTA final, dans un état plus aligné et lumineux qu’au début.",
-        "meaning": "L’idée abstraite est devenue un produit prêt à être lancé."
+        "description": "La planète complète et sa constellation de produits sont révélées à proximité du CTA final.",
+        "meaning": "Ozastra donne aux idées la structure et la trajectoire nécessaires pour atteindre leur ambition."
       }
     },
     "scroll_storyboard": [
       {
         "stage": 1,
         "section": "Hero",
-        "state": "Abstraction",
-        "visual": "Le noyau et les anneaux forment une silhouette intrigante mais non littérale.",
-        "message": "Une ambition prend forme."
+        "state": "Impulsion",
+        "visual": "Un noyau lumineux apparaît au-dessus d’une surface minérale dont seule la courbure est perceptible.",
+        "message": "Une idée existe avant d’avoir une forme."
       },
       {
         "stage": 2,
-        "section": "Expertises",
-        "state": "Séparation",
-        "visual": "Les anneaux quittent leur orbite initiale et occupent différents plans de profondeur.",
-        "message": "Chaque discipline apporte une fonction précise."
+        "section": "Selected Work",
+        "state": "Départ",
+        "visual": "Des lignes convergent sous la surface et l’idée s’en détache selon une trajectoire ascendante.",
+        "message": "L’ambition acquiert une direction."
       },
       {
         "stage": 3,
-        "section": "Projets et méthode",
-        "state": "Organisation",
-        "visual": "Les repères orbitaux s’alignent et les mouvements deviennent plus structurés.",
-        "message": "Ozastra transforme la complexité en système."
+        "section": "Web",
+        "state": "Ossature",
+        "visual": "Un cadre précis se construit autour du noyau.",
+        "message": "Le produit reçoit une structure."
       },
       {
         "stage": 4,
+        "section": "IA",
+        "state": "Intelligence",
+        "visual": "Le cœur s’active et des signaux courts circulent dans l’ossature.",
+        "message": "Le système commence à répondre."
+      },
+      {
+        "stage": 5,
+        "section": "SaaS",
+        "state": "Système",
+        "visual": "Des modules distincts s’alignent et se verrouillent autour du cœur.",
+        "message": "Les fonctions deviennent un produit cohérent."
+      },
+      {
+        "stage": 6,
+        "section": "Mobile",
+        "state": "Finition",
+        "visual": "Une enveloppe légère simplifie et stabilise la silhouette finale.",
+        "message": "Le produit gagne en clarté et en constance."
+      },
+      {
+        "stage": 7,
+        "section": "Process",
+        "state": "Trajectoire",
+        "visual": "L’artefact traverse la limite atmosphérique et son mouvement devient une orbite calculée.",
+        "message": "La méthode transforme l’élan en lancement maîtrisé."
+      },
+      {
+        "stage": 8,
         "section": "CTA final",
-        "state": "Convergence",
-        "visual": "Le noyau et les anneaux se réunissent dans une composition stable, précise et lumineuse.",
-        "message": "Le produit est cohérent, construit et prêt à avancer."
+        "state": "Constellation",
+        "visual": "L’artefact atteint une étoile unique, puis complète une couronne de produits autour de la planète Ozastra enfin révélée.",
+        "message": "Le produit atteint son ambition et rejoint un système durable."
       }
     ],
     "rendering_guidelines": [
@@ -324,13 +344,13 @@
         "order": 1,
         "id": "hero",
         "name": "Hero",
-        "goal": "Positionner Ozastra en quelques secondes et introduire l’artefact orbital.",
+        "goal": "Positionner Ozastra en quelques secondes et introduire l’impulsion qui naît à sa surface.",
         "headline_primary": "Digital products, engineered with taste.",
         "headline_alternative_fr": "Des produits numériques conçus avec exigence.",
         "supporting_copy": "Ozastra conçoit et développe des expériences web, des produits SaaS, des applications mobiles et des solutions alimentées par l’IA.",
         "primary_cta": "Démarrer un projet",
         "secondary_cta": "Découvrir notre approche",
-        "visual": "Artefact orbital dans son état abstrait initial."
+        "visual": "Surface minérale d’Ozastra et idée abstraite dans son état initial."
       },
       {
         "order": 2,
@@ -363,27 +383,27 @@
           {
             "name": "Web Experiences",
             "description": "Sites vitrines et plateformes rapides, accessibles et mémorables.",
-            "artifact_mapping": "Web"
+            "artifact_mapping": "Ossature du produit"
           },
           {
             "name": "SaaS Products",
             "description": "Conception et développement de produits logiciels complets.",
-            "artifact_mapping": "SaaS"
+            "artifact_mapping": "Modules du système"
           },
           {
             "name": "Applied AI",
             "description": "Automatisation, agents et fonctionnalités IA réellement utiles.",
-            "artifact_mapping": "IA"
+            "artifact_mapping": "Activation du cœur"
           },
           {
             "name": "Mobile Apps",
             "description": "Expériences mobiles fluides, cohérentes et centrées sur l’usage.",
-            "artifact_mapping": "Mobile"
+            "artifact_mapping": "Enveloppe et finition"
           },
           {
             "name": "Embedded Expertise",
             "description": "Missions freelance et renfort produit intégrés aux équipes.",
-            "artifact_mapping": "Repères orbitaux"
+            "artifact_mapping": "Mise en trajectoire"
           }
         ]
       },
@@ -429,7 +449,7 @@
         "goal": "Transformer l’intérêt en conversation qualifiée.",
         "headline": "Let’s build something with gravity.",
         "fields": ["Nom", "Email", "Type de projet", "Message"],
-        "artifact_state": "Artefact orbital entièrement recomposé."
+        "artifact_state": "Produit construit intégré à la constellation orbitale autour d’Ozastra."
       }
     ]
   },
@@ -704,7 +724,7 @@
       },
       {
         "path": "public",
-        "responsibility": "Favicons, manifeste, fallback orbital et ressources publiques optimisées"
+        "responsibility": "Favicons, manifeste, fallback de la narration 3D et ressources publiques optimisées"
       },
       {
         "path": "tests/e2e",
@@ -715,7 +735,7 @@
       "page_layer": "Les routes chargent et valident les données puis composent les sections.",
       "section_layer": "Les sections portent la sémantique, la mise en page et les marqueurs de narration.",
       "ui_layer": "Les composants UI restent génériques, accessibles et sans connaissance de Three.js.",
-      "orbital_layer": "La feature orbitale ne contient aucun texte indispensable et communique avec les sections par des marqueurs DOM typés.",
+      "orbital_layer": "La narration Three.js ne contient aucun texte indispensable et communique avec les sections par des marqueurs DOM typés.",
       "server_layer": "Les fonctions serveur gèrent validation finale, anti-abus, journalisation minimale et transmission du contact.",
       "rule": "Une couche ne peut importer qu’une couche située au même niveau ou plus bas ; la scène 3D ne doit pas devenir le conteneur de la page."
     },
@@ -726,9 +746,11 @@
         "OrbitalExperience",
         "OrbitalCanvas",
         "OrbitalScene",
-        "Core",
-        "ServiceRing",
-        "OrbitalMarkers",
+        "OzastraPlanet",
+        "IdeaArtifact",
+        "AscentTrail",
+        "TargetStar",
+        "ProductConstellation",
         "LightingRig",
         "PointerField",
         "ScrollDirector",
@@ -1020,7 +1042,7 @@
     "current_phase": null,
     "current_deliverable": null,
     "overall_progress_percent": 94,
-    "last_activity_at": "2026-08-12T09:55:52.452Z",
+    "last_activity_at": "2026-08-12T14:07:44.916Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2691,6 +2713,76 @@
         "event": "verify_phase",
         "phase": 11,
         "evidence": "Phase bilingue validee: anglais canonique sans prefixe, francais integral sous /fr, 18 pages sans JavaScript, SEO/hreflang/sitemap, ajout draft/published, chargement a la demande, accessibilite, Playwright multi-moteur, Lighthouse EN/FR, build, smoke et budgets tous au vert."
+      },
+      {
+        "timestamp": "2026-08-12T13:58:54.462Z",
+        "event": "start_step",
+        "phase": 12,
+        "deliverable": 1,
+        "description": "Cadrage narratif et storyboard idée → étoile → constellation",
+        "note": "Direction validée avec l’utilisateur : idée conceptuelle, artefact construit, étoile cible et constellation de produits autour d’Ozastra."
+      },
+      {
+        "timestamp": "2026-08-12T13:58:54.513Z",
+        "event": "complete_step",
+        "phase": 12,
+        "deliverable": 1,
+        "description": "Cadrage narratif et storyboard idée → étoile → constellation",
+        "evidence": "Concept accepté explicitement dans l’échange utilisateur et formalisé dans threejs_artifact avec huit étapes de scroll et garde-fous éditoriaux."
+      },
+      {
+        "timestamp": "2026-08-12T13:58:57.508Z",
+        "event": "start_step",
+        "phase": 12,
+        "deliverable": 2,
+        "description": "Scène procédurale avec surface d’Ozastra, ascension, artefact construit, étoile cible et couronne orbitale",
+        "note": "Remplacement de l’ancien noyau et de ses anneaux par la planète Ozastra, l’artefact en assemblage, la trajectoire, l’étoile cible et la couronne finale."
+      },
+      {
+        "timestamp": "2026-08-12T14:03:21.091Z",
+        "event": "complete_step",
+        "phase": 12,
+        "deliverable": 2,
+        "description": "Scène procédurale avec surface d’Ozastra, ascension, artefact construit, étoile cible et couronne orbitale",
+        "evidence": "src/features/orbital/OrbitalExperience.tsx remplace la scène précédente par OzastraPlanet, IdeaArtifact multicouche, AscentTrail, TargetStar et ProductConstellation ; pnpm typecheck réussi."
+      },
+      {
+        "timestamp": "2026-08-12T14:03:21.129Z",
+        "event": "start_step",
+        "phase": 12,
+        "deliverable": 3,
+        "description": "Fallback statique, thèmes clair/sombre, responsive et mouvement réduit adaptés au nouveau concept",
+        "note": "Adaptation du rendu statique à la planète, la trajectoire, l’artefact, l’étoile et les satellites, avec palettes bimodales et cadrage mobile."
+      },
+      {
+        "timestamp": "2026-08-12T14:04:08.705Z",
+        "event": "complete_step",
+        "phase": 12,
+        "deliverable": 3,
+        "description": "Fallback statique, thèmes clair/sombre, responsive et mouvement réduit adaptés au nouveau concept",
+        "evidence": "Fallback CSS et React remplacé par une composition planète–orbite–trajectoire–artefact–étoile–satellites dans la route et la feature ; palettes sémantiques et cadrage mobile conservés ; typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T14:04:08.740Z",
+        "event": "start_step",
+        "phase": 12,
+        "deliverable": 4,
+        "description": "Tests visuels, accessibilité, cycle WebGL, build et budgets de performance validés",
+        "note": "Mise à jour des assertions du nouveau fallback et validation complète de la narration, du cycle Canvas, des captures de stages, du build et des budgets."
+      },
+      {
+        "timestamp": "2026-08-12T14:07:44.880Z",
+        "event": "complete_step",
+        "phase": 12,
+        "deliverable": 4,
+        "description": "Tests visuels, accessibilité, cycle WebGL, build et budgets de performance validés",
+        "evidence": "Vitest 34/34, typecheck et lint réussis ; Playwright complet 44 passes et 64 skips conditionnels avec stages mobile, cycle Canvas, thèmes, fallback, axe WCAG et captures Hero/Web/Convergence recalibrées ; build de 18 pages réussi ; UI 153.1/200 kB gzip et scène 3D 272.4/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T14:07:44.916Z",
+        "event": "verify_phase",
+        "phase": 12,
+        "evidence": "Narration idée → étoile → constellation livrée sur la branche idea-to-starz sans modification des sections éditoriales ; huit stages, thèmes, responsive, reduced-motion, no-WebGL, tests visuels, build et budgets validés."
       }
     ]
   },
@@ -3650,6 +3742,62 @@
         "Typecheck, lint, tests unitaires, Playwright, build, budgets bundle, accessibilité et Lighthouse sont au vert pour l’anglais et le français."
       ],
       "exit_criteria": "L’anglais est la langue canonique sans préfixe, le français est intégralement disponible sous /fr, et une nouvelle langue peut être ajoutée par registre, catalogue et contenus sans modifier l’architecture ni augmenter la charge utile des autres langues."
+    },
+    {
+      "phase": 12,
+      "name": "De l’idée à l’étoile — constellation de produits",
+      "status": "completed",
+      "dependencies": [5, 6, 8, 10, 11],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Cadrage narratif et storyboard idée → étoile → constellation",
+            "completed_at": "2026-08-12T13:58:54.513Z",
+            "evidence": "Concept accepté explicitement dans l’échange utilisateur et formalisé dans threejs_artifact avec huit étapes de scroll et garde-fous éditoriaux."
+          },
+          {
+            "index": 2,
+            "description": "Scène procédurale avec surface d’Ozastra, ascension, artefact construit, étoile cible et couronne orbitale",
+            "completed_at": "2026-08-12T14:03:21.091Z",
+            "evidence": "src/features/orbital/OrbitalExperience.tsx remplace la scène précédente par OzastraPlanet, IdeaArtifact multicouche, AscentTrail, TargetStar et ProductConstellation ; pnpm typecheck réussi."
+          },
+          {
+            "index": 3,
+            "description": "Fallback statique, thèmes clair/sombre, responsive et mouvement réduit adaptés au nouveau concept",
+            "completed_at": "2026-08-12T14:04:08.704Z",
+            "evidence": "Fallback CSS et React remplacé par une composition planète–orbite–trajectoire–artefact–étoile–satellites dans la route et la feature ; palettes sémantiques et cadrage mobile conservés ; typecheck et lint réussis."
+          },
+          {
+            "index": 4,
+            "description": "Tests visuels, accessibilité, cycle WebGL, build et budgets de performance validés",
+            "completed_at": "2026-08-12T14:07:44.879Z",
+            "evidence": "Vitest 34/34, typecheck et lint réussis ; Playwright complet 44 passes et 64 skips conditionnels avec stages mobile, cycle Canvas, thèmes, fallback, axe WCAG et captures Hero/Web/Convergence recalibrées ; build de 18 pages réussi ; UI 153.1/200 kB gzip et scène 3D 272.4/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T14:07:44.916Z",
+          "evidence": "Narration idée → étoile → constellation livrée sur la branche idea-to-starz sans modification des sections éditoriales ; huit stages, thèmes, responsive, reduced-motion, no-WebGL, tests visuels, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T14:07:44.916Z"
+      },
+      "deliverables": [
+        "Cadrage narratif et storyboard idée → étoile → constellation",
+        "Scène procédurale avec surface d’Ozastra, ascension, artefact construit, étoile cible et couronne orbitale",
+        "Fallback statique, thèmes clair/sombre, responsive et mouvement réduit adaptés au nouveau concept",
+        "Tests visuels, accessibilité, cycle WebGL, build et budgets de performance validés"
+      ],
+      "verification": [
+        "Les huit positions de scroll existantes pilotent la nouvelle narration sans modifier les sections du site.",
+        "Le hero suggère seulement la surface et la conclusion révèle la planète ainsi que la constellation de produits.",
+        "L’artefact reste construit lorsqu’il atteint l’étoile et rejoint la couronne orbitale.",
+        "Les produits secondaires restent symboliques et ne constituent pas de fausses références clients.",
+        "Les thèmes, le responsive, le fallback no-WebGL, prefers-reduced-motion et les budgets existants restent conformes."
+      ],
+      "exit_criteria": "La nouvelle 3D raconte clairement le passage d’une idée née sur Ozastra à un produit construit qui atteint son étoile et complète une constellation orbitale, sans altérer le reste du site ni ses garanties de qualité."
     }
   ],
   "success_criteria": {
@@ -3672,7 +3820,7 @@
   },
   "north_star": {
     "statement": "Ozastra est un studio de product engineering capable de transformer une idée en expérience numérique aboutie.",
-    "visual_expression": "Deux atmosphères cohérentes — bleu-noir nocturne ou ivoire minéral —, composition éditoriale, typographie expressive, artefact orbital abstrait en Three.js, animations lentes et études de cas très visuelles.",
+    "visual_expression": "Deux atmosphères cohérentes — bleu-noir nocturne ou ivoire minéral —, composition éditoriale, typographie expressive, narration Three.js d’une idée née sur Ozastra qui devient un produit et rejoint une constellation orbitale, animations lentes et études de cas très visuelles.",
     "decision_filter": "Toute décision de design, de contenu ou de développement doit renforcer au moins l’une de ces qualités : clarté, précision, confiance, goût ou progression de l’idée vers le produit."
   }
 }

@@ -93,11 +93,14 @@ const process = [
 function OrbitalFallback() {
   return (
     <div className="orbital-fallback" aria-hidden="true">
-      <span className="orbital-fallback__core" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--one" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--two" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--three" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--four" />
+      <span className="orbital-fallback__planet" />
+      <span className="orbital-fallback__orbit" />
+      <span className="orbital-fallback__trail" />
+      <span className="orbital-fallback__artifact" />
+      <span className="orbital-fallback__star" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--one" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--two" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--three" />
     </div>
   )
 }

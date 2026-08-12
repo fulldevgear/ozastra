@@ -723,60 +723,131 @@ select {
   transform: translate(-50%, -50%);
 }
 
-.orbital-fallback__core,
-.orbital-fallback__ring {
+.orbital-fallback > span {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
 }
 
-.orbital-fallback__core {
-  width: 38%;
+.orbital-fallback__planet {
+  top: 48%;
+  left: 50%;
+  width: 52%;
   aspect-ratio: 1;
+  border: 1px solid rgb(var(--theme-foreground-rgb) / 9%);
+  border-radius: 50%;
   background:
-    radial-gradient(circle at 68% 24%, rgb(243 240 232 / 24%), transparent 17%),
+    radial-gradient(circle at 68% 23%, rgb(243 240 232 / 18%), transparent 13%),
     radial-gradient(
-      circle at 38% 65%,
-      rgb(var(--theme-accent-rgb) / 14%),
-      transparent 38%
+      circle at 28% 72%,
+      rgb(var(--theme-accent-rgb) / 18%),
+      transparent 35%
+    ),
+    repeating-radial-gradient(
+      circle at 40% 35%,
+      transparent 0 13%,
+      rgb(var(--theme-foreground-rgb) / 4%) 13.3% 13.7%
     ),
     #080b12;
   box-shadow:
-    inset -1rem -1rem 2rem rgb(0 0 0 / 55%),
-    0 0 5rem rgb(var(--theme-accent-rgb) / 13%);
+    inset -1.2rem -1.4rem 2.6rem rgb(0 0 0 / 62%),
+    0 0 4rem rgb(var(--theme-accent-rgb) / 12%);
+  transform: translate(-50%, -50%);
 }
 
-.orbital-fallback__ring {
-  border: 1px solid rgb(var(--theme-foreground-rgb) / 32%);
-}
-
-.orbital-fallback__ring--one {
-  width: 55%;
-  height: 42%;
-  transform: translate(-50%, -50%) rotate(18deg);
-}
-
-.orbital-fallback__ring--two {
-  width: 67%;
-  height: 48%;
-  border-color: rgb(var(--theme-accent-rgb) / 56%);
-  transform: translate(-50%, -50%) rotate(-32deg);
-}
-
-.orbital-fallback__ring--three {
-  width: 76%;
-  height: 57%;
-  border-color: rgb(var(--theme-astral-rgb) / 44%);
-  transform: translate(-50%, -50%) rotate(58deg);
-}
-
-.orbital-fallback__ring--four {
+.orbital-fallback__orbit {
+  top: 50%;
+  left: 50%;
   width: 88%;
-  height: 64%;
-  border-color: rgb(var(--theme-muted-rgb) / 34%);
-  transform: translate(-50%, -50%) rotate(-8deg);
+  height: 36%;
+  border: 1px solid rgb(var(--theme-foreground-rgb) / 32%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+
+.orbital-fallback__trail {
+  top: 16%;
+  left: 57%;
+  width: 16%;
+  height: 31%;
+  border-top: 1px solid rgb(var(--theme-accent-rgb) / 58%);
+  border-left: 1px solid rgb(var(--theme-accent-rgb) / 38%);
+  border-radius: 72% 0 0;
+  transform: rotate(24deg);
+}
+
+.orbital-fallback__artifact {
+  top: 18%;
+  left: 70%;
+  width: 8%;
+  aspect-ratio: 1;
+  border: 1px solid rgb(var(--theme-foreground-rgb) / 74%);
+  background: radial-gradient(
+    circle,
+    rgb(var(--theme-accent-rgb) / 92%) 0 18%,
+    #080b12 20% 48%,
+    transparent 50%
+  );
+  box-shadow:
+    0 0 1.5rem rgb(var(--theme-accent-rgb) / 34%),
+    inset 0 0 0 0.22rem rgb(var(--theme-background-rgb) / 34%);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.orbital-fallback__star {
+  top: 12%;
+  left: 76%;
+  width: 0.28rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(var(--theme-foreground-rgb));
+  box-shadow:
+    0 0 0.55rem rgb(var(--theme-foreground-rgb) / 80%),
+    0 0 1.8rem rgb(var(--theme-accent-rgb) / 36%);
+  transform: translate(-50%, -50%);
+}
+
+.orbital-fallback__star::before,
+.orbital-fallback__star::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  background: rgb(var(--theme-foreground-rgb) / 60%);
+  transform: translate(-50%, -50%);
+}
+
+.orbital-fallback__star::before {
+  width: 1.2rem;
+  height: 1px;
+}
+
+.orbital-fallback__star::after {
+  width: 1px;
+  height: 1.2rem;
+}
+
+.orbital-fallback__satellite {
+  width: 3.4%;
+  aspect-ratio: 1;
+  border: 1px solid rgb(var(--theme-foreground-rgb) / 54%);
+  background: #080b12;
+  box-shadow: 0 0 0.75rem rgb(var(--theme-accent-rgb) / 18%);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.orbital-fallback__satellite--one {
+  top: 57%;
+  left: 92%;
+}
+
+.orbital-fallback__satellite--two {
+  top: 67%;
+  left: 23%;
+  border-color: rgb(var(--theme-astral-rgb) / 58%);
+}
+
+.orbital-fallback__satellite--three {
+  top: 37%;
+  left: 12%;
 }
 
 .page-container {
