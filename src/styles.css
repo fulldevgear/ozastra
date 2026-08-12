@@ -277,6 +277,14 @@ select {
 }
 
 @media (max-width: 34rem) {
+  .site-header .wordmark-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
   .theme-toggle {
     min-width: 2.6rem;
     padding-inline: 0.7rem;

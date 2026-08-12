@@ -10,4 +10,3 @@ export function useLocale(): Locale {
   }
   return i18n.locale
 }
-

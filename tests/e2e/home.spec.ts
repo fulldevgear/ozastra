@@ -48,6 +48,7 @@ test('exposes the complete mobile navigation', async ({ page }, testInfo) => {
 test('renders project routes and their unique metadata', async ({ page }) => {
   await page.goto('/work')
   await expect(page).toHaveTitle('Work — Ozastra')
+  await page.waitForLoadState('networkidle')
   await page.getByRole('link', { name: 'Discover Orbit' }).click()
   await expect(page).toHaveURL(/\/work\/orbit$/)
   await expect(page).toHaveTitle('Orbit — SaaS product concept by Ozastra')

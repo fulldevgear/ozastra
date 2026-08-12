@@ -74,6 +74,7 @@ test('resists expanded pseudo-localized copy on narrow screens', async ({
 
   for (const route of ['/services', '/contact', '/work/orbit']) {
     await page.goto(route)
+    await page.waitForLoadState('networkidle')
     await page.evaluate(() => {
       const walker = document.createTreeWalker(
         document.body,

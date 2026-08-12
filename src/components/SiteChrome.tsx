@@ -22,7 +22,7 @@ export function Wordmark() {
       <span className="grid size-7 place-items-center rounded-full border border-line bg-ivory/[0.04]">
         <span className="wordmark-signal size-1.5 rounded-full bg-electric transition-transform duration-300 group-hover:scale-125" />
       </span>
-      Ozastra
+      <span className="wordmark-label">Ozastra</span>
     </Link>
   )
 }
@@ -33,7 +33,7 @@ export function SiteHeader() {
   const params = { locale: routeLocaleParam(locale) }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/70 backdrop-blur-xl">
+    <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/70 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-[var(--content-width)] items-center justify-between px-[var(--page-gutter)]">
         <Wordmark />
         <nav

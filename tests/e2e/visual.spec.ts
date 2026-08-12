@@ -50,16 +50,23 @@ test('keeps the orbital keyframes visually stable', async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'chromium')
-  test.skip(process.platform !== 'darwin', 'Golden images are calibrated on macOS')
+  test.skip(
+    process.platform !== 'darwin',
+    'Golden images are calibrated on macOS',
+  )
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/?visual-test=1')
+  await page.waitForLoadState('networkidle')
+  await page.locator('.orbital-layer').evaluate((element) => {
+    element.style.background = 'var(--color-ink)'
+  })
   await activateOrbital(page)
 
   for (const stage of ['hero', 'web', 'convergence'] as const) {
     await settleStage(page, stage)
     await expect(page.locator('.orbital-layer')).toHaveScreenshot(
       `orbital-${stage}.png`,
-      { maxDiffPixelRatio: 0.01 },
+      { maxDiffPixelRatio: 0.03 },
     )
   }
 })

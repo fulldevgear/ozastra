@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 203
+    "revision": 206
   },
   "brand": {
     "name": "Ozastra",
@@ -177,14 +177,8 @@
     },
     "motion": {
       "character": "Lent, précis, organique, presque physique et jamais gaming.",
-      "micro_interactions_ms": [
-        200,
-        300
-      ],
-      "section_transitions_ms": [
-        400,
-        500
-      ],
+      "micro_interactions_ms": [200, 300],
+      "section_transitions_ms": [400, 500],
       "principles": [
         "Utiliser des accélérations et décélérations douces.",
         "Éviter les rebonds exagérés.",
@@ -321,12 +315,7 @@
   },
   "site_architecture": {
     "navigation": {
-      "items": [
-        "Projets",
-        "Expertises",
-        "Approche",
-        "À propos"
-      ],
+      "items": ["Projets", "Expertises", "Approche", "À propos"],
       "primary_cta": "Démarrer un projet",
       "behavior": "Navigation légère, lisible, éventuellement translucide après le premier scroll."
     },
@@ -439,12 +428,7 @@
         "name": "Contact et CTA final",
         "goal": "Transformer l’intérêt en conversation qualifiée.",
         "headline": "Let’s build something with gravity.",
-        "fields": [
-          "Nom",
-          "Email",
-          "Type de projet",
-          "Message"
-        ],
+        "fields": ["Nom", "Email", "Type de projet", "Message"],
         "artifact_state": "Artefact orbital entièrement recomposé."
       }
     ]
@@ -941,11 +925,7 @@
         "Smoke test public",
         "Monitoring des erreurs et disponibilités"
       ],
-      "environments": [
-        "local",
-        "preview",
-        "production"
-      ],
+      "environments": ["local", "preview", "production"],
       "rollback": "Conserver le dernier artefact de production validé et documenter une procédure de retour arrière."
     },
     "dependency_policy": {
@@ -1037,10 +1017,10 @@
   "project_tracking": {
     "source_of_truth": "paradigm-roadmap.json",
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
-    "current_phase": 11,
+    "current_phase": null,
     "current_deliverable": null,
-    "overall_progress_percent": 93,
-    "last_activity_at": "2026-08-12T09:43:40.254Z",
+    "overall_progress_percent": 94,
+    "last_activity_at": "2026-08-12T09:55:52.452Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2689,6 +2669,28 @@
         "deliverable": 10,
         "description": "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
         "evidence": "Vitest: 34 tests unitaires verts. Playwright: matrice i18n EN/FR verte (clavier, mobile, sans JS, pseudo-localisation, RTL), 18 routes sans débordement, audits axe WCAG A/AA sombres et clairs, navigation/formulaire/metadonnees verifies. Hydratation securisee par catalogue actif serialise dans le contexte de route."
+      },
+      {
+        "timestamp": "2026-08-12T09:43:52.748Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 11,
+        "description": "Validation des budgets de performance et du lancement bilingue",
+        "note": "Validation finale: build statique localisé, budgets de bundle, Lighthouse EN/FR, smoke de production et documentation de lancement"
+      },
+      {
+        "timestamp": "2026-08-12T09:55:52.357Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 11,
+        "description": "Validation des budgets de performance et du lancement bilingue",
+        "evidence": "Build final: 18 routes EN/FR pre-rendues; smoke production: 18 pages et 5 endpoints; bundle: UI 153.1/200 kB gzip, 3D 270.8/450 kB; Playwright complet: 44 passes, 64 skips conditionnels, 0 echec sur Chromium/mobile/Firefox/WebKit; Lighthouse sur 6 URLs EN/FR: performance 96-100, accessibilite 98-100, bonnes pratiques et SEO 100; controle reseau: aucun catalogue concurrent et un seul MDX actif par route."
+      },
+      {
+        "timestamp": "2026-08-12T09:55:52.452Z",
+        "event": "verify_phase",
+        "phase": 11,
+        "evidence": "Phase bilingue validee: anglais canonique sans prefixe, francais integral sous /fr, 18 pages sans JavaScript, SEO/hreflang/sitemap, ajout draft/published, chargement a la demande, accessibilite, Playwright multi-moteur, Lighthouse EN/FR, build, smoke et budgets tous au vert."
       }
     ]
   },
@@ -2764,9 +2766,7 @@
       "phase": 2,
       "name": "Bootstrap TanStack Start",
       "status": "completed",
-      "dependencies": [
-        1
-      ],
+      "dependencies": [1],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -2855,10 +2855,7 @@
       "phase": 3,
       "name": "Architecture éditoriale et contenu",
       "status": "completed",
-      "dependencies": [
-        1,
-        2
-      ],
+      "dependencies": [1, 2],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -2940,10 +2937,7 @@
       "phase": 4,
       "name": "Design system Tailwind et shell accessible",
       "status": "completed",
-      "dependencies": [
-        2,
-        3
-      ],
+      "dependencies": [2, 3],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3033,10 +3027,7 @@
       "phase": 5,
       "name": "Prototype de l’artefact React Three Fiber",
       "status": "completed",
-      "dependencies": [
-        2,
-        4
-      ],
+      "dependencies": [2, 4],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3133,10 +3124,7 @@
       "phase": 6,
       "name": "Narration orbitale au scroll",
       "status": "completed",
-      "dependencies": [
-        4,
-        5
-      ],
+      "dependencies": [4, 5],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3226,11 +3214,7 @@
       "phase": 7,
       "name": "Contenus, preuves et conversion",
       "status": "in_progress",
-      "dependencies": [
-        3,
-        4,
-        6
-      ],
+      "dependencies": [3, 4, 6],
       "tracking": {
         "progress_percent": 90,
         "active_deliverable": null,
@@ -3325,11 +3309,7 @@
       "phase": 8,
       "name": "Hardening qualité",
       "status": "ready_for_review",
-      "dependencies": [
-        5,
-        6,
-        7
-      ],
+      "dependencies": [5, 6, 7],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3423,9 +3403,7 @@
       "phase": 9,
       "name": "Déploiement et lancement",
       "status": "in_progress",
-      "dependencies": [
-        8
-      ],
+      "dependencies": [8],
       "tracking": {
         "progress_percent": 44,
         "active_deliverable": null,
@@ -3513,12 +3491,7 @@
       "phase": 10,
       "name": "Thème clair et continuité orbitale",
       "status": "completed",
-      "dependencies": [
-        4,
-        5,
-        6,
-        8
-      ],
+      "dependencies": [4, 5, 6, 8],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3573,15 +3546,10 @@
     {
       "phase": 11,
       "name": "Internationalisation et lancement multilingue",
-      "status": "in_progress",
-      "dependencies": [
-        2,
-        3,
-        4,
-        10
-      ],
+      "status": "completed",
+      "dependencies": [2, 3, 4, 10],
       "tracking": {
-        "progress_percent": 91,
+        "progress_percent": 100,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3643,11 +3611,20 @@
             "description": "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
             "completed_at": "2026-08-12T09:43:40.253Z",
             "evidence": "Vitest: 34 tests unitaires verts. Playwright: matrice i18n EN/FR verte (clavier, mobile, sans JS, pseudo-localisation, RTL), 18 routes sans débordement, audits axe WCAG A/AA sombres et clairs, navigation/formulaire/metadonnees verifies. Hydratation securisee par catalogue actif serialise dans le contexte de route."
+          },
+          {
+            "index": 11,
+            "description": "Validation des budgets de performance et du lancement bilingue",
+            "completed_at": "2026-08-12T09:55:52.356Z",
+            "evidence": "Build final: 18 routes EN/FR pre-rendues; smoke production: 18 pages et 5 endpoints; bundle: UI 153.1/200 kB gzip, 3D 270.8/450 kB; Playwright complet: 44 passes, 64 skips conditionnels, 0 echec sur Chromium/mobile/Firefox/WebKit; Lighthouse sur 6 URLs EN/FR: performance 96-100, accessibilite 98-100, bonnes pratiques et SEO 100; controle reseau: aucun catalogue concurrent et un seul MDX actif par route."
           }
         ],
         "blocked_deliverables": [],
-        "verification": null,
-        "last_updated_at": "2026-08-12T09:43:40.254Z"
+        "verification": {
+          "verified_at": "2026-08-12T09:55:52.452Z",
+          "evidence": "Phase bilingue validee: anglais canonique sans prefixe, francais integral sous /fr, 18 pages sans JavaScript, SEO/hreflang/sitemap, ajout draft/published, chargement a la demande, accessibilite, Playwright multi-moteur, Lighthouse EN/FR, build, smoke et budgets tous au vert."
+        },
+        "last_updated_at": "2026-08-12T09:55:52.452Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",
