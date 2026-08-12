@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/legal')({
@@ -15,48 +17,35 @@ export const Route = createFileRoute('/{-$locale}/legal')({
 })
 
 function LegalPage() {
+  const message = useMessage()
+
   return (
     <PageShell>
       <div className="page-container legal-copy">
         <PageIntro
-          eyebrow="Legal"
-          title="Mentions légales"
-          description="Informations relatives à l’éditeur du site Ozastra."
+          eyebrow={message(copy.legal.eyebrow)}
+          title={message(copy.legal.title)}
+          description={message(copy.legal.description)}
         />
         <section>
-          <h2>Éditeur</h2>
+          <h2>{message(copy.legal.publisherTitle)}</h2>
+          <p>{message(copy.legal.publisherText)}</p>
           <p>
-            Le présent site est édité par Ozastra LLC. Les informations
-            d’immatriculation et l’adresse du siège seront complétées avant la
-            mise en production publique.
-          </p>
-          <p>
-            Contact : <a href="mailto:hello@ozastra.com">hello@ozastra.com</a>
+            {message(copy.legal.contact)}{' '}
+            <a href="mailto:hello@ozastra.com">hello@ozastra.com</a>
           </p>
         </section>
         <section>
-          <h2>Hébergement</h2>
-          <p>
-            Les coordonnées de l’hébergeur seront ajoutées dès la plateforme de
-            production sélectionnée.
-          </p>
+          <h2>{message(copy.legal.hostingTitle)}</h2>
+          <p>{message(copy.legal.hostingText)}</p>
         </section>
         <section>
-          <h2>Propriété intellectuelle</h2>
-          <p>
-            Les textes, éléments graphiques, interfaces et créations présentés
-            sur ce site sont protégés. Toute reproduction ou adaptation
-            nécessite l’autorisation écrite préalable d’Ozastra LLC, sauf
-            disposition légale contraire.
-          </p>
+          <h2>{message(copy.legal.intellectualTitle)}</h2>
+          <p>{message(copy.legal.intellectualText)}</p>
         </section>
         <section>
-          <h2>Responsabilité</h2>
-          <p>
-            Ozastra s’efforce de fournir des informations exactes et à jour. Les
-            contenus conceptuels présentés ne constituent ni une promesse de
-            résultat ni la représentation d’une mission client réelle.
-          </p>
+          <h2>{message(copy.legal.liabilityTitle)}</h2>
+          <p>{message(copy.legal.liabilityText)}</p>
         </section>
       </div>
     </PageShell>

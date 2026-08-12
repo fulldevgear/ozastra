@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { ContactForm } from '../components/ContactForm'
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/contact')({
@@ -16,32 +18,33 @@ export const Route = createFileRoute('/{-$locale}/contact')({
 })
 
 function ContactPage() {
+  const message = useMessage()
+
   return (
     <PageShell>
       <div className="page-container">
         <PageIntro
-          eyebrow="Start a conversation"
-          title="Parlons de ce que vous voulez rendre possible."
-          description="Un contexte, un objectif et même quelques incertitudes suffisent pour commencer. Ozastra répond généralement sous deux jours ouvrés."
+          eyebrow={message(copy.contact.eyebrow)}
+          title={message(copy.contact.title)}
+          description={message(copy.contact.description)}
         />
         <section className="contact-panel">
           <div>
             <ContactForm />
           </div>
           <div>
-            <p className="eyebrow">Pour gagner du temps</p>
+            <p className="eyebrow">{message(copy.contact.prepare)}</p>
             <ul>
-              <li>Le problème ou l’opportunité</li>
-              <li>L’état actuel du projet</li>
-              <li>Le calendrier envisagé</li>
-              <li>Une enveloppe budgétaire, si elle est définie</li>
+              <li>{message(copy.contact.prepareProblem)}</li>
+              <li>{message(copy.contact.prepareState)}</li>
+              <li>{message(copy.contact.prepareTimeline)}</li>
+              <li>{message(copy.contact.prepareBudget)}</li>
             </ul>
             <p className="contact-alternative">
-              Vous préférez votre messagerie ? Écrivez directement à{' '}
-              <a href="mailto:hello@ozastra.com?subject=Projet%20Ozastra">
+              {message(copy.contact.alternativeBefore)}{' '}
+              <a href="mailto:hello@ozastra.com?subject=Ozastra%20project">
                 hello@ozastra.com
               </a>
-              .
             </p>
           </div>
         </section>

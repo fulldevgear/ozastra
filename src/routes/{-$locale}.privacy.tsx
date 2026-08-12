@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/privacy')({
@@ -15,61 +17,39 @@ export const Route = createFileRoute('/{-$locale}/privacy')({
 })
 
 function PrivacyPage() {
+  const message = useMessage()
+
   return (
     <PageShell>
       <div className="page-container legal-copy">
         <PageIntro
-          eyebrow="Privacy"
-          title="Politique de confidentialité"
-          description="Une collecte minimale, expliquée simplement."
+          eyebrow={message(copy.privacy.eyebrow)}
+          title={message(copy.privacy.title)}
+          description={message(copy.privacy.description)}
         />
         <section>
-          <h2>Données collectées</h2>
+          <h2>{message(copy.privacy.collectedTitle)}</h2>
+          <p>{message(copy.privacy.collectedText)}</p>
+        </section>
+        <section>
+          <h2>{message(copy.privacy.basisTitle)}</h2>
+          <p>{message(copy.privacy.basisText)}</p>
+        </section>
+        <section>
+          <h2>{message(copy.privacy.recipientsTitle)}</h2>
+          <p>{message(copy.privacy.recipientsText)}</p>
+        </section>
+        <section>
+          <h2>{message(copy.privacy.rightsTitle)}</h2>
           <p>
-            Lorsque vous contactez Ozastra, les informations que vous
-            transmettez volontairement — identité, adresse email et contenu de
-            la demande — servent uniquement à traiter votre message et à assurer
-            le suivi de la relation.
+            {message(copy.privacy.rightsBefore)}{' '}
+            <a href="mailto:hello@ozastra.com">hello@ozastra.com</a>.{' '}
+            {message(copy.privacy.rightsAfter)}
           </p>
         </section>
         <section>
-          <h2>Base et durée de conservation</h2>
-          <p>
-            Le traitement repose sur votre demande de contact et, le cas
-            échéant, sur l’intérêt légitime à assurer le suivi commercial. Les
-            données sont conservées pendant la durée nécessaire à ces échanges,
-            puis supprimées ou archivées selon les obligations applicables.
-          </p>
-        </section>
-        <section>
-          <h2>Destinataires et sous-traitants</h2>
-          <p>
-            Les données ne sont ni vendues ni louées. Les prestataires
-            techniques strictement nécessaires à l’hébergement ou à
-            l’acheminement des messages pourront les traiter selon leurs propres
-            garanties contractuelles. La liste sera précisée avant le lancement
-            public.
-          </p>
-        </section>
-        <section>
-          <h2>Vos droits</h2>
-          <p>
-            Vous pouvez demander l’accès, la rectification ou la suppression de
-            vos données en écrivant à{' '}
-            <a href="mailto:hello@ozastra.com">hello@ozastra.com</a>. Selon
-            votre juridiction, d’autres droits peuvent s’appliquer.
-          </p>
-        </section>
-        <section>
-          <h2>Mesure d’audience et cookies</h2>
-          <p>
-            Ozastra mesure uniquement les pages consultées au moyen d’un
-            endpoint interne. Cette mesure n’envoie ni paramètre d’URL, ni
-            identifiant, ni empreinte du navigateur, ne dépose aucun cookie et
-            respecte les signaux Do Not Track et Global Privacy Control. Les
-            événements techniques sont conservés dans des journaux rotatifs à
-            durée limitée. Aucun cookie publicitaire n’est utilisé.
-          </p>
+          <h2>{message(copy.privacy.analyticsTitle)}</h2>
+          <p>{message(copy.privacy.analyticsText)}</p>
         </section>
       </div>
     </PageShell>

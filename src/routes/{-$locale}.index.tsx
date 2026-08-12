@@ -3,8 +3,10 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 const OrbitalExperience = lazy(
@@ -25,21 +27,19 @@ export const Route = createFileRoute('/{-$locale}/')({
 const work = [
   {
     index: '01',
-    label: 'Concept product',
+    label: copy.home.conceptProduct,
     title: 'Orbit',
     slug: 'orbit',
-    description:
-      'Un cockpit SaaS qui transforme des signaux complexes en décisions lisibles.',
+    description: copy.home.orbitDescription,
     tags: ['Product strategy', 'SaaS', 'Data experience'],
     tone: 'blue',
   },
   {
     index: '02',
-    label: 'Concept product',
+    label: copy.home.conceptProduct,
     title: 'Axiom',
     slug: 'axiom',
-    description:
-      'Une interface d’agents IA pensée pour superviser, comprendre et garder le contrôle.',
+    description: copy.home.axiomDescription,
     tags: ['Applied AI', 'Web app', 'Interaction'],
     tone: 'violet',
   },
@@ -50,33 +50,35 @@ const expertise = [
     number: '01',
     stage: 'web',
     title: 'Web experiences',
-    description:
-      'Des sites et plateformes rapides, accessibles et mémorables — conçus pour servir une ambition, pas une tendance.',
+    description: copy.home.webDescription,
   },
   {
     number: '02',
     stage: 'ai',
     title: 'Applied AI',
-    description:
-      'Des agents, automatisations et fonctionnalités IA qui résolvent un problème réel et restent compréhensibles.',
+    description: copy.home.aiDescription,
   },
   {
     number: '03',
     stage: 'saas',
     title: 'SaaS products',
-    description:
-      'De la logique métier à l’expérience produit, des systèmes cohérents capables de grandir proprement.',
+    description: copy.home.saasDescription,
   },
   {
     number: '04',
     stage: 'mobile',
     title: 'Mobile apps',
-    description:
-      'Des expériences mobiles fluides, tactiles et focalisées sur les usages qui comptent vraiment.',
+    description: copy.home.mobileDescription,
   },
 ] as const
 
-const process = ['Clarifier', 'Concevoir', 'Construire', 'Lancer', 'Améliorer']
+const process = [
+  copy.home.clarify,
+  copy.home.design,
+  copy.home.build,
+  copy.home.launch,
+  copy.home.improve,
+]
 
 function OrbitalFallback() {
   return (
@@ -127,6 +129,8 @@ function OrbitalLayer() {
 }
 
 function Hero() {
+  const message = useMessage()
+
   return (
     <section
       id="top"
@@ -136,25 +140,23 @@ function Hero() {
       <div className="page-grid mx-auto w-full max-w-[var(--content-width)] px-[var(--page-gutter)] pt-40 pb-12 md:pb-16">
         <div className="relative col-span-full lg:col-span-8">
           <p className="eyebrow mb-8">
-            <span className="status-dot" /> Independent product engineering
-            studio
+            <span className="status-dot" /> {message(copy.home.heroEyebrow)}
           </p>
           <h1 className="max-w-5xl text-[clamp(3.65rem,8.5vw,9rem)] leading-[0.88] font-medium tracking-[-0.065em] text-balance">
-            Digital products,
+            {message(copy.home.heroLine1)}
             <span className="mt-2 block font-editorial font-normal tracking-[-0.055em] text-ivory/90 italic">
-              engineered with taste.
+              {message(copy.home.heroLine2)}
             </span>
           </h1>
           <p className="mt-9 max-w-xl text-[clamp(1rem,1.5vw,1.25rem)] leading-relaxed text-muted md:ml-[12.5%]">
-            Ozastra transforme des idées ambitieuses en expériences web,
-            produits SaaS, applications mobiles et solutions IA remarquables.
+            {message(copy.home.heroDescription)}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4 md:ml-[12.5%]">
             <a className="button-primary" href="#contact">
-              Démarrer un projet <span aria-hidden="true">↗</span>
+              {message(copy.home.heroAction)}
             </a>
             <a className="button-secondary" href="#approach">
-              Découvrir l’approche
+              {message(copy.home.approachEyebrow)}
             </a>
           </div>
         </div>
@@ -163,7 +165,7 @@ function Hero() {
           <span>Web · AI · SaaS · Mobile</span>
           <span className="flex items-center gap-3">
             <span className="h-px w-10 bg-line" />
-            Scroll to shape the system
+            {message(copy.home.heroScroll)}
           </span>
         </div>
       </div>
@@ -174,6 +176,7 @@ function Hero() {
 function SelectedWork() {
   const locale = useLocale()
   const localeParam = routeLocaleParam(locale)
+  const message = useMessage()
 
   return (
     <section
@@ -183,10 +186,9 @@ function SelectedWork() {
     >
       <div className="mx-auto max-w-[var(--content-width)] px-[var(--page-gutter)]">
         <div className="section-heading">
-          <p className="eyebrow">Selected work</p>
+          <p className="eyebrow">{message(copy.home.workEyebrow)}</p>
           <p className="max-w-md text-sm leading-relaxed text-muted">
-            Premières explorations conceptuelles. Elles posent le niveau
-            d’exigence visé avant l’arrivée des études de cas clients.
+            {message(copy.home.workDescription)}
           </p>
         </div>
 
@@ -197,14 +199,16 @@ function SelectedWork() {
                 className="block"
                 to="/{-$locale}/work/$slug"
                 params={{ locale: localeParam, slug: project.slug }}
-                aria-label={`Découvrir ${project.title}`}
+                aria-label={message(copy.home.discoverProject, {
+                  project: project.title,
+                })}
               >
                 <ProjectVisual tone={project.tone} />
               </Link>
               <div className="flex items-start justify-between gap-6 border-t border-line pt-6">
                 <div>
                   <p className="text-xs tracking-[0.15em] text-muted uppercase">
-                    {project.label}
+                    {message(project.label)}
                   </p>
                   <h3 className="mt-3 text-3xl tracking-[-0.04em]">
                     <Link
@@ -216,11 +220,11 @@ function SelectedWork() {
                     </Link>
                   </h3>
                   <p className="mt-3 max-w-md leading-relaxed text-muted">
-                    {project.description}
+                    {message(project.description)}
                   </p>
                   <ul
                     className="mt-5 flex flex-wrap gap-2"
-                    aria-label="Services"
+                    aria-label={message(copy.work.servicesLabel)}
                   >
                     {project.tags.map((tag) => (
                       <li className="tag" key={tag}>
@@ -240,16 +244,18 @@ function SelectedWork() {
 }
 
 function Expertise() {
+  const message = useMessage()
+
   return (
     <section id="expertise" className="section-shell relative z-10">
       <div className="mx-auto max-w-[var(--content-width)] px-[var(--page-gutter)]">
         <div className="section-heading">
-          <p className="eyebrow">Capabilities</p>
+          <p className="eyebrow">{message(copy.home.capabilitiesEyebrow)}</p>
           <h2 className="max-w-3xl text-[clamp(2.5rem,5vw,5.5rem)] leading-[0.98] tracking-[-0.055em]">
-            Une vision produit,
+            {message(copy.home.capabilitiesTitle)}
             <span className="font-editorial text-ivory/80 italic">
               {' '}
-              plusieurs disciplines.
+              {message(copy.home.capabilitiesAccent)}
             </span>
           </h2>
         </div>
@@ -266,7 +272,7 @@ function Expertise() {
                 {item.title}
               </h3>
               <p className="max-w-md text-sm leading-relaxed text-muted md:text-base">
-                {item.description}
+                {message(item.description)}
               </p>
               <span
                 className="hidden text-xl text-muted transition-colors group-hover:text-electric lg:block"
@@ -283,6 +289,8 @@ function Expertise() {
 }
 
 function Approach() {
+  const message = useMessage()
+
   return (
     <section
       id="approach"
@@ -291,16 +299,15 @@ function Approach() {
     >
       <div className="page-grid mx-auto max-w-[var(--content-width)] px-[var(--page-gutter)]">
         <div className="col-span-full lg:col-span-5">
-          <p className="eyebrow">The approach</p>
+          <p className="eyebrow">{message(copy.home.approachEyebrow)}</p>
           <h2 className="mt-8 text-[clamp(2.8rem,5vw,5.8rem)] leading-[0.95] tracking-[-0.055em]">
-            From signal
+            {message(copy.home.approachLine1)}
             <span className="block font-editorial text-ivory/80 italic">
-              to system.
+              {message(copy.home.approachLine2)}
             </span>
           </h2>
           <p className="mt-8 max-w-md leading-relaxed text-muted">
-            Nous réduisons l’incertitude, construisons le bon niveau de détail
-            et gardons la technologie au service de l’expérience.
+            {message(copy.home.approachDescription)}
           </p>
         </div>
 
@@ -308,11 +315,11 @@ function Approach() {
           {process.map((step, index) => (
             <li
               className="flex items-center justify-between border-b border-line py-6"
-              key={step}
+              key={step.id}
             >
               <span className="text-xs text-muted">0{index + 1}</span>
               <span className="text-xl tracking-[-0.025em] md:text-2xl">
-                {step}
+                {message(step)}
               </span>
             </li>
           ))}
@@ -323,21 +330,22 @@ function Approach() {
 }
 
 function Manifesto() {
+  const message = useMessage()
+
   return (
     <section className="section-shell relative z-10">
       <div className="mx-auto max-w-[var(--content-width)] px-[var(--page-gutter)]">
         <div className="manifesto-panel">
-          <p className="eyebrow">A point of view</p>
+          <p className="eyebrow">{message(copy.home.pointOfView)}</p>
           <blockquote className="mt-10 max-w-6xl text-[clamp(2.2rem,5vw,5.7rem)] leading-[1.02] tracking-[-0.055em]">
-            La technologie devient remarquable lorsqu’elle sait se faire
+            {message(copy.home.manifestoLine1)}
             <span className="font-editorial text-ivory/75 italic">
               {' '}
-              précise, calme et évidente.
+              {message(copy.home.manifestoLine2)}
             </span>
           </blockquote>
           <p className="mt-10 max-w-lg leading-relaxed text-muted md:ml-auto">
-            Ozastra associe réflexion produit, sens du design et ingénierie pour
-            créer des expériences cohérentes jusque dans les détails invisibles.
+            {message(copy.home.manifestoDescription)}
           </p>
         </div>
       </div>
@@ -346,6 +354,8 @@ function Manifesto() {
 }
 
 function Contact() {
+  const message = useMessage()
+
   return (
     <section
       id="contact"
@@ -353,16 +363,18 @@ function Contact() {
       className="relative z-10 flex min-h-[90svh] items-center border-t border-line"
     >
       <div className="mx-auto w-full max-w-[var(--content-width)] px-[var(--page-gutter)] py-32 text-center">
-        <p className="eyebrow justify-center">Have an ambitious idea?</p>
+        <p className="eyebrow justify-center">
+          {message(copy.home.contactEyebrow)}
+        </p>
         <h2 className="mx-auto mt-8 max-w-6xl text-[clamp(3.4rem,8vw,8.5rem)] leading-[0.9] tracking-[-0.065em]">
-          Let’s build something
+          {message(copy.home.contactLine1)}
           <span className="block font-editorial text-ivory/85 italic">
-            with gravity.
+            {message(copy.home.contactLine2)}
           </span>
         </h2>
         <a
           className="button-primary mt-12"
-          href="mailto:hello@ozastra.com?subject=Projet%20Ozastra"
+          href="mailto:hello@ozastra.com?subject=Ozastra%20project"
         >
           hello@ozastra.com <span aria-hidden="true">↗</span>
         </a>
@@ -372,10 +384,12 @@ function Contact() {
 }
 
 function Home() {
+  const message = useMessage()
+
   return (
     <div className="relative isolate bg-ink">
       <a className="skip-link" href="#content">
-        Aller au contenu
+        {message(copy.shell.skip)}
       </a>
       <OrbitalLayer />
       <SiteHeader />

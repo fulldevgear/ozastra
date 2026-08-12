@@ -2,8 +2,10 @@ import { Link, createFileRoute, notFound } from '@tanstack/react-router'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
+import { useMessage } from '../i18n/use-message'
 import { getProject } from '../lib/content/projects'
 import { createSeoHead } from '../lib/seo'
 
@@ -48,6 +50,7 @@ export const Route = createFileRoute('/{-$locale}/work/$slug')({
 function ProjectPage() {
   const locale = useLocale()
   const localeParam = routeLocaleParam(locale)
+  const message = useMessage()
   const data = Route.useLoaderData()
   const { slug } = Route.useParams()
   const project = getProject(slug)
@@ -65,15 +68,20 @@ function ProjectPage() {
             to="/{-$locale}/work"
             params={{ locale: localeParam }}
           >
-            ← Tous les projets
+            {message(copy.work.allProjects)}
           </Link>
           <p className="eyebrow">
-            {data.status === 'concept' ? 'Concept product' : 'Client work'} ·{' '}
-            {data.year}
+            {data.status === 'concept'
+              ? message(copy.home.conceptProduct)
+              : message(copy.work.clientWork)}{' '}
+            · {data.year}
           </p>
           <h1>{data.title}</h1>
           <p className="case-study__summary">{data.summary}</p>
-          <ul className="flex flex-wrap gap-2" aria-label="Services">
+          <ul
+            className="flex flex-wrap gap-2"
+            aria-label={message(copy.work.servicesLabel)}
+          >
             {data.services.map((service) => (
               <li className="tag" key={service}>
                 {service}
@@ -86,15 +94,15 @@ function ProjectPage() {
 
         <dl className="case-study__facts">
           <div>
-            <dt>Enjeu</dt>
+            <dt>{message(copy.work.challenge)}</dt>
             <dd>{data.challenge}</dd>
           </div>
           <div>
-            <dt>Approche</dt>
+            <dt>{message(copy.work.approach)}</dt>
             <dd>{data.approach}</dd>
           </div>
           <div>
-            <dt>Résultat</dt>
+            <dt>{message(copy.work.outcome)}</dt>
             <dd>{data.outcome}</dd>
           </div>
         </dl>
@@ -104,14 +112,14 @@ function ProjectPage() {
         </div>
 
         <aside className="case-study__cta">
-          <p className="eyebrow">Votre produit mérite la même précision</p>
-          <h2>Passons de l’idée au système.</h2>
+          <p className="eyebrow">{message(copy.work.ctaEyebrow)}</p>
+          <h2>{message(copy.work.ctaTitle)}</h2>
           <Link
             className="button-primary"
             to="/{-$locale}/contact"
             params={{ locale: localeParam }}
           >
-            Démarrer une conversation ↗
+            {message(copy.work.ctaAction)}
           </Link>
         </aside>
       </article>

@@ -6,3 +6,904 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.allProjects"
+msgstr "← All projects"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.prepareBudget"
+msgstr "A budget range, if defined"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.ctaTitle"
+msgstr "A clear ambition — or a problem that is still taking shape?"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.saasPromise"
+msgstr "A coherent product experience and technical foundation, ready to grow from first use into a durable system."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.waysTitle"
+msgstr "A format matched to the level of uncertainty."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.description"
+msgstr "A little context, a goal and even a few uncertainties are enough to begin. Ozastra usually replies within two business days."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.pointOfView"
+msgstr "A point of view"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.orbitDescription"
+msgstr "A SaaS cockpit that turns complex signals into clear decisions."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.buildText"
+msgstr "A staged engagement to design, build and launch a complete product or experience."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.about"
+msgstr "About"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.eyebrow"
+msgstr "About Ozastra"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "theme.activateDark"
+msgstr "Activate dark theme"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "theme.activateLight"
+msgstr "Activate light theme"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.aiScope2"
+msgstr "Agents, augmented search and automation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.aiPromise"
+msgstr "AI features focused on real tasks, with understandable limits and human checkpoints."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.axiomDescription"
+msgstr "An AI agent interface designed for supervision, understanding and control."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.title"
+msgstr "An independent practice, from strategic direction to the details shipped."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.ai"
+msgstr "Applied AI"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.approach"
+msgstr "Approach"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.analyticsTitle"
+msgstr "Audience measurement and cookies"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.fallbackBefore"
+msgstr "Automatic delivery is unavailable. Your message is not lost: send it to"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.partnershipPromise"
+msgstr "Autonomous senior support to unlock a workstream, raise execution quality or lead an initiative end to end."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.build"
+msgstr "Build"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.capabilitiesEyebrow"
+msgstr "Capabilities"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.eyebrow"
+msgstr "Capabilities"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.challenge"
+msgstr "Challenge"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.invalid"
+msgstr "Check the fields and describe your project in a few words."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.clarify"
+msgstr "Clarify"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.clarityTitle"
+msgstr "Clarity before volume"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.clientWork"
+msgstr "Client work"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.saasDescription"
+msgstr "Coherent product experiences and technical foundations designed to grow cleanly."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.conceptProduct"
+msgstr "Concept product"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.description"
+msgstr "Concept studies that make our approach to strategy, experience and engineering visible. Client projects will be published with permission."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.contact"
+msgstr "Contact"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.contact"
+msgstr "Contact:"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.placeholder"
+msgstr "Context, objective, timeline…"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "theme.dark"
+msgstr "Dark"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.collectedTitle"
+msgstr "Data collected"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.recipientsText"
+msgstr "Data is neither sold nor rented. Technical providers strictly necessary for hosting or message delivery may process it under their own contractual safeguards. The list will be specified before public launch."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.design"
+msgstr "Design"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.saasScope3"
+msgstr "Design system and full-stack development"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroLine1"
+msgstr "Digital products,"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.collaborationTitle"
+msgstr "Direct collaboration"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.discoverProject"
+msgstr "Discover {project}"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.discover"
+msgstr "Discover {project}"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.saasScope1"
+msgstr "Discovery and MVP definition"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.ctaEyebrow"
+msgstr "Does your need not fit a predefined box?"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.workDescription"
+msgstr "Early conceptual explorations that establish our standard before client case studies arrive."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroLine2"
+msgstr "engineered with taste."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "notFound.eyebrow"
+msgstr "Error 404"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.webPromise"
+msgstr "Fast, accessible and memorable websites and platforms that make a value proposition immediately clear."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.webDescription"
+msgstr "Fast, accessible and memorable websites and platforms that make value immediately clear."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.mobilePromise"
+msgstr "Fluid, tactile and efficient applications that respect each platform’s conventions."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.mobileDescription"
+msgstr "Fluid, tactile applications that respect the conventions of each platform."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.embeddedText"
+msgstr "Focused work inside your team to accelerate a workstream and leave a stronger foundation behind."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.footerNavigation"
+msgstr "Footer navigation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.partnershipScope3"
+msgstr "Freelance engagement embedded in the team"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.ctaTitle"
+msgstr "From idea to system."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.approachLine1"
+msgstr "From signal"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.contactEyebrow"
+msgstr "Have an ambitious idea?"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.hostingTitle"
+msgstr "Hosting"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.improve"
+msgstr "Improve"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroEyebrow"
+msgstr "Independent product engineering studio"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.description"
+msgstr "Information about the publisher of the Ozastra website."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.saasScope4"
+msgstr "Instrumentation and continuous improvement"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.intellectualTitle"
+msgstr "Intellectual property"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.webScope2"
+msgstr "Interface design and prototyping"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.languageSelection"
+msgstr "Language selection"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.launch"
+msgstr "Launch"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.eyebrow"
+msgstr "Legal"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.basisTitle"
+msgstr "Legal basis and retention"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.legal"
+msgstr "Legal notice"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.title"
+msgstr "Legal notice"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.ctaTitle"
+msgstr "Let’s begin with the outcome you are looking for."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.contactLine1"
+msgstr "Let’s build something"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.talk"
+msgstr "Let’s talk ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.ctaAction"
+msgstr "Let’s talk ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.title"
+msgstr "Let’s talk about what you want to make possible."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.liabilityTitle"
+msgstr "Liability"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "theme.light"
+msgstr "Light"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.menu"
+msgstr "Menu"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.description"
+msgstr "Minimal data collection, explained clearly."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.mobile"
+msgstr "Mobile application"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.mobileScope1"
+msgstr "Mobile journey architecture"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.mobileNavigation"
+msgstr "Mobile navigation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.capabilitiesAccent"
+msgstr "multiple disciplines."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.name"
+msgstr "Name"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.aiScope4"
+msgstr "Observability, security and cost control"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.capabilitiesTitle"
+msgstr "One product vision,"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.title"
+msgstr "One product vision, with the right disciplines at the right time."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.sprintText"
+msgstr "One to three weeks to clarify, audit or materialize a direction before a larger investment."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.openMenu"
+msgstr "Open menu"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.other"
+msgstr "Other project"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.rightsAfter"
+msgstr "Other rights may apply depending on your jurisdiction."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.conviction"
+msgstr "Our conviction"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.outcome"
+msgstr "Outcome"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.homeLabel"
+msgstr "Ozastra — home"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.manifestoDescription"
+msgstr "Ozastra combines product thinking, design judgement and engineering to create coherent experiences down to the invisible details."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.description"
+msgstr "Ozastra is an LLC dedicated to designing and building ambitious digital products. One committed partner, a legible process and the right network of specialists when the project calls for it."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.analyticsText"
+msgstr "Ozastra measures only page views through an internal endpoint. It sends no URL parameters, identifiers or browser fingerprint, sets no cookies and respects Do Not Track and Global Privacy Control signals. Technical events are kept in short-lived rotating logs. No advertising cookies are used."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.label"
+msgstr "Ozastra services"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.liabilityText"
+msgstr "Ozastra strives to provide accurate and current information. Conceptual content is neither a promise of results nor a representation of an actual client engagement."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroDescription"
+msgstr "Ozastra turns ambitious ideas into polished digital products by bringing product thinking, design and engineering together."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.description"
+msgstr "Ozastra works from framing through launch. The scope adapts to the project’s maturity without turning a clear mission into unnecessary overhead."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.webScope4"
+msgstr "Performance, accessibility and technical SEO"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.mobileScope3"
+msgstr "Pragmatic cross-platform development"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.manifestoLine2"
+msgstr "precise, calm and obvious."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.alternativeBefore"
+msgstr "Prefer your own email client? Write directly to"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.ctaAction"
+msgstr "Present the project ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.primaryNavigation"
+msgstr "Primary navigation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.privacy"
+msgstr "Privacy"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.eyebrow"
+msgstr "Privacy"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.title"
+msgstr "Privacy policy"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.basisText"
+msgstr "Processing is based on your contact request and, where applicable, legitimate interest in commercial follow-up. Data is kept only as long as needed for these exchanges, then deleted or archived according to applicable obligations."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.continuityP1"
+msgstr "Product decisions, visual direction and technical architecture should not live in silos. Ozastra treats them as different faces of the same system."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.webScope1"
+msgstr "Product direction and information architecture"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.partnership"
+msgstr "Product partnership / freelance"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.partnershipScope1"
+msgstr "Product, design or frontend audit"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.title"
+msgstr "Products designed as coherent systems."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.projectType"
+msgstr "Project type"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.mobileScope2"
+msgstr "Prototyping and native interactions"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.publisherTitle"
+msgstr "Publisher"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.continuityTitle"
+msgstr "Quality is built through continuity."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.webScope3"
+msgstr "React development and integrations"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.recipientsTitle"
+msgstr "Recipients and processors"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "notFound.action"
+msgstr "Return home"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.saas"
+msgstr "SaaS product"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroScroll"
+msgstr "Scroll to shape the system"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.honeypot"
+msgstr "Secondary company"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.select"
+msgstr "Select one"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.workEyebrow"
+msgstr "Selected work"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.eyebrow"
+msgstr "Selected work"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.submit"
+msgstr "Send request ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.submitting"
+msgstr "Sending…"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.services"
+msgstr "Services"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.servicesLabel"
+msgstr "Services"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.collaborationText"
+msgstr "Share decisions, risks and progress without unnecessary communication layers."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.skip"
+msgstr "Skip to content"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.eyebrow"
+msgstr "Start a conversation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.ctaAction"
+msgstr "Start a conversation ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.heroAction"
+msgstr "Start a project ↗"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.mobileScope4"
+msgstr "Store preparation, quality and follow-up"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.partnershipScope2"
+msgstr "Strategic prototype and validation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.aiScope3"
+msgstr "Supervision and feedback interfaces"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.rigorTitle"
+msgstr "Taste and rigour"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.partnershipScope4"
+msgstr "Technical guidance and knowledge transfer"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.manifestoLine1"
+msgstr "Technology becomes remarkable when it feels"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.success"
+msgstr "Thank you — your message is on its way. We will be in touch soon."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.approachEyebrow"
+msgstr "The approach"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.prepareState"
+msgstr "The current state of the project"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.hostingText"
+msgstr "The hosting provider’s details will be added once the production platform is selected."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "notFound.description"
+msgstr "The page you are looking for may have changed trajectory."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.prepareProblem"
+msgstr "The problem or opportunity"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.rejected"
+msgstr "The request could not be accepted. Wait a few minutes or use the direct email address."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.intellectualText"
+msgstr "The texts, graphic elements, interfaces and creations presented on this website are protected. Reproduction or adaptation requires prior written authorization from Ozastra LLC unless otherwise permitted by law."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.prepareTimeline"
+msgstr "The timeline you have in mind"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.continuityP2"
+msgstr "This continuity preserves intent, accelerates decisions and produces sharper experiences — on screen and in the code beneath them."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "notFound.title"
+msgstr "This orbit leads nowhere."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.publisherText"
+msgstr "This website is published by Ozastra LLC. Registration details and the registered office address will be completed before public launch."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.prepare"
+msgstr "To save time"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.approachLine2"
+msgstr "to system."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.rigorText"
+msgstr "Treat visual precision and technical strength as inseparable requirements."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.clarityText"
+msgstr "Understand the real problem before adding screens, models or features."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.aiScope1"
+msgstr "Use-case framing and evaluation"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.aiDescription"
+msgstr "Useful AI features built around real tasks, understandable limits and human control."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.waysEyebrow"
+msgstr "Ways of working"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.approachDescription"
+msgstr "We reduce uncertainty, build the right level of detail and keep technology in service of the experience."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.capabilities"
+msgstr "Web · AI · SaaS · Mobile · Product engineering"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.web"
+msgstr "Website or web platform"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.collectedText"
+msgstr "When you contact Ozastra, the information you voluntarily provide — identity, email address and message content — is used only to process your request and follow up on the relationship."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "home.contactLine2"
+msgstr "with gravity."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "shell.work"
+msgstr "Work"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.email"
+msgstr "Work email"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "services.saasScope2"
+msgstr "Workflows, permissions and business logic"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "about.principlesLabel"
+msgstr "Working principles"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.rightsBefore"
+msgstr "You may request access, correction or deletion of your data by writing to"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "work.ctaEyebrow"
+msgstr "Your product deserves the same precision"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.project"
+msgstr "Your project"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.rightsTitle"
+msgstr "Your rights"

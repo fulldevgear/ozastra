@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { copy } from '../i18n/messages'
+import { useMessage } from '../i18n/use-message'
 import { submitContact } from '../lib/contact/contact-fn'
 import { contactSubmissionSchema } from '../lib/contact/contact-schema'
 import type { ContactResult } from '../lib/contact/contact-schema'
@@ -11,6 +13,7 @@ type FormState =
   | { name: 'complete'; result: ContactResult }
 
 export function ContactForm() {
+  const message = useMessage()
   const startedAt = useRef(Date.now())
   const [isHydrated, setIsHydrated] = useState(false)
   const [state, setState] = useState<FormState>({ name: 'idle' })
@@ -33,8 +36,7 @@ export function ContactForm() {
     if (!parsed.success) {
       setState({
         name: 'invalid',
-        message:
-          'Vérifiez les champs et détaillez votre projet en quelques mots.',
+        message: message(copy.contact.invalid),
       })
       return
     }
@@ -60,7 +62,7 @@ export function ContactForm() {
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="form-field">
-        <label htmlFor="name">Nom</label>
+        <label htmlFor="name">{message(copy.contact.name)}</label>
         <input
           id="name"
           name="name"
@@ -70,7 +72,7 @@ export function ContactForm() {
         />
       </div>
       <div className="form-field">
-        <label htmlFor="email">Email professionnel</label>
+        <label htmlFor="email">{message(copy.contact.email)}</label>
         <input
           id="email"
           name="email"
@@ -80,21 +82,23 @@ export function ContactForm() {
         />
       </div>
       <div className="form-field">
-        <label htmlFor="project">Type de projet</label>
+        <label htmlFor="project">{message(copy.contact.projectType)}</label>
         <select id="project" name="project" defaultValue="" required>
           <option value="" disabled>
-            Sélectionner
+            {message(copy.contact.select)}
           </option>
-          <option value="web">Site ou plateforme web</option>
-          <option value="saas">Produit SaaS</option>
-          <option value="ai">IA appliquée</option>
-          <option value="mobile">Application mobile</option>
-          <option value="partnership">Renfort produit / freelance</option>
-          <option value="other">Autre projet</option>
+          <option value="web">{message(copy.contact.web)}</option>
+          <option value="saas">{message(copy.contact.saas)}</option>
+          <option value="ai">{message(copy.contact.ai)}</option>
+          <option value="mobile">{message(copy.contact.mobile)}</option>
+          <option value="partnership">
+            {message(copy.contact.partnership)}
+          </option>
+          <option value="other">{message(copy.contact.other)}</option>
         </select>
       </div>
       <div className="form-field">
-        <label htmlFor="message">Votre projet</label>
+        <label htmlFor="message">{message(copy.contact.project)}</label>
         <textarea
           id="message"
           name="message"
@@ -102,11 +106,11 @@ export function ContactForm() {
           minLength={20}
           maxLength={4_000}
           required
-          placeholder="Contexte, objectif, calendrier…"
+          placeholder={message(copy.contact.placeholder)}
         />
       </div>
       <div className="honeypot-field" aria-hidden="true">
-        <label htmlFor="company">Entreprise secondaire</label>
+        <label htmlFor="company">{message(copy.contact.honeypot)}</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
       </div>
       <button
@@ -115,27 +119,25 @@ export function ContactForm() {
         disabled={!isHydrated || isLoading}
         aria-busy={isLoading}
       >
-        {isLoading ? 'Envoi en cours…' : 'Envoyer la demande ↗'}
+        {isLoading
+          ? message(copy.contact.submitting)
+          : message(copy.contact.submit)}
       </button>
 
       <div className="form-status" aria-live="polite" aria-atomic="true">
         {state.name === 'invalid' && <p role="alert">{state.message}</p>}
         {state.name === 'complete' && state.result.status === 'sent' && (
           <p className="form-status--success">
-            Merci — votre message est parti. Nous revenons vers vous rapidement.
+            {message(copy.contact.success)}
           </p>
         )}
         {state.name === 'complete' && state.result.status === 'rejected' && (
-          <p role="alert">
-            La demande n’a pas pu être acceptée. Patientez quelques minutes ou
-            utilisez l’email direct.
-          </p>
+          <p role="alert">{message(copy.contact.rejected)}</p>
         )}
         {state.name === 'complete' && state.result.status === 'fallback' && (
           <p role="alert">
-            L’envoi automatique est indisponible. Votre message n’est pas perdu
-            : envoyez-le à{' '}
-            <a href="mailto:hello@ozastra.com?subject=Projet%20Ozastra">
+            {message(copy.contact.fallbackBefore)}{' '}
+            <a href="mailto:hello@ozastra.com?subject=Ozastra%20project">
               hello@ozastra.com
             </a>
             .

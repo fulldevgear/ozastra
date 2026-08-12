@@ -2,19 +2,22 @@ import { Link } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 
 import { routeLocaleParam } from '../i18n/navigation'
+import { copy } from '../i18n/messages'
 import { useLocale } from '../i18n/use-locale'
+import { useMessage } from '../i18n/use-message'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Wordmark() {
   const locale = useLocale()
+  const message = useMessage()
 
   return (
     <Link
       className="group inline-flex items-center gap-3 text-sm font-medium tracking-[0.18em] uppercase"
       to="/{-$locale}"
       params={{ locale: routeLocaleParam(locale) }}
-      aria-label="Ozastra — accueil"
+      aria-label={message(copy.shell.homeLabel)}
     >
       <span className="grid size-7 place-items-center rounded-full border border-line bg-ivory/[0.04]">
         <span className="wordmark-signal size-1.5 rounded-full bg-electric transition-transform duration-300 group-hover:scale-125" />
@@ -26,6 +29,7 @@ export function Wordmark() {
 
 export function SiteHeader() {
   const locale = useLocale()
+  const message = useMessage()
   const params = { locale: routeLocaleParam(locale) }
 
   return (
@@ -34,16 +38,16 @@ export function SiteHeader() {
         <Wordmark />
         <nav
           className="hidden items-center gap-8 text-sm text-muted md:flex"
-          aria-label="Navigation principale"
+          aria-label={message(copy.shell.primaryNavigation)}
         >
           <Link className="nav-link" to="/{-$locale}/work" params={params}>
-            Projets
+            {message(copy.shell.work)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/services" params={params}>
-            Services
+            {message(copy.shell.services)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/about" params={params}>
-            À propos
+            {message(copy.shell.about)}
           </Link>
         </nav>
         <div className="flex items-center gap-2">
@@ -54,22 +58,24 @@ export function SiteHeader() {
             to="/{-$locale}/contact"
             params={params}
           >
-            Parlons-en <span aria-hidden="true">↗</span>
+            {message(copy.shell.talk)}
           </Link>
           <details className="mobile-navigation md:hidden">
-            <summary aria-label="Ouvrir le menu">Menu</summary>
-            <nav aria-label="Navigation mobile">
+            <summary aria-label={message(copy.shell.openMenu)}>
+              {message(copy.shell.menu)}
+            </summary>
+            <nav aria-label={message(copy.shell.mobileNavigation)}>
               <Link to="/{-$locale}/work" params={params}>
-                Projets
+                {message(copy.shell.work)}
               </Link>
               <Link to="/{-$locale}/services" params={params}>
-                Services
+                {message(copy.shell.services)}
               </Link>
               <Link to="/{-$locale}/about" params={params}>
-                À propos
+                {message(copy.shell.about)}
               </Link>
               <Link to="/{-$locale}/contact" params={params}>
-                Parlons-en ↗
+                {message(copy.shell.talk)}
               </Link>
             </nav>
           </details>
@@ -81,6 +87,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   const locale = useLocale()
+  const message = useMessage()
   const params = { locale: routeLocaleParam(locale) }
 
   return (
@@ -88,29 +95,29 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[var(--content-width)] gap-8 px-[var(--page-gutter)] py-10 text-sm text-muted md:grid-cols-[1fr_auto] md:items-end">
         <div>
           <Wordmark />
-          <p className="mt-6">Web · AI · SaaS · Mobile · Product engineering</p>
+          <p className="mt-6">{message(copy.shell.capabilities)}</p>
         </div>
         <nav
           className="flex flex-wrap gap-x-6 gap-y-3"
-          aria-label="Pied de page"
+          aria-label={message(copy.shell.footerNavigation)}
         >
           <Link className="nav-link" to="/{-$locale}/work" params={params}>
-            Projets
+            {message(copy.shell.work)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/services" params={params}>
-            Services
+            {message(copy.shell.services)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/about" params={params}>
-            À propos
+            {message(copy.shell.about)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/contact" params={params}>
-            Contact
+            {message(copy.shell.contact)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/legal" params={params}>
-            Mentions légales
+            {message(copy.shell.legal)}
           </Link>
           <Link className="nav-link" to="/{-$locale}/privacy" params={params}>
-            Confidentialité
+            {message(copy.shell.privacy)}
           </Link>
         </nav>
         <p className="md:col-span-2 md:text-right">
@@ -122,10 +129,12 @@ export function SiteFooter() {
 }
 
 export function PageShell({ children }: { children: ReactNode }) {
+  const message = useMessage()
+
   return (
     <div className="min-h-screen bg-ink">
       <a className="skip-link" href="#content">
-        Aller au contenu
+        {message(copy.shell.skip)}
       </a>
       <SiteHeader />
       <main id="content" tabIndex={-1}>

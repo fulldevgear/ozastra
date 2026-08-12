@@ -1,8 +1,10 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/services')({
@@ -29,88 +31,87 @@ const services = [
   {
     number: '01',
     title: 'Web experiences',
-    promise:
-      'Des sites et plateformes rapides, accessibles et mémorables qui rendent une proposition de valeur immédiatement lisible.',
+    promise: copy.services.webPromise,
     scope: [
-      'Direction produit et architecture de l’information',
-      'Design d’interface et prototypage',
-      'Développement React et intégrations',
-      'Performance, accessibilité et SEO technique',
+      copy.services.webScope1,
+      copy.services.webScope2,
+      copy.services.webScope3,
+      copy.services.webScope4,
     ],
   },
   {
     number: '02',
     title: 'Applied AI',
-    promise:
-      'Des fonctionnalités IA focalisées sur une tâche réelle, avec des limites compréhensibles et des points de contrôle humains.',
+    promise: copy.services.aiPromise,
     scope: [
-      'Cadrage des cas d’usage et évaluation',
-      'Agents, recherche augmentée et automatisations',
-      'Interfaces de supervision et feedback',
-      'Observabilité, sécurité et maîtrise des coûts',
+      copy.services.aiScope1,
+      copy.services.aiScope2,
+      copy.services.aiScope3,
+      copy.services.aiScope4,
     ],
   },
   {
     number: '03',
     title: 'SaaS products',
-    promise:
-      'Une expérience produit et une base technique cohérentes, capables de passer du premier usage à un système qui grandit proprement.',
+    promise: copy.services.saasPromise,
     scope: [
-      'Discovery et définition du MVP',
-      'Workflows, permissions et logique métier',
-      'Design system et développement full-stack',
-      'Instrumentation et amélioration continue',
+      copy.services.saasScope1,
+      copy.services.saasScope2,
+      copy.services.saasScope3,
+      copy.services.saasScope4,
     ],
   },
   {
     number: '04',
     title: 'Mobile apps',
-    promise:
-      'Des applications fluides, tactiles et économes qui respectent les usages propres à chaque plateforme.',
+    promise: copy.services.mobilePromise,
     scope: [
-      'Architecture des parcours mobiles',
-      'Prototypage et interactions natives',
-      'Développement cross-platform raisonné',
-      'Préparation stores, qualité et suivi',
+      copy.services.mobileScope1,
+      copy.services.mobileScope2,
+      copy.services.mobileScope3,
+      copy.services.mobileScope4,
     ],
   },
   {
     number: '05',
     title: 'Product partnership',
-    promise:
-      'Un renfort senior autonome pour débloquer un chantier, élever le niveau d’exécution ou porter une initiative de bout en bout.',
+    promise: copy.services.partnershipPromise,
     scope: [
-      'Audit produit, design ou frontend',
-      'Prototype stratégique et validation',
-      'Mission freelance intégrée à l’équipe',
-      'Accompagnement technique et transmission',
+      copy.services.partnershipScope1,
+      copy.services.partnershipScope2,
+      copy.services.partnershipScope3,
+      copy.services.partnershipScope4,
     ],
   },
 ] as const
 
 function ServicesPage() {
   const locale = useLocale()
+  const message = useMessage()
 
   return (
     <PageShell>
       <div className="page-container">
         <PageIntro
-          eyebrow="Capabilities"
-          title="Une vision produit, plusieurs disciplines mobilisées au bon moment."
-          description="Ozastra intervient du cadrage au lancement. Le périmètre s’adapte au niveau de maturité du projet, sans transformer une mission claire en dispositif inutilement lourd."
+          eyebrow={message(copy.services.eyebrow)}
+          title={message(copy.services.title)}
+          description={message(copy.services.description)}
         />
 
-        <section className="service-index" aria-label="Services Ozastra">
+        <section
+          className="service-index"
+          aria-label={message(copy.services.label)}
+        >
           {services.map((service) => (
             <article key={service.number}>
               <span className="service-index__number">{service.number}</span>
               <div>
                 <h2>{service.title}</h2>
-                <p>{service.promise}</p>
+                <p>{message(service.promise)}</p>
               </div>
               <ul>
                 {service.scope.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.id}>{message(item)}</li>
                 ))}
               </ul>
             </article>
@@ -119,43 +120,34 @@ function ServicesPage() {
 
         <section className="engagements">
           <div>
-            <p className="eyebrow">Ways of working</p>
-            <h2>Un format adapté au niveau d’incertitude.</h2>
+            <p className="eyebrow">{message(copy.services.waysEyebrow)}</p>
+            <h2>{message(copy.services.waysTitle)}</h2>
           </div>
           <div className="engagements__list">
             <article>
               <h3>Focus sprint</h3>
-              <p>
-                Une à trois semaines pour clarifier, auditer ou matérialiser une
-                direction avant un investissement plus important.
-              </p>
+              <p>{message(copy.services.sprintText)}</p>
             </article>
             <article>
               <h3>Build partnership</h3>
-              <p>
-                Un engagement par étapes pour concevoir, construire et mettre en
-                production un produit ou une expérience complète.
-              </p>
+              <p>{message(copy.services.buildText)}</p>
             </article>
             <article>
               <h3>Embedded expertise</h3>
-              <p>
-                Une mission ciblée au sein de votre équipe pour accélérer un
-                chantier et laisser une base plus solide qu’à l’arrivée.
-              </p>
+              <p>{message(copy.services.embeddedText)}</p>
             </article>
           </div>
         </section>
 
         <div className="page-cta">
-          <p className="eyebrow">Un besoin ne rentre pas dans une case ?</p>
-          <h2>Commençons par le résultat que vous cherchez.</h2>
+          <p className="eyebrow">{message(copy.services.ctaEyebrow)}</p>
+          <h2>{message(copy.services.ctaTitle)}</h2>
           <Link
             className="button-primary"
             to="/{-$locale}/contact"
             params={{ locale: routeLocaleParam(locale) }}
           >
-            Présenter le projet ↗
+            {message(copy.services.ctaAction)}
           </Link>
         </div>
       </div>

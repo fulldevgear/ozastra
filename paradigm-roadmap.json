@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 191
+    "revision": 193
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 86,
-    "last_activity_at": "2026-08-12T09:10:57.889Z",
+    "overall_progress_percent": 87,
+    "last_activity_at": "2026-08-12T09:21:14.930Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2593,6 +2593,22 @@
         "deliverable": 4,
         "description": "Routage localisé scalable et sélecteur de langue accessible",
         "evidence": "Routes publiques restructurées sous /{-}; anglais sans préfixe, français sous /fr, /en/* redirigé en 301 et API hors locale; sélecteur accessible conserve page/slug; build pré-rend 18 pages, 29 tests, typecheck, lint et budget UI 139.2/200 kB réussis; vérification HTTP locale /fr/about et /api/health en 200."
+      },
+      {
+        "timestamp": "2026-08-12T09:11:28.467Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 5,
+        "description": "Migration des messages React avec anglais source et catalogue français",
+        "note": "Migration de l’ensemble des messages React, attributs accessibles et états du formulaire vers des IDs Lingui explicites avec source anglaise et traduction française."
+      },
+      {
+        "timestamp": "2026-08-12T09:21:14.930Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 5,
+        "description": "Migration des messages React avec anglais source et catalogue français",
+        "evidence": "Lingui extract: 179 messages, catalogue français 179/179; compile --strict, typecheck, 29 tests, build production 18 pages et bundle budget validés"
       }
     ]
   },
@@ -3485,7 +3501,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 36,
+        "progress_percent": 45,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3511,11 +3527,17 @@
             "description": "Routage localisé scalable et sélecteur de langue accessible",
             "completed_at": "2026-08-12T09:10:57.882Z",
             "evidence": "Routes publiques restructurées sous /{-}; anglais sans préfixe, français sous /fr, /en/* redirigé en 301 et API hors locale; sélecteur accessible conserve page/slug; build pré-rend 18 pages, 29 tests, typecheck, lint et budget UI 139.2/200 kB réussis; vérification HTTP locale /fr/about et /api/health en 200."
+          },
+          {
+            "index": 5,
+            "description": "Migration des messages React avec anglais source et catalogue français",
+            "completed_at": "2026-08-12T09:21:14.929Z",
+            "evidence": "Lingui extract: 179 messages, catalogue français 179/179; compile --strict, typecheck, 29 tests, build production 18 pages et bundle budget validés"
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:10:57.889Z"
+        "last_updated_at": "2026-08-12T09:21:14.930Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

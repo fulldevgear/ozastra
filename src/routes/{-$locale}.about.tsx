@@ -1,8 +1,10 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
+import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/about')({
@@ -18,66 +20,62 @@ export const Route = createFileRoute('/{-$locale}/about')({
 
 function AboutPage() {
   const locale = useLocale()
+  const message = useMessage()
 
   return (
     <PageShell>
       <div className="page-container">
         <PageIntro
-          eyebrow="About Ozastra"
-          title="Une pratique indépendante, du niveau stratégique jusqu’au détail livré."
-          description="Ozastra est une LLC dédiée à la conception et au développement de produits numériques ambitieux. Un interlocuteur impliqué, une méthode lisible et le bon réseau de spécialistes lorsque le projet l’exige."
+          eyebrow={message(copy.about.eyebrow)}
+          title={message(copy.about.title)}
+          description={message(copy.about.description)}
         />
         <section className="editorial-grid">
           <div>
-            <p className="eyebrow">Notre conviction</p>
+            <p className="eyebrow">{message(copy.about.conviction)}</p>
           </div>
           <div>
-            <h2>La qualité se construit dans la continuité.</h2>
-            <p>
-              Les décisions produit, la direction visuelle et l’architecture
-              technique ne devraient pas vivre dans des silos. Ozastra les
-              considère comme les différentes faces d’un même système.
-            </p>
-            <p>
-              Cette continuité réduit les pertes d’intention, accélère les
-              arbitrages et produit des expériences plus nettes — à l’écran
-              comme dans le code qui les soutient.
-            </p>
+            <h2>{message(copy.about.continuityTitle)}</h2>
+            <p>{message(copy.about.continuityP1)}</p>
+            <p>{message(copy.about.continuityP2)}</p>
           </div>
         </section>
-        <section className="values-grid" aria-label="Principes de travail">
+        <section
+          className="values-grid"
+          aria-label={message(copy.about.principlesLabel)}
+        >
           {[
-            [
-              '01',
-              'Clarté avant volume',
-              'Comprendre le vrai problème avant d’ajouter des écrans, des modèles ou des fonctionnalités.',
-            ],
-            [
-              '02',
-              'Goût et rigueur',
-              'Traiter la précision visuelle et la solidité technique comme deux exigences inséparables.',
-            ],
-            [
-              '03',
-              'Collaboration directe',
-              'Partager les arbitrages, les risques et l’avancement sans couche de communication inutile.',
-            ],
-          ].map(([number, title, text]) => (
-            <article key={number}>
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
+            {
+              number: '01',
+              title: copy.about.clarityTitle,
+              text: copy.about.clarityText,
+            },
+            {
+              number: '02',
+              title: copy.about.rigorTitle,
+              text: copy.about.rigorText,
+            },
+            {
+              number: '03',
+              title: copy.about.collaborationTitle,
+              text: copy.about.collaborationText,
+            },
+          ].map((item) => (
+            <article key={item.number}>
+              <span>{item.number}</span>
+              <h3>{message(item.title)}</h3>
+              <p>{message(item.text)}</p>
             </article>
           ))}
         </section>
         <div className="page-cta">
-          <h2>Vous avez une ambition claire — ou un problème encore flou ?</h2>
+          <h2>{message(copy.about.ctaTitle)}</h2>
           <Link
             className="button-primary"
             to="/{-$locale}/contact"
             params={{ locale: routeLocaleParam(locale) }}
           >
-            Parlons-en ↗
+            {message(copy.about.ctaAction)}
           </Link>
         </div>
       </div>
