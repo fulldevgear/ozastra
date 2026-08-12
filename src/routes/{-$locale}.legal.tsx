@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/legal')({
+export const Route = createFileRoute('/{-$locale}/legal')({
   head: () =>
     createSeoHead({
       title: 'Mentions légales — Ozastra',

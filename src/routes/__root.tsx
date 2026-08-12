@@ -1,6 +1,5 @@
 import {
   HeadContent,
-  Link,
   Scripts,
   createRootRoute,
 } from '@tanstack/react-router'
@@ -62,9 +61,9 @@ function NotFoundPage() {
       <p className="eyebrow">Erreur 404</p>
       <h1>Cette orbite ne mène nulle part.</h1>
       <p>La page recherchée a peut-être changé de trajectoire.</p>
-      <Link className="button-primary" to="/">
+      <a className="button-primary" href="/">
         Revenir à l’accueil
-      </Link>
+      </a>
     </main>
   )
 }

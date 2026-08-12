@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/privacy')({
+export const Route = createFileRoute('/{-$locale}/privacy')({
   head: () =>
     createSeoHead({
       title: 'Confidentialité — Ozastra',

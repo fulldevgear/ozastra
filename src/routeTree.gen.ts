@@ -9,45 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as LegalRouteImport } from './routes/legal'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as ServicesRouteImport } from './routes/services'
+import { Route as Char123LocaleChar125RouteImport } from './routes/{-$locale}'
 import { Route as ApiAnalyticsRouteImport } from './routes/api/analytics'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
-import { Route as WorkIndexRouteImport } from './routes/work.index'
-import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}.index'
+import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}.about'
+import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}.contact'
+import { Route as Char123LocaleChar125LegalRouteImport } from './routes/{-$locale}.legal'
+import { Route as Char123LocaleChar125PrivacyRouteImport } from './routes/{-$locale}.privacy'
+import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}.services'
+import { Route as Char123LocaleChar125WorkIndexRouteImport } from './routes/{-$locale}.work.index'
+import { Route as Char123LocaleChar125WorkSlugRouteImport } from './routes/{-$locale}.work.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LegalRoute = LegalRouteImport.update({
-  id: '/legal',
-  path: '/legal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const Char123LocaleChar125Route = Char123LocaleChar125RouteImport.update({
+  id: '/{-$locale}',
+  path: '/{-$locale}',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAnalyticsRoute = ApiAnalyticsRouteImport.update({
@@ -60,148 +36,148 @@ const ApiHealthRoute = ApiHealthRouteImport.update({
   path: '/api/health',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WorkIndexRoute = WorkIndexRouteImport.update({
-  id: '/work/',
-  path: '/work/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkSlugRoute = WorkSlugRouteImport.update({
-  id: '/work/$slug',
-  path: '/work/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const Char123LocaleChar125IndexRoute =
+  Char123LocaleChar125IndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125AboutRoute =
+  Char123LocaleChar125AboutRouteImport.update({
+    id: '/about',
+    path: '/about',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125ContactRoute =
+  Char123LocaleChar125ContactRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125LegalRoute =
+  Char123LocaleChar125LegalRouteImport.update({
+    id: '/legal',
+    path: '/legal',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125PrivacyRoute =
+  Char123LocaleChar125PrivacyRouteImport.update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125ServicesRoute =
+  Char123LocaleChar125ServicesRouteImport.update({
+    id: '/services',
+    path: '/services',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125WorkIndexRoute =
+  Char123LocaleChar125WorkIndexRouteImport.update({
+    id: '/work/',
+    path: '/work/',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
+const Char123LocaleChar125WorkSlugRoute =
+  Char123LocaleChar125WorkSlugRouteImport.update({
+    id: '/work/$slug',
+    path: '/work/$slug',
+    getParentRoute: () => Char123LocaleChar125Route,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/legal': typeof LegalRoute
-  '/privacy': typeof PrivacyRoute
-  '/services': typeof ServicesRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteWithChildren
   '/api/analytics': typeof ApiAnalyticsRoute
   '/api/health': typeof ApiHealthRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/legal': typeof Char123LocaleChar125LegalRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/work/$slug': typeof Char123LocaleChar125WorkSlugRoute
+  '/{-$locale}/work/': typeof Char123LocaleChar125WorkIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/legal': typeof LegalRoute
-  '/privacy': typeof PrivacyRoute
-  '/services': typeof ServicesRoute
   '/api/analytics': typeof ApiAnalyticsRoute
   '/api/health': typeof ApiHealthRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work': typeof WorkIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/legal': typeof Char123LocaleChar125LegalRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/work/$slug': typeof Char123LocaleChar125WorkSlugRoute
+  '/{-$locale}/work': typeof Char123LocaleChar125WorkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/legal': typeof LegalRoute
-  '/privacy': typeof PrivacyRoute
-  '/services': typeof ServicesRoute
+  '/{-$locale}': typeof Char123LocaleChar125RouteWithChildren
   '/api/analytics': typeof ApiAnalyticsRoute
   '/api/health': typeof ApiHealthRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
+  '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
+  '/{-$locale}/legal': typeof Char123LocaleChar125LegalRoute
+  '/{-$locale}/privacy': typeof Char123LocaleChar125PrivacyRoute
+  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/work/$slug': typeof Char123LocaleChar125WorkSlugRoute
+  '/{-$locale}/work/': typeof Char123LocaleChar125WorkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/legal'
-    | '/privacy'
-    | '/services'
+    | '/{-$locale}'
     | '/api/analytics'
     | '/api/health'
-    | '/work/$slug'
-    | '/work/'
+    | '/{-$locale}/about'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/legal'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/services'
+    | '/{-$locale}/'
+    | '/{-$locale}/work/$slug'
+    | '/{-$locale}/work/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/legal'
-    | '/privacy'
-    | '/services'
     | '/api/analytics'
     | '/api/health'
-    | '/work/$slug'
-    | '/work'
+    | '/{-$locale}/about'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/legal'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/services'
+    | '/{-$locale}'
+    | '/{-$locale}/work/$slug'
+    | '/{-$locale}/work'
   id:
     | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/legal'
-    | '/privacy'
-    | '/services'
+    | '/{-$locale}'
     | '/api/analytics'
     | '/api/health'
-    | '/work/$slug'
-    | '/work/'
+    | '/{-$locale}/about'
+    | '/{-$locale}/contact'
+    | '/{-$locale}/legal'
+    | '/{-$locale}/privacy'
+    | '/{-$locale}/services'
+    | '/{-$locale}/'
+    | '/{-$locale}/work/$slug'
+    | '/{-$locale}/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ContactRoute: typeof ContactRoute
-  LegalRoute: typeof LegalRoute
-  PrivacyRoute: typeof PrivacyRoute
-  ServicesRoute: typeof ServicesRoute
+  Char123LocaleChar125Route: typeof Char123LocaleChar125RouteWithChildren
   ApiAnalyticsRoute: typeof ApiAnalyticsRoute
   ApiHealthRoute: typeof ApiHealthRoute
-  WorkSlugRoute: typeof WorkSlugRoute
-  WorkIndexRoute: typeof WorkIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legal': {
-      id: '/legal'
-      path: '/legal'
-      fullPath: '/legal'
-      preLoaderRoute: typeof LegalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/{-$locale}': {
+      id: '/{-$locale}'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}'
+      preLoaderRoute: typeof Char123LocaleChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/analytics': {
@@ -218,34 +194,94 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/work/': {
-      id: '/work/'
-      path: '/work'
-      fullPath: '/work/'
-      preLoaderRoute: typeof WorkIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/{-$locale}/': {
+      id: '/{-$locale}/'
+      path: '/'
+      fullPath: '/{-$locale}/'
+      preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
     }
-    '/work/$slug': {
-      id: '/work/$slug'
+    '/{-$locale}/about': {
+      id: '/{-$locale}/about'
+      path: '/about'
+      fullPath: '/{-$locale}/about'
+      preLoaderRoute: typeof Char123LocaleChar125AboutRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/contact': {
+      id: '/{-$locale}/contact'
+      path: '/contact'
+      fullPath: '/{-$locale}/contact'
+      preLoaderRoute: typeof Char123LocaleChar125ContactRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/legal': {
+      id: '/{-$locale}/legal'
+      path: '/legal'
+      fullPath: '/{-$locale}/legal'
+      preLoaderRoute: typeof Char123LocaleChar125LegalRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/privacy': {
+      id: '/{-$locale}/privacy'
+      path: '/privacy'
+      fullPath: '/{-$locale}/privacy'
+      preLoaderRoute: typeof Char123LocaleChar125PrivacyRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/services': {
+      id: '/{-$locale}/services'
+      path: '/services'
+      fullPath: '/{-$locale}/services'
+      preLoaderRoute: typeof Char123LocaleChar125ServicesRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/work/': {
+      id: '/{-$locale}/work/'
+      path: '/work'
+      fullPath: '/{-$locale}/work/'
+      preLoaderRoute: typeof Char123LocaleChar125WorkIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
+    }
+    '/{-$locale}/work/$slug': {
+      id: '/{-$locale}/work/$slug'
       path: '/work/$slug'
-      fullPath: '/work/$slug'
-      preLoaderRoute: typeof WorkSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/{-$locale}/work/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125WorkSlugRouteImport
+      parentRoute: typeof Char123LocaleChar125Route
     }
   }
 }
 
+interface Char123LocaleChar125RouteChildren {
+  Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
+  Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
+  Char123LocaleChar125LegalRoute: typeof Char123LocaleChar125LegalRoute
+  Char123LocaleChar125PrivacyRoute: typeof Char123LocaleChar125PrivacyRoute
+  Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125WorkSlugRoute: typeof Char123LocaleChar125WorkSlugRoute
+  Char123LocaleChar125WorkIndexRoute: typeof Char123LocaleChar125WorkIndexRoute
+}
+
+const Char123LocaleChar125RouteChildren: Char123LocaleChar125RouteChildren = {
+  Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
+  Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
+  Char123LocaleChar125LegalRoute: Char123LocaleChar125LegalRoute,
+  Char123LocaleChar125PrivacyRoute: Char123LocaleChar125PrivacyRoute,
+  Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
+  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+  Char123LocaleChar125WorkSlugRoute: Char123LocaleChar125WorkSlugRoute,
+  Char123LocaleChar125WorkIndexRoute: Char123LocaleChar125WorkIndexRoute,
+}
+
+const Char123LocaleChar125RouteWithChildren =
+  Char123LocaleChar125Route._addFileChildren(Char123LocaleChar125RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ContactRoute: ContactRoute,
-  LegalRoute: LegalRoute,
-  PrivacyRoute: PrivacyRoute,
-  ServicesRoute: ServicesRoute,
+  Char123LocaleChar125Route: Char123LocaleChar125RouteWithChildren,
   ApiAnalyticsRoute: ApiAnalyticsRoute,
   ApiHealthRoute: ApiHealthRoute,
-  WorkSlugRoute: WorkSlugRoute,
-  WorkIndexRoute: WorkIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

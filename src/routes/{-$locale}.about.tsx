@@ -1,9 +1,11 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { routeLocaleParam } from '../i18n/navigation'
+import { useLocale } from '../i18n/use-locale'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/about')({
+export const Route = createFileRoute('/{-$locale}/about')({
   head: () =>
     createSeoHead({
       title: 'À propos — Ozastra',
@@ -15,6 +17,8 @@ export const Route = createFileRoute('/about')({
 })
 
 function AboutPage() {
+  const locale = useLocale()
+
   return (
     <PageShell>
       <div className="page-container">
@@ -68,7 +72,11 @@ function AboutPage() {
         </section>
         <div className="page-cta">
           <h2>Vous avez une ambition claire — ou un problème encore flou ?</h2>
-          <Link className="button-primary" to="/contact">
+          <Link
+            className="button-primary"
+            to="/{-$locale}/contact"
+            params={{ locale: routeLocaleParam(locale) }}
+          >
             Parlons-en ↗
           </Link>
         </div>

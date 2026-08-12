@@ -3,13 +3,15 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
+import { routeLocaleParam } from '../i18n/navigation'
+import { useLocale } from '../i18n/use-locale'
 import { createSeoHead } from '../lib/seo'
 
 const OrbitalExperience = lazy(
   () => import('../features/orbital/OrbitalExperience'),
 )
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/{-$locale}/')({
   head: () =>
     createSeoHead({
       title: 'Ozastra — Product engineering studio',
@@ -170,6 +172,9 @@ function Hero() {
 }
 
 function SelectedWork() {
+  const locale = useLocale()
+  const localeParam = routeLocaleParam(locale)
+
   return (
     <section
       id="work"
@@ -190,8 +195,8 @@ function SelectedWork() {
             <article className="project-card group" key={project.title}>
               <Link
                 className="block"
-                to="/work/$slug"
-                params={{ slug: project.slug }}
+                to="/{-$locale}/work/$slug"
+                params={{ locale: localeParam, slug: project.slug }}
                 aria-label={`Découvrir ${project.title}`}
               >
                 <ProjectVisual tone={project.tone} />
@@ -204,8 +209,8 @@ function SelectedWork() {
                   <h3 className="mt-3 text-3xl tracking-[-0.04em]">
                     <Link
                       className="project-title-link"
-                      to="/work/$slug"
-                      params={{ slug: project.slug }}
+                      to="/{-$locale}/work/$slug"
+                      params={{ locale: localeParam, slug: project.slug }}
                     >
                       {project.title}
                     </Link>

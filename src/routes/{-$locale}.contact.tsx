@@ -4,7 +4,7 @@ import { ContactForm } from '../components/ContactForm'
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/contact')({
+export const Route = createFileRoute('/{-$locale}/contact')({
   head: () =>
     createSeoHead({
       title: 'Contact — Ozastra',

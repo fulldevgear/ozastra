@@ -12,6 +12,7 @@ const catalogLoaders = import.meta.glob<CatalogModule>(
   '../locales/*/messages.po',
 )
 const catalogCache = new Map<Locale, Promise<Messages>>()
+const loadedCatalogs = new Map<Locale, Messages>()
 
 function catalogPath(locale: Locale) {
   return `../locales/${locale}/messages.po`
@@ -30,13 +31,30 @@ export async function loadCatalog(locale: Locale) {
     )
   }
 
-  const messages = loader().then((catalog) => catalog.messages)
+  const messages = loader().then((catalog) => {
+    loadedCatalogs.set(locale, catalog.messages)
+    return catalog.messages
+  })
   catalogCache.set(locale, messages)
   return messages
 }
 
 export async function createI18n(locale: Locale): Promise<I18n> {
   const messages = await loadCatalog(locale)
+
+  return setupI18n({
+    locale,
+    messages: { [locale]: messages },
+  })
+}
+
+export function createLoadedI18n(locale: Locale): I18n {
+  const messages = loadedCatalogs.get(locale)
+  if (!messages) {
+    throw new Error(
+      `Catalog for locale "${locale}" must be loaded before rendering.`,
+    )
+  }
 
   return setupI18n({
     locale,

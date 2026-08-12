@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 189
+    "revision": 191
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 85,
-    "last_activity_at": "2026-08-12T09:06:16.747Z",
+    "overall_progress_percent": 86,
+    "last_activity_at": "2026-08-12T09:10:57.889Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2577,6 +2577,22 @@
         "deliverable": 3,
         "description": "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
         "evidence": "Lingui 6.6.0 et formateur PO configurés avec Vite 8/Rolldown; catalogues en/fr extraits et compilés strictement; runtime à instances isolées par rendu et cache de messages testé en concurrence; 26 tests, typecheck, lint, build de 10 pages et budgets bundle réussis."
+      },
+      {
+        "timestamp": "2026-08-12T09:06:49.999Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 4,
+        "description": "Routage localisé scalable et sélecteur de langue accessible",
+        "note": "Restructuration des routes publiques sous une locale optionnelle, validation URL et ajout du sélecteur accessible conservant la route."
+      },
+      {
+        "timestamp": "2026-08-12T09:10:57.889Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 4,
+        "description": "Routage localisé scalable et sélecteur de langue accessible",
+        "evidence": "Routes publiques restructurées sous /{-}; anglais sans préfixe, français sous /fr, /en/* redirigé en 301 et API hors locale; sélecteur accessible conserve page/slug; build pré-rend 18 pages, 29 tests, typecheck, lint et budget UI 139.2/200 kB réussis; vérification HTTP locale /fr/about et /api/health en 200."
       }
     ]
   },
@@ -3469,7 +3485,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 27,
+        "progress_percent": 36,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3489,11 +3505,17 @@
             "description": "Fondation Lingui compatible Vite 8, SSR et pré-rendu concurrent",
             "completed_at": "2026-08-12T09:06:16.746Z",
             "evidence": "Lingui 6.6.0 et formateur PO configurés avec Vite 8/Rolldown; catalogues en/fr extraits et compilés strictement; runtime à instances isolées par rendu et cache de messages testé en concurrence; 26 tests, typecheck, lint, build de 10 pages et budgets bundle réussis."
+          },
+          {
+            "index": 4,
+            "description": "Routage localisé scalable et sélecteur de langue accessible",
+            "completed_at": "2026-08-12T09:10:57.882Z",
+            "evidence": "Routes publiques restructurées sous /{-}; anglais sans préfixe, français sous /fr, /en/* redirigé en 301 et API hors locale; sélecteur accessible conserve page/slug; build pré-rend 18 pages, 29 tests, typecheck, lint et budget UI 139.2/200 kB réussis; vérification HTTP locale /fr/about et /api/health en 200."
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:06:16.747Z"
+        "last_updated_at": "2026-08-12T09:10:57.889Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

@@ -1,9 +1,11 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { PageIntro, PageShell } from '../components/SiteChrome'
+import { routeLocaleParam } from '../i18n/navigation'
+import { useLocale } from '../i18n/use-locale'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/services')({
+export const Route = createFileRoute('/{-$locale}/services')({
   head: () =>
     createSeoHead({
       title: 'Services — Ozastra',
@@ -87,6 +89,8 @@ const services = [
 ] as const
 
 function ServicesPage() {
+  const locale = useLocale()
+
   return (
     <PageShell>
       <div className="page-container">
@@ -146,7 +150,11 @@ function ServicesPage() {
         <div className="page-cta">
           <p className="eyebrow">Un besoin ne rentre pas dans une case ?</p>
           <h2>Commençons par le résultat que vous cherchez.</h2>
-          <Link className="button-primary" to="/contact">
+          <Link
+            className="button-primary"
+            to="/{-$locale}/contact"
+            params={{ locale: routeLocaleParam(locale) }}
+          >
             Présenter le projet ↗
           </Link>
         </div>

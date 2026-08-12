@@ -2,10 +2,12 @@ import { Link, createFileRoute, notFound } from '@tanstack/react-router'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { PageShell } from '../components/SiteChrome'
+import { routeLocaleParam } from '../i18n/navigation'
+import { useLocale } from '../i18n/use-locale'
 import { getProject } from '../lib/content/projects'
 import { createSeoHead } from '../lib/seo'
 
-export const Route = createFileRoute('/work/$slug')({
+export const Route = createFileRoute('/{-$locale}/work/$slug')({
   loader: ({ params }) => {
     const project = getProject(params.slug)
     if (!project) throw notFound()
@@ -44,6 +46,8 @@ export const Route = createFileRoute('/work/$slug')({
 })
 
 function ProjectPage() {
+  const locale = useLocale()
+  const localeParam = routeLocaleParam(locale)
   const data = Route.useLoaderData()
   const { slug } = Route.useParams()
   const project = getProject(slug)
@@ -56,7 +60,11 @@ function ProjectPage() {
     <PageShell>
       <article className="page-container case-study">
         <header className="case-study__header">
-          <Link className="eyebrow case-study__back" to="/work">
+          <Link
+            className="eyebrow case-study__back"
+            to="/{-$locale}/work"
+            params={{ locale: localeParam }}
+          >
             ← Tous les projets
           </Link>
           <p className="eyebrow">
@@ -98,7 +106,11 @@ function ProjectPage() {
         <aside className="case-study__cta">
           <p className="eyebrow">Votre produit mérite la même précision</p>
           <h2>Passons de l’idée au système.</h2>
-          <Link className="button-primary" to="/contact">
+          <Link
+            className="button-primary"
+            to="/{-$locale}/contact"
+            params={{ locale: localeParam }}
+          >
             Démarrer une conversation ↗
           </Link>
         </aside>
