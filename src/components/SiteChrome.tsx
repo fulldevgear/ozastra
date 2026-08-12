@@ -6,7 +6,6 @@ import { copy } from '../i18n/messages'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Wordmark() {
   const locale = useLocale()
@@ -52,7 +51,6 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <ThemeToggle />
           <Link
             className="button-quiet hidden md:inline-flex"
             to="/{-$locale}/contact"

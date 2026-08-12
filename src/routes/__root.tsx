@@ -10,7 +10,6 @@ import { PrivacyAnalytics } from '../components/PrivacyAnalytics'
 import { getLocaleDefinition, localizePath } from '../i18n/locales'
 import type { Locale } from '../i18n/locales'
 import { resolvePathLocale } from '../i18n/navigation'
-import { themeBootstrapScript } from '../lib/theme'
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
@@ -28,11 +27,6 @@ export const Route = createRootRoute({
           'Ozastra designs and builds web experiences, SaaS products, mobile applications and applied AI solutions.',
       },
       { name: 'theme-color', content: '#07090F' },
-    ],
-    scripts: [
-      {
-        children: themeBootstrapScript,
-      },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
@@ -65,11 +59,7 @@ function RootDocument({ children }: { children: ReactNode }) {
   const definition = getLocaleDefinition(locale)
 
   return (
-    <html
-      lang={definition.htmlLang}
-      dir={definition.direction}
-      suppressHydrationWarning
-    >
+    <html lang={definition.htmlLang} dir={definition.direction}>
       <head>
         <HeadContent />
       </head>

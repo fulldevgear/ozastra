@@ -10,23 +10,39 @@ export function LanguageSwitcher() {
   const locale = useLocale()
   const message = useMessage()
   const pathname = useLocation({ select: (location) => location.pathname })
+  const currentLocale = getLocaleDefinition(locale)
 
   return (
     <nav
       className="language-switcher"
       aria-label={message(copy.shell.languageSelection)}
     >
-      {publishedLocales.map((targetLocale) => (
-        <a
-          aria-current={targetLocale === locale ? 'page' : undefined}
-          href={switchLocalePath(pathname, targetLocale)}
-          hrefLang={targetLocale}
-          key={targetLocale}
-          lang={targetLocale}
-        >
-          {getLocaleDefinition(targetLocale).nativeLabel}
-        </a>
-      ))}
+      <details suppressHydrationWarning>
+        <summary>
+          <span lang={locale}>{currentLocale.nativeLabel}</span>
+          <span className="language-switcher__chevron" aria-hidden="true" />
+        </summary>
+        <div className="language-switcher__menu">
+          {publishedLocales.map((targetLocale) => {
+            const definition = getLocaleDefinition(targetLocale)
+
+            return (
+              <a
+                aria-current={targetLocale === locale ? 'page' : undefined}
+                href={switchLocalePath(pathname, targetLocale)}
+                hrefLang={targetLocale}
+                key={targetLocale}
+                lang={targetLocale}
+              >
+                <span>{definition.nativeLabel}</span>
+                <span className="language-switcher__code" aria-hidden="true">
+                  {targetLocale}
+                </span>
+              </a>
+            )
+          })}
+        </div>
+      </details>
     </nav>
   )
 }

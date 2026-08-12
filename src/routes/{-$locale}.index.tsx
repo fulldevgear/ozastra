@@ -3,6 +3,10 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
+import {
+  OrbitalFallback,
+  OrbitalLoadingPlaceholder,
+} from '../features/orbital/OrbitalFallback'
 import { copy } from '../i18n/messages'
 import { resolveRouteLocale, routeLocaleParam } from '../i18n/navigation'
 import { getSeoCopy } from '../i18n/seo-copy'
@@ -90,51 +94,29 @@ const process = [
   copy.home.improve,
 ]
 
-function OrbitalFallback() {
-  return (
-    <div className="orbital-fallback" aria-hidden="true">
-      <span className="orbital-fallback__planet" />
-      <span className="orbital-fallback__orbit" />
-      <span className="orbital-fallback__trail" />
-      <span className="orbital-fallback__artifact" />
-      <span className="orbital-fallback__star" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--one" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--two" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--three" />
-    </div>
-  )
-}
-
 function OrbitalLayer() {
-  const [shouldEnhance, setShouldEnhance] = useState(false)
+  const [shouldEnhance, setShouldEnhance] = useState<boolean | null>(null)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const syncEnhancement = () => setShouldEnhance(!media.matches)
 
-    const activate = () => setShouldEnhance(true)
-    const events: (keyof WindowEventMap)[] = [
-      'pointermove',
-      'scroll',
-      'touchstart',
-      'keydown',
-    ]
-    events.forEach((event) =>
-      window.addEventListener(event, activate, { once: true, passive: true }),
-    )
-
-    return () =>
-      events.forEach((event) => window.removeEventListener(event, activate))
+    syncEnhancement()
+    media.addEventListener('change', syncEnhancement)
+    return () => media.removeEventListener('change', syncEnhancement)
   }, [])
 
   return (
     <div className="orbital-layer">
-      <ClientOnly fallback={<OrbitalFallback />}>
+      <ClientOnly fallback={<OrbitalLoadingPlaceholder />}>
         {shouldEnhance ? (
-          <Suspense fallback={<OrbitalFallback />}>
+          <Suspense fallback={<OrbitalLoadingPlaceholder />}>
             <OrbitalExperience />
           </Suspense>
-        ) : (
+        ) : shouldEnhance === false ? (
           <OrbitalFallback />
+        ) : (
+          <OrbitalLoadingPlaceholder />
         )}
       </ClientOnly>
     </div>
@@ -157,7 +139,7 @@ function Hero() {
           </p>
           <h1 className="max-w-5xl text-[clamp(3.65rem,8.5vw,9rem)] leading-[0.88] font-medium tracking-[-0.065em] text-balance">
             {message(copy.home.heroLine1)}
-            <span className="mt-2 block font-editorial font-normal tracking-[-0.055em] text-ivory/90 italic">
+            <span className="mt-2 block font-editorial leading-[0.98] font-normal tracking-[-0.055em] text-ivory/90 italic">
               {message(copy.home.heroLine2)}
             </span>
           </h1>

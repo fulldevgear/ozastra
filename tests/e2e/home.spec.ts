@@ -18,6 +18,37 @@ test('renders the Ozastra proposition and core sections', async ({ page }) => {
   await expect(page.locator('#contact')).toBeVisible()
 })
 
+test('keeps the wrapped editorial hero lines visually separated', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium')
+  const viewports = [
+    { width: 1117, height: 837 },
+    { width: 1440, height: 900 },
+    { width: 390, height: 844 },
+  ]
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport)
+    await page.goto('/')
+
+    const editorialLine = page.locator('#top h1 span.font-editorial')
+    const metrics = await editorialLine.evaluate((element) => {
+      const style = getComputedStyle(element)
+      return {
+        fontSize: Number.parseFloat(style.fontSize),
+        lineHeight: Number.parseFloat(style.lineHeight),
+        horizontalOverflow:
+          document.documentElement.scrollWidth >
+          document.documentElement.clientWidth,
+      }
+    })
+
+    expect(metrics.lineHeight / metrics.fontSize).toBeGreaterThanOrEqual(0.97)
+    expect(metrics.horizontalOverflow).toBe(false)
+  }
+})
+
 test('supports the main keyboard navigation path', async ({
   page,
 }, testInfo) => {
@@ -62,9 +93,11 @@ test('cleans up and recreates the WebGL canvas across routes', async ({
 
   await page.goto('/')
   const orbitalRender = page.locator(
-    '.orbital-layer canvas, .orbital-layer .orbital-fallback',
+    '.orbital-layer canvas, .orbital-layer .orbital-fallback, .orbital-layer [data-orbital-loading="true"]',
   )
-  await expect.poll(() => orbitalRender.count()).toBeGreaterThan(0)
+  await expect
+    .poll(() => orbitalRender.count(), { timeout: 15_000 })
+    .toBeGreaterThan(0)
   await page.goto('/about')
   await expect(page.locator('canvas')).toHaveCount(0)
   await expect(page.locator('.orbital-fallback')).toHaveCount(0)
@@ -72,13 +105,154 @@ test('cleans up and recreates the WebGL canvas across routes', async ({
   await expect.poll(() => orbitalRender.count()).toBeGreaterThan(0)
 })
 
+test('starts Three.js automatically after a refresh without user input', async ({
+  page,
+}, testInfo) => {
+  test.skip(['firefox', 'webkit'].includes(testInfo.project.name))
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+
+  const canvas = page.locator('.orbital-layer canvas')
+  const canvasShell = page.locator('[data-orbital-canvas="true"]')
+  const fallback = page.locator('.orbital-layer .orbital-fallback')
+  await expect(canvas).toBeVisible({ timeout: 15_000 })
+  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true')
+  await expect
+    .poll(() =>
+      canvasShell.evaluate((element) =>
+        Number.parseFloat(getComputedStyle(element).opacity),
+      ),
+    )
+    .toBeGreaterThan(0.99)
+  await expect
+    .poll(() =>
+      canvasShell.evaluate((element) => {
+        const style = getComputedStyle(element)
+        return {
+          transform: style.transform,
+          willChange: style.willChange,
+        }
+      }),
+    )
+    .toEqual({ transform: 'none', willChange: 'auto' })
+  await expect(fallback).toBeHidden()
+
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(canvas).toBeVisible({ timeout: 15_000 })
+  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true')
+  await expect
+    .poll(() =>
+      canvasShell.evaluate((element) =>
+        Number.parseFloat(getComputedStyle(element).opacity),
+      ),
+    )
+    .toBeGreaterThan(0.99)
+  await expect(fallback).toBeHidden()
+})
+
+test('keeps the loading frame neutral on load and refresh while Three.js is delayed', async ({
+  page,
+}, testInfo) => {
+  test.skip(['firefox', 'webkit'].includes(testInfo.project.name))
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+
+  let releaseChunk = () => {}
+  let chunkGate: Promise<void>
+  const resetChunkGate = () => {
+    chunkGate = new Promise<void>((resolve) => {
+      releaseChunk = resolve
+    })
+  }
+  resetChunkGate()
+
+  await page.route(
+    '**/src/features/orbital/OrbitalExperience.tsx*',
+    async (route) => {
+      await chunkGate
+      await route.continue()
+    },
+  )
+
+  const loadingPlaceholder = page.locator('[data-orbital-loading="true"]')
+  const canvas = page.locator('.orbital-layer canvas')
+  const canvasShell = page.locator('[data-orbital-canvas="true"]')
+
+  for (const load of [
+    () => page.goto('/', { waitUntil: 'domcontentloaded' }),
+    () => page.reload({ waitUntil: 'domcontentloaded' }),
+  ]) {
+    await load()
+    await expect(loadingPlaceholder).toBeVisible()
+    await expect(page.locator('.orbital-fallback')).toHaveCount(0)
+    await expect(page.locator('.orbital-fallback__planet')).toHaveCount(0)
+
+    releaseChunk()
+    await expect(canvas).toBeVisible({ timeout: 15_000 })
+    await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true')
+    const revealStart = await canvasShell.evaluate((element) => {
+      const style = getComputedStyle(element)
+      return {
+        transitionDuration: style.transitionDuration,
+        transitionProperty: style.transitionProperty,
+      }
+    })
+    expect(revealStart.transitionDuration).toContain('1.6s')
+    expect(revealStart.transitionProperty).toBe('opacity')
+    await expect
+      .poll(() =>
+        canvasShell.evaluate((element) =>
+          Number.parseFloat(getComputedStyle(element).opacity),
+        ),
+      )
+      .toBeGreaterThan(0.99)
+    await expect
+      .poll(() =>
+        canvasShell.evaluate((element) => {
+          const style = getComputedStyle(element)
+          return {
+            transform: style.transform,
+            willChange: style.willChange,
+          }
+        }),
+      )
+      .toEqual({ transform: 'none', willChange: 'auto' })
+    await expect(loadingPlaceholder).toHaveCount(0)
+    resetChunkGate()
+  }
+})
+
 test('uses the static artifact when reduced motion is requested', async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/')
-  await expect(page.locator('.orbital-layer .orbital-fallback')).toBeVisible()
+  const fallback = page.locator('.orbital-layer .orbital-fallback')
+  await expect(fallback).toBeVisible({ timeout: 15_000 })
+  await expect(fallback).toHaveAttribute('data-orbital-fallback-state', 'hero')
+  await expect(fallback.locator('.orbital-fallback__planet')).toBeVisible()
+  await expect(fallback.locator('.orbital-fallback__seed')).toBeVisible()
   await expect(page.locator('canvas')).toHaveCount(0)
+})
+
+test('keeps the initial HTML neutral before Three.js starts', async ({
+  browser,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium')
+  const context = await browser.newContext({ javaScriptEnabled: false })
+  const page = await context.newPage()
+  await page.goto('/')
+
+  await expect(page.locator('[data-orbital-loading="true"]')).toBeVisible()
+  await expect(page.locator('.orbital-fallback')).toHaveCount(0)
+  await expect(page.locator('.orbital-fallback__planet')).toHaveCount(0)
+  await expect(
+    page.getByRole('heading', {
+      level: 1,
+      name: /Digital products, engineered with taste/i,
+    }),
+  ).toBeVisible()
+
+  await context.close()
 })
 
 test('maps real section positions to orbital story stages', async ({

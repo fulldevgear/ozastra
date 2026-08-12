@@ -1,4 +1,9 @@
 import { expect, test } from '@playwright/test'
+import localeRegistry from '../../src/i18n/locales.json' with { type: 'json' }
+
+const publishedLocales = Object.entries(localeRegistry.locales).filter(
+  ([, definition]) => definition.status === 'published',
+)
 
 test('switches language by keyboard while preserving the current project', async ({
   page,
@@ -7,6 +12,21 @@ test('switches language by keyboard while preserving the current project', async
   await page.goto('/work/orbit')
 
   const switcher = page.getByRole('navigation', { name: 'Language selection' })
+  const switcherDetails = switcher.locator('details')
+  const trigger = switcher.locator('summary')
+  await trigger.focus()
+  await expect(trigger).toBeFocused()
+  await trigger.press('Enter')
+  await expect(switcherDetails).toHaveAttribute('open', '')
+
+  for (const [, definition] of publishedLocales) {
+    await expect(
+      switcher.getByRole('link', {
+        name: definition.nativeLabel,
+      }),
+    ).toBeVisible()
+  }
+
   const french = switcher.getByRole('link', { name: 'Français' })
   await french.focus()
   await expect(french).toBeFocused()
@@ -21,6 +41,7 @@ test('switches language by keyboard while preserving the current project', async
   const englishSwitcher = page.getByRole('navigation', {
     name: 'Choix de la langue',
   })
+  await englishSwitcher.locator('summary').press('Enter')
   await englishSwitcher.getByRole('link', { name: 'English' }).press('Enter')
   await expect(page).toHaveURL(/\/work\/orbit$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'en')
@@ -35,6 +56,8 @@ test('keeps locale switching available in the mobile header', async ({
 
   const switcher = page.getByRole('navigation', { name: 'Choix de la langue' })
   await expect(switcher).toBeVisible()
+  await switcher.locator('summary').tap()
+  await expect(switcher.locator('details')).toHaveAttribute('open', '')
   await switcher.getByRole('link', { name: 'English' }).tap()
   await expect(page).toHaveURL(/\/services$/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
@@ -62,6 +85,13 @@ test('serves meaningful English and French pages without JavaScript', async ({
     ).toBeVisible()
     await expect(page.locator('main')).toBeVisible()
   }
+
+  await page.goto('/work/orbit')
+  const switcher = page.getByRole('navigation', { name: 'Language selection' })
+  await switcher.locator('summary').click()
+  await switcher.getByRole('link', { name: 'Français' }).click()
+  await expect(page).toHaveURL(/\/fr\/work\/orbit$/)
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fr')
 
   await context.close()
 })
@@ -116,6 +146,7 @@ test('keeps the interface operable when document direction is RTL', async ({
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   await expect(page.locator('body')).toHaveCSS('direction', 'rtl')
   const switcher = page.getByRole('navigation', { name: 'Language selection' })
+  await switcher.locator('summary').click()
   await switcher.getByRole('link', { name: 'English' }).focus()
   await expect(switcher.getByRole('link', { name: 'English' })).toBeFocused()
 

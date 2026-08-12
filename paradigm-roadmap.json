@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 215
+    "revision": 253
   },
   "brand": {
     "name": "Ozastra",
@@ -108,51 +108,12 @@
         "role": "Halos et lumière atmosphérique"
       }
     },
-    "light_color_palette": {
-      "background_primary": {
-        "value": "#F3F0E8",
-        "role": "Fond ivoire minéral, lumineux sans être blanc clinique"
-      },
-      "surface_primary": {
-        "value": "#E9E6DE",
-        "role": "Surfaces architecturales légèrement plus denses"
-      },
-      "surface_elevated": {
-        "value": "#FCFAF5",
-        "role": "Éléments surélevés révélés par contraste tonal"
-      },
-      "text_primary": {
-        "value": "#11141C",
-        "role": "Graphite profond pour préserver la précision éditoriale"
-      },
-      "text_secondary": {
-        "value": "#5F6675",
-        "role": "Gris ardoise pour les textes secondaires"
-      },
-      "accent_primary": {
-        "value": "#3457D5",
-        "role": "Bleu orbital densifié pour rester accessible sur ivoire"
-      },
-      "accent_secondary": {
-        "value": "#7556D8",
-        "role": "Violet minéral réservé aux détails narratifs"
-      },
-      "border_subtle": {
-        "value": "rgba(17, 20, 28, 0.14)",
-        "role": "Séparateurs graphite très fins"
-      },
-      "light_soft": {
-        "value": "rgba(52, 87, 213, 0.12)",
-        "role": "Lumière bleue diffuse, jamais néon"
-      }
-    },
     "color_usage": [
       "Maintenir une majorité de tons neutres sombres.",
-      "Dans le thème clair, employer un ivoire minéral et des contrastes graphite plutôt qu’un blanc pur.",
       "Réserver le bleu électrique aux actions, états actifs et moments narratifs.",
       "Utiliser le violet comme accent secondaire, jamais comme remplissage dominant.",
-      "Garantir un contraste accessible pour les textes et contrôles dans les deux thèmes.",
-      "Conserver la planète et le cœur de l’artefact sombres dans le thème clair afin de préserver l’idée de matière et de gravité."
+      "Garantir un contraste accessible pour les textes et contrôles sur l’unique thème sombre.",
+      "Conserver la planète et le cœur de l’artefact profondément sombres afin de préserver l’idée de matière et de gravité."
     ],
     "typography": {
       "direction": "Sans-serif moderne et nette pour l’interface, avec une serif éditoriale facultative pour quelques mots à forte charge narrative.",
@@ -1041,8 +1002,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": null,
     "current_deliverable": null,
-    "overall_progress_percent": 94,
-    "last_activity_at": "2026-08-12T14:07:44.916Z",
+    "overall_progress_percent": 95,
+    "last_activity_at": "2026-08-12T16:35:02.070Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2783,6 +2744,290 @@
         "event": "verify_phase",
         "phase": 12,
         "evidence": "Narration idée → étoile → constellation livrée sur la branche idea-to-starz sans modification des sections éditoriales ; huit stages, thèmes, responsive, reduced-motion, no-WebGL, tests visuels, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T14:43:24.521Z",
+        "event": "start_step",
+        "phase": 13,
+        "deliverable": 1,
+        "description": "Menu déroulant alimenté automatiquement par toutes les locales publiées du registre",
+        "note": "Remplacement des liens horizontaux par un menu natif details/summary, généré depuis publishedLocales et compatible sans JavaScript."
+      },
+      {
+        "timestamp": "2026-08-12T14:44:07.979Z",
+        "event": "complete_step",
+        "phase": 13,
+        "deliverable": 1,
+        "description": "Menu déroulant alimenté automatiquement par toutes les locales publiées du registre",
+        "evidence": "LanguageSwitcher utilise un menu natif details/summary et génère les entrées depuis publishedLocales ; langue active, libellés natifs, codes BCP 47 et conservation de route restent issus du registre typé ; typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T14:44:08.023Z",
+        "event": "start_step",
+        "phase": 13,
+        "deliverable": 2,
+        "description": "Navigation clavier, mobile, sans JavaScript, responsive, tests et build validés",
+        "note": "Adaptation des parcours clavier/mobile/RTL au menu fermé, vérification sans JavaScript, responsive, accessibilité, build et budgets."
+      },
+      {
+        "timestamp": "2026-08-12T14:50:28.667Z",
+        "event": "complete_step",
+        "phase": 13,
+        "deliverable": 2,
+        "description": "Navigation clavier, mobile, sans JavaScript, responsive, tests et build validés",
+        "evidence": "Sélecteur déroulant validé au clavier, au toucher, sans JavaScript et en RTL ; Vitest 34/34, typecheck, lint et format réussis ; Playwright complet 44 passes et 64 skips conditionnels avec axe WCAG A/AA ; build de 18 pages réussi ; UI 153.2/200 kB gzip et scène 3D 272.4/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T14:50:28.703Z",
+        "event": "verify_phase",
+        "phase": 13,
+        "evidence": "Menu déroulant natif, compact et extensible livré depuis le registre des locales publiées ; conservation des routes/slugs, accessibilité, responsive, no-JS, RTL, tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T14:53:16.922Z",
+        "event": "start_step",
+        "phase": 14,
+        "deliverable": 1,
+        "description": "Fallback initial aligné sur la surface minérale et l’impulsion du hero, sans révélation orbitale prématurée",
+        "note": "Correction du fallback qui montrait à tort la scène orbitale finale avant l’activation de Three.js ; remplacement par le cadrage surface minérale + impulsion du Hero."
+      },
+      {
+        "timestamp": "2026-08-12T14:55:00.041Z",
+        "event": "complete_step",
+        "phase": 14,
+        "deliverable": 1,
+        "description": "Fallback initial aligné sur la surface minérale et l’impulsion du hero, sans révélation orbitale prématurée",
+        "evidence": "Fallback partagé créé dans src/features/orbital/OrbitalFallback.tsx : grande courbure minérale, atmosphère, signaux de surface et impulsion uniquement ; suppression complète du globe entier, de l’orbite, des satellites et de l’étoile au premier rendu ; typecheck, lint et 34 tests unitaires réussis."
+      },
+      {
+        "timestamp": "2026-08-12T14:55:00.081Z",
+        "event": "start_step",
+        "phase": 14,
+        "deliverable": 2,
+        "description": "Continuité SSR, chargement différé, no-WebGL, mouvement réduit, thèmes, responsive, tests et build validés",
+        "note": "Validation du fallback partagé sur SSR/no-JS, Suspense, reduced-motion, thèmes, mobile, cycle WebGL, accessibilité, build et budgets."
+      },
+      {
+        "timestamp": "2026-08-12T14:56:23.480Z",
+        "event": "complete_step",
+        "phase": 14,
+        "deliverable": 2,
+        "description": "Continuité SSR, chargement différé, no-WebGL, mouvement réduit, thèmes, responsive, tests et build validés",
+        "evidence": "Fallback partagé validé en SSR sans JavaScript, Suspense/reduced-motion, thème clair et mobile ; Playwright ciblé Home+Theme : 23 passes et 11 skips conditionnels, dont absence explicite d’orbite/étoile/satellites au HTML initial ; build de 18 pages réussi ; UI 153.4/200 kB gzip et scène 3D 272.4/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T14:56:23.518Z",
+        "event": "verify_phase",
+        "phase": 14,
+        "evidence": "Le chargement affiche désormais la même surface minérale et la même impulsion que le Hero Three.js ; aucune révélation finale prématurée ; SSR, no-JS, reduced-motion, thèmes, responsive, cycle Canvas, tests et build validés."
+      },
+      {
+        "timestamp": "2026-08-12T14:59:51.998Z",
+        "event": "start_step",
+        "phase": 15,
+        "deliverable": 1,
+        "description": "Montage automatique du canvas après hydratation sans attendre pointeur, scroll, toucher ou clavier",
+        "note": "Suppression du déclenchement par première interaction ; le canvas doit se monter automatiquement dès l’hydratation, sauf préférence de mouvement réduit."
+      },
+      {
+        "timestamp": "2026-08-12T15:00:46.552Z",
+        "event": "complete_step",
+        "phase": 15,
+        "deliverable": 1,
+        "description": "Montage automatique du canvas après hydratation sans attendre pointeur, scroll, toucher ou clavier",
+        "evidence": "OrbitalLayer monte désormais automatiquement OrbitalExperience après hydratation dès que prefers-reduced-motion est désactivé ; suppression des déclencheurs pointermove, scroll, touchstart et keydown ; changement dynamique de préférence conservé ; typecheck, lint et 34 tests unitaires réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:00:46.589Z",
+        "event": "start_step",
+        "phase": 15,
+        "deliverable": 2,
+        "description": "Refresh, chargement, mouvement réduit, cycle WebGL, tests et build validés",
+        "note": "Validation automatisée d’un chargement puis refresh sans interaction, du mouvement réduit, du cycle WebGL, du fallback, des tests et du build."
+      },
+      {
+        "timestamp": "2026-08-12T15:02:36.676Z",
+        "event": "complete_step",
+        "phase": 15,
+        "deliverable": 2,
+        "description": "Refresh, chargement, mouvement réduit, cycle WebGL, tests et build validés",
+        "evidence": "Playwright desktop et mobile confirme le montage automatique du canvas après chargement puis refresh sans mouvement, scroll, toucher ni clavier ; 6/6 scénarios ciblés refresh/cycle WebGL/reduced-motion réussis et suite Home+Theme sans régression fonctionnelle ; typecheck, lint, 34 tests unitaires et build de 18 pages réussis ; UI 153.4/200 kB gzip et scène 3D 272.4/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T15:02:36.715Z",
+        "event": "verify_phase",
+        "phase": 15,
+        "evidence": "Le Hero Three.js démarre automatiquement après hydratation et après refresh ; le fallback ne reste plus figé faute d’interaction, tandis que prefers-reduced-motion conserve la composition statique ; cycle WebGL, tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T15:07:12.796Z",
+        "event": "start_step",
+        "phase": 16,
+        "deliverable": 1,
+        "description": "Placeholder de chargement neutre distinct du fallback statique reduced-motion et no-WebGL",
+        "note": "Suppression du rendu décoratif CSS pendant le SSR, l’hydratation et le chargement asynchrone de Three.js."
+      },
+      {
+        "timestamp": "2026-08-12T15:08:04.366Z",
+        "event": "complete_step",
+        "phase": 16,
+        "deliverable": 1,
+        "description": "Placeholder de chargement neutre distinct du fallback statique reduced-motion et no-WebGL",
+        "evidence": "OrbitalLoadingPlaceholder neutre utilisé pour ClientOnly, Suspense et la détection initiale de mouvement ; OrbitalFallback réservé au reduced-motion/no-WebGL ; typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:08:04.478Z",
+        "event": "start_step",
+        "phase": 16,
+        "deliverable": 2,
+        "description": "Refresh et chargement Three.js retardé sans apparition de planète 2D, tests et build validés",
+        "note": "Validation d’un refresh et d’un chargement asynchrone retardé sans planète CSS intermédiaire."
+      },
+      {
+        "timestamp": "2026-08-12T15:14:19.813Z",
+        "event": "complete_step",
+        "phase": 16,
+        "deliverable": 2,
+        "description": "Refresh et chargement Three.js retardé sans apparition de planète 2D, tests et build validés",
+        "evidence": "Test Playwright avec module Three.js volontairement bloqué : aucun fallback ni planète CSS au chargement et après refresh sur Chromium desktop/mobile ; Home+Theme 27 passes, 11 skips conditionnels ; navigateur local contrôlé, canvas visible et fallback sans surface ; typecheck, lint, 34 tests unitaires, build 18 pages et budgets UI 153.4/200 kB, 3D 272.3/450 kB réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:14:19.923Z",
+        "event": "verify_phase",
+        "phase": 16,
+        "evidence": "Le refresh conserve désormais le fond éditorial neutre jusqu’au canvas Three.js, sans planète 2D intermédiaire ; chargement retardé, mouvement réduit, cycle WebGL, desktop/mobile, build, tests et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T15:17:50.731Z",
+        "event": "start_step",
+        "phase": 17,
+        "deliverable": 1,
+        "description": "Signal de disponibilité synchronisé avec la première frame Three.js effectivement rendue",
+        "note": "Synchronisation de l’apparition visuelle avec la première frame WebGL réellement rendue."
+      },
+      {
+        "timestamp": "2026-08-12T15:18:47.674Z",
+        "event": "complete_step",
+        "phase": 17,
+        "deliverable": 1,
+        "description": "Signal de disponibilité synchronisé avec la première frame Three.js effectivement rendue",
+        "evidence": "SceneReady attend deux frames R3F puis marque le canvas prêt ; la révélation n’est plus déclenchée au montage du shell ; typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:18:47.773Z",
+        "event": "start_step",
+        "phase": 17,
+        "deliverable": 2,
+        "description": "Révélation douce de la planète au refresh, responsive, tests et build validés",
+        "note": "Validation de la révélation progressive après refresh sur desktop et mobile."
+      },
+      {
+        "timestamp": "2026-08-12T15:24:42.105Z",
+        "event": "note",
+        "phase": 17,
+        "message": "Précision d’implémentation : le signal final part de la première frame R3F, est appliqué au frame navigateur suivant et possède un garde-fou de 400 ms pour les onglets dont le rendu est temporairement bridé."
+      },
+      {
+        "timestamp": "2026-08-12T15:24:42.204Z",
+        "event": "complete_step",
+        "phase": 17,
+        "deliverable": 2,
+        "description": "Révélation douce de la planète au refresh, responsive, tests et build validés",
+        "evidence": "Révélation synchronisée de 1,6 s en opacité et 2 s en micro-échelle, origine adaptée desktop/mobile ; Playwright Home+Theme 27 passes et 11 skips conditionnels, dont chargement retardé et refresh desktop/mobile ; typecheck, lint, 34 tests unitaires, format, build 18 pages et budgets UI 153.4/200 kB, 3D 272.5/450 kB réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:24:42.306Z",
+        "event": "verify_phase",
+        "phase": 17,
+        "evidence": "La planète ne devient visible qu’après disponibilité de Three.js puis se révèle progressivement en 1,6 s, avec une micro-stabilisation de 2 s ; refresh, chargement retardé, desktop/mobile, reduced-motion, cycle WebGL, tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T15:28:50.297Z",
+        "event": "start_step",
+        "phase": 18,
+        "deliverable": 1,
+        "description": "Révélation limitée à l’opacité sans transformation ni promotion GPU persistante du canvas plein écran",
+        "note": "Suppression du transform et du will-change persistants sur le canvas plein écran tout en conservant le fondu synchronisé."
+      },
+      {
+        "timestamp": "2026-08-12T15:29:28.922Z",
+        "event": "complete_step",
+        "phase": 18,
+        "deliverable": 1,
+        "description": "Révélation limitée à l’opacité sans transformation ni promotion GPU persistante du canvas plein écran",
+        "evidence": "Le shell WebGL ne transitionne plus que l’opacité ; transform et will-change supprimés sur desktop/mobile ; assertions de neutralité ajoutées ; typecheck et lint réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:29:29.020Z",
+        "event": "start_step",
+        "phase": 18,
+        "deliverable": 2,
+        "description": "Scroll, stages orbitaux, desktop/mobile, tests, build et budgets de performance validés",
+        "note": "Validation du scroll et des stages orbitaux dans le navigateur intégré puis sur desktop/mobile automatisés."
+      },
+      {
+        "timestamp": "2026-08-12T15:34:11.340Z",
+        "event": "complete_step",
+        "phase": 18,
+        "deliverable": 2,
+        "description": "Scroll, stages orbitaux, desktop/mobile, tests, build et budgets de performance validés",
+        "evidence": "Navigateur intégré : scroll complet jusqu’à convergence avec un seul canvas, stages progressifs et aucun blocage ; scroll commencé pendant le fondu validé avec transform none et will-change auto ; console sans erreur de rendu. Playwright refresh/chargement/scroll/cycle WebGL : 7 passes, 1 skip conditionnel ; Vitest 34/34, typecheck, lint, format, build 18 pages et budgets UI 153.4/200 kB, 3D 272.5/450 kB réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:34:11.438Z",
+        "event": "verify_phase",
+        "phase": 18,
+        "evidence": "Le fondu doux reste en opacité seule ; le canvas n’est plus transformé ni promu durablement, et le scroll reste fonctionnel du Hero à la constellation dans le navigateur intégré ainsi que sur les scénarios desktop/mobile automatisés ; tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T15:37:02.538Z",
+        "event": "start_step",
+        "phase": 19,
+        "deliverable": 1,
+        "description": "Interligne serif du Hero corrigé sans chevauchement entre les lignes et validé en responsive",
+        "note": "Ouverture ciblée de l’interligne interne de la ligne serif du Hero au cadrage signalé."
+      },
+      {
+        "timestamp": "2026-08-12T15:43:13.392Z",
+        "event": "complete_step",
+        "phase": 19,
+        "deliverable": 1,
+        "description": "Interligne serif du Hero corrigé sans chevauchement entre les lignes et validé en responsive",
+        "evidence": "Interligne serif isolé à 0,98 dans src/routes/{-}.index.tsx ; navigateur intégré validé au cadrage exact 1117×837 (94,945 px / 93,046 px, sans chevauchement ni overflow) ; test Playwright dédié réussi aux formats 1117×837, 1440×900 et 390×844 ; typecheck, lint, 34 tests Vitest, build de 18 pages et budgets UI 153,5/200 kB gzip et 3D 272,5/450 kB gzip réussis."
+      },
+      {
+        "timestamp": "2026-08-12T15:43:16.957Z",
+        "event": "verify_phase",
+        "phase": 19,
+        "evidence": "Le jambage du g de « engineered » et le point du i de « with » sont désormais visuellement séparés au cadrage signalé ; densité éditoriale, desktop large, mobile, absence d’overflow, tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-12T16:31:23.191Z",
+        "event": "note",
+        "phase": 20,
+        "message": "La décision dark-only remplace explicitement la phase 10 consacrée au thème clair ; son historique reste conservé, mais la direction active ne retient plus que la palette sombre."
+      },
+      {
+        "timestamp": "2026-08-12T16:31:23.266Z",
+        "event": "start_step",
+        "phase": 20,
+        "deliverable": 1,
+        "description": "Thème clair, sélecteur, persistance, bootstrap, variantes CSS et Three.js, traductions, documentation et tests associés entièrement supprimés",
+        "note": "Décision utilisateur : supprimer intégralement le thème clair et verrouiller toute l’expérience sur la palette sombre."
+      },
+      {
+        "timestamp": "2026-08-12T16:35:02.029Z",
+        "event": "complete_step",
+        "phase": 20,
+        "deliverable": 1,
+        "description": "Thème clair, sélecteur, persistance, bootstrap, variantes CSS et Three.js, traductions, documentation et tests associés entièrement supprimés",
+        "evidence": "ThemeToggle, src/lib/theme.ts, bootstrap pré-hydratation, stockage, messages EN/FR, documentation et tests light supprimés ; sélecteurs CSS et palette/branches Three.js claires retirés ; ancien ozastra-theme et préférence système claire rendus inertes. Vitest 31/31, typecheck, lint, i18n et format réussis ; Playwright dark-only/Home/i18n desktop-mobile 29 passes et 11 skips conditionnels, qualité 18 routes 5/5 avec responsive et axe WCAG A/AA ; build 18 pages réussi ; UI 152,6/200 kB gzip et 3D 272,3/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-12T16:35:02.070Z",
+        "event": "verify_phase",
+        "phase": 20,
+        "evidence": "Ozastra est désormais strictement dark-only : aucun contrôle, bootstrap, persistance, traduction, documentation, variante CSS ou branche Three.js claire ne subsiste ; système clair, ancienne préférence, no-JS, reduced-motion, EN/FR, responsive, accessibilité, tests, build et budgets validés."
       }
     ]
   },
@@ -3798,6 +4043,328 @@
         "Les thèmes, le responsive, le fallback no-WebGL, prefers-reduced-motion et les budgets existants restent conformes."
       ],
       "exit_criteria": "La nouvelle 3D raconte clairement le passage d’une idée née sur Ozastra à un produit construit qui atteint son étoile et complète une constellation orbitale, sans altérer le reste du site ni ses garanties de qualité."
+    },
+    {
+      "phase": 13,
+      "name": "Sélecteur de langue déroulant et extensible",
+      "status": "completed",
+      "dependencies": [4, 11],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Menu déroulant alimenté automatiquement par toutes les locales publiées du registre",
+            "completed_at": "2026-08-12T14:44:07.978Z",
+            "evidence": "LanguageSwitcher utilise un menu natif details/summary et génère les entrées depuis publishedLocales ; langue active, libellés natifs, codes BCP 47 et conservation de route restent issus du registre typé ; typecheck et lint réussis."
+          },
+          {
+            "index": 2,
+            "description": "Navigation clavier, mobile, sans JavaScript, responsive, tests et build validés",
+            "completed_at": "2026-08-12T14:50:28.666Z",
+            "evidence": "Sélecteur déroulant validé au clavier, au toucher, sans JavaScript et en RTL ; Vitest 34/34, typecheck, lint et format réussis ; Playwright complet 44 passes et 64 skips conditionnels avec axe WCAG A/AA ; build de 18 pages réussi ; UI 153.2/200 kB gzip et scène 3D 272.4/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T14:50:28.703Z",
+          "evidence": "Menu déroulant natif, compact et extensible livré depuis le registre des locales publiées ; conservation des routes/slugs, accessibilité, responsive, no-JS, RTL, tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T14:50:28.703Z"
+      },
+      "deliverables": [
+        "Menu déroulant alimenté automatiquement par toutes les locales publiées du registre",
+        "Navigation clavier, mobile, sans JavaScript, responsive, tests et build validés"
+      ],
+      "verification": [
+        "La langue active est visible dans le contrôle fermé.",
+        "L’ouverture affiche toutes les locales publiées et uniquement celles-ci.",
+        "Chaque lien conserve la route et le slug courants lors du changement de langue.",
+        "Le composant reste utilisable au clavier, au toucher, sans JavaScript et en direction RTL.",
+        "L’ajout d’une locale publiée au registre ne requiert aucune modification du composant."
+      ],
+      "exit_criteria": "Le header expose un sélecteur compact qui peut accueillir toutes les langues publiées à venir sans élargir continuellement la navigation ni dupliquer la logique de routage."
+    },
+    {
+      "phase": 14,
+      "name": "Continuité visuelle du chargement Three.js",
+      "status": "completed",
+      "dependencies": [10, 12],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Fallback initial aligné sur la surface minérale et l’impulsion du hero, sans révélation orbitale prématurée",
+            "completed_at": "2026-08-12T14:55:00.040Z",
+            "evidence": "Fallback partagé créé dans src/features/orbital/OrbitalFallback.tsx : grande courbure minérale, atmosphère, signaux de surface et impulsion uniquement ; suppression complète du globe entier, de l’orbite, des satellites et de l’étoile au premier rendu ; typecheck, lint et 34 tests unitaires réussis."
+          },
+          {
+            "index": 2,
+            "description": "Continuité SSR, chargement différé, no-WebGL, mouvement réduit, thèmes, responsive, tests et build validés",
+            "completed_at": "2026-08-12T14:56:23.474Z",
+            "evidence": "Fallback partagé validé en SSR sans JavaScript, Suspense/reduced-motion, thème clair et mobile ; Playwright ciblé Home+Theme : 23 passes et 11 skips conditionnels, dont absence explicite d’orbite/étoile/satellites au HTML initial ; build de 18 pages réussi ; UI 153.4/200 kB gzip et scène 3D 272.4/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T14:56:23.517Z",
+          "evidence": "Le chargement affiche désormais la même surface minérale et la même impulsion que le Hero Three.js ; aucune révélation finale prématurée ; SSR, no-JS, reduced-motion, thèmes, responsive, cycle Canvas, tests et build validés."
+        },
+        "last_updated_at": "2026-08-12T14:56:23.518Z"
+      },
+      "deliverables": [
+        "Fallback initial aligné sur la surface minérale et l’impulsion du hero, sans révélation orbitale prématurée",
+        "Continuité SSR, chargement différé, no-WebGL, mouvement réduit, thèmes, responsive, tests et build validés"
+      ],
+      "verification": [
+        "Le premier rendu ne montre ni planète entière, ni anneau, ni satellites, ni étoile finale.",
+        "Le fallback suggère la même courbure minérale et la même impulsion que le premier état Three.js.",
+        "Le fallback partagé est identique pendant le SSR, le chargement asynchrone, l’absence de WebGL et prefers-reduced-motion.",
+        "La transition vers le canvas ne provoque plus de changement narratif contradictoire.",
+        "Les thèmes clair et sombre ainsi que les cadrages desktop et mobile restent conformes."
+      ],
+      "exit_criteria": "Le visiteur perçoit un seul état Hero cohérent depuis le HTML initial jusqu’au rendu Three.js, sans flash de la constellation finale."
+    },
+    {
+      "phase": 15,
+      "name": "Activation automatique du Hero Three.js",
+      "status": "completed",
+      "dependencies": [12, 14],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Montage automatique du canvas après hydratation sans attendre pointeur, scroll, toucher ou clavier",
+            "completed_at": "2026-08-12T15:00:46.551Z",
+            "evidence": "OrbitalLayer monte désormais automatiquement OrbitalExperience après hydratation dès que prefers-reduced-motion est désactivé ; suppression des déclencheurs pointermove, scroll, touchstart et keydown ; changement dynamique de préférence conservé ; typecheck, lint et 34 tests unitaires réussis."
+          },
+          {
+            "index": 2,
+            "description": "Refresh, chargement, mouvement réduit, cycle WebGL, tests et build validés",
+            "completed_at": "2026-08-12T15:02:36.676Z",
+            "evidence": "Playwright desktop et mobile confirme le montage automatique du canvas après chargement puis refresh sans mouvement, scroll, toucher ni clavier ; 6/6 scénarios ciblés refresh/cycle WebGL/reduced-motion réussis et suite Home+Theme sans régression fonctionnelle ; typecheck, lint, 34 tests unitaires et build de 18 pages réussis ; UI 153.4/200 kB gzip et scène 3D 272.4/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T15:02:36.714Z",
+          "evidence": "Le Hero Three.js démarre automatiquement après hydratation et après refresh ; le fallback ne reste plus figé faute d’interaction, tandis que prefers-reduced-motion conserve la composition statique ; cycle WebGL, tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T15:02:36.715Z"
+      },
+      "deliverables": [
+        "Montage automatique du canvas après hydratation sans attendre pointeur, scroll, toucher ou clavier",
+        "Refresh, chargement, mouvement réduit, cycle WebGL, tests et build validés"
+      ],
+      "verification": [
+        "Après un refresh sans aucune interaction, le fallback est remplacé automatiquement par le canvas Three.js.",
+        "Le fallback ne reste visible que pendant l’hydratation, le chargement asynchrone ou lorsque prefers-reduced-motion l’exige.",
+        "Le mouvement réduit continue de ne monter aucun canvas.",
+        "La navigation hors de l’accueil nettoie le contexte WebGL et son retour le recrée automatiquement.",
+        "Les budgets de chargement différé et de bundle restent respectés."
+      ],
+      "exit_criteria": "Le Hero Three.js devient actif automatiquement après chaque chargement de la page, sans rester figé faute d’interaction utilisateur."
+    },
+    {
+      "phase": 16,
+      "name": "Suppression du flash 2D avant Three.js",
+      "status": "completed",
+      "dependencies": [14, 15],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Placeholder de chargement neutre distinct du fallback statique reduced-motion et no-WebGL",
+            "completed_at": "2026-08-12T15:08:04.359Z",
+            "evidence": "OrbitalLoadingPlaceholder neutre utilisé pour ClientOnly, Suspense et la détection initiale de mouvement ; OrbitalFallback réservé au reduced-motion/no-WebGL ; typecheck et lint réussis."
+          },
+          {
+            "index": 2,
+            "description": "Refresh et chargement Three.js retardé sans apparition de planète 2D, tests et build validés",
+            "completed_at": "2026-08-12T15:14:19.810Z",
+            "evidence": "Test Playwright avec module Three.js volontairement bloqué : aucun fallback ni planète CSS au chargement et après refresh sur Chromium desktop/mobile ; Home+Theme 27 passes, 11 skips conditionnels ; navigateur local contrôlé, canvas visible et fallback sans surface ; typecheck, lint, 34 tests unitaires, build 18 pages et budgets UI 153.4/200 kB, 3D 272.3/450 kB réussis."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T15:14:19.923Z",
+          "evidence": "Le refresh conserve désormais le fond éditorial neutre jusqu’au canvas Three.js, sans planète 2D intermédiaire ; chargement retardé, mouvement réduit, cycle WebGL, desktop/mobile, build, tests et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T15:14:19.923Z"
+      },
+      "deliverables": [
+        "Placeholder de chargement neutre distinct du fallback statique reduced-motion et no-WebGL",
+        "Refresh et chargement Three.js retardé sans apparition de planète 2D, tests et build validés"
+      ],
+      "verification": [
+        "Le HTML initial et le chargement asynchrone ne dessinent aucune planète, atmosphère, impulsion ou signal de surface en CSS.",
+        "Un chargement Three.js volontairement retardé conserve uniquement le fond éditorial jusqu’au montage du canvas.",
+        "Le canvas apparaît ensuite directement dans son état minéral attendu, avec une transition discrète.",
+        "Le mouvement réduit et l’absence de WebGL conservent un fallback statique, tandis que le contenu HTML reste complet sans JavaScript.",
+        "Le refresh desktop et mobile, le cycle WebGL, les tests et les budgets de bundle restent conformes."
+      ],
+      "exit_criteria": "Un refresh n’affiche plus jamais la planète CSS intermédiaire : le fond éditorial reste stable jusqu’à l’apparition directe de la surface Three.js."
+    },
+    {
+      "phase": 17,
+      "name": "Révélation progressive de la surface Three.js",
+      "status": "completed",
+      "dependencies": [15, 16],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Signal de disponibilité synchronisé avec la première frame Three.js effectivement rendue",
+            "completed_at": "2026-08-12T15:18:47.670Z",
+            "evidence": "SceneReady attend deux frames R3F puis marque le canvas prêt ; la révélation n’est plus déclenchée au montage du shell ; typecheck et lint réussis."
+          },
+          {
+            "index": 2,
+            "description": "Révélation douce de la planète au refresh, responsive, tests et build validés",
+            "completed_at": "2026-08-12T15:24:42.204Z",
+            "evidence": "Révélation synchronisée de 1,6 s en opacité et 2 s en micro-échelle, origine adaptée desktop/mobile ; Playwright Home+Theme 27 passes et 11 skips conditionnels, dont chargement retardé et refresh desktop/mobile ; typecheck, lint, 34 tests unitaires, format, build 18 pages et budgets UI 153.4/200 kB, 3D 272.5/450 kB réussis."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T15:24:42.305Z",
+          "evidence": "La planète ne devient visible qu’après disponibilité de Three.js puis se révèle progressivement en 1,6 s, avec une micro-stabilisation de 2 s ; refresh, chargement retardé, desktop/mobile, reduced-motion, cycle WebGL, tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T15:24:42.306Z"
+      },
+      "deliverables": [
+        "Signal de disponibilité synchronisé avec la première frame Three.js effectivement rendue",
+        "Révélation douce de la planète au refresh, responsive, tests et build validés"
+      ],
+      "verification": [
+        "Le canvas reste invisible tant qu’aucune frame Three.js complète n’a été rendue.",
+        "La première frame prête déclenche une transition d’opacité lente, sans pop ni changement d’échelle de la scène.",
+        "La durée et la courbe donnent une apparition progressive sans ralentir l’accès au contenu éditorial.",
+        "Le mouvement réduit conserve son fallback statique et n’exécute pas la révélation animée.",
+        "Le refresh desktop et mobile, le cycle WebGL, les tests et les budgets de bundle restent conformes."
+      ],
+      "exit_criteria": "Après un refresh, la surface minérale Three.js se révèle délicatement seulement lorsqu’elle est prête, sans apparition sèche ni élément 2D intermédiaire."
+    },
+    {
+      "phase": 18,
+      "name": "Fluidité du scroll après la révélation Three.js",
+      "status": "completed",
+      "dependencies": [12, 17],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Révélation limitée à l’opacité sans transformation ni promotion GPU persistante du canvas plein écran",
+            "completed_at": "2026-08-12T15:29:28.919Z",
+            "evidence": "Le shell WebGL ne transitionne plus que l’opacité ; transform et will-change supprimés sur desktop/mobile ; assertions de neutralité ajoutées ; typecheck et lint réussis."
+          },
+          {
+            "index": 2,
+            "description": "Scroll, stages orbitaux, desktop/mobile, tests, build et budgets de performance validés",
+            "completed_at": "2026-08-12T15:34:11.336Z",
+            "evidence": "Navigateur intégré : scroll complet jusqu’à convergence avec un seul canvas, stages progressifs et aucun blocage ; scroll commencé pendant le fondu validé avec transform none et will-change auto ; console sans erreur de rendu. Playwright refresh/chargement/scroll/cycle WebGL : 7 passes, 1 skip conditionnel ; Vitest 34/34, typecheck, lint, format, build 18 pages et budgets UI 153.4/200 kB, 3D 272.5/450 kB réussis."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T15:34:11.438Z",
+          "evidence": "Le fondu doux reste en opacité seule ; le canvas n’est plus transformé ni promu durablement, et le scroll reste fonctionnel du Hero à la constellation dans le navigateur intégré ainsi que sur les scénarios desktop/mobile automatisés ; tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T15:34:11.438Z"
+      },
+      "deliverables": [
+        "Révélation limitée à l’opacité sans transformation ni promotion GPU persistante du canvas plein écran",
+        "Scroll, stages orbitaux, desktop/mobile, tests, build et budgets de performance validés"
+      ],
+      "verification": [
+        "Le fondu doux reste synchronisé avec la disponibilité de la première frame Three.js.",
+        "Après la révélation, le shell du canvas expose transform: none et will-change: auto.",
+        "Le scroll ne cumule plus transformation CSS du canvas, rendu WebGL et interpolation de la timeline.",
+        "Un parcours rapide des sections conserve un seul canvas, des stages cohérents et aucun blocage visuel.",
+        "Les scénarios desktop/mobile, reduced-motion, cycle WebGL, tests et budgets de bundle restent conformes."
+      ],
+      "exit_criteria": "La planète apparaît progressivement au chargement puis la scène retrouve un calque WebGL neutre, fluide et sans surcharge de composition pendant tout le scroll."
+    },
+    {
+      "phase": 19,
+      "name": "Respiration typographique du Hero",
+      "status": "completed",
+      "dependencies": [4, 18],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Interligne serif du Hero corrigé sans chevauchement entre les lignes et validé en responsive",
+            "completed_at": "2026-08-12T15:43:13.391Z",
+            "evidence": "Interligne serif isolé à 0,98 dans src/routes/{-}.index.tsx ; navigateur intégré validé au cadrage exact 1117×837 (94,945 px / 93,046 px, sans chevauchement ni overflow) ; test Playwright dédié réussi aux formats 1117×837, 1440×900 et 390×844 ; typecheck, lint, 34 tests Vitest, build de 18 pages et budgets UI 153,5/200 kB gzip et 3D 272,5/450 kB gzip réussis."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T15:43:16.957Z",
+          "evidence": "Le jambage du g de « engineered » et le point du i de « with » sont désormais visuellement séparés au cadrage signalé ; densité éditoriale, desktop large, mobile, absence d’overflow, tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T15:43:16.957Z"
+      },
+      "deliverables": [
+        "Interligne serif du Hero corrigé sans chevauchement entre les lignes et validé en responsive"
+      ],
+      "verification": [
+        "Le jambage du g de « engineered » ne touche plus le point du i de « with ».",
+        "La ligne serif conserve sa densité éditoriale et son alignement avec le titre sans agrandir excessivement le Hero.",
+        "Le cadrage signalé, le desktop large et le mobile restent lisibles sans débordement.",
+        "Typecheck, lint, tests et build restent conformes."
+      ],
+      "exit_criteria": "Le titre du Hero conserve son impact compact tout en séparant proprement toutes les lignes de la serif italique."
+    },
+    {
+      "phase": 20,
+      "name": "Verrouillage définitif du thème sombre",
+      "status": "completed",
+      "dependencies": [10, 12, 19],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Thème clair, sélecteur, persistance, bootstrap, variantes CSS et Three.js, traductions, documentation et tests associés entièrement supprimés",
+            "completed_at": "2026-08-12T16:35:02.029Z",
+            "evidence": "ThemeToggle, src/lib/theme.ts, bootstrap pré-hydratation, stockage, messages EN/FR, documentation et tests light supprimés ; sélecteurs CSS et palette/branches Three.js claires retirés ; ancien ozastra-theme et préférence système claire rendus inertes. Vitest 31/31, typecheck, lint, i18n et format réussis ; Playwright dark-only/Home/i18n desktop-mobile 29 passes et 11 skips conditionnels, qualité 18 routes 5/5 avec responsive et axe WCAG A/AA ; build 18 pages réussi ; UI 152,6/200 kB gzip et 3D 272,3/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-12T16:35:02.070Z",
+          "evidence": "Ozastra est désormais strictement dark-only : aucun contrôle, bootstrap, persistance, traduction, documentation, variante CSS ou branche Three.js claire ne subsiste ; système clair, ancienne préférence, no-JS, reduced-motion, EN/FR, responsive, accessibilité, tests, build et budgets validés."
+        },
+        "last_updated_at": "2026-08-12T16:35:02.070Z"
+      },
+      "deliverables": [
+        "Thème clair, sélecteur, persistance, bootstrap, variantes CSS et Three.js, traductions, documentation et tests associés entièrement supprimés"
+      ],
+      "verification": [
+        "Aucun sélecteur de thème ni libellé clair/sombre n’est exposé dans l’interface.",
+        "Le système, le stockage local et un ancien choix clair ne peuvent plus modifier la palette sombre.",
+        "CSS, fallback et scène Three.js ne contiennent plus de branche ou de palette claire.",
+        "Le HTML initial fixe color-scheme et theme-color sur les valeurs sombres sans script de thème.",
+        "Les routes anglaises et françaises restent accessibles, responsive, sans débordement et compatibles sans JavaScript.",
+        "Typecheck, lint, tests, build et budgets restent conformes."
+      ],
+      "exit_criteria": "Ozastra ne possède plus qu’une identité bleu-noir nocturne, sans contrôle, état persistant, code ou ressource résiduelle liés au thème clair."
     }
   ],
   "success_criteria": {
@@ -3820,7 +4387,7 @@
   },
   "north_star": {
     "statement": "Ozastra est un studio de product engineering capable de transformer une idée en expérience numérique aboutie.",
-    "visual_expression": "Deux atmosphères cohérentes — bleu-noir nocturne ou ivoire minéral —, composition éditoriale, typographie expressive, narration Three.js d’une idée née sur Ozastra qui devient un produit et rejoint une constellation orbitale, animations lentes et études de cas très visuelles.",
+    "visual_expression": "Une atmosphère bleu-noir nocturne unique, composition éditoriale, typographie expressive, narration Three.js d’une idée née sur Ozastra qui devient un produit et rejoint une constellation orbitale, animations lentes et études de cas très visuelles.",
     "decision_filter": "Toute décision de design, de contenu ou de développement doit renforcer au moins l’une de ces qualités : clarté, précision, confiance, goût ou progression de l’idée vers le produit."
   }
 }

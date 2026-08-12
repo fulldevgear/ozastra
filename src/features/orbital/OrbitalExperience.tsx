@@ -1,17 +1,10 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
-import { getDocumentTheme, subscribeToTheme } from '../../lib/theme'
-import type { Theme } from '../../lib/theme'
+import { OrbitalFallback, OrbitalLoadingPlaceholder } from './OrbitalFallback'
 import { resolveStoryPosition } from './orbital-story'
 
 type MotionState = {
@@ -41,25 +34,14 @@ type OrbitalPalette = {
   surfaceLine: string
 }
 
-const orbitalPalettes: Record<Theme, OrbitalPalette> = {
-  dark: {
-    accent: '#5b7cff',
-    ambient: '#a7b1d6',
-    astral: '#9b7bff',
-    foreground: '#f3f0e8',
-    muted: '#969cac',
-    planet: '#080b12',
-    surfaceLine: '#5f6884',
-  },
-  light: {
-    accent: '#3457d5',
-    ambient: '#dfe4f5',
-    astral: '#7556d8',
-    foreground: '#242a36',
-    muted: '#687083',
-    planet: '#080b12',
-    surfaceLine: '#7d8496',
-  },
+const orbitalPalette: OrbitalPalette = {
+  accent: '#5b7cff',
+  ambient: '#a7b1d6',
+  astral: '#9b7bff',
+  foreground: '#f3f0e8',
+  muted: '#969cac',
+  planet: '#080b12',
+  surfaceLine: '#5f6884',
 }
 
 const ORBIT_RADIUS = 2.12
@@ -193,11 +175,9 @@ const surfaceSignals = [
 function OzastraPlanet({
   motion,
   palette,
-  theme,
 }: {
   motion: React.RefObject<MotionState>
   palette: OrbitalPalette
-  theme: Theme
 }) {
   const planet = useRef<THREE.Group>(null)
   const surface = useRef<THREE.Mesh>(null)
@@ -269,7 +249,7 @@ function OzastraPlanet({
     if (atmosphere.current) {
       atmosphere.current.opacity = damp(
         atmosphere.current.opacity,
-        (theme === 'light' ? 0.07 : 0.1) + reveal * 0.045,
+        0.1 + reveal * 0.045,
         2,
         delta,
       )
@@ -300,7 +280,7 @@ function OzastraPlanet({
           <meshBasicMaterial
             color={palette.surfaceLine}
             depthWrite={false}
-            opacity={theme === 'light' ? 0.075 : 0.09}
+            opacity={0.09}
             transparent
             wireframe
           />
@@ -323,7 +303,7 @@ function OzastraPlanet({
           blending={THREE.AdditiveBlending}
           color={palette.accent}
           depthWrite={false}
-          opacity={theme === 'light' ? 0.07 : 0.1}
+          opacity={0.1}
           side={THREE.BackSide}
           transparent
         />
@@ -415,11 +395,9 @@ const modulePositions: [number, number, number][] = [
 function IdeaArtifact({
   motion,
   palette,
-  theme,
 }: {
   motion: React.RefObject<MotionState>
   palette: OrbitalPalette
-  theme: Theme
 }) {
   const artifact = useRef<THREE.Group>(null)
   const frame = useRef<THREE.Group>(null)
@@ -525,8 +503,6 @@ function IdeaArtifact({
     })
   })
 
-  const isLight = theme === 'light'
-
   return (
     <group ref={artifact} position={[0, 0.2, 0.48]} scale={0.55}>
       <mesh ref={core}>
@@ -548,7 +524,7 @@ function IdeaArtifact({
           blending={THREE.AdditiveBlending}
           color={palette.accent}
           depthWrite={false}
-          opacity={isLight ? 0.1 : 0.16}
+          opacity={0.16}
           transparent
         />
       </mesh>
@@ -558,7 +534,7 @@ function IdeaArtifact({
           <icosahedronGeometry args={[0.43, 1]} />
           <meshBasicMaterial
             color={palette.foreground}
-            opacity={isLight ? 0.52 : 0.68}
+            opacity={0.68}
             transparent
             wireframe
           />
@@ -579,7 +555,7 @@ function IdeaArtifact({
           <meshStandardMaterial
             color={palette.accent}
             emissive={palette.accent}
-            emissiveIntensity={isLight ? 0.45 : 1.1}
+            emissiveIntensity={1.1}
             metalness={0.72}
             roughness={0.28}
           />
@@ -623,7 +599,7 @@ function IdeaArtifact({
           <meshStandardMaterial
             color={palette.astral}
             emissive={palette.astral}
-            emissiveIntensity={isLight ? 0.18 : 0.42}
+            emissiveIntensity={0.42}
             metalness={0.84}
             roughness={0.24}
           />
@@ -877,46 +853,37 @@ function ProductConstellation({
   )
 }
 
-function OrbitalScene({
-  motion,
-  theme,
-}: {
-  motion: React.RefObject<MotionState>
-  theme: Theme
-}) {
-  const palette = orbitalPalettes[theme]
-  const isLight = theme === 'light'
-
+function OrbitalScene({ motion }: { motion: React.RefObject<MotionState> }) {
   return (
     <>
       <QualityController />
       <WebGLLifecycle />
       <VisualTestController />
-      <ambientLight color={palette.ambient} intensity={isLight ? 0.5 : 0.3} />
+      <ambientLight color={orbitalPalette.ambient} intensity={0.3} />
       <spotLight
         angle={0.5}
-        color={isLight ? '#fffdf7' : palette.foreground}
-        intensity={isLight ? 24 : 30}
+        color={orbitalPalette.foreground}
+        intensity={30}
         penumbra={1}
         position={[4.5, 5.5, 6]}
       />
       <pointLight
-        color={palette.accent}
-        intensity={isLight ? 10 : 15}
+        color={orbitalPalette.accent}
+        intensity={15}
         position={[-4, -1.5, 3]}
       />
       <pointLight
-        color={palette.astral}
-        intensity={isLight ? 4 : 7}
+        color={orbitalPalette.astral}
+        intensity={7}
         position={[3, -4, -2]}
       />
 
-      <StarField motion={motion} palette={palette} />
-      <OzastraPlanet motion={motion} palette={palette} theme={theme} />
-      <AscentTrail motion={motion} palette={palette} />
-      <ProductConstellation motion={motion} palette={palette} />
-      <TargetStar motion={motion} palette={palette} />
-      <IdeaArtifact motion={motion} palette={palette} theme={theme} />
+      <StarField motion={motion} palette={orbitalPalette} />
+      <OzastraPlanet motion={motion} palette={orbitalPalette} />
+      <AscentTrail motion={motion} palette={orbitalPalette} />
+      <ProductConstellation motion={motion} palette={orbitalPalette} />
+      <TargetStar motion={motion} palette={orbitalPalette} />
+      <IdeaArtifact motion={motion} palette={orbitalPalette} />
     </>
   )
 }
@@ -964,6 +931,36 @@ function WebGLLifecycle() {
   return null
 }
 
+function SceneReady({ onReady }: { onReady: () => void }) {
+  const revealFrame = useRef<number | null>(null)
+  const signaled = useRef(false)
+  const signalReady = useCallback(() => {
+    if (signaled.current) return
+
+    signaled.current = true
+    onReady()
+  }, [onReady])
+
+  useFrame(() => {
+    if (signaled.current || revealFrame.current !== null) return
+
+    revealFrame.current = window.requestAnimationFrame(signalReady)
+  })
+
+  useEffect(() => {
+    const fallbackTimer = window.setTimeout(signalReady, 400)
+
+    return () => {
+      window.clearTimeout(fallbackTimer)
+      if (revealFrame.current !== null) {
+        window.cancelAnimationFrame(revealFrame.current)
+      }
+    }
+  }, [signalReady])
+
+  return null
+}
+
 function VisualTestController() {
   const setFrameloop = useThree((state) => state.setFrameloop)
 
@@ -997,32 +994,10 @@ function useReducedMotion() {
   return preference
 }
 
-function Fallback() {
-  return (
-    <div
-      className="orbital-fallback"
-      data-orbital-fallback="true"
-      aria-hidden="true"
-    >
-      <span className="orbital-fallback__planet" />
-      <span className="orbital-fallback__orbit" />
-      <span className="orbital-fallback__trail" />
-      <span className="orbital-fallback__artifact" />
-      <span className="orbital-fallback__star" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--one" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--two" />
-      <span className="orbital-fallback__satellite orbital-fallback__satellite--three" />
-    </div>
-  )
-}
-
 export default function OrbitalExperience() {
   const reducedMotion = useReducedMotion()
-  const theme = useSyncExternalStore(
-    subscribeToTheme,
-    getDocumentTheme,
-    getServerTheme,
-  )
+  const [canvasReady, setCanvasReady] = useState(false)
+  const revealCanvas = useCallback(() => setCanvasReady(true), [])
   const motion = useRef<MotionState>({
     pointerX: 0,
     pointerY: 0,
@@ -1102,31 +1077,29 @@ export default function OrbitalExperience() {
     }
   }, [reducedMotion])
 
-  if (reducedMotion !== false) return <Fallback />
+  if (reducedMotion === null) return <OrbitalLoadingPlaceholder />
+  if (reducedMotion) return <OrbitalFallback />
 
   return (
     <div
       aria-hidden="true"
       className="orbital-canvas-shell"
       data-orbital-canvas="true"
-      data-orbital-theme={theme}
+      data-orbital-ready={canvasReady ? 'true' : 'false'}
     >
       <Canvas
         camera={{ fov: 38, near: 0.1, far: 100, position: [0, 0, 7.4] }}
         dpr={[1, 1.5]}
-        fallback={<Fallback />}
+        fallback={<OrbitalFallback />}
         gl={{
           alpha: true,
           antialias: true,
           powerPreference: 'high-performance',
         }}
       >
-        <OrbitalScene motion={motion} theme={theme} />
+        <SceneReady onReady={revealCanvas} />
+        <OrbitalScene motion={motion} />
       </Canvas>
     </div>
   )
-}
-
-function getServerTheme(): Theme {
-  return 'dark'
 }

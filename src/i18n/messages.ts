@@ -34,18 +34,6 @@ export const copy = {
       message: 'Web · AI · SaaS · Mobile · Product engineering',
     }),
   },
-  theme: {
-    light: msg({ id: 'theme.light', message: 'Light' }),
-    dark: msg({ id: 'theme.dark', message: 'Dark' }),
-    activateLight: msg({
-      id: 'theme.activateLight',
-      message: 'Activate light theme',
-    }),
-    activateDark: msg({
-      id: 'theme.activateDark',
-      message: 'Activate dark theme',
-    }),
-  },
   notFound: {
     eyebrow: msg({ id: 'notFound.eyebrow', message: 'Error 404' }),
     title: msg({

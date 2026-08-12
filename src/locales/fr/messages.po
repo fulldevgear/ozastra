@@ -70,16 +70,6 @@ msgstr "À propos d’Ozastra"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "theme.activateDark"
-msgstr "Activer le thème sombre"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "theme.activateLight"
-msgstr "Activer le thème clair"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "services.aiScope2"
 msgstr "Agents, recherche augmentée et automatisation"
 
@@ -192,11 +182,6 @@ msgstr "Contact :"
 #: src/i18n/messages.ts
 msgid "contact.placeholder"
 msgstr "Contexte, objectif, calendrier…"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "theme.dark"
-msgstr "Sombre"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -407,11 +392,6 @@ msgstr "Parlons de ce que vous voulez rendre possible."
 #: src/i18n/messages.ts
 msgid "legal.liabilityTitle"
 msgstr "Responsabilité"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "theme.light"
-msgstr "Clair"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
