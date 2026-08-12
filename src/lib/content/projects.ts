@@ -9,7 +9,7 @@ type ProjectModule = { default: ComponentType }
 type ManifestModule = { default: unknown }
 
 const manifestLoaders = import.meta.glob<ManifestModule>(
-  '../../content/projects/*/manifest.ts',
+  '../../content/projects/*/manifest.json',
 )
 const bodyLoaders = import.meta.glob<ProjectModule>(
   '../../content/projects/*/*.mdx',
@@ -19,7 +19,7 @@ const manifestCache = new Map<Locale, Promise<Project[]>>()
 const componentCache = new Map<string, LazyExoticComponent<ComponentType>>()
 
 function manifestPath(locale: Locale) {
-  return `../../content/projects/${locale}/manifest.ts`
+  return `../../content/projects/${locale}/manifest.json`
 }
 
 function bodyPath(locale: Locale, slug: string) {

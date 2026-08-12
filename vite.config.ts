@@ -7,6 +7,8 @@ import { lingui, linguiTransformerBabelPreset } from '@lingui/vite-plugin'
 import { nitro } from 'nitro/vite'
 import { defineConfig } from 'vite'
 
+import publicPages from './src/generated/public-pages.json' with { type: 'json' }
+
 export default defineConfig({
   resolve: {
     tsconfigPaths: true,
@@ -15,10 +17,14 @@ export default defineConfig({
     { ...mdx(), enforce: 'pre' },
     tailwindcss(),
     tanstackStart({
+      pages: publicPages.pages.map(({ path }) => ({
+        path,
+        prerender: { enabled: true, crawlLinks: false },
+      })),
       prerender: {
         enabled: true,
-        autoStaticPathsDiscovery: true,
-        crawlLinks: true,
+        autoStaticPathsDiscovery: false,
+        crawlLinks: false,
         failOnError: true,
       },
     }),

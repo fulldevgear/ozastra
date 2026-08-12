@@ -1,8 +1,8 @@
 {
   "name": "Ozastra — Product engineering studio",
   "short_name": "Ozastra",
-  "description": "Studio indépendant de product engineering — Web, IA appliquée, SaaS et Mobile.",
-  "lang": "fr-FR",
+  "description": "Independent product engineering studio — Web, applied AI, SaaS and Mobile.",
+  "lang": "en",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07090F",

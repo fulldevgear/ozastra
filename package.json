@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
-    "build": "vite build",
+    "build": "pnpm generate:i18n-output && vite build",
     "check:bundle": "node scripts/check-bundle-budget.mjs",
     "preview": "vite preview",
     "start": "node .output/server/index.mjs",
@@ -28,6 +28,8 @@
     "roadmap": "node scripts/update-roadmap.mjs",
     "roadmap:validate": "node scripts/update-roadmap.mjs validate",
     "locale:add": "node scripts/add-locale.mjs",
+    "generate:i18n-output": "node scripts/generate-i18n-output.mjs",
+    "check:i18n-output": "node scripts/generate-i18n-output.mjs --check",
     "i18n:extract": "lingui extract --clean",
     "i18n:compile": "lingui compile --strict"
   },

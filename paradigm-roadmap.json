@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 197
+    "revision": 199
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 89,
-    "last_activity_at": "2026-08-12T09:26:18.145Z",
+    "overall_progress_percent": 91,
+    "last_activity_at": "2026-08-12T09:29:51.371Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2641,6 +2641,22 @@
         "deliverable": 7,
         "description": "SEO multilingue généré depuis le registre des locales",
         "evidence": "SEO EN/FR issu du registre: html lang/dir, titres/descriptions, canonical, hreflang/x-default, OG et JSON-LD validés dans le pré-rendu; 33 tests, typecheck, build 18 pages et budget UI 150.5/200 kB réussis"
+      },
+      {
+        "timestamp": "2026-08-12T09:26:27.719Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 8,
+        "description": "Pré-rendu, sitemap et sorties techniques généralisés par locale",
+        "note": "Génération des routes de pré-rendu, sitemap et matrice smoke depuis les locales et contenus publiés"
+      },
+      {
+        "timestamp": "2026-08-12T09:29:51.371Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 8,
+        "description": "Pré-rendu, sitemap et sorties techniques généralisés par locale",
+        "evidence": "Matrice générée de 18 pages depuis locales+manifestes, pré-rendu explicite, sitemap hreflang/x-default et robots générés, smoke local 18 pages+5 endpoints réussi; typecheck, 33 tests, build et budget 150.6/200 kB validés"
       }
     ]
   },
@@ -3533,7 +3549,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 64,
+        "progress_percent": 73,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3577,11 +3593,17 @@
             "description": "SEO multilingue généré depuis le registre des locales",
             "completed_at": "2026-08-12T09:26:18.144Z",
             "evidence": "SEO EN/FR issu du registre: html lang/dir, titres/descriptions, canonical, hreflang/x-default, OG et JSON-LD validés dans le pré-rendu; 33 tests, typecheck, build 18 pages et budget UI 150.5/200 kB réussis"
+          },
+          {
+            "index": 8,
+            "description": "Pré-rendu, sitemap et sorties techniques généralisés par locale",
+            "completed_at": "2026-08-12T09:29:51.370Z",
+            "evidence": "Matrice générée de 18 pages depuis locales+manifestes, pré-rendu explicite, sitemap hreflang/x-default et robots générés, smoke local 18 pages+5 endpoints réussi; typecheck, 33 tests, build et budget 150.6/200 kB validés"
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:26:18.144Z"
+        "last_updated_at": "2026-08-12T09:29:51.371Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

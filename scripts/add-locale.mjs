@@ -85,12 +85,16 @@ async function main() {
     locale,
   )
   const contentReadmePath = join(contentDirectory, 'README.md')
+  const manifestPath = join(contentDirectory, 'manifest.json')
 
   if (await exists(catalogPath)) {
     throw new Error(`Catalog already exists at ${catalogPath}.`)
   }
   if (await exists(contentReadmePath)) {
     throw new Error(`Content scaffold already exists at ${contentReadmePath}.`)
+  }
+  if (await exists(manifestPath)) {
+    throw new Error(`Project manifest already exists at ${manifestPath}.`)
   }
 
   if (dryRun) {
@@ -99,7 +103,7 @@ async function main() {
         {
           locale,
           definition: registry.locales[locale],
-          files: [catalogPath, contentReadmePath],
+          files: [catalogPath, manifestPath, contentReadmePath],
         },
         null,
         2,
@@ -115,6 +119,7 @@ async function main() {
     catalogPath,
     `msgid ""\nmsgstr ""\n"Content-Type: text/plain; charset=utf-8\\n"\n"Language: ${locale}\\n"\n`,
   )
+  await writeFile(manifestPath, '[]\n')
   await writeFile(
     contentReadmePath,
     `# ${nativeLabel} project translations\n\nAdd one localized MDX file for every published project before promoting this locale from \`draft\` to \`published\`.\n`,

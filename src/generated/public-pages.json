@@ -1,0 +1,106 @@
+{
+  "defaultLocale": "en",
+  "publishedLocales": [
+    "en",
+    "fr"
+  ],
+  "pages": [
+    {
+      "locale": "en",
+      "path": "/",
+      "contentPath": "/"
+    },
+    {
+      "locale": "en",
+      "path": "/about",
+      "contentPath": "/about"
+    },
+    {
+      "locale": "en",
+      "path": "/services",
+      "contentPath": "/services"
+    },
+    {
+      "locale": "en",
+      "path": "/work",
+      "contentPath": "/work"
+    },
+    {
+      "locale": "en",
+      "path": "/contact",
+      "contentPath": "/contact"
+    },
+    {
+      "locale": "en",
+      "path": "/legal",
+      "contentPath": "/legal"
+    },
+    {
+      "locale": "en",
+      "path": "/privacy",
+      "contentPath": "/privacy"
+    },
+    {
+      "locale": "en",
+      "path": "/work/axiom",
+      "contentPath": "/work/axiom"
+    },
+    {
+      "locale": "en",
+      "path": "/work/orbit",
+      "contentPath": "/work/orbit"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr",
+      "contentPath": "/"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/about",
+      "contentPath": "/about"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/services",
+      "contentPath": "/services"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/work",
+      "contentPath": "/work"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/contact",
+      "contentPath": "/contact"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/legal",
+      "contentPath": "/legal"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/privacy",
+      "contentPath": "/privacy"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/work/axiom",
+      "contentPath": "/work/axiom"
+    },
+    {
+      "locale": "fr",
+      "path": "/fr/work/orbit",
+      "contentPath": "/work/orbit"
+    }
+  ],
+  "technicalRoutes": [
+    "/sitemap.xml",
+    "/robots.txt",
+    "/site.webmanifest",
+    "/og/ozastra-og.png",
+    "/api/health"
+  ]
+}

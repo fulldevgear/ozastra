@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises'
+
 const baseUrl = (process.env.OZASTRA_SMOKE_BASE_URL || '').replace(/\/$/, '')
 const expectedSiteUrl = (
   process.env.OZASTRA_EXPECTED_SITE_URL || baseUrl
@@ -10,31 +12,38 @@ if (!baseUrl || !URL.canParse(baseUrl)) {
   process.exit(1)
 }
 
-const routes = [
-  '/',
-  '/about',
-  '/services',
-  '/work',
-  '/work/orbit',
-  '/work/axiom',
-  '/contact',
-  '/legal',
-  '/privacy',
-  '/sitemap.xml',
-  '/robots.txt',
-  '/site.webmanifest',
-  '/og/ozastra-og.png',
-  '/api/health',
-]
-
+const generated = JSON.parse(
+  await readFile(
+    new URL('../src/generated/public-pages.json', import.meta.url),
+  ),
+)
 const failures = []
 
-for (const route of routes) {
+for (const page of generated.pages) {
+  const response = await fetch(`${baseUrl}${page.path}`, {
+    headers: { 'User-Agent': 'Ozastra production smoke test' },
+    redirect: 'manual',
+  })
+  if (response.status !== 200) {
+    failures.push(`${page.path}: expected 200, received ${response.status}`)
+    continue
+  }
+
+  const html = await response.text()
+  const expectedCanonical = `${expectedSiteUrl}${page.path}`
+  if (!html.includes(`rel="canonical" href="${expectedCanonical}"`)) {
+    failures.push(`${page.path}: canonical URL is not ${expectedCanonical}`)
+  }
+  if (!html.includes(`<html lang="${page.locale}"`)) {
+    failures.push(`${page.path}: html language is not ${page.locale}`)
+  }
+}
+
+for (const route of generated.technicalRoutes) {
   const response = await fetch(`${baseUrl}${route}`, {
     headers: { 'User-Agent': 'Ozastra production smoke test' },
     redirect: 'manual',
   })
-
   if (response.status !== 200) {
     failures.push(`${route}: expected 200, received ${response.status}`)
   }
@@ -42,12 +51,6 @@ for (const route of routes) {
 
 const home = await fetch(`${baseUrl}/`)
 const homeHtml = await home.text()
-const expectedCanonical = `${expectedSiteUrl}/`
-
-if (!homeHtml.includes(`rel="canonical" href="${expectedCanonical}"`)) {
-  failures.push(`/: canonical URL is not ${expectedCanonical}`)
-}
-
 if (!homeHtml.includes(`${expectedSiteUrl}/og/ozastra-og.png`)) {
   failures.push('/: Open Graph image does not use the production origin')
 }
@@ -63,10 +66,19 @@ for (const header of [
   }
 }
 
+const englishPrefix = await fetch(`${baseUrl}/en/about`, {
+  redirect: 'manual',
+})
+if (
+  englishPrefix.status !== 301 ||
+  englishPrefix.headers.get('location') !== '/about'
+) {
+  failures.push('/en/about: expected a permanent redirect to /about')
+}
+
 const missing = await fetch(`${baseUrl}/this-route-must-not-exist`, {
   redirect: 'manual',
 })
-
 if (missing.status !== 404) {
   failures.push(
     `/this-route-must-not-exist: expected 404, received ${missing.status}`,
@@ -78,7 +90,6 @@ const analytics = await fetch(`${baseUrl}/api/analytics`, {
   headers: { 'Content-Type': 'application/json' },
   method: 'POST',
 })
-
 if (analytics.status !== 204) {
   failures.push(`/api/analytics: expected 204, received ${analytics.status}`)
 }
@@ -88,4 +99,6 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`Production smoke test passed for ${routes.length} endpoints.`)
+console.log(
+  `Production smoke test passed for ${generated.pages.length} localized pages and ${generated.technicalRoutes.length} technical endpoints.`,
+)
