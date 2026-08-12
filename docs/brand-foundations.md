@@ -27,10 +27,15 @@ positionnement principal de la marque.
 
 ## Langue
 
-Le français est la langue principale du site au lancement. Les signatures et
-noms d’expertises peuvent rester en anglais lorsqu’ils participent à l’identité
-internationale, à condition que leur explication soit toujours disponible en
-français.
+L’anglais international est la langue source et la langue publique par défaut
+du lancement bilingue. Le français reste disponible intégralement sous `/fr`.
+Les signatures et noms d’expertises peuvent rester en anglais lorsqu’ils
+participent à l’identité internationale, à condition que leur explication soit
+toujours disponible dans la langue active.
+
+Le contrat d’URL, la migration de la version française et les critères de
+publication d’une nouvelle locale sont définis dans
+[`docs/internationalization.md`](internationalization.md).
 
 ## Wordmark v1
 

@@ -17,19 +17,24 @@
 8. **Contact** — recomposer l’artefact et convertir l’intérêt en demande.
 9. **Footer** — rappeler l’identité, les expertises et les liens légaux.
 
-## Routes MVP
+## Routes publiques bilingues
 
-| Route         | Rôle                                 | Rendu                          |
-| ------------- | ------------------------------------ | ------------------------------ |
-| `/`           | Page d’accueil et narration orbitale | Pré-rendu                      |
-| `/work`       | Index des études de cas              | Pré-rendu                      |
-| `/work/orbit` | Étude de cas conceptuelle Orbit      | Pré-rendu                      |
-| `/work/axiom` | Étude de cas conceptuelle Axiom      | Pré-rendu                      |
-| `/about`      | Positionnement et approche           | Pré-rendu                      |
-| `/contact`    | Formulaire détaillé                  | Pré-rendu + soumission serveur |
-| `/legal`      | Mentions légales                     | Pré-rendu                      |
-| `/privacy`    | Confidentialité                      | Pré-rendu                      |
-| `404`         | Page introuvable                     | Fallback statique              |
+| Anglais canonique | Français         | Rôle                                 | Rendu                          |
+| ----------------- | ---------------- | ------------------------------------ | ------------------------------ |
+| `/`               | `/fr`            | Page d’accueil et narration orbitale | Pré-rendu                      |
+| `/work`           | `/fr/work`       | Index des études de cas              | Pré-rendu                      |
+| `/work/orbit`     | `/fr/work/orbit` | Étude de cas conceptuelle Orbit      | Pré-rendu                      |
+| `/work/axiom`     | `/fr/work/axiom` | Étude de cas conceptuelle Axiom      | Pré-rendu                      |
+| `/about`          | `/fr/about`      | Positionnement et approche           | Pré-rendu                      |
+| `/services`       | `/fr/services`   | Services détaillés                   | Pré-rendu                      |
+| `/contact`        | `/fr/contact`    | Formulaire détaillé                  | Pré-rendu + soumission serveur |
+| `/legal`          | `/fr/legal`      | Mentions légales                     | Pré-rendu                      |
+| `/privacy`        | `/fr/privacy`    | Confidentialité                      | Pré-rendu                      |
+| `404`             | `404`            | Page introuvable localisée           | Fallback statique              |
+
+L’absence de préfixe désigne toujours l’anglais. Toutes les autres langues
+publiées utilisent leur code comme premier segment. Le détail du contrat figure
+dans [`docs/internationalization.md`](internationalization.md).
 
 ## Parcours de contact
 

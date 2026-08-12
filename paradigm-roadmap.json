@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 183
+    "revision": 185
   },
   "brand": {
     "name": "Ozastra",
@@ -1037,10 +1037,10 @@
   "project_tracking": {
     "source_of_truth": "paradigm-roadmap.json",
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
-    "current_phase": null,
+    "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 82,
-    "last_activity_at": "2026-08-12T08:56:12.152Z",
+    "overall_progress_percent": 83,
+    "last_activity_at": "2026-08-12T08:59:17.246Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2529,6 +2529,22 @@
         "event": "note",
         "phase": 11,
         "message": "Décision acceptée par l’utilisateur : anglais langue source et publique par défaut sans préfixe, français sous /fr, Lingui pour les messages React, MDX par locale et chargement exclusif de la langue active."
+      },
+      {
+        "timestamp": "2026-08-12T08:58:36.924Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 1,
+        "description": "Contrat international anglais par défaut et stratégie de migration",
+        "note": "Formalisation du contrat URL, du basculement atomique vers l’anglais et des règles de publication des locales."
+      },
+      {
+        "timestamp": "2026-08-12T08:59:17.246Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 1,
+        "description": "Contrat international anglais par défaut et stratégie de migration",
+        "evidence": "Contrat documenté dans docs/internationalization.md; anglais sans préfixe, français sous /fr, basculement atomique, statuts draft/published et garanties de performance définis; fondations de marque et architecture de l’information alignées; Prettier et validation roadmap réussis."
       }
     ]
   },
@@ -3413,7 +3429,7 @@
     {
       "phase": 11,
       "name": "Internationalisation et lancement multilingue",
-      "status": "pending",
+      "status": "in_progress",
       "dependencies": [
         2,
         3,
@@ -3421,12 +3437,19 @@
         10
       ],
       "tracking": {
-        "progress_percent": 0,
+        "progress_percent": 9,
         "active_deliverable": null,
-        "completed_deliverables": [],
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Contrat international anglais par défaut et stratégie de migration",
+            "completed_at": "2026-08-12T08:59:17.245Z",
+            "evidence": "Contrat documenté dans docs/internationalization.md; anglais sans préfixe, français sous /fr, basculement atomique, statuts draft/published et garanties de performance définis; fondations de marque et architecture de l’information alignées; Prettier et validation roadmap réussis."
+          }
+        ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": null
+        "last_updated_at": "2026-08-12T08:59:17.246Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",
