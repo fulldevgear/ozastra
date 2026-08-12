@@ -26,7 +26,8 @@
     "format": "prettier --write .",
     "check:format": "prettier --check .",
     "roadmap": "node scripts/update-roadmap.mjs",
-    "roadmap:validate": "node scripts/update-roadmap.mjs validate"
+    "roadmap:validate": "node scripts/update-roadmap.mjs validate",
+    "locale:add": "node scripts/add-locale.mjs"
   },
   "dependencies": {
     "@mdx-js/react": "3.1.1",

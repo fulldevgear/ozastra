@@ -1,0 +1,24 @@
+{
+  "defaultLocale": "en",
+  "sourceLocale": "en",
+  "locales": {
+    "en": {
+      "label": "English",
+      "nativeLabel": "English",
+      "prefix": "",
+      "htmlLang": "en",
+      "ogLocale": "en_US",
+      "direction": "ltr",
+      "status": "published"
+    },
+    "fr": {
+      "label": "French",
+      "nativeLabel": "Français",
+      "prefix": "fr",
+      "htmlLang": "fr",
+      "ogLocale": "fr_FR",
+      "direction": "ltr",
+      "status": "published"
+    }
+  }
+}
