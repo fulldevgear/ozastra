@@ -1,4 +1,5 @@
 import { Link, createFileRoute, notFound } from '@tanstack/react-router'
+import { Suspense } from 'react'
 
 import { ProjectVisual } from '../components/ProjectVisual'
 import { PageShell } from '../components/SiteChrome'
@@ -6,14 +7,14 @@ import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
-import { getProject } from '../lib/content/projects'
+import { getProject, getProjectComponent } from '../lib/content/projects'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/work/$slug')({
-  loader: ({ params }) => {
-    const project = getProject(params.slug)
+  loader: async ({ context, params }) => {
+    const project = await getProject(context.locale, params.slug)
     if (!project) throw notFound()
-    return project.data
+    return project
   },
   head: ({ loaderData }) =>
     loaderData
@@ -52,12 +53,8 @@ function ProjectPage() {
   const localeParam = routeLocaleParam(locale)
   const message = useMessage()
   const data = Route.useLoaderData()
-  const { slug } = Route.useParams()
-  const project = getProject(slug)
-
-  if (!project) return null
-
-  const { Component } = project
+  const Component = getProjectComponent(locale, data.slug)
+  if (!Component) return null
 
   return (
     <PageShell>
@@ -108,7 +105,9 @@ function ProjectPage() {
         </dl>
 
         <div className="case-content">
-          <Component />
+          <Suspense fallback={<div className="case-content__loading" />}>
+            <Component />
+          </Suspense>
         </div>
 
         <aside className="case-study__cta">

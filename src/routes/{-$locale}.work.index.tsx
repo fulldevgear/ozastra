@@ -6,10 +6,11 @@ import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
-import { projects } from '../lib/content/projects'
+import { getProjects } from '../lib/content/projects'
 import { createSeoHead } from '../lib/seo'
 
 export const Route = createFileRoute('/{-$locale}/work/')({
+  loader: ({ context }) => getProjects(context.locale),
   head: () =>
     createSeoHead({
       title: 'Projets — Ozastra',
@@ -24,6 +25,7 @@ function WorkPage() {
   const locale = useLocale()
   const localeParam = routeLocaleParam(locale)
   const message = useMessage()
+  const projects = Route.useLoaderData()
 
   return (
     <PageShell>
@@ -34,22 +36,22 @@ function WorkPage() {
           description={message(copy.work.description)}
         />
         <div className="project-index">
-          {projects.map(({ data }, index) => (
-            <article className="project-card group" key={data.slug}>
+          {projects.map((project, index) => (
+            <article className="project-card group" key={project.slug}>
               <Link
                 className="block"
                 to="/{-$locale}/work/$slug"
-                params={{ locale: localeParam, slug: data.slug }}
+                params={{ locale: localeParam, slug: project.slug }}
                 aria-label={message(copy.work.discover, {
-                  project: data.title,
+                  project: project.title,
                 })}
               >
-                <ProjectVisual tone={data.coverTone} />
+                <ProjectVisual tone={project.coverTone} />
               </Link>
               <div className="flex items-start justify-between gap-6 border-t border-line pt-6">
                 <div>
                   <p className="text-xs tracking-[0.15em] text-muted uppercase">
-                    {data.status === 'concept'
+                    {project.status === 'concept'
                       ? message(copy.home.conceptProduct)
                       : message(copy.work.clientWork)}
                   </p>
@@ -57,19 +59,19 @@ function WorkPage() {
                     <Link
                       className="project-title-link"
                       to="/{-$locale}/work/$slug"
-                      params={{ locale: localeParam, slug: data.slug }}
+                      params={{ locale: localeParam, slug: project.slug }}
                     >
-                      {data.title}
+                      {project.title}
                     </Link>
                   </h2>
                   <p className="mt-3 max-w-md leading-relaxed text-muted">
-                    {data.summary}
+                    {project.summary}
                   </p>
                   <ul
                     className="mt-5 flex flex-wrap gap-2"
                     aria-label={message(copy.work.servicesLabel)}
                   >
-                    {data.services.map((service) => (
+                    {project.services.map((service) => (
                       <li className="tag" key={service}>
                         {service}
                       </li>

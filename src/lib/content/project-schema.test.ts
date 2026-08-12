@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { parseProject } from './project-schema'
 
 const validProject = {
+  locale: 'fr',
   slug: 'orbit',
   title: 'Orbit',
   summary:

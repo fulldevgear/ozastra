@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 193
+    "revision": 195
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 87,
-    "last_activity_at": "2026-08-12T09:21:14.930Z",
+    "overall_progress_percent": 88,
+    "last_activity_at": "2026-08-12T09:23:08.897Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2609,6 +2609,22 @@
         "deliverable": 5,
         "description": "Migration des messages React avec anglais source et catalogue français",
         "evidence": "Lingui extract: 179 messages, catalogue français 179/179; compile --strict, typecheck, 29 tests, build production 18 pages et bundle budget validés"
+      },
+      {
+        "timestamp": "2026-08-12T09:21:25.899Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 6,
+        "description": "Pipeline MDX localisé, validé et chargé à la demande",
+        "note": "Localisation MDX par langue, manifeste de métadonnées et chargement paresseux des corps de projets"
+      },
+      {
+        "timestamp": "2026-08-12T09:23:08.897Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 6,
+        "description": "Pipeline MDX localisé, validé et chargé à la demande",
+        "evidence": "Manifestes EN/FR validés par Zod et chargés par locale; corps MDX fractionnés en 4 chunks à la demande; 29 tests, build 18 pages, rendu SSR bilingue et budget 149.5/200 kB validés"
       }
     ]
   },
@@ -3501,7 +3517,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 45,
+        "progress_percent": 55,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3533,11 +3549,17 @@
             "description": "Migration des messages React avec anglais source et catalogue français",
             "completed_at": "2026-08-12T09:21:14.929Z",
             "evidence": "Lingui extract: 179 messages, catalogue français 179/179; compile --strict, typecheck, 29 tests, build production 18 pages et bundle budget validés"
+          },
+          {
+            "index": 6,
+            "description": "Pipeline MDX localisé, validé et chargé à la demande",
+            "completed_at": "2026-08-12T09:23:08.896Z",
+            "evidence": "Manifestes EN/FR validés par Zod et chargés par locale; corps MDX fractionnés en 4 chunks à la demande; 29 tests, build 18 pages, rendu SSR bilingue et budget 149.5/200 kB validés"
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:21:14.930Z"
+        "last_updated_at": "2026-08-12T09:23:08.897Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

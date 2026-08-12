@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const projectStatusSchema = z.enum(['client', 'internal', 'concept'])
 
 export const projectSchema = z.object({
+  locale: z.string().regex(/^[a-z]{2}(?:-[A-Z]{2})?$/),
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   title: z.string().min(2).max(80),
   summary: z.string().min(30).max(220),

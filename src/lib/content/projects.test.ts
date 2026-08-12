@@ -1,14 +1,23 @@
 import { describe, expect, it } from 'vitest'
 
-import { getProject, projects } from './projects'
+import { getProject, getProjectComponent, getProjects } from './projects'
 
-describe('project content pipeline', () => {
-  it('loads and validates every MDX project', () => {
-    expect(projects.map(({ data }) => data.slug)).toEqual(['axiom', 'orbit'])
+describe('localized project content pipeline', () => {
+  it('loads and validates each localized manifest independently', async () => {
+    const [english, french] = await Promise.all([
+      getProjects('en'),
+      getProjects('fr'),
+    ])
+
+    expect(english.map(({ slug }) => slug)).toEqual(['axiom', 'orbit'])
+    expect(french.map(({ slug }) => slug)).toEqual(['axiom', 'orbit'])
+    expect(english[0]?.summary).not.toBe(french[0]?.summary)
   })
 
-  it('resolves a project by slug', () => {
-    expect(getProject('orbit')?.data.status).toBe('concept')
-    expect(getProject('missing')).toBeUndefined()
+  it('resolves metadata and an on-demand body by locale and slug', async () => {
+    expect((await getProject('en', 'orbit'))?.status).toBe('concept')
+    expect(await getProject('fr', 'missing')).toBeUndefined()
+    expect(getProjectComponent('fr', 'orbit')).toBeDefined()
+    expect(getProjectComponent('en', 'missing')).toBeUndefined()
   })
 })
