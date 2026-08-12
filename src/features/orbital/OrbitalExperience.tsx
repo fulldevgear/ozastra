@@ -31,44 +31,14 @@ const storyStages = [
   'convergence',
 ] as const
 
-type ServiceRingProps = {
-  color: string
-  index: number
-  isLight: boolean
-  motion: React.RefObject<MotionState>
-  radius: number
-  rotation: [number, number, number]
-}
-
-const rings: Omit<ServiceRingProps, 'color' | 'isLight' | 'motion'>[] = [
-  {
-    index: 0,
-    radius: 1.48,
-    rotation: [1.18, 0.12, 0.2],
-  },
-  {
-    index: 1,
-    radius: 1.67,
-    rotation: [0.72, 0.58, -0.42],
-  },
-  {
-    index: 2,
-    radius: 1.87,
-    rotation: [1.38, -0.46, 0.48],
-  },
-  {
-    index: 3,
-    radius: 2.08,
-    rotation: [0.5, -0.18, 0.82],
-  },
-]
-
 type OrbitalPalette = {
   accent: string
   ambient: string
   astral: string
   foreground: string
-  rings: [string, string, string, string]
+  muted: string
+  planet: string
+  surfaceLine: string
 }
 
 const orbitalPalettes: Record<Theme, OrbitalPalette> = {
@@ -77,185 +47,71 @@ const orbitalPalettes: Record<Theme, OrbitalPalette> = {
     ambient: '#a7b1d6',
     astral: '#9b7bff',
     foreground: '#f3f0e8',
-    rings: ['#f3f0e8', '#5b7cff', '#9b7bff', '#969cac'],
+    muted: '#969cac',
+    planet: '#080b12',
+    surfaceLine: '#5f6884',
   },
   light: {
     accent: '#3457d5',
     ambient: '#dfe4f5',
     astral: '#7556d8',
     foreground: '#242a36',
-    rings: ['#3b4351', '#3457d5', '#7556d8', '#687083'],
+    muted: '#687083',
+    planet: '#080b12',
+    surfaceLine: '#7d8496',
   },
 }
+
+const ORBIT_RADIUS = 2.12
+const ORBIT_ROTATION: [number, number, number] = [1.06, 0.1, -0.16]
+const ORBIT_ANGLES = Array.from(
+  { length: 5 },
+  (_, index) => 1.1 + (index / 5) * Math.PI * 2,
+)
+const FINAL_PLANET_CENTER: [number, number, number] = [0, -0.38, -0.88]
+const orbitEuler = new THREE.Euler(...ORBIT_ROTATION)
+const orbitLocalPositions = ORBIT_ANGLES.map(
+  (angle) =>
+    [Math.cos(angle) * ORBIT_RADIUS, Math.sin(angle) * ORBIT_RADIUS, 0] as [
+      number,
+      number,
+      number,
+    ],
+)
+const orbitWorldOffsets = orbitLocalPositions.map(([x, y, z]) =>
+  new THREE.Vector3(x, y, z).applyEuler(orbitEuler),
+)
 
 function damp(current: number, target: number, lambda: number, delta: number) {
   return THREE.MathUtils.lerp(current, target, 1 - Math.exp(-lambda * delta))
 }
 
-function ServiceRing({
-  color,
-  index,
-  isLight,
-  motion,
-  radius,
-  rotation,
-}: ServiceRingProps) {
-  const mesh = useRef<THREE.Mesh>(null)
-  const viewportWidth = useThree((state) => state.viewport.width)
-  const baseRotation = useMemo(() => new THREE.Euler(...rotation), [rotation])
-
-  useFrame(({ clock }, delta) => {
-    if (!mesh.current) return
-
-    const progress = motion.current.story
-    const pointerX = motion.current.pointerX
-    const pointerY = motion.current.pointerY
-    const departure = THREE.MathUtils.smoothstep(progress, 0.1, 0.34)
-    const returnToCore = 1 - THREE.MathUtils.smoothstep(progress, 0.72, 0.98)
-    const separation = departure * returnToCore
-    const stageCenter = (index + 2) / (storyStages.length - 1)
-    const focus = Math.max(0, 1 - Math.abs(progress - stageCenter) * 9)
-    const spatialScale = viewportWidth < 6 ? 0.58 : viewportWidth < 9 ? 0.8 : 1
-    const direction = index % 2 === 0 ? 1 : -1
-    const time = clock.getElapsedTime()
-
-    mesh.current.position.x = damp(
-      mesh.current.position.x,
-      (separation * direction * (0.3 + index * 0.09) +
-        focus * direction * 0.14) *
-        spatialScale,
-      2.4,
-      delta,
-    )
-    mesh.current.position.y = damp(
-      mesh.current.position.y,
-      separation * (index - 1.5) * 0.16 * spatialScale,
-      2.4,
-      delta,
-    )
-    mesh.current.position.z = damp(
-      mesh.current.position.z,
-      (separation * (index - 1.5) * 0.21 + focus * 0.08) * spatialScale,
-      2.4,
-      delta,
-    )
-    mesh.current.rotation.x = damp(
-      mesh.current.rotation.x,
-      baseRotation.x + pointerY * 0.1 + Math.sin(time * 0.16 + index) * 0.025,
-      2.8,
-      delta,
-    )
-    mesh.current.rotation.y = damp(
-      mesh.current.rotation.y,
-      baseRotation.y + pointerX * 0.12 + time * direction * 0.018,
-      2.8,
-      delta,
-    )
-    mesh.current.rotation.z = damp(
-      mesh.current.rotation.z,
-      baseRotation.z + pointerX * pointerY * 0.06,
-      2.8,
-      delta,
-    )
-    mesh.current.scale.setScalar(
-      damp(mesh.current.scale.x, 1 + focus * 0.035, 2.8, delta),
-    )
-  })
-
-  return (
-    <mesh ref={mesh} rotation={rotation}>
-      <torusGeometry args={[radius, 0.012 + index * 0.002, 8, 128]} />
-      <meshStandardMaterial
-        color={color}
-        emissive={color}
-        emissiveIntensity={index === 1 ? (isLight ? 0.34 : 0.7) : 0.16}
-        metalness={0.85}
-        roughness={0.24}
-        transparent
-        opacity={index === 3 ? (isLight ? 0.58 : 0.46) : isLight ? 0.88 : 0.76}
-      />
-    </mesh>
-  )
+function phase(progress: number, start: number, end: number) {
+  return THREE.MathUtils.smoothstep(progress, start, end)
 }
 
-function Core({
-  accent,
-  isLight,
-  motion,
-}: {
-  accent: string
-  isLight: boolean
-  motion: React.RefObject<MotionState>
-}) {
-  const core = useRef<THREE.Mesh>(null)
-  const material = useRef<THREE.MeshPhysicalMaterial>(null)
+function responsiveScene(viewportWidth: number) {
+  const mobile = viewportWidth < 6
 
-  useFrame(({ clock }, delta) => {
-    if (!core.current) return
-
-    const time = clock.getElapsedTime()
-    const pointerX = motion.current.pointerX
-    const pointerY = motion.current.pointerY
-    const convergence = THREE.MathUtils.smoothstep(
-      motion.current.story,
-      0.78,
-      1,
-    )
-    const breath = 1 + Math.sin(time * 0.55) * 0.018 + convergence * 0.025
-
-    core.current.scale.setScalar(damp(core.current.scale.x, breath, 2.2, delta))
-    core.current.rotation.y = damp(
-      core.current.rotation.y,
-      time * 0.045 + pointerX * 0.1,
-      2,
-      delta,
-    )
-    core.current.rotation.x = damp(
-      core.current.rotation.x,
-      pointerY * 0.08,
-      2,
-      delta,
-    )
-    if (material.current) {
-      material.current.emissiveIntensity = damp(
-        material.current.emissiveIntensity,
-        0.03 + convergence * 0.22,
-        2,
-        delta,
-      )
-    }
-  })
-
-  return (
-    <group>
-      <mesh ref={core}>
-        <icosahedronGeometry args={[1.06, 4]} />
-        <meshPhysicalMaterial
-          ref={material}
-          color="#080b12"
-          clearcoat={0.9}
-          clearcoatRoughness={0.16}
-          envMapIntensity={0.75}
-          metalness={0.74}
-          roughness={0.2}
-          emissive={accent}
-          emissiveIntensity={0.03}
-        />
-      </mesh>
-      <mesh scale={1.075}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial
-          color={accent}
-          side={THREE.BackSide}
-          transparent
-          opacity={isLight ? 0.075 : 0.045}
-        />
-      </mesh>
-    </group>
-  )
+  return {
+    heroPlanetScale: mobile ? 1.7 : 2.14,
+    heroPlanetY: mobile ? -2.7 : -3.48,
+    orbitScale: mobile ? 0.7 : viewportWidth < 9 ? 0.84 : 1,
+    planetScale: mobile ? 0.7 : viewportWidth < 9 ? 0.82 : 0.94,
+    wideX: mobile ? 0 : viewportWidth * 0.23,
+  }
 }
 
-function OrbitalMarkers({
+function getOrbitSeat(orbitScale: number): [number, number, number] {
+  const offset = orbitWorldOffsets[0]
+  return [
+    FINAL_PLANET_CENTER[0] + offset.x * orbitScale,
+    FINAL_PLANET_CENTER[1] + offset.y * orbitScale,
+    FINAL_PLANET_CENTER[2] + offset.z * orbitScale,
+  ]
+}
+
+function StarField({
   motion,
   palette,
 }: {
@@ -263,43 +119,759 @@ function OrbitalMarkers({
   palette: OrbitalPalette
 }) {
   const group = useRef<THREE.Group>(null)
-  const positions = useMemo(
-    () =>
-      Array.from({ length: 10 }, (_, index) => {
-        const angle = (index / 10) * Math.PI * 2
-        const radius = 2.25 + (index % 3) * 0.08
-        return [
-          Math.cos(angle) * radius,
-          Math.sin(angle) * radius * 0.42,
-          Math.sin(angle * 2) * 0.16,
-        ] as [number, number, number]
-      }),
-    [],
-  )
+  const material = useRef<THREE.PointsMaterial>(null)
+  const positions = useMemo(() => {
+    const values = new Float32Array(30 * 3)
+
+    for (let index = 0; index < 30; index += 1) {
+      const seed = index + 1
+      values[index * 3] = Math.sin(seed * 12.9898) * 6.2
+      values[index * 3 + 1] = Math.cos(seed * 7.233) * 3.8
+      values[index * 3 + 2] = -2.4 - (index % 5) * 0.34
+    }
+
+    return values
+  }, [])
 
   useFrame((_, delta) => {
-    if (!group.current) return
-    const progress = motion.current.story
-    const alignment = Math.sin(Math.min(1, progress) * Math.PI)
-    group.current.rotation.y = damp(
-      group.current.rotation.y,
-      alignment * 0.35,
-      2.2,
-      delta,
-    )
+    const exposure = phase(motion.current.story, 0.58, 0.9)
+
+    if (material.current) {
+      material.current.opacity = damp(
+        material.current.opacity,
+        0.08 + exposure * 0.48,
+        2.2,
+        delta,
+      )
+    }
+
+    if (group.current) {
+      group.current.rotation.y = damp(
+        group.current.rotation.y,
+        motion.current.pointerX * 0.018,
+        1.8,
+        delta,
+      )
+      group.current.rotation.x = damp(
+        group.current.rotation.x,
+        motion.current.pointerY * 0.012,
+        1.8,
+        delta,
+      )
+    }
   })
 
   return (
-    <group ref={group} rotation={[0.28, 0, 0.12]}>
-      {positions.map((position, index) => (
-        <mesh key={position.join('-')} position={position}>
-          <sphereGeometry args={[index % 4 === 0 ? 0.032 : 0.018, 12, 12]} />
-          <meshBasicMaterial
-            color={index % 4 === 0 ? palette.accent : palette.foreground}
-            transparent
-            opacity={index % 4 === 0 ? 0.9 : 0.42}
+    <group ref={group}>
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        </bufferGeometry>
+        <pointsMaterial
+          ref={material}
+          color={palette.foreground}
+          depthWrite={false}
+          opacity={0.08}
+          size={0.025}
+          sizeAttenuation
+          transparent
+        />
+      </points>
+    </group>
+  )
+}
+
+const surfaceSignals = [
+  [-0.38, 1.61, 0.48],
+  [0.56, 1.42, 0.72],
+  [-0.92, 1.28, 0.64],
+  [1.02, 1.12, 0.76],
+  [0.12, 1.66, -0.32],
+  [-0.66, 1.48, -0.54],
+] as const
+
+function OzastraPlanet({
+  motion,
+  palette,
+  theme,
+}: {
+  motion: React.RefObject<MotionState>
+  palette: OrbitalPalette
+  theme: Theme
+}) {
+  const planet = useRef<THREE.Group>(null)
+  const surface = useRef<THREE.Mesh>(null)
+  const atmosphere = useRef<THREE.MeshBasicMaterial>(null)
+  const viewportWidth = useThree((state) => state.viewport.width)
+
+  useFrame(({ clock }, delta) => {
+    if (!planet.current) return
+
+    const progress = motion.current.story
+    const reveal = phase(progress, 0.76, 1)
+    const responsive = responsiveScene(viewportWidth)
+    const targetX = THREE.MathUtils.lerp(
+      responsive.wideX,
+      FINAL_PLANET_CENTER[0],
+      reveal,
+    )
+    const targetY = THREE.MathUtils.lerp(
+      responsive.heroPlanetY,
+      FINAL_PLANET_CENTER[1],
+      reveal,
+    )
+    const targetZ = THREE.MathUtils.lerp(0, FINAL_PLANET_CENTER[2], reveal)
+    const targetScale = THREE.MathUtils.lerp(
+      responsive.heroPlanetScale,
+      responsive.planetScale,
+      reveal,
+    )
+
+    planet.current.position.x = damp(
+      planet.current.position.x,
+      targetX + motion.current.pointerX * 0.035,
+      2.1,
+      delta,
+    )
+    planet.current.position.y = damp(
+      planet.current.position.y,
+      targetY + motion.current.pointerY * 0.025,
+      2.1,
+      delta,
+    )
+    planet.current.position.z = damp(
+      planet.current.position.z,
+      targetZ,
+      2.1,
+      delta,
+    )
+    planet.current.scale.setScalar(
+      damp(planet.current.scale.x, targetScale, 2.1, delta),
+    )
+    planet.current.rotation.z = damp(
+      planet.current.rotation.z,
+      reveal * -0.16 + motion.current.pointerX * 0.012,
+      1.8,
+      delta,
+    )
+
+    if (surface.current) {
+      surface.current.rotation.y =
+        clock.getElapsedTime() * 0.018 + reveal * 0.34
+      surface.current.rotation.x = damp(
+        surface.current.rotation.x,
+        motion.current.pointerY * 0.018,
+        1.6,
+        delta,
+      )
+    }
+
+    if (atmosphere.current) {
+      atmosphere.current.opacity = damp(
+        atmosphere.current.opacity,
+        (theme === 'light' ? 0.07 : 0.1) + reveal * 0.045,
+        2,
+        delta,
+      )
+    }
+  })
+
+  const initial = responsiveScene(viewportWidth)
+
+  return (
+    <group
+      ref={planet}
+      position={[initial.wideX, initial.heroPlanetY, 0]}
+      scale={initial.heroPlanetScale}
+    >
+      <group ref={surface}>
+        <mesh>
+          <icosahedronGeometry args={[1.72, 5]} />
+          <meshPhysicalMaterial
+            clearcoat={0.42}
+            clearcoatRoughness={0.5}
+            color={palette.planet}
+            metalness={0.42}
+            roughness={0.58}
           />
         </mesh>
+        <mesh scale={1.006}>
+          <icosahedronGeometry args={[1.72, 3]} />
+          <meshBasicMaterial
+            color={palette.surfaceLine}
+            depthWrite={false}
+            opacity={theme === 'light' ? 0.075 : 0.09}
+            transparent
+            wireframe
+          />
+        </mesh>
+        {surfaceSignals.map((position, index) => (
+          <mesh key={position.join('-')} position={position}>
+            <sphereGeometry args={[index === 0 ? 0.026 : 0.016, 10, 10]} />
+            <meshBasicMaterial
+              color={index === 0 ? palette.accent : palette.foreground}
+              opacity={index === 0 ? 0.88 : 0.34}
+              transparent
+            />
+          </mesh>
+        ))}
+      </group>
+      <mesh scale={1.055}>
+        <sphereGeometry args={[1.72, 40, 32]} />
+        <meshBasicMaterial
+          ref={atmosphere}
+          blending={THREE.AdditiveBlending}
+          color={palette.accent}
+          depthWrite={false}
+          opacity={theme === 'light' ? 0.07 : 0.1}
+          side={THREE.BackSide}
+          transparent
+        />
+      </mesh>
+    </group>
+  )
+}
+
+function AscentTrail({
+  motion,
+  palette,
+}: {
+  motion: React.RefObject<MotionState>
+  palette: OrbitalPalette
+}) {
+  const line = useRef<THREE.LineSegments>(null)
+  const material = useRef<THREE.LineBasicMaterial>(null)
+  const viewportWidth = useThree((state) => state.viewport.width)
+  const positions = useMemo(() => {
+    const curve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(0, 0.2, 0.5),
+      new THREE.Vector3(-0.14, 0.72, 0.42),
+      new THREE.Vector3(-0.5, 1.38, 0.28),
+      new THREE.Vector3(-0.42, 2.06, 0.12),
+    ])
+    const points = curve.getPoints(72)
+    const values: number[] = []
+
+    for (let index = 0; index < points.length - 1; index += 1) {
+      values.push(...points[index].toArray(), ...points[index + 1].toArray())
+    }
+
+    return new Float32Array(values)
+  }, [])
+
+  useFrame((_, delta) => {
+    if (!line.current) return
+
+    const progress = motion.current.story
+    const draw = phase(progress, 0.035, 0.74)
+    const fade = 1 - phase(progress, 0.76, 0.94)
+    const segmentCount = Math.floor((positions.length / 3) * draw)
+    const { wideX } = responsiveScene(viewportWidth)
+
+    line.current.geometry.setDrawRange(0, segmentCount)
+    line.current.position.x = damp(
+      line.current.position.x,
+      wideX + motion.current.pointerX * 0.025,
+      2,
+      delta,
+    )
+
+    if (material.current) {
+      material.current.opacity = damp(
+        material.current.opacity,
+        0.5 * fade,
+        2.4,
+        delta,
+      )
+    }
+  })
+
+  return (
+    <lineSegments ref={line} position={[0, 0, 0]}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <lineBasicMaterial
+        ref={material}
+        blending={THREE.AdditiveBlending}
+        color={palette.accent}
+        depthWrite={false}
+        opacity={0}
+        transparent
+      />
+    </lineSegments>
+  )
+}
+
+const modulePositions: [number, number, number][] = [
+  [0.37, 0, 0],
+  [-0.37, 0, 0],
+  [0, 0.37, 0],
+  [0, -0.37, 0],
+  [0, 0, 0.37],
+  [0, 0, -0.37],
+]
+
+function IdeaArtifact({
+  motion,
+  palette,
+  theme,
+}: {
+  motion: React.RefObject<MotionState>
+  palette: OrbitalPalette
+  theme: Theme
+}) {
+  const artifact = useRef<THREE.Group>(null)
+  const frame = useRef<THREE.Group>(null)
+  const intelligence = useRef<THREE.Group>(null)
+  const modules = useRef<THREE.Group>(null)
+  const shell = useRef<THREE.Group>(null)
+  const core = useRef<THREE.Mesh>(null)
+  const coreMaterial = useRef<THREE.MeshPhysicalMaterial>(null)
+  const viewportWidth = useThree((state) => state.viewport.width)
+
+  useFrame(({ clock }, delta) => {
+    if (!artifact.current) return
+
+    const progress = motion.current.story
+    const lift = phase(progress, 0.04, 0.2)
+    const structure = phase(progress, 0.18, 0.36)
+    const activation = phase(progress, 0.32, 0.5)
+    const system = phase(progress, 0.46, 0.64)
+    const finish = phase(progress, 0.6, 0.78)
+    const lock = phase(progress, 0.8, 0.98)
+    const responsive = responsiveScene(viewportWidth)
+    const orbitSeat = getOrbitSeat(responsive.orbitScale)
+    const journeyX =
+      responsive.wideX - Math.sin(lift * Math.PI * 0.82) * 0.5 - lift * 0.06
+    const journeyY = 0.2 + lift * 1.86
+    const journeyZ = 0.48 - lift * 0.28
+    const targetX = THREE.MathUtils.lerp(journeyX, orbitSeat[0], lock)
+    const targetY = THREE.MathUtils.lerp(journeyY, orbitSeat[1], lock)
+    const targetZ = THREE.MathUtils.lerp(journeyZ, orbitSeat[2] + 0.16, lock)
+
+    artifact.current.position.x = damp(
+      artifact.current.position.x,
+      targetX + motion.current.pointerX * (0.05 - lock * 0.025),
+      2.7,
+      delta,
+    )
+    artifact.current.position.y = damp(
+      artifact.current.position.y,
+      targetY + motion.current.pointerY * (0.04 - lock * 0.02),
+      2.7,
+      delta,
+    )
+    artifact.current.position.z = damp(
+      artifact.current.position.z,
+      targetZ,
+      2.7,
+      delta,
+    )
+    artifact.current.scale.setScalar(
+      damp(
+        artifact.current.scale.x,
+        (0.55 + finish * 0.45) * responsive.orbitScale,
+        2.5,
+        delta,
+      ),
+    )
+    artifact.current.rotation.x = damp(
+      artifact.current.rotation.x,
+      lock * 0.38 + motion.current.pointerY * 0.05,
+      2.2,
+      delta,
+    )
+    artifact.current.rotation.y = damp(
+      artifact.current.rotation.y,
+      clock.getElapsedTime() * (0.11 - lock * 0.075) + lock * 0.7,
+      2.2,
+      delta,
+    )
+    artifact.current.rotation.z = damp(
+      artifact.current.rotation.z,
+      -lift * 0.18 + lock * 0.42,
+      2.2,
+      delta,
+    )
+
+    if (core.current) {
+      const breath = 1 + Math.sin(clock.getElapsedTime() * 1.2) * 0.04
+      core.current.scale.setScalar(breath + activation * 0.1)
+    }
+
+    if (coreMaterial.current) {
+      coreMaterial.current.emissiveIntensity = damp(
+        coreMaterial.current.emissiveIntensity,
+        0.35 + activation * 1.2 + lock * 0.5,
+        2.4,
+        delta,
+      )
+    }
+
+    const stages: [React.RefObject<THREE.Group | null>, number][] = [
+      [frame, structure],
+      [intelligence, activation],
+      [modules, system],
+      [shell, finish],
+    ]
+
+    stages.forEach(([group, value], index) => {
+      if (!group.current) return
+      group.current.scale.setScalar(
+        damp(group.current.scale.x, Math.max(0.001, value), 3.2, delta),
+      )
+      group.current.rotation.z += delta * (0.12 - index * 0.02) * value
+    })
+  })
+
+  const isLight = theme === 'light'
+
+  return (
+    <group ref={artifact} position={[0, 0.2, 0.48]} scale={0.55}>
+      <mesh ref={core}>
+        <icosahedronGeometry args={[0.17, 3]} />
+        <meshPhysicalMaterial
+          ref={coreMaterial}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          color={palette.planet}
+          emissive={palette.accent}
+          emissiveIntensity={0.35}
+          metalness={0.62}
+          roughness={0.2}
+        />
+      </mesh>
+      <mesh scale={0.22}>
+        <sphereGeometry args={[1, 20, 20]} />
+        <meshBasicMaterial
+          blending={THREE.AdditiveBlending}
+          color={palette.accent}
+          depthWrite={false}
+          opacity={isLight ? 0.1 : 0.16}
+          transparent
+        />
+      </mesh>
+
+      <group ref={frame} scale={0.001}>
+        <mesh>
+          <icosahedronGeometry args={[0.43, 1]} />
+          <meshBasicMaterial
+            color={palette.foreground}
+            opacity={isLight ? 0.52 : 0.68}
+            transparent
+            wireframe
+          />
+        </mesh>
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[0.34, 0.009, 5, 48]} />
+          <meshBasicMaterial
+            color={palette.foreground}
+            opacity={0.36}
+            transparent
+          />
+        </mesh>
+      </group>
+
+      <group ref={intelligence} scale={0.001}>
+        <mesh rotation={[0.62, 0.2, 0]}>
+          <torusGeometry args={[0.28, 0.018, 7, 64]} />
+          <meshStandardMaterial
+            color={palette.accent}
+            emissive={palette.accent}
+            emissiveIntensity={isLight ? 0.45 : 1.1}
+            metalness={0.72}
+            roughness={0.28}
+          />
+        </mesh>
+        <mesh rotation={[-0.3, 0.72, 0.22]}>
+          <torusGeometry args={[0.31, 0.009, 6, 64]} />
+          <meshBasicMaterial
+            color={palette.astral}
+            opacity={0.72}
+            transparent
+          />
+        </mesh>
+      </group>
+
+      <group ref={modules} scale={0.001}>
+        {modulePositions.map((position, index) => (
+          <mesh key={position.join('-')} position={position}>
+            <boxGeometry args={[0.12, 0.12, 0.12]} />
+            <meshStandardMaterial
+              color={index % 2 === 0 ? palette.foreground : palette.muted}
+              emissive={index === 0 ? palette.accent : '#000000'}
+              emissiveIntensity={index === 0 ? 0.35 : 0}
+              metalness={0.82}
+              roughness={0.26}
+            />
+          </mesh>
+        ))}
+      </group>
+
+      <group ref={shell} scale={0.001}>
+        <mesh rotation={[0.58, 0.35, -0.4]}>
+          <torusGeometry args={[0.5, 0.014, 6, 72, Math.PI * 1.42]} />
+          <meshStandardMaterial
+            color={palette.foreground}
+            metalness={0.9}
+            roughness={0.2}
+          />
+        </mesh>
+        <mesh rotation={[-0.5, 0.82, 2.46]}>
+          <torusGeometry args={[0.5, 0.012, 6, 72, Math.PI * 1.08]} />
+          <meshStandardMaterial
+            color={palette.astral}
+            emissive={palette.astral}
+            emissiveIntensity={isLight ? 0.18 : 0.42}
+            metalness={0.84}
+            roughness={0.24}
+          />
+        </mesh>
+      </group>
+    </group>
+  )
+}
+
+function TargetStar({
+  motion,
+  palette,
+}: {
+  motion: React.RefObject<MotionState>
+  palette: OrbitalPalette
+}) {
+  const star = useRef<THREE.Group>(null)
+  const glow = useRef<THREE.MeshBasicMaterial>(null)
+  const viewportWidth = useThree((state) => state.viewport.width)
+
+  useFrame(({ clock }, delta) => {
+    if (!star.current) return
+
+    const progress = motion.current.story
+    const appearance = phase(progress, 0.7, 0.88)
+    const contact = phase(progress, 0.9, 0.985)
+    const orbitScale = responsiveScene(viewportWidth).orbitScale
+    const seat = getOrbitSeat(orbitScale)
+    const pulse = 1 + Math.sin(clock.getElapsedTime() * 1.7) * 0.12
+
+    star.current.position.set(seat[0], seat[1], seat[2] + 0.1)
+    star.current.scale.setScalar(
+      damp(
+        star.current.scale.x,
+        Math.max(0.001, appearance * pulse * orbitScale * (1 - contact * 0.45)),
+        3,
+        delta,
+      ),
+    )
+
+    if (glow.current) {
+      glow.current.opacity = damp(
+        glow.current.opacity,
+        0.32 * appearance * (1 - contact * 0.55),
+        3,
+        delta,
+      )
+    }
+  })
+
+  return (
+    <group ref={star} scale={0.001}>
+      <mesh>
+        <sphereGeometry args={[0.055, 16, 16]} />
+        <meshBasicMaterial color={palette.foreground} />
+      </mesh>
+      <mesh scale={[1.8, 0.09, 0.09]}>
+        <sphereGeometry args={[0.16, 12, 12]} />
+        <meshBasicMaterial
+          blending={THREE.AdditiveBlending}
+          color={palette.foreground}
+          depthWrite={false}
+          opacity={0.62}
+          transparent
+        />
+      </mesh>
+      <mesh scale={[0.09, 1.8, 0.09]}>
+        <sphereGeometry args={[0.16, 12, 12]} />
+        <meshBasicMaterial
+          blending={THREE.AdditiveBlending}
+          color={palette.foreground}
+          depthWrite={false}
+          opacity={0.62}
+          transparent
+        />
+      </mesh>
+      <mesh scale={0.38}>
+        <sphereGeometry args={[1, 18, 18]} />
+        <meshBasicMaterial
+          ref={glow}
+          blending={THREE.AdditiveBlending}
+          color={palette.accent}
+          depthWrite={false}
+          opacity={0}
+          transparent
+        />
+      </mesh>
+    </group>
+  )
+}
+
+function ProductSatellite({
+  index,
+  palette,
+  position,
+}: {
+  index: number
+  palette: OrbitalPalette
+  position: [number, number, number]
+}) {
+  const geometry = index % 3
+
+  return (
+    <group
+      position={position}
+      rotation={[index * 0.22, index * 0.48, -index * 0.2]}
+      scale={0.52}
+    >
+      <mesh>
+        {geometry === 0 ? (
+          <octahedronGeometry args={[0.2, 0]} />
+        ) : geometry === 1 ? (
+          <dodecahedronGeometry args={[0.19, 0]} />
+        ) : (
+          <boxGeometry args={[0.29, 0.22, 0.27]} />
+        )}
+        <meshStandardMaterial
+          color={palette.planet}
+          emissive={index === 2 ? palette.astral : palette.accent}
+          emissiveIntensity={0.22}
+          metalness={0.74}
+          roughness={0.28}
+        />
+      </mesh>
+      <mesh scale={1.28}>
+        <icosahedronGeometry args={[0.2, 1]} />
+        <meshBasicMaterial
+          color={index === 2 ? palette.astral : palette.foreground}
+          opacity={0.58}
+          transparent
+          wireframe
+        />
+      </mesh>
+      <mesh rotation={[Math.PI / 2, 0, index * 0.3]}>
+        <torusGeometry args={[0.3, 0.012, 5, 40]} />
+        <meshBasicMaterial color={palette.accent} opacity={0.56} transparent />
+      </mesh>
+    </group>
+  )
+}
+
+function ProductConstellation({
+  motion,
+  palette,
+}: {
+  motion: React.RefObject<MotionState>
+  palette: OrbitalPalette
+}) {
+  const constellation = useRef<THREE.Group>(null)
+  const orbitMaterial = useRef<THREE.MeshBasicMaterial>(null)
+  const connectionMaterial = useRef<THREE.LineBasicMaterial>(null)
+  const viewportWidth = useThree((state) => state.viewport.width)
+  const connectionPositions = useMemo(() => {
+    const path = [0, 2, 4, 1, 3, 0]
+    const values: number[] = []
+
+    for (let index = 0; index < path.length - 1; index += 1) {
+      values.push(
+        ...orbitLocalPositions[path[index]],
+        ...orbitLocalPositions[path[index + 1]],
+      )
+    }
+
+    return new Float32Array(values)
+  }, [])
+
+  useFrame((_, delta) => {
+    if (!constellation.current) return
+
+    const progress = motion.current.story
+    const reveal = phase(progress, 0.82, 0.965)
+    const alignment = phase(progress, 0.925, 1)
+    const orbitScale = responsiveScene(viewportWidth).orbitScale
+
+    constellation.current.scale.setScalar(
+      damp(
+        constellation.current.scale.x,
+        Math.max(0.001, reveal * orbitScale),
+        2.8,
+        delta,
+      ),
+    )
+    constellation.current.rotation.z = damp(
+      constellation.current.rotation.z,
+      ORBIT_ROTATION[2] + motion.current.pointerX * 0.008,
+      1.8,
+      delta,
+    )
+
+    if (orbitMaterial.current) {
+      orbitMaterial.current.opacity = damp(
+        orbitMaterial.current.opacity,
+        0.2 * reveal,
+        2.8,
+        delta,
+      )
+    }
+
+    if (connectionMaterial.current) {
+      connectionMaterial.current.opacity = damp(
+        connectionMaterial.current.opacity,
+        0.26 * alignment,
+        3,
+        delta,
+      )
+    }
+  })
+
+  return (
+    <group
+      ref={constellation}
+      position={FINAL_PLANET_CENTER}
+      rotation={ORBIT_ROTATION}
+      scale={0.001}
+    >
+      <mesh>
+        <torusGeometry args={[ORBIT_RADIUS, 0.006, 5, 160]} />
+        <meshBasicMaterial
+          ref={orbitMaterial}
+          color={palette.foreground}
+          depthWrite={false}
+          opacity={0}
+          transparent
+        />
+      </mesh>
+      <lineSegments>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            args={[connectionPositions, 3]}
+          />
+        </bufferGeometry>
+        <lineBasicMaterial
+          ref={connectionMaterial}
+          blending={THREE.AdditiveBlending}
+          color={palette.accent}
+          depthWrite={false}
+          opacity={0}
+          transparent
+        />
+      </lineSegments>
+      {orbitLocalPositions.slice(1).map((position, index) => (
+        <ProductSatellite
+          index={index + 1}
+          key={position.join('-')}
+          palette={palette}
+          position={position}
+        />
       ))}
     </group>
   )
@@ -312,77 +884,39 @@ function OrbitalScene({
   motion: React.RefObject<MotionState>
   theme: Theme
 }) {
-  const assembly = useRef<THREE.Group>(null)
-  const { viewport } = useThree()
   const palette = orbitalPalettes[theme]
   const isLight = theme === 'light'
-
-  useFrame((_, delta) => {
-    if (!assembly.current) return
-
-    const pointerX = motion.current.pointerX
-    const pointerY = motion.current.pointerY
-    const convergence = THREE.MathUtils.smoothstep(
-      motion.current.story,
-      0.78,
-      1,
-    )
-    const wideTargetX = viewport.width > 8 ? viewport.width * 0.22 : 0
-    const baseTargetY = viewport.width > 8 ? 0.15 : -0.25
-    const targetX = THREE.MathUtils.lerp(wideTargetX, 0, convergence)
-    const targetY = THREE.MathUtils.lerp(baseTargetY, 0.35, convergence)
-
-    assembly.current.position.x = damp(
-      assembly.current.position.x,
-      targetX + pointerX * 0.08,
-      2.2,
-      delta,
-    )
-    assembly.current.position.y = damp(
-      assembly.current.position.y,
-      targetY + pointerY * 0.06,
-      2.2,
-      delta,
-    )
-  })
 
   return (
     <>
       <QualityController />
       <WebGLLifecycle />
       <VisualTestController />
-      <ambientLight color={palette.ambient} intensity={isLight ? 0.48 : 0.34} />
+      <ambientLight color={palette.ambient} intensity={isLight ? 0.5 : 0.3} />
       <spotLight
-        angle={0.46}
+        angle={0.5}
         color={isLight ? '#fffdf7' : palette.foreground}
-        intensity={isLight ? 30 : 34}
+        intensity={isLight ? 24 : 30}
         penumbra={1}
-        position={[4, 5, 6]}
+        position={[4.5, 5.5, 6]}
       />
       <pointLight
         color={palette.accent}
-        intensity={isLight ? 13 : 18}
-        position={[-4, -2, 3]}
+        intensity={isLight ? 10 : 15}
+        position={[-4, -1.5, 3]}
       />
       <pointLight
         color={palette.astral}
-        intensity={isLight ? 5 : 8}
+        intensity={isLight ? 4 : 7}
         position={[3, -4, -2]}
       />
 
-      <group ref={assembly} scale={viewport.width < 6 ? 0.68 : 0.92}>
-        <Core accent={palette.accent} isLight={isLight} motion={motion} />
-        {rings.map((ring) => (
-          <ServiceRing
-            key={ring.index}
-            {...ring}
-            color={palette.rings[ring.index]}
-            isLight={isLight}
-            motion={motion}
-          />
-        ))}
-        <OrbitalMarkers motion={motion} palette={palette} />
-      </group>
+      <StarField motion={motion} palette={palette} />
+      <OzastraPlanet motion={motion} palette={palette} theme={theme} />
+      <AscentTrail motion={motion} palette={palette} />
+      <ProductConstellation motion={motion} palette={palette} />
+      <TargetStar motion={motion} palette={palette} />
+      <IdeaArtifact motion={motion} palette={palette} theme={theme} />
     </>
   )
 }
@@ -470,11 +1004,14 @@ function Fallback() {
       data-orbital-fallback="true"
       aria-hidden="true"
     >
-      <span className="orbital-fallback__core" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--one" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--two" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--three" />
-      <span className="orbital-fallback__ring orbital-fallback__ring--four" />
+      <span className="orbital-fallback__planet" />
+      <span className="orbital-fallback__orbit" />
+      <span className="orbital-fallback__trail" />
+      <span className="orbital-fallback__artifact" />
+      <span className="orbital-fallback__star" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--one" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--two" />
+      <span className="orbital-fallback__satellite orbital-fallback__satellite--three" />
     </div>
   )
 }

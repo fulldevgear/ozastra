@@ -91,9 +91,9 @@ test('styles the reduced-motion fallback from the light palette', async ({
   await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' })
   await page.goto('/')
 
-  await expect(page.locator('.orbital-fallback__ring--two').first()).toHaveCSS(
-    'border-color',
-    'rgba(52, 87, 213, 0.56)',
+  await expect(page.locator('.orbital-fallback__trail').first()).toHaveCSS(
+    'border-top-color',
+    'rgba(52, 87, 213, 0.58)',
   )
   await expect(page.locator('canvas')).toHaveCount(0)
 })
