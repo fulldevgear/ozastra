@@ -61,4 +61,31 @@ describe('locale registry', () => {
       }),
     ).toThrow('invalid Open Graph locale')
   })
+
+  it('accepts an RTL draft locale without publishing it', () => {
+    const registry = validateLocaleRegistry({
+      defaultLocale: 'en',
+      sourceLocale: 'en',
+      locales: {
+        en: localeRegistry.locales.en,
+        ar: {
+          label: 'Arabic',
+          nativeLabel: 'العربية',
+          prefix: 'ar',
+          htmlLang: 'ar',
+          ogLocale: 'ar_AE',
+          direction: 'rtl',
+          status: 'draft',
+        },
+      },
+    })
+
+    const arabic = (
+      registry.locales as unknown as Record<
+        string,
+        { direction: string; status: string }
+      >
+    ).ar
+    expect(arabic).toMatchObject({ direction: 'rtl', status: 'draft' })
+  })
 })

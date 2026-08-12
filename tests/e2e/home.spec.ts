@@ -18,12 +18,14 @@ test('renders the Ozastra proposition and core sections', async ({ page }) => {
   await expect(page.locator('#contact')).toBeVisible()
 })
 
-test('supports the main keyboard navigation path', async ({ page }, testInfo) => {
+test('supports the main keyboard navigation path', async ({
+  page,
+}, testInfo) => {
   test.skip(testInfo.project.name === 'webkit')
 
   await page.goto('/')
   await page.keyboard.press('Tab')
-  await expect(page.getByText('Aller au contenu')).toBeFocused()
+  await expect(page.getByText('Skip to content')).toBeFocused()
   await page.keyboard.press('Enter')
   await expect(page.locator('#content')).toBeFocused()
 })
@@ -33,22 +35,22 @@ test('exposes the complete mobile navigation', async ({ page }, testInfo) => {
 
   await page.goto('/')
   await page.getByText('Menu', { exact: true }).click()
-  const navigation = page.getByRole('navigation', { name: 'Navigation mobile' })
+  const navigation = page.getByRole('navigation', { name: 'Mobile navigation' })
   await expect(navigation).toBeVisible()
   await expect(navigation.getByRole('link')).toHaveCount(4)
-  await navigation.getByRole('link', { name: 'À propos' }).click()
+  await navigation.getByRole('link', { name: 'About' }).click()
   await expect(page).toHaveURL(/\/about$/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Une pratique indépendante',
+    'An independent practice',
   )
 })
 
 test('renders project routes and their unique metadata', async ({ page }) => {
   await page.goto('/work')
-  await expect(page).toHaveTitle('Projets — Ozastra')
-  await page.getByRole('link', { name: 'Découvrir Orbit' }).click()
+  await expect(page).toHaveTitle('Work — Ozastra')
+  await page.getByRole('link', { name: 'Discover Orbit' }).click()
   await expect(page).toHaveURL(/\/work\/orbit$/)
-  await expect(page).toHaveTitle('Orbit — Concept SaaS par Ozastra')
+  await expect(page).toHaveTitle('Orbit — SaaS product concept by Ozastra')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Orbit')
 })
 
@@ -120,20 +122,18 @@ test('validates and submits the contact form through the server function', async
   page,
 }) => {
   await page.goto('/contact')
-  await expect(
-    page.getByRole('button', { name: 'Envoyer la demande' }),
-  ).toBeEnabled()
-  await page.getByLabel('Nom').fill('Ada Lovelace')
-  await page.getByLabel('Email professionnel').fill('ada@example.com')
-  await page.getByLabel('Type de projet').selectOption('ai')
+  await expect(page.getByRole('button', { name: 'Send request' })).toBeEnabled()
+  await page.getByLabel('Name').fill('Ada Lovelace')
+  await page.getByLabel('Work email').fill('ada@example.com')
+  await page.getByLabel('Project type').selectOption('ai')
   await page
-    .getByLabel('Votre projet')
-    .fill('Nous voulons transformer un workflow métier complexe en produit.')
+    .getByLabel('Your project')
+    .fill('We want to turn a complex business workflow into a clear product.')
   await page.waitForTimeout(850)
-  await page.getByRole('button', { name: 'Envoyer la demande' }).click()
+  await page.getByRole('button', { name: 'Send request' }).click()
 
   await expect(page.getByRole('alert')).toContainText(
-    'L’envoi automatique est indisponible',
+    'Automatic delivery is unavailable',
   )
   await expect(
     page.getByRole('link', { name: 'hello@ozastra.com' }).first(),

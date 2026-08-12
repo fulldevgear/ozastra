@@ -23,12 +23,12 @@ describe('localized SEO', () => {
       expect(head.links).toContainEqual({ rel: 'canonical', href: canonical })
       expect(head.links).toContainEqual({
         rel: 'alternate',
-        hreflang: 'x-default',
+        hrefLang: 'x-default',
         href: 'https://ozastra.com/about',
       })
       expect(head.links).toContainEqual({
         rel: 'alternate',
-        hreflang: 'fr',
+        hrefLang: 'fr',
         href: 'https://ozastra.com/fr/about',
       })
       expect(head.meta).toContainEqual({

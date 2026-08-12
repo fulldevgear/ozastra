@@ -1,4 +1,6 @@
 import { I18nProvider } from '@lingui/react'
+import { setupI18n } from '@lingui/core'
+import type { Messages } from '@lingui/core'
 import {
   Outlet,
   createFileRoute,
@@ -8,7 +10,16 @@ import {
 import { useMemo } from 'react'
 
 import { defaultLocale, isPublishedLocale } from '../i18n/locales'
-import { createLoadedI18n, loadCatalog } from '../i18n/runtime'
+import { loadCatalog } from '../i18n/runtime'
+
+type SerializableValue =
+  | string
+  | number
+  | boolean
+  | null
+  | SerializableValue[]
+  | { [key: string]: SerializableValue }
+type SerializableMessages = Record<string, SerializableValue>
 
 export const Route = createFileRoute('/{-$locale}')({
   beforeLoad: async ({ location, params }) => {
@@ -27,16 +38,26 @@ export const Route = createFileRoute('/{-$locale}')({
 
     const locale = params.locale ?? defaultLocale
     if (!isPublishedLocale(locale)) throw notFound()
-    await loadCatalog(locale)
+    const messages = await loadCatalog(locale)
 
-    return { locale }
+    return {
+      locale,
+      messages: messages as unknown as SerializableMessages,
+    }
   },
   component: LocaleLayout,
 })
 
 function LocaleLayout() {
-  const { locale } = Route.useRouteContext()
-  const i18n = useMemo(() => createLoadedI18n(locale), [locale])
+  const { locale, messages } = Route.useRouteContext()
+  const i18n = useMemo(
+    () =>
+      setupI18n({
+        locale,
+        messages: { [locale]: messages as unknown as Messages },
+      }),
+    [locale, messages],
+  )
 
   return (
     <I18nProvider i18n={i18n}>

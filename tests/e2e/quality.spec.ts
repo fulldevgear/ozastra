@@ -1,17 +1,8 @@
 import { expect, test } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import publicPages from '../../src/generated/public-pages.json' with { type: 'json' }
 
-const publicRoutes = [
-  '/',
-  '/about',
-  '/services',
-  '/work',
-  '/work/orbit',
-  '/work/axiom',
-  '/contact',
-  '/legal',
-  '/privacy',
-] as const
+const publicRoutes = publicPages.pages.map(({ path }) => path)
 
 const viewports = [
   { name: 'mobile', width: 360, height: 780 },

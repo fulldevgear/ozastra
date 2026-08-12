@@ -1,17 +1,8 @@
 import { expect, test } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import publicPages from '../../src/generated/public-pages.json' with { type: 'json' }
 
-const publicRoutes = [
-  '/',
-  '/about',
-  '/services',
-  '/work',
-  '/work/orbit',
-  '/work/axiom',
-  '/contact',
-  '/legal',
-  '/privacy',
-] as const
+const publicRoutes = publicPages.pages.map(({ path }) => path)
 
 test.beforeEach(({ page }, testInfo) => {
   void page
@@ -26,7 +17,7 @@ test('uses the system light preference when no choice is stored', async ({
 
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
   await expect(
-    page.getByRole('button', { name: 'Activer le thème sombre' }),
+    page.getByRole('button', { name: 'Activate dark theme' }),
   ).toBeVisible()
   await expect
     .poll(() =>
@@ -41,7 +32,7 @@ test('persists a keyboard theme choice across navigation and reload', async ({
   await page.emulateMedia({ colorScheme: 'dark' })
   await page.goto('/')
 
-  const toggle = page.getByRole('button', { name: 'Activer le thème clair' })
+  const toggle = page.getByRole('button', { name: 'Activate light theme' })
   await expect(toggle).toBeVisible()
   await expect(toggle).toBeEnabled()
   await toggle.focus()
@@ -78,7 +69,7 @@ test('keeps the WebGL artifact synchronized with a live theme change', async ({
     reducedMotion: 'no-preference',
   })
   await page.goto('/')
-  const toggle = page.getByRole('button', { name: 'Activer le thème clair' })
+  const toggle = page.getByRole('button', { name: 'Activate light theme' })
   await expect(toggle).toBeEnabled()
   await page.mouse.move(10, 10)
   await page.mouse.move(240, 240)

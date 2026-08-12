@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 201
+    "revision": 203
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 92,
-    "last_activity_at": "2026-08-12T09:35:02.561Z",
+    "overall_progress_percent": 93,
+    "last_activity_at": "2026-08-12T09:43:40.254Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2673,6 +2673,22 @@
         "deliverable": 9,
         "description": "Workflow de traduction, revue éditoriale et publication progressive",
         "evidence": "Workflow draft/published documenté; extraction inclut les brouillons, compilation/imports limités aux locales publiées; validation bloque catalogue, SEO, manifeste ou MDX incomplet; revue éditoriale EN/FR consignée; dry-run RTL, lint, typecheck, 33 tests, i18n:validate et build réussis"
+      },
+      {
+        "timestamp": "2026-08-12T09:35:17.040Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 10,
+        "description": "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
+        "note": "Matrice Playwright EN/FR, navigation clavier/mobile, rendu sans JS, pseudo-localisation et validation RTL"
+      },
+      {
+        "timestamp": "2026-08-12T09:43:40.254Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 10,
+        "description": "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
+        "evidence": "Vitest: 34 tests unitaires verts. Playwright: matrice i18n EN/FR verte (clavier, mobile, sans JS, pseudo-localisation, RTL), 18 routes sans débordement, audits axe WCAG A/AA sombres et clairs, navigation/formulaire/metadonnees verifies. Hydratation securisee par catalogue actif serialise dans le contexte de route."
       }
     ]
   },
@@ -3565,7 +3581,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 82,
+        "progress_percent": 91,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3621,11 +3637,17 @@
             "description": "Workflow de traduction, revue éditoriale et publication progressive",
             "completed_at": "2026-08-12T09:35:02.560Z",
             "evidence": "Workflow draft/published documenté; extraction inclut les brouillons, compilation/imports limités aux locales publiées; validation bloque catalogue, SEO, manifeste ou MDX incomplet; revue éditoriale EN/FR consignée; dry-run RTL, lint, typecheck, 33 tests, i18n:validate et build réussis"
+          },
+          {
+            "index": 10,
+            "description": "Tests fonctionnels, accessibilité, pseudo-localisation et prise en charge RTL",
+            "completed_at": "2026-08-12T09:43:40.253Z",
+            "evidence": "Vitest: 34 tests unitaires verts. Playwright: matrice i18n EN/FR verte (clavier, mobile, sans JS, pseudo-localisation, RTL), 18 routes sans débordement, audits axe WCAG A/AA sombres et clairs, navigation/formulaire/metadonnees verifies. Hydratation securisee par catalogue actif serialise dans le contexte de route."
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:35:02.561Z"
+        "last_updated_at": "2026-08-12T09:43:40.254Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

@@ -75,12 +75,12 @@ export function createSeoHead({
       { rel: 'canonical', href: url },
       ...publishedLocales.map((candidate) => ({
         rel: 'alternate',
-        hreflang: getLocaleDefinition(candidate).htmlLang,
+        hrefLang: getLocaleDefinition(candidate).htmlLang,
         href: localizedAbsoluteUrl(candidate, path),
       })),
       {
         rel: 'alternate',
-        hreflang: 'x-default',
+        hrefLang: 'x-default',
         href: localizedAbsoluteUrl(defaultLocale, path),
       },
     ],
