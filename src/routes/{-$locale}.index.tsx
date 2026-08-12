@@ -5,7 +5,7 @@ import { ProjectVisual } from '../components/ProjectVisual'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
 import { resolveRouteLocale, routeLocaleParam } from '../i18n/navigation'
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
 import {
@@ -23,7 +23,7 @@ export const Route = createFileRoute('/{-$locale}/')({
     const locale = resolveRouteLocale(params.locale)
     return createSeoHead({
       locale,
-      ...seoCopy[locale].home,
+      ...getSeoCopy(locale).home,
       path: '/',
       structuredData: [
         organizationStructuredData(locale),

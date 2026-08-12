@@ -1,9 +1,6 @@
 {
   "defaultLocale": "en",
-  "publishedLocales": [
-    "en",
-    "fr"
-  ],
+  "publishedLocales": ["en", "fr"],
   "pages": [
     {
       "locale": "en",

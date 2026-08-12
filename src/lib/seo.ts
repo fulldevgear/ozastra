@@ -5,7 +5,7 @@ import {
   publishedLocales,
 } from '../i18n/locales'
 import type { Locale } from '../i18n/locales'
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 
 type StructuredData = Record<string, unknown>
 
@@ -41,6 +41,7 @@ export function createSeoHead({
   structuredData = [],
 }: SeoInput) {
   const definition = getLocaleDefinition(locale)
+  const localizedCopy = getSeoCopy(locale)
   const url = localizedAbsoluteUrl(locale, path)
   const alternateLocales = publishedLocales.filter(
     (candidate) => candidate !== locale,
@@ -66,9 +67,9 @@ export function createSeoHead({
       { property: 'og:image', content: absoluteUrl('/og/ozastra-og.png') },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:image:alt', content: seoCopy[locale].imageAlt },
+      { property: 'og:image:alt', content: localizedCopy.imageAlt },
       { name: 'twitter:image', content: absoluteUrl('/og/ozastra-og.png') },
-      { name: 'twitter:image:alt', content: seoCopy[locale].imageAlt },
+      { name: 'twitter:image:alt', content: localizedCopy.imageAlt },
     ],
     links: [
       { rel: 'canonical', href: url },
@@ -98,7 +99,7 @@ export function organizationStructuredData(locale: Locale) {
     legalName: 'Ozastra LLC',
     url: siteUrl,
     email: 'hello@ozastra.com',
-    description: seoCopy[locale].organizationDescription,
+    description: getSeoCopy(locale).organizationDescription,
     inLanguage: getLocaleDefinition(locale).htmlLang,
   }
 }

@@ -8,12 +8,10 @@ import type { Project } from './project-schema'
 type ProjectModule = { default: ComponentType }
 type ManifestModule = { default: unknown }
 
-const manifestLoaders = import.meta.glob<ManifestModule>(
-  '../../content/projects/*/manifest.json',
-)
-const bodyLoaders = import.meta.glob<ProjectModule>(
-  '../../content/projects/*/*.mdx',
-)
+const manifestLoaders: Partial<Record<string, () => Promise<ManifestModule>>> =
+  import.meta.glob<ManifestModule>('../../content/projects/*/manifest.json')
+const bodyLoaders: Partial<Record<string, () => Promise<ProjectModule>>> =
+  import.meta.glob<ProjectModule>('../../content/projects/*/*.mdx')
 
 const manifestCache = new Map<Locale, Promise<Project[]>>()
 const componentCache = new Map<string, LazyExoticComponent<ComponentType>>()

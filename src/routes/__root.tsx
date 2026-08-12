@@ -46,7 +46,7 @@ export const Route = createRootRoute({
 
 function NotFoundPage() {
   const locale = resolvePathLocale(useLocation().pathname)
-  const content = notFoundFallback[locale]
+  const content = notFoundFallback[locale] ?? defaultNotFoundFallback
 
   return (
     <main className="not-found">
@@ -82,20 +82,24 @@ function RootDocument({ children }: { children: ReactNode }) {
   )
 }
 
-const notFoundFallback = {
-  en: {
-    eyebrow: 'Error 404',
-    title: 'This orbit leads nowhere.',
-    description: 'The page you are looking for may have changed trajectory.',
-    action: 'Return home',
-  },
+const defaultNotFoundFallback = {
+  eyebrow: 'Error 404',
+  title: 'This orbit leads nowhere.',
+  description: 'The page you are looking for may have changed trajectory.',
+  action: 'Return home',
+}
+
+const notFoundFallback: Partial<
+  Record<
+    Locale,
+    { eyebrow: string; title: string; description: string; action: string }
+  >
+> = {
+  en: defaultNotFoundFallback,
   fr: {
     eyebrow: 'Erreur 404',
     title: 'Cette orbite ne mène nulle part.',
     description: 'La page recherchée a peut-être changé de trajectoire.',
     action: 'Revenir à l’accueil',
   },
-} satisfies Record<
-  Locale,
-  { eyebrow: string; title: string; description: string; action: string }
->
+}

@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-12",
-    "revision": 199
+    "revision": 201
   },
   "brand": {
     "name": "Ozastra",
@@ -1039,8 +1039,8 @@
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
     "current_phase": 11,
     "current_deliverable": null,
-    "overall_progress_percent": 91,
-    "last_activity_at": "2026-08-12T09:29:51.371Z",
+    "overall_progress_percent": 92,
+    "last_activity_at": "2026-08-12T09:35:02.561Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -2657,6 +2657,22 @@
         "deliverable": 8,
         "description": "Pré-rendu, sitemap et sorties techniques généralisés par locale",
         "evidence": "Matrice générée de 18 pages depuis locales+manifestes, pré-rendu explicite, sitemap hreflang/x-default et robots générés, smoke local 18 pages+5 endpoints réussi; typecheck, 33 tests, build et budget 150.6/200 kB validés"
+      },
+      {
+        "timestamp": "2026-08-12T09:30:04.940Z",
+        "event": "start_step",
+        "phase": 11,
+        "deliverable": 9,
+        "description": "Workflow de traduction, revue éditoriale et publication progressive",
+        "note": "Workflow draft/published, validation de complétude, revue éditoriale EN/FR et documentation d’ajout de langue"
+      },
+      {
+        "timestamp": "2026-08-12T09:35:02.561Z",
+        "event": "complete_step",
+        "phase": 11,
+        "deliverable": 9,
+        "description": "Workflow de traduction, revue éditoriale et publication progressive",
+        "evidence": "Workflow draft/published documenté; extraction inclut les brouillons, compilation/imports limités aux locales publiées; validation bloque catalogue, SEO, manifeste ou MDX incomplet; revue éditoriale EN/FR consignée; dry-run RTL, lint, typecheck, 33 tests, i18n:validate et build réussis"
       }
     ]
   },
@@ -3549,7 +3565,7 @@
         10
       ],
       "tracking": {
-        "progress_percent": 73,
+        "progress_percent": 82,
         "active_deliverable": null,
         "completed_deliverables": [
           {
@@ -3599,11 +3615,17 @@
             "description": "Pré-rendu, sitemap et sorties techniques généralisés par locale",
             "completed_at": "2026-08-12T09:29:51.370Z",
             "evidence": "Matrice générée de 18 pages depuis locales+manifestes, pré-rendu explicite, sitemap hreflang/x-default et robots générés, smoke local 18 pages+5 endpoints réussi; typecheck, 33 tests, build et budget 150.6/200 kB validés"
+          },
+          {
+            "index": 9,
+            "description": "Workflow de traduction, revue éditoriale et publication progressive",
+            "completed_at": "2026-08-12T09:35:02.560Z",
+            "evidence": "Workflow draft/published documenté; extraction inclut les brouillons, compilation/imports limités aux locales publiées; validation bloque catalogue, SEO, manifeste ou MDX incomplet; revue éditoriale EN/FR consignée; dry-run RTL, lint, typecheck, 33 tests, i18n:validate et build réussis"
           }
         ],
         "blocked_deliverables": [],
         "verification": null,
-        "last_updated_at": "2026-08-12T09:29:51.371Z"
+        "last_updated_at": "2026-08-12T09:35:02.561Z"
       },
       "deliverables": [
         "Contrat international anglais par défaut et stratégie de migration",

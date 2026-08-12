@@ -5,7 +5,7 @@ import { ProjectVisual } from '../components/ProjectVisual'
 import { PageShell } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
 import { routeLocaleParam } from '../i18n/navigation'
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
 import { getProject, getProjectComponent } from '../lib/content/projects'
@@ -33,7 +33,7 @@ export const Route = createFileRoute('/{-$locale}/work/$slug')({
                 {
                   '@type': 'ListItem',
                   position: 1,
-                  name: seoCopy[loaderData.locale].projectsBreadcrumb,
+                  name: getSeoCopy(loaderData.locale).projectsBreadcrumb,
                   item: localizedAbsoluteUrl(loaderData.locale, '/work'),
                 },
                 {

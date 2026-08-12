@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 
 type LocaleRegistryFile = {
   sourceLocale: string
-  locales: Record<string, { status: 'draft' | 'published' }>
+  locales: Record<string, unknown>
 }
 
 const localeRegistry = JSON.parse(
@@ -13,9 +13,7 @@ const localeRegistry = JSON.parse(
 
 export default defineConfig({
   sourceLocale: localeRegistry.sourceLocale,
-  locales: Object.entries(localeRegistry.locales)
-    .filter(([, definition]) => definition.status === 'published')
-    .map(([locale]) => locale),
+  locales: Object.keys(localeRegistry.locales),
   catalogs: [
     {
       path: '<rootDir>/src/locales/{locale}/messages',

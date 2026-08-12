@@ -3,7 +3,7 @@ import { Link, createFileRoute } from '@tanstack/react-router'
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
 import { resolveRouteLocale, routeLocaleParam } from '../i18n/navigation'
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 import { useLocale } from '../i18n/use-locale'
 import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
@@ -13,7 +13,7 @@ export const Route = createFileRoute('/{-$locale}/about')({
     const locale = resolveRouteLocale(params.locale)
     return createSeoHead({
       locale,
-      ...seoCopy[locale].about,
+      ...getSeoCopy(locale).about,
       path: '/about',
     })
   },

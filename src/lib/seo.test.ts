@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 import {
   createSeoHead,
   organizationStructuredData,
@@ -16,19 +16,19 @@ describe('localized SEO', () => {
     (locale, canonical, ogLocale) => {
       const head = createSeoHead({
         locale,
-        ...seoCopy[locale].about,
+        ...getSeoCopy(locale).about,
         path: '/about',
       })
 
       expect(head.links).toContainEqual({ rel: 'canonical', href: canonical })
       expect(head.links).toContainEqual({
         rel: 'alternate',
-      hreflang: 'x-default',
+        hreflang: 'x-default',
         href: 'https://ozastra.com/about',
       })
       expect(head.links).toContainEqual({
         rel: 'alternate',
-      hreflang: 'fr',
+        hreflang: 'fr',
         href: 'https://ozastra.com/fr/about',
       })
       expect(head.meta).toContainEqual({

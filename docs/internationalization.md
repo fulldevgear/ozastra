@@ -94,3 +94,39 @@ publication.
   locales publiées.
 - Le nombre de langues peut augmenter le temps de build et le volume statique
   produit, jamais la charge utile d’un visiteur dans une autre langue.
+
+## Ajouter et publier une langue
+
+La commande suivante crée une locale en brouillon, son catalogue PO, un
+manifeste de projets vide et son guide de contenu :
+
+```sh
+pnpm locale:add -- es "Español" es_ES ltr
+```
+
+Le cycle de traduction est ensuite :
+
+1. lancer `pnpm i18n:extract` pour synchroniser tous les catalogues, brouillons
+   compris ;
+2. traduire `src/locales/<locale>/messages.po` sans modifier les identifiants ;
+3. ajouter la section correspondante dans `src/i18n/seo-copy.json` ;
+4. traduire chaque entrée de `src/content/projects/<locale>/manifest.json` et
+   chaque corps `<slug>.mdx` ;
+5. relire navigation, conversion, ton éditorial, SEO, textes légaux et chaînes
+   interpolées sur petits et grands écrans ;
+6. passer le statut de la locale à `published` dans `locales.json` ;
+7. lancer `pnpm i18n:validate`, `pnpm typecheck`, `pnpm test` et `pnpm build`.
+
+Le build commence par régénérer `public-pages.json`, les imports de catalogues,
+le sitemap et `robots.txt`. La génération bloque une locale publiée si son SEO,
+son catalogue, son manifeste ou un MDX manque. Une locale `draft` reste absente
+des imports client, des routes, du sélecteur et du sitemap ; elle peut donc être
+traduite progressivement sans affecter le site public ni ses bundles.
+
+## Revue éditoriale
+
+La revue se fait par locale et non chaîne par chaîne isolée. Elle vérifie le
+parcours complet : promesse de marque, cohérence terminologique, appels à
+l’action, formulaire et retours d’erreur, projets, SEO, accessibilité et pages
+légales. Son résultat est consigné dans `docs/translation-review.md` avant la
+promotion en `published`.

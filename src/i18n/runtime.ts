@@ -1,6 +1,7 @@
 import { setupI18n } from '@lingui/core'
 import type { I18n, Messages } from '@lingui/core'
 
+import { publishedCatalogLoaders } from '../generated/catalog-loaders'
 import { isLocale } from './locales'
 import type { Locale } from './locales'
 
@@ -8,23 +9,18 @@ type CatalogModule = {
   messages: Messages
 }
 
-const catalogLoaders = import.meta.glob<CatalogModule>(
-  '../locales/*/messages.po',
-)
 const catalogCache = new Map<Locale, Promise<Messages>>()
 const loadedCatalogs = new Map<Locale, Messages>()
-
-function catalogPath(locale: Locale) {
-  return `../locales/${locale}/messages.po`
-}
 
 export async function loadCatalog(locale: Locale) {
   const cached = catalogCache.get(locale)
   if (cached) return cached
 
   const loader = (
-    catalogLoaders as Partial<Record<string, () => Promise<CatalogModule>>>
-  )[catalogPath(locale)]
+    publishedCatalogLoaders as Partial<
+      Record<string, () => Promise<CatalogModule>>
+    >
+  )[locale]
   if (!loader) {
     throw new Error(
       `No compiled message catalog exists for locale "${locale}".`,

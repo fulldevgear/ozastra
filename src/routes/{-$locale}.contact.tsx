@@ -4,7 +4,7 @@ import { ContactForm } from '../components/ContactForm'
 import { PageIntro, PageShell } from '../components/SiteChrome'
 import { copy } from '../i18n/messages'
 import { resolveRouteLocale } from '../i18n/navigation'
-import { seoCopy } from '../i18n/seo-copy'
+import { getSeoCopy } from '../i18n/seo-copy'
 import { useMessage } from '../i18n/use-message'
 import { createSeoHead } from '../lib/seo'
 
@@ -13,7 +13,7 @@ export const Route = createFileRoute('/{-$locale}/contact')({
     const locale = resolveRouteLocale(params.locale)
     return createSeoHead({
       locale,
-      ...seoCopy[locale].contact,
+      ...getSeoCopy(locale).contact,
       path: '/contact',
     })
   },

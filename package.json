@@ -30,8 +30,9 @@
     "locale:add": "node scripts/add-locale.mjs",
     "generate:i18n-output": "node scripts/generate-i18n-output.mjs",
     "check:i18n-output": "node scripts/generate-i18n-output.mjs --check",
-    "i18n:extract": "lingui extract --clean",
-    "i18n:compile": "lingui compile --strict"
+    "i18n:extract": "lingui extract --clean --config lingui.all.config.ts",
+    "i18n:compile": "lingui compile --strict",
+    "i18n:validate": "pnpm check:i18n-output && pnpm i18n:compile"
   },
   "dependencies": {
     "@lingui/core": "6.6.0",
