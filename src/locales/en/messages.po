@@ -105,11 +105,6 @@ msgstr "Audience measurement and cookies"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.fallbackBefore"
-msgstr "Automatic delivery is unavailable. Your message is not lost: send it to"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "services.partnershipPromise"
 msgstr "Autonomous senior support to unlock a workstream, raise execution quality or lead an initiative end to end."
 
@@ -490,11 +485,6 @@ msgstr "Ozastra is an LLC dedicated to designing and building ambitious digital 
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "privacy.analyticsText"
-msgstr "Ozastra measures only page views through an internal endpoint. It sends no URL parameters, identifiers or browser fingerprint, sets no cookies and respects Do Not Track and Global Privacy Control signals. Technical events are kept in short-lived rotating logs. No advertising cookies are used."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "services.label"
 msgstr "Ozastra services"
 
@@ -532,6 +522,11 @@ msgstr "precise, calm and obvious."
 #: src/i18n/messages.ts
 msgid "contact.alternativeBefore"
 msgstr "Prefer your own email client? Write directly to"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.submit"
+msgstr "Send request ↗"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -655,16 +650,6 @@ msgstr "Selected work"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.submit"
-msgstr "Send request ↗"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "contact.submitting"
-msgstr "Sending…"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "shell.services"
 msgstr "Services"
 
@@ -730,11 +715,6 @@ msgstr "Technology becomes remarkable when it feels"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.success"
-msgstr "Thank you — your message is on its way. We will be in touch soon."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "home.approachEyebrow"
 msgstr "The approach"
 
@@ -745,11 +725,6 @@ msgstr "The current state of the project"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "legal.hostingText"
-msgstr "The hosting provider’s details will be added once the production platform is selected."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "notFound.description"
 msgstr "The page you are looking for may have changed trajectory."
 
@@ -757,11 +732,6 @@ msgstr "The page you are looking for may have changed trajectory."
 #: src/i18n/messages.ts
 msgid "contact.prepareProblem"
 msgstr "The problem or opportunity"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "contact.rejected"
-msgstr "The request could not be accepted. Wait a few minutes or use the direct email address."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -782,6 +752,21 @@ msgstr "This continuity preserves intent, accelerates decisions and produces sha
 #: src/i18n/messages.ts
 msgid "notFound.title"
 msgstr "This orbit leads nowhere."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.analyticsText"
+msgstr "Ozastra measures only page views through an internal endpoint. It sends no URL parameters, identifiers or browser fingerprint, sets no cookies and respects Do Not Track and Global Privacy Control signals. Technical events are kept in short-lived rotating logs. No advertising cookies are used."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.collectedText"
+msgstr "When you contact Ozastra, the information you voluntarily provide — identity, email address and message content — is used only to process your request and follow up on the relationship."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.hostingText"
+msgstr "The hosting provider’s details will be added once the production platform is selected."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -840,11 +825,6 @@ msgstr "Website or web platform"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "privacy.collectedText"
-msgstr "When you contact Ozastra, the information you voluntarily provide — identity, email address and message content — is used only to process your request and follow up on the relationship."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "home.contactLine2"
 msgstr "with gravity."
 
@@ -872,6 +852,11 @@ msgstr "Working principles"
 #: src/i18n/messages.ts
 msgid "privacy.rightsBefore"
 msgstr "You may request access, correction or deletion of your data by writing to"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.draftReady"
+msgstr "Your email application should open with the project details ready to send."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts

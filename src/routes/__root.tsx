@@ -6,7 +6,6 @@ import {
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 
-import { PrivacyAnalytics } from '../components/PrivacyAnalytics'
 import { getLocaleDefinition, localizePath } from '../i18n/locales'
 import type { Locale } from '../i18n/locales'
 import { resolvePathLocale } from '../i18n/navigation'
@@ -65,7 +64,6 @@ function RootDocument({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
-        <PrivacyAnalytics />
         <Scripts />
       </body>
     </html>

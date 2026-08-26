@@ -30,12 +30,39 @@ pnpm roadmap:validate
 ```
 
 Le build active le pré-rendu TanStack Start et doit produire un fichier HTML
-statique pour chaque route publique.
+statique pour chaque route publique. La cible active est GitHub Pages :
 
-## Production Node / Docker
+```bash
+VITE_SITE_URL=https://ozastra.com pnpm build:pages
+```
 
-Le build Nitro génère un serveur Node autonome dans `.output`. Il peut être
-lancé directement ou via l’image Docker non-root :
+Cette commande prépare `.output/public`, ajoute le fallback `404.html` et
+désactive le traitement Jekyll. Seul ce répertoire est publié.
+
+## Production GitHub Pages
+
+Le workflow `.github/workflows/deploy-pages.yml` valide la roadmap, les
+traductions, le typage, le lint, les tests et les budgets avant chaque
+publication depuis `master` ou `main`. GitHub Pages héberge le site ;
+Cloudflare ne gère que les enregistrements DNS de `ozastra.com`.
+
+Le formulaire ne transmet rien à une API : il prépare un brouillon dans
+l’application de messagerie du visiteur. Les analytics sont désactivés et
+aucun secret n’est nécessaire pour cette version vitrine.
+
+Après publication :
+
+```bash
+OZASTRA_SMOKE_BASE_URL=https://ozastra.com pnpm smoke:pages
+```
+
+La procédure complète de publication, DNS, HTTPS et rollback est décrite dans
+[`docs/deployment-runbook.md`](docs/deployment-runbook.md).
+
+## Runtime Node / Docker différé
+
+Le runtime Nitro, les routes API, Docker et Caddy sont conservés uniquement
+comme option future. Ils ne font pas partie du lancement GitHub Pages actuel.
 
 ```bash
 pnpm build
@@ -45,24 +72,13 @@ cp .env.production.example .env.production
 docker compose --env-file .env.production -f compose.production.yaml up --build
 ```
 
-`compose.production.yaml` place Caddy devant l’application pour HTTPS,
-compression et cache des assets. Le healthcheck public est disponible sur
-`/api/health`. Après un déploiement, lancer le contrôle automatisé :
-
-```bash
-OZASTRA_SMOKE_BASE_URL=https://ozastra.com pnpm smoke:production
-```
-
-La procédure complète de release, surveillance et restauration est décrite
-dans [`docs/deployment-runbook.md`](docs/deployment-runbook.md).
-
 ## Roadmap obligatoire
 
 `paradigm-roadmap.json` est la source de vérité créative et technique. Tout
 livrable doit être commencé, terminé ou bloqué avec
 `scripts/update-roadmap.mjs`. Les commandes exactes figurent dans `AGENTS.md`.
 
-## Variables d’environnement
+## Variables d’environnement du runtime différé
 
 - `VITE_SITE_URL` : origine publique utilisée pour les URL canoniques.
 - `CONTACT_RECIPIENT` : adresse recevant les demandes de contact.
@@ -72,4 +88,5 @@ livrable doit être commencé, terminé ou bloqué avec
 - `CONTACT_RATE_LIMIT_WINDOW_SECONDS` : durée de la fenêtre anti-abus.
 
 Ne jamais préfixer une variable secrète avec `VITE_`, car elle serait alors
-exposée au navigateur.
+exposée au navigateur. Aucune de ces variables secrètes n’est installée sur
+GitHub Pages.

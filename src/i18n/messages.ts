@@ -428,26 +428,15 @@ export const copy = {
       message: 'Context, objective, timeline…',
     }),
     honeypot: msg({ id: 'contact.honeypot', message: 'Secondary company' }),
-    submit: msg({ id: 'contact.submit', message: 'Send request ↗' }),
-    submitting: msg({ id: 'contact.submitting', message: 'Sending…' }),
+    submit: msg({ id: 'contact.submit', message: 'Prepare email ↗' }),
     invalid: msg({
       id: 'contact.invalid',
       message: 'Check the fields and describe your project in a few words.',
     }),
-    success: msg({
-      id: 'contact.success',
+    draftReady: msg({
+      id: 'contact.draftReady',
       message:
-        'Thank you — your message is on its way. We will be in touch soon.',
-    }),
-    rejected: msg({
-      id: 'contact.rejected',
-      message:
-        'The request could not be accepted. Wait a few minutes or use the direct email address.',
-    }),
-    fallbackBefore: msg({
-      id: 'contact.fallbackBefore',
-      message:
-        'Automatic delivery is unavailable. Your message is not lost: send it to',
+        'Your email application should open with the project details ready to send.',
     }),
   },
   work: {
@@ -496,7 +485,7 @@ export const copy = {
     hostingText: msg({
       id: 'legal.hostingText',
       message:
-        'The hosting provider’s details will be added once the production platform is selected.',
+        'This website is hosted with GitHub Pages, a service operated by GitHub, Inc. — github.com.',
     }),
     intellectualTitle: msg({
       id: 'legal.intellectualTitle',
@@ -528,7 +517,7 @@ export const copy = {
     collectedText: msg({
       id: 'privacy.collectedText',
       message:
-        'When you contact Ozastra, the information you voluntarily provide — identity, email address and message content — is used only to process your request and follow up on the relationship.',
+        'This website does not submit form data to an Ozastra server. The contact form prepares a draft in your email application; only information you choose to send is received by Ozastra and used to process your request.',
     }),
     basisTitle: msg({
       id: 'privacy.basisTitle',
@@ -546,7 +535,7 @@ export const copy = {
     recipientsText: msg({
       id: 'privacy.recipientsText',
       message:
-        'Data is neither sold nor rented. Technical providers strictly necessary for hosting or message delivery may process it under their own contractual safeguards. The list will be specified before public launch.',
+        'Data is neither sold nor rented. GitHub Pages serves the public website, Cloudflare provides DNS, and your chosen email provider handles any message you decide to send.',
     }),
     rightsTitle: msg({ id: 'privacy.rightsTitle', message: 'Your rights' }),
     rightsBefore: msg({
@@ -565,7 +554,7 @@ export const copy = {
     analyticsText: msg({
       id: 'privacy.analyticsText',
       message:
-        'Ozastra measures only page views through an internal endpoint. It sends no URL parameters, identifiers or browser fingerprint, sets no cookies and respects Do Not Track and Global Privacy Control signals. Technical events are kept in short-lived rotating logs. No advertising cookies are used.',
+        'This static version of Ozastra does not run audience analytics, set advertising cookies or store tracking identifiers in your browser.',
     }),
   },
 } as const

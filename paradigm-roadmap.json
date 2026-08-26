@@ -7,8 +7,8 @@
     "language": "fr-FR",
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
-    "last_updated": "2026-08-12",
-    "revision": 253
+    "last_updated": "2026-08-26",
+    "revision": 269
   },
   "brand": {
     "name": "Ozastra",
@@ -156,7 +156,7 @@
     "components": {
       "ozastra_planet": {
         "meaning": "Le monde de conception et la gravité créative d’Ozastra.",
-        "appearance": "Planète graphite abstraite, sans continents réalistes, révélée d’abord comme une surface minérale puis comme une sphère complète uniquement à la conclusion.",
+        "appearance": "Planète graphite abstraite, sans continents réalistes ni wireframe global, révélée d’abord comme une surface minérale puis comme une sphère complète uniquement à la conclusion. Son relief discret, son terminateur et son atmosphère suivent une logique lumineuse commune à toute la scène.",
         "behavior": "La courbure descend et la planète se dévoile à mesure que la caméra narrative prend de la hauteur."
       },
       "idea_seed": {
@@ -166,22 +166,22 @@
       },
       "product_artifact": {
         "meaning": "Le produit numérique qui gagne en structure et en constance.",
-        "appearance": "Assemblage procédural compact de cadres, modules, panneaux et noyau partagé, sans forme de fusée ni d’objet technologique littéral.",
-        "behavior": "Les couches se construisent progressivement aux étapes Web, IA, SaaS et Mobile avant de se verrouiller en une forme stable."
+        "appearance": "Monolithe-interface procédural compact composé d’un noyau, d’un cadre, de modules et d’une surface produit lisible, sans panneau solaire, antenne, capsule ni vocabulaire d’engin spatial.",
+        "behavior": "Les couches se construisent progressivement aux étapes Web, IA, SaaS et Mobile ; l’ossature abstraite devient une interface numérique finie qui stabilise sa face principale vers le visiteur."
       },
       "target_star": {
         "meaning": "L’ambition et le résultat visé.",
-        "appearance": "Une étoile cible unique, ivoire froid, plus précise que le faible environnement stellaire.",
-        "behavior": "Elle guide la trajectoire, reçoit l’artefact final et déclenche son intégration orbitale."
+        "appearance": "Un éclat cible unique, ivoire froid et discret, plus précis que le faible environnement stellaire mais visuellement subordonné à l’artefact.",
+        "behavior": "Il guide la trajectoire et déclenche l’intégration orbitale sans devenir un troisième protagoniste."
       },
       "product_constellation": {
         "meaning": "Une collection symbolique de formes de produits possibles, sans prétendre représenter des livraisons clients non documentées.",
-        "appearance": "Couronne de cinq artefacts distincts gravitant autour d’Ozastra ; de fines connexions n’apparaissent que lors de l’alignement final.",
-        "behavior": "Le produit suivi occupe une place vacante et complète brièvement une constellation cohérente."
+        "appearance": "Couronne de cinq monolithes-interface : quatre archétypes Web, IA, SaaS et Mobile plus le produit hybride suivi. Tous partagent cadre graphite, écran sombre, arêtes ivoire et accent actif, avec des proportions et compositions internes propres.",
+        "behavior": "Le produit suivi occupe une place vacante et complète une galerie orbitale ; les faces restent orientées vers le visiteur et seules de discrètes micro-animations internes subsistent."
       },
       "lighting": {
         "style": "Lumière rasante, atmosphérique et cinématographique, sans bloom visible.",
-        "behavior": "Elle passe d’un signal local sur la surface à un contre-jour orbital plus ample, sans réduire le contraste éditorial.",
+        "behavior": "Une direction principale cohérente modèle la planète et l’instrument ; elle passe d’un signal local sur la surface à un contre-jour orbital plus ample, sans réduire le contraste éditorial.",
         "colors": [
           "Ivoire froid",
           "Bleu électrique très diffus",
@@ -893,9 +893,16 @@
     },
     "deployment_strategy": {
       "decision_id": "ADR-003",
-      "target": "Déploiement provider-neutral compatible Node.js, avec pages publiques pré-rendues.",
-      "server_requirement": "Un runtime serveur n’est nécessaire que pour le formulaire et les futures fonctionnalités dynamiques.",
-      "static_alternative": "Si aucun runtime n’est retenu, utiliser un fournisseur de formulaire externe encapsulé et publier uniquement les fichiers pré-rendus.",
+      "target": "Cible active de lancement : site entièrement statique publié sur GitHub Pages par GitHub Actions, avec Cloudflare limité à la gestion DNS de ozastra.com.",
+      "server_requirement": "Aucun runtime serveur pour ce lancement vitrine. Le formulaire ouvre un brouillon d’email côté visiteur et les analytics first-party sont désactivés dans l’artefact statique.",
+      "runtime_deferred": "Le runtime Node.js, les routes API, le transport serveur du formulaire et les analytics first-party restent une option future, hors du déploiement GitHub Pages actuel.",
+      "static_hosting_constraints": [
+        "Publier uniquement l’artefact pré-rendu et aucun secret.",
+        "Utiliser des URLs racine compatibles avec le domaine personnalisé ozastra.com.",
+        "Fournir un fallback 404 statique et désactiver le traitement Jekyll.",
+        "Confier le certificat et la redirection HTTPS à GitHub Pages.",
+        "Ne créer aucun enregistrement DNS générique ou wildcard."
+      ],
       "pipeline": [
         "Installation reproductible depuis le lockfile",
         "Lint",
@@ -904,12 +911,13 @@
         "Build avec pré-rendu",
         "Tests end-to-end sur le build",
         "Audit performance",
-        "Déploiement",
-        "Smoke test public",
-        "Monitoring des erreurs et disponibilités"
+        "Création de l’artefact GitHub Pages",
+        "Déploiement par GitHub Actions",
+        "Smoke test statique public",
+        "Contrôle de disponibilité"
       ],
-      "environments": ["local", "preview", "production"],
-      "rollback": "Conserver le dernier artefact de production validé et documenter une procédure de retour arrière."
+      "environments": ["local", "artefact GitHub Actions", "production"],
+      "rollback": "Redéployer le dernier commit validé par GitHub Actions ; ne modifier les enregistrements Cloudflare que lors d’un changement explicite de cible d’hébergement."
     },
     "dependency_policy": {
       "lockfile": "Obligatoire et versionné.",
@@ -1000,10 +1008,10 @@
   "project_tracking": {
     "source_of_truth": "paradigm-roadmap.json",
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
-    "current_phase": null,
-    "current_deliverable": null,
-    "overall_progress_percent": 95,
-    "last_activity_at": "2026-08-12T16:35:02.070Z",
+    "current_phase": 9,
+    "current_deliverable": 7,
+    "overall_progress_percent": 96,
+    "last_activity_at": "2026-08-26T06:08:29.196Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -3028,6 +3036,124 @@
         "event": "verify_phase",
         "phase": 20,
         "evidence": "Ozastra est désormais strictement dark-only : aucun contrôle, bootstrap, persistance, traduction, documentation, variante CSS ou branche Three.js claire ne subsiste ; système clair, ancienne préférence, no-JS, reduced-motion, EN/FR, responsive, accessibilité, tests, build et budgets validés."
+      },
+      {
+        "timestamp": "2026-08-23T18:37:42.501Z",
+        "event": "note",
+        "phase": 21,
+        "message": "Direction acceptée par l’utilisateur : conserver la métaphore planète–artefact, rendre la planète matériellement crédible et faire évoluer l’idée du filaire vers un instrument orbital solide."
+      },
+      {
+        "timestamp": "2026-08-23T18:37:42.586Z",
+        "event": "start_step",
+        "phase": 21,
+        "deliverable": 1,
+        "description": "Planète minérale, instrument orbital et constellation refondus avec une progression filaire vers une silhouette solide et cohérente",
+        "note": "Refonte procédurale de la planète, de l’instrument et de la famille orbitale."
+      },
+      {
+        "timestamp": "2026-08-23T18:46:22.686Z",
+        "event": "complete_step",
+        "phase": 21,
+        "deliverable": 1,
+        "description": "Planète minérale, instrument orbital et constellation refondus avec une progression filaire vers une silhouette solide et cohérente",
+        "evidence": "src/features/orbital/OrbitalExperience.tsx refond la planète avec terminateur minéral progressif, l’idée avec ossature puis coque solide, et la constellation avec une famille d’instruments orientés sur l’orbite ; src/styles.css aligne le fallback minéral ; contrôle visuel navigateur des états Hero, Process et Convergence ; typecheck, lint et Vitest 31/31 réussis."
+      },
+      {
+        "timestamp": "2026-08-23T18:46:22.737Z",
+        "event": "start_step",
+        "phase": 21,
+        "deliverable": 2,
+        "description": "États Hero, assemblage et convergence validés en responsive avec fallback, mouvement réduit, tests, build et budgets conformes",
+        "note": "Validation responsive, reduced-motion, cycle Canvas, tests visuels, build et budgets de la scène refondue."
+      },
+      {
+        "timestamp": "2026-08-23T18:52:18.737Z",
+        "event": "complete_step",
+        "phase": 21,
+        "deliverable": 2,
+        "description": "États Hero, assemblage et convergence validés en responsive avec fallback, mouvement réduit, tests, build et budgets conformes",
+        "evidence": "Contrôles navigateur intégrés réussis aux cadrages 1117×837 et 390×844 pour Hero, Process et Convergence ; Playwright séquentiel Chromium 3/3 (refresh Canvas, axe WCAG A/AA, baselines Hero/Web/Convergence) et mobile 3/3 (refresh, reduced-motion, stages) ; typecheck, lint et Vitest 31/31 ; build de 18 pages réussi ; UI 152,5/200 kB gzip et chunk orbital 273,2/450 kB gzip."
+      },
+      {
+        "timestamp": "2026-08-23T18:52:18.776Z",
+        "event": "verify_phase",
+        "phase": 21,
+        "evidence": "La progression noyau–ossature–instrument solide–famille orbitale est validée visuellement sur desktop et mobile ; planète minérale avec terminateur narratif, fallback et mouvement réduit conformes ; tests ciblés, accessibilité, build, pré-rendu et budgets au vert."
+      },
+      {
+        "timestamp": "2026-08-23T18:56:12.434Z",
+        "event": "note",
+        "phase": 22,
+        "message": "Direction acceptée par l’utilisateur : l’orbite conserve la métaphore spatiale, mais les objets deviennent des produits numériques finis Web, IA, SaaS et Mobile, sans silhouette de satellite."
+      },
+      {
+        "timestamp": "2026-08-23T18:56:12.514Z",
+        "event": "start_step",
+        "phase": 22,
+        "deliverable": 1,
+        "description": "Satellites littéraux remplacés par les archétypes Web, IA, SaaS, Mobile et un produit hybride sous forme de monolithes-interface finis",
+        "note": "Remplacement des instruments orbitaux par une famille de monolithes-interface différenciés."
+      },
+      {
+        "timestamp": "2026-08-23T19:01:16.592Z",
+        "event": "complete_step",
+        "phase": 22,
+        "deliverable": 1,
+        "description": "Satellites littéraux remplacés par les archétypes Web, IA, SaaS, Mobile et un produit hybride sous forme de monolithes-interface finis",
+        "evidence": "OrbitalExperience.tsx: quatre monolithes-interface Web, IA, SaaS et Mobile plus le produit hybride suivi; inspection visuelle localhost desktop 1117x837 et mobile 390x844 sans nouvelle erreur console; typecheck, ESLint et Vitest 31/31 réussis"
+      },
+      {
+        "timestamp": "2026-08-23T19:01:16.644Z",
+        "event": "start_step",
+        "phase": 22,
+        "deliverable": 2,
+        "description": "Assemblage, orientation des faces, responsive, mouvement réduit, tests visuels, build et budgets validés",
+        "note": "Validation responsive, mouvement réduit, snapshots, build et budgets de la constellation produit"
+      },
+      {
+        "timestamp": "2026-08-23T19:03:41.346Z",
+        "event": "complete_step",
+        "phase": 22,
+        "deliverable": 2,
+        "description": "Assemblage, orientation des faces, responsive, mouvement réduit, tests visuels, build et budgets validés",
+        "evidence": "Playwright: snapshot orbital régénéré puis 3/3 desktop et 3/3 mobile réussis, fallback mouvement réduit validé; build 18 pages réussi; budgets 152.5 kB UI/200 et 274.6 kB orbital/450; inspection desktop/mobile sans nouvelle erreur console"
+      },
+      {
+        "timestamp": "2026-08-23T19:03:41.387Z",
+        "event": "verify_phase",
+        "phase": 22,
+        "evidence": "Constellation produit validée visuellement en 1117x837 et 390x844; typecheck, ESLint, Vitest 31/31, Playwright desktop/mobile, build 18 pages et budgets réussis"
+      },
+      {
+        "timestamp": "2026-08-26T06:06:15.865Z",
+        "event": "note",
+        "phase": 9,
+        "message": "Décision utilisateur du 26 août 2026 : lancement vitrine entièrement statique sur GitHub Pages, Cloudflare réservé au DNS, sans VPS ni runtime serveur."
+      },
+      {
+        "timestamp": "2026-08-26T06:06:15.945Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 3,
+        "description": "Expérience contact et analytics sans runtime ni secret",
+        "note": "Adapter le contact et les analytics à l’hébergement statique sans secret avant de préparer l’artefact Pages."
+      },
+      {
+        "timestamp": "2026-08-26T06:08:29.058Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 3,
+        "description": "Expérience contact et analytics sans runtime ni secret",
+        "evidence": "Formulaire statique validé par src/lib/contact/contact-mailto.test.ts; Vitest 32/32, i18n EN/FR strict, typecheck, ESLint et build pré-rendu 18 pages réussis; aucun appel /api/analytics ni submitContact dans .output/public; politiques confidentialité et hébergeur GitHub Pages actualisées."
+      },
+      {
+        "timestamp": "2026-08-26T06:08:29.196Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 7,
+        "description": "Déploiement GitHub Pages automatisé",
+        "note": "Préparer le workflow GitHub Actions, l’artefact Pages et le rollback par commit avant publication."
       }
     ]
   },
@@ -3742,8 +3868,8 @@
       "status": "in_progress",
       "dependencies": [8],
       "tracking": {
-        "progress_percent": 44,
-        "active_deliverable": null,
+        "progress_percent": 56,
+        "active_deliverable": 7,
         "completed_deliverables": [
           {
             "index": 1,
@@ -3768,15 +3894,15 @@
             "description": "Procédure de rollback documentée",
             "completed_at": "2026-08-07T15:33:19.267Z",
             "evidence": "--evidence Runbook versionné ajouté: prérequis, inventaire Hostinger/DNS, variables, preflight, image immuable, procédure de lancement, critères d’arrêt, rollback applicatif/DNS/snapshot et validation post-restauration; lien README ajouté."
+          },
+          {
+            "index": 3,
+            "description": "Expérience contact et analytics sans runtime ni secret",
+            "completed_at": "2026-08-26T06:08:29.051Z",
+            "evidence": "Formulaire statique validé par src/lib/contact/contact-mailto.test.ts; Vitest 32/32, i18n EN/FR strict, typecheck, ESLint et build pré-rendu 18 pages réussis; aucun appel /api/analytics ni submitContact dans .output/public; politiques confidentialité et hébergeur GitHub Pages actualisées."
           }
         ],
         "blocked_deliverables": [
-          {
-            "index": 3,
-            "description": "Variables secrètes installées côté serveur",
-            "blocked_at": "2026-08-07T15:29:04.422Z",
-            "reason": "--reason Le contrat des variables et le stockage côté serveur sont prêts, mais CONTACT_PROVIDER_API_KEY, l’expéditeur Resend vérifié et la cible VPS doivent être fournis/sélectionnés avant installation; aucun secret ne sera inventé ou copié vers une cible ambiguë."
-          },
           {
             "index": 4,
             "description": "Domaine et HTTPS",
@@ -3790,12 +3916,6 @@
             "reason": "--reason Healthcheck applicatif, healthcheck Docker, logs structurés et rotation sont prêts; l’alerte externe d’indisponibilité/erreurs exige encore un domaine public, une cible déployée et un canal d’alerte choisi (email/Slack/etc.)."
           },
           {
-            "index": 7,
-            "description": "Déploiement de production",
-            "blocked_at": "2026-08-07T15:32:26.243Z",
-            "reason": "--reason Artefact Nitro et image Docker sont validés, mais aucun déploiement ne peut être lancé sans choisir entre le VPS 1533941 (Docker Manager absent) et le VPS 1876411 (production zevent existante sur 80/443), ni sans source/registre accessible au VPS."
-          },
-          {
             "index": 8,
             "description": "Smoke test public",
             "blocked_at": "2026-08-07T15:32:26.326Z",
@@ -3803,22 +3923,23 @@
           }
         ],
         "verification": null,
-        "last_updated_at": "2026-08-07T15:33:19.267Z"
+        "last_updated_at": "2026-08-26T06:08:29.195Z"
       },
       "deliverables": [
         "Environnement preview validé",
         "Configuration de production",
-        "Variables secrètes installées côté serveur",
-        "Domaine et HTTPS",
+        "Expérience contact et analytics sans runtime ni secret",
+        "Domaine GitHub Pages et HTTPS",
         "Analytics respectueux de la confidentialité",
-        "Monitoring des erreurs et disponibilité",
-        "Déploiement de production",
-        "Smoke test public",
+        "Contrôle de disponibilité du site statique",
+        "Déploiement GitHub Pages automatisé",
+        "Smoke test public statique",
         "Procédure de rollback documentée"
       ],
       "verification": [
         "Toutes les routes publiques répondent avec les bons statuts",
-        "Le formulaire fonctionne depuis le domaine public",
+        "Le parcours de contact ouvre un email prérempli sans appeler de route serveur",
+        "Aucune requête analytics ou API applicative n’est émise par l’artefact GitHub Pages",
         "Les métadonnées sociales sont contrôlées",
         "Le dernier artefact stable peut être restauré"
       ],
@@ -4365,6 +4486,90 @@
         "Typecheck, lint, tests, build et budgets restent conformes."
       ],
       "exit_criteria": "Ozastra ne possède plus qu’une identité bleu-noir nocturne, sans contrôle, état persistant, code ou ressource résiduelle liés au thème clair."
+    },
+    {
+      "phase": 21,
+      "name": "Crédibilité matérielle de l’instrument orbital",
+      "status": "completed",
+      "dependencies": [12, 18, 20],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Planète minérale, instrument orbital et constellation refondus avec une progression filaire vers une silhouette solide et cohérente",
+            "completed_at": "2026-08-23T18:46:22.686Z",
+            "evidence": "src/features/orbital/OrbitalExperience.tsx refond la planète avec terminateur minéral progressif, l’idée avec ossature puis coque solide, et la constellation avec une famille d’instruments orientés sur l’orbite ; src/styles.css aligne le fallback minéral ; contrôle visuel navigateur des états Hero, Process et Convergence ; typecheck, lint et Vitest 31/31 réussis."
+          },
+          {
+            "index": 2,
+            "description": "États Hero, assemblage et convergence validés en responsive avec fallback, mouvement réduit, tests, build et budgets conformes",
+            "completed_at": "2026-08-23T18:52:18.736Z",
+            "evidence": "Contrôles navigateur intégrés réussis aux cadrages 1117×837 et 390×844 pour Hero, Process et Convergence ; Playwright séquentiel Chromium 3/3 (refresh Canvas, axe WCAG A/AA, baselines Hero/Web/Convergence) et mobile 3/3 (refresh, reduced-motion, stages) ; typecheck, lint et Vitest 31/31 ; build de 18 pages réussi ; UI 152,5/200 kB gzip et chunk orbital 273,2/450 kB gzip."
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-23T18:52:18.775Z",
+          "evidence": "La progression noyau–ossature–instrument solide–famille orbitale est validée visuellement sur desktop et mobile ; planète minérale avec terminateur narratif, fallback et mouvement réduit conformes ; tests ciblés, accessibilité, build, pré-rendu et budgets au vert."
+        },
+        "last_updated_at": "2026-08-23T18:52:18.776Z"
+      },
+      "deliverables": [
+        "Planète minérale, instrument orbital et constellation refondus avec une progression filaire vers une silhouette solide et cohérente",
+        "États Hero, assemblage et convergence validés en responsive avec fallback, mouvement réduit, tests, build et budgets conformes"
+      ],
+      "verification": [
+        "L’idée initiale reste un noyau imparfait et le produit final devient majoritairement solide, calme et immédiatement distinct du prototype.",
+        "La planète possède une matière minérale, un terminateur et une atmosphère cohérents sans wireframe global ni globe terrestre générique.",
+        "Les produits de la constellation partagent la même grammaire formelle tout en conservant des variations lisibles.",
+        "Le Hero, les étapes d’assemblage et le CTA final restent lisibles sur desktop et mobile sans concurrencer les textes ni les actions.",
+        "Le fallback no-WebGL, prefers-reduced-motion, le cycle Canvas, les tests, le build et les budgets restent conformes."
+      ],
+      "exit_criteria": "La scène raconte sans ambiguïté une idée qui acquiert une structure puis devient un instrument orbital fini, matériellement crédible et cohérent avec l’identité calme d’Ozastra."
+    },
+    {
+      "phase": 22,
+      "name": "Constellation de produits numériques",
+      "status": "completed",
+      "dependencies": [12, 18, 21],
+      "tracking": {
+        "progress_percent": 100,
+        "active_deliverable": null,
+        "completed_deliverables": [
+          {
+            "index": 1,
+            "description": "Satellites littéraux remplacés par les archétypes Web, IA, SaaS, Mobile et un produit hybride sous forme de monolithes-interface finis",
+            "completed_at": "2026-08-23T19:01:16.588Z",
+            "evidence": "OrbitalExperience.tsx: quatre monolithes-interface Web, IA, SaaS et Mobile plus le produit hybride suivi; inspection visuelle localhost desktop 1117x837 et mobile 390x844 sans nouvelle erreur console; typecheck, ESLint et Vitest 31/31 réussis"
+          },
+          {
+            "index": 2,
+            "description": "Assemblage, orientation des faces, responsive, mouvement réduit, tests visuels, build et budgets validés",
+            "completed_at": "2026-08-23T19:03:41.344Z",
+            "evidence": "Playwright: snapshot orbital régénéré puis 3/3 desktop et 3/3 mobile réussis, fallback mouvement réduit validé; build 18 pages réussi; budgets 152.5 kB UI/200 et 274.6 kB orbital/450; inspection desktop/mobile sans nouvelle erreur console"
+          }
+        ],
+        "blocked_deliverables": [],
+        "verification": {
+          "verified_at": "2026-08-23T19:03:41.387Z",
+          "evidence": "Constellation produit validée visuellement en 1117x837 et 390x844; typecheck, ESLint, Vitest 31/31, Playwright desktop/mobile, build 18 pages et budgets réussis"
+        },
+        "last_updated_at": "2026-08-23T19:03:41.387Z"
+      },
+      "deliverables": [
+        "Satellites littéraux remplacés par les archétypes Web, IA, SaaS, Mobile et un produit hybride sous forme de monolithes-interface finis",
+        "Assemblage, orientation des faces, responsive, mouvement réduit, tests visuels, build et budgets validés"
+      ],
+      "verification": [
+        "Aucun panneau solaire, antenne, capsule, optique ou autre silhouette d’engin spatial ne subsiste dans les produits finaux.",
+        "Les quatre objets orbitaux évoquent respectivement une expérience Web, une fonction IA, un cockpit SaaS et une application Mobile sans texte miniature.",
+        "Le produit suivi combine la même grammaire visuelle et rejoint la constellation avec une échelle et une orientation cohérentes.",
+        "Les faces produit restent lisibles au CTA sur desktop et mobile sans concurrencer le titre ni le bouton.",
+        "Le fallback, prefers-reduced-motion, les tests, le build et les budgets restent conformes."
+      ],
+      "exit_criteria": "L’orbite conserve la métaphore spatiale tandis que les objets racontent immédiatement un portfolio crédible de produits numériques finis."
     }
   ],
   "success_criteria": {
@@ -4387,7 +4592,7 @@
   },
   "north_star": {
     "statement": "Ozastra est un studio de product engineering capable de transformer une idée en expérience numérique aboutie.",
-    "visual_expression": "Une atmosphère bleu-noir nocturne unique, composition éditoriale, typographie expressive, narration Three.js d’une idée née sur Ozastra qui devient un produit et rejoint une constellation orbitale, animations lentes et études de cas très visuelles.",
+    "visual_expression": "Une atmosphère bleu-noir nocturne unique, composition éditoriale, typographie expressive, narration Three.js d’une idée née sur Ozastra qui devient un monolithe-interface fini puis rejoint une constellation Web, IA, SaaS et Mobile, animations lentes et études de cas très visuelles.",
     "decision_filter": "Toute décision de design, de contenu ou de développement doit renforcer au moins l’une de ces qualités : clarté, précision, confiance, goût ou progression de l’idée vers le produit."
   }
 }

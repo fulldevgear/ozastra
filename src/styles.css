@@ -738,22 +738,44 @@ select {
   overflow: hidden;
   border: 1px solid rgb(var(--theme-foreground-rgb) / 8%);
   background:
-    radial-gradient(circle at 62% 16%, rgb(243 240 232 / 13%), transparent 11%),
     radial-gradient(
-      circle at 38% 38%,
-      rgb(var(--theme-accent-rgb) / 12%),
-      transparent 31%
+      circle at 68% 10%,
+      rgb(var(--theme-foreground-rgb) / 14%),
+      transparent 15%
     ),
-    repeating-linear-gradient(
-      19deg,
-      transparent 0 9.5%,
-      rgb(var(--theme-foreground-rgb) / 3.5%) 9.7% 9.85%,
-      transparent 10.05% 17%
+    radial-gradient(
+      ellipse at 52% 31%,
+      rgb(var(--theme-accent-rgb) / 9%),
+      transparent 34%
     ),
-    #080b12;
+    radial-gradient(
+      ellipse at 14% 56%,
+      rgb(var(--theme-astral-rgb) / 4%),
+      transparent 28%
+    ),
+    linear-gradient(148deg, rgb(22 27 39 / 58%), transparent 42%), #080b12;
   box-shadow:
-    inset -4rem -5rem 9rem rgb(0 0 0 / 68%),
-    inset 2rem 1rem 5rem rgb(var(--theme-accent-rgb) / 7%);
+    inset -7rem -6rem 12rem rgb(0 0 0 / 82%),
+    inset 2rem 1rem 6rem rgb(var(--theme-accent-rgb) / 6%);
+}
+
+.orbital-fallback__planet::before {
+  position: absolute;
+  inset: 6% 7% 10% 5%;
+  background:
+    radial-gradient(
+      ellipse at 76% 22%,
+      rgb(var(--theme-foreground-rgb) / 5%),
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 29% 68%,
+      rgb(var(--theme-foreground-rgb) / 3.5%),
+      transparent 26%
+    );
+  clip-path: polygon(8% 28%, 46% 4%, 91% 18%, 100% 63%, 68% 96%, 19% 84%);
+  content: '';
+  opacity: 0.8;
 }
 
 .orbital-fallback__seed {

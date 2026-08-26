@@ -105,11 +105,6 @@ msgstr "Mesure d’audience et cookies"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.fallbackBefore"
-msgstr "L’envoi automatique est indisponible. Votre message n’est pas perdu : envoyez-le à"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "services.partnershipPromise"
 msgstr "Un renfort senior autonome pour débloquer un chantier, élever la qualité d’exécution ou mener une initiative de bout en bout."
 
@@ -191,7 +186,7 @@ msgstr "Données collectées"
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "privacy.recipientsText"
-msgstr "Les données ne sont ni vendues ni louées. Les prestataires techniques strictement nécessaires à l’hébergement ou à l’acheminement des messages pourront les traiter selon leurs propres garanties contractuelles. La liste sera précisée avant le lancement public."
+msgstr "Les données ne sont ni vendues ni louées. GitHub Pages diffuse le site public, Cloudflare fournit le DNS et le fournisseur de messagerie que vous choisissez traite tout message que vous décidez d’envoyer."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -490,11 +485,6 @@ msgstr "Ozastra est une LLC dédiée à la conception et au développement de pr
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "privacy.analyticsText"
-msgstr "Ozastra mesure uniquement les pages consultées au moyen d’un endpoint interne. Cette mesure n’envoie ni paramètre d’URL, ni identifiant, ni empreinte du navigateur, ne dépose aucun cookie et respecte les signaux Do Not Track et Global Privacy Control. Les événements techniques sont conservés dans des journaux rotatifs à durée limitée. Aucun cookie publicitaire n’est utilisé."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "services.label"
 msgstr "Services Ozastra"
 
@@ -532,6 +522,11 @@ msgstr "précise, calme et évidente."
 #: src/i18n/messages.ts
 msgid "contact.alternativeBefore"
 msgstr "Vous préférez votre propre messagerie ? Écrivez directement à"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.submit"
+msgstr "Préparer l’email ↗"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -655,16 +650,6 @@ msgstr "Projets sélectionnés"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.submit"
-msgstr "Envoyer la demande ↗"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "contact.submitting"
-msgstr "Envoi…"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "shell.services"
 msgstr "Services"
 
@@ -730,11 +715,6 @@ msgstr "La technologie devient remarquable lorsqu’elle paraît"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "contact.success"
-msgstr "Merci — votre message est en route. Nous revenons vers vous rapidement."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "home.approachEyebrow"
 msgstr "L’approche"
 
@@ -745,11 +725,6 @@ msgstr "L’état actuel du projet"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "legal.hostingText"
-msgstr "Les coordonnées de l’hébergeur seront ajoutées dès que la plateforme de production sera sélectionnée."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "notFound.description"
 msgstr "La page recherchée a peut-être changé de trajectoire."
 
@@ -757,11 +732,6 @@ msgstr "La page recherchée a peut-être changé de trajectoire."
 #: src/i18n/messages.ts
 msgid "contact.prepareProblem"
 msgstr "Le problème ou l’opportunité"
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
-msgid "contact.rejected"
-msgstr "La demande n’a pas pu être acceptée. Attendez quelques minutes ou utilisez l’adresse email directe."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -782,6 +752,21 @@ msgstr "Cette continuité préserve l’intention, accélère les décisions et 
 #: src/i18n/messages.ts
 msgid "notFound.title"
 msgstr "Cette orbite ne mène nulle part."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.analyticsText"
+msgstr "Cette version statique d’Ozastra ne mesure pas l’audience, ne dépose aucun cookie publicitaire et ne stocke aucun identifiant de suivi dans votre navigateur."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "privacy.collectedText"
+msgstr "Ce site ne transmet aucune donnée de formulaire à un serveur Ozastra. Le formulaire prépare un brouillon dans votre application de messagerie ; seules les informations que vous choisissez d’envoyer sont reçues par Ozastra et utilisées pour traiter votre demande."
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "legal.hostingText"
+msgstr "Ce site est hébergé avec GitHub Pages, un service exploité par GitHub, Inc. — github.com."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -840,11 +825,6 @@ msgstr "Site ou plateforme web"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
-msgid "privacy.collectedText"
-msgstr "Lorsque vous contactez Ozastra, les informations que vous transmettez volontairement — identité, adresse email et contenu de la demande — servent uniquement à traiter votre message et à assurer le suivi de la relation."
-
-#. js-lingui-explicit-id
-#: src/i18n/messages.ts
 msgid "home.contactLine2"
 msgstr "avec de la gravité."
 
@@ -872,6 +852,11 @@ msgstr "Principes de travail"
 #: src/i18n/messages.ts
 msgid "privacy.rightsBefore"
 msgstr "Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à"
+
+#. js-lingui-explicit-id
+#: src/i18n/messages.ts
+msgid "contact.draftReady"
+msgstr "Votre application de messagerie devrait s’ouvrir avec les informations du projet prêtes à être envoyées."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts

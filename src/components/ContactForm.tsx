@@ -1,24 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { copy } from '../i18n/messages'
 import { useMessage } from '../i18n/use-message'
-import { submitContact } from '../lib/contact/contact-fn'
+import { createContactMailtoUrl } from '../lib/contact/contact-mailto'
 import { contactSubmissionSchema } from '../lib/contact/contact-schema'
-import type { ContactResult } from '../lib/contact/contact-schema'
 
 type FormState =
-  | { name: 'idle' }
-  | { name: 'loading' }
-  | { name: 'invalid'; message: string }
-  | { name: 'complete'; result: ContactResult }
+  { name: 'idle' } | { name: 'invalid'; message: string } | { name: 'ready' }
 
 export function ContactForm() {
   const message = useMessage()
   const startedAt = useRef(Date.now())
-  const [isHydrated, setIsHydrated] = useState(false)
   const [state, setState] = useState<FormState>({ name: 'idle' })
-
-  useEffect(() => setIsHydrated(true), [])
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -41,26 +34,23 @@ export function ContactForm() {
       return
     }
 
-    setState({ name: 'loading' })
-    try {
-      const result = await submitContact({ data: parsed.data })
-      setState({ name: 'complete', result })
-      if (result.status === 'sent') {
-        form.reset()
-        startedAt.current = Date.now()
-      }
-    } catch {
-      setState({
-        name: 'complete',
-        result: { status: 'fallback', reason: 'delivery_failed' },
-      })
+    if (parsed.data.company) {
+      setState({ name: 'invalid', message: message(copy.contact.invalid) })
+      return
     }
+
+    setState({ name: 'ready' })
+    window.location.assign(createContactMailtoUrl(parsed.data))
   }
 
-  const isLoading = state.name === 'loading'
-
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <form
+      className="contact-form"
+      action="mailto:hello@ozastra.com"
+      method="post"
+      encType="text/plain"
+      onSubmit={handleSubmit}
+    >
       <div className="form-field">
         <label htmlFor="name">{message(copy.contact.name)}</label>
         <input
@@ -113,34 +103,15 @@ export function ContactForm() {
         <label htmlFor="company">{message(copy.contact.honeypot)}</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
       </div>
-      <button
-        className="button-primary"
-        type="submit"
-        disabled={!isHydrated || isLoading}
-        aria-busy={isLoading}
-      >
-        {isLoading
-          ? message(copy.contact.submitting)
-          : message(copy.contact.submit)}
+      <button className="button-primary" type="submit">
+        {message(copy.contact.submit)}
       </button>
 
       <div className="form-status" aria-live="polite" aria-atomic="true">
         {state.name === 'invalid' && <p role="alert">{state.message}</p>}
-        {state.name === 'complete' && state.result.status === 'sent' && (
+        {state.name === 'ready' && (
           <p className="form-status--success">
-            {message(copy.contact.success)}
-          </p>
-        )}
-        {state.name === 'complete' && state.result.status === 'rejected' && (
-          <p role="alert">{message(copy.contact.rejected)}</p>
-        )}
-        {state.name === 'complete' && state.result.status === 'fallback' && (
-          <p role="alert">
-            {message(copy.contact.fallbackBefore)}{' '}
-            <a href="mailto:hello@ozastra.com?subject=Ozastra%20project">
-              hello@ozastra.com
-            </a>
-            .
+            {message(copy.contact.draftReady)}
           </p>
         )}
       </div>
