@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-26",
-    "revision": 276
+    "revision": 278
   },
   "brand": {
     "name": "Ozastra",
@@ -1008,10 +1008,10 @@
   "project_tracking": {
     "source_of_truth": "paradigm-roadmap.json",
     "policy": "Toute étape réellement commencée, terminée, vérifiée ou bloquée doit mettre à jour ce fichier dans la même intervention que le travail concerné.",
-    "current_phase": 9,
-    "current_deliverable": 6,
-    "overall_progress_percent": 98,
-    "last_activity_at": "2026-08-26T06:43:54.552Z",
+    "current_phase": null,
+    "current_deliverable": null,
+    "overall_progress_percent": 99,
+    "last_activity_at": "2026-08-26T06:46:09.071Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -3208,6 +3208,20 @@
         "deliverable": 6,
         "description": "Contrôle de disponibilité du site statique",
         "note": "Add a GitHub Actions availability workflow using the dependency-free 18-route static smoke script, with hourly scheduling and manual dispatch, so GitHub notifications surface future public-site failures without a VPS or external monitoring service."
+      },
+      {
+        "timestamp": "2026-08-26T06:46:08.991Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 6,
+        "description": "Contrôle de disponibilité du site statique",
+        "evidence": "Hourly .github/workflows/uptime.yml added with Node 24, no dependencies or secrets, plus manual dispatch; Monitor public site run 32939527776 completed successfully in 10s against https://ozastra.com using the 18-route static smoke script. Failures surface through GitHub Actions and account notification preferences."
+      },
+      {
+        "timestamp": "2026-08-26T06:46:09.071Z",
+        "event": "verify_phase",
+        "phase": 9,
+        "evidence": "GitHub Pages deployment automated and green; ozastra.com and www resolve through Cloudflare DNS-only records; HTTPS is enforced with valid 301/200 behavior; all 18 EN/FR public routes, canonical metadata, technical assets, 404 fallback and no-API contract passed the public smoke; contact uses mailto without server submission; hourly GitHub Actions monitoring and revert-based rollback are documented and verified."
       }
     ]
   },
@@ -3919,11 +3933,11 @@
     {
       "phase": 9,
       "name": "Déploiement et lancement",
-      "status": "in_progress",
+      "status": "completed",
       "dependencies": [8],
       "tracking": {
-        "progress_percent": 89,
-        "active_deliverable": 6,
+        "progress_percent": 100,
+        "active_deliverable": null,
         "completed_deliverables": [
           {
             "index": 1,
@@ -3972,11 +3986,20 @@
             "description": "Smoke test public statique",
             "completed_at": "2026-08-26T06:43:54.449Z",
             "evidence": "OZASTRA_SMOKE_BASE_URL=https://ozastra.com pnpm smoke:pages passed against the final dab303c GitHub Pages deployment for all 18 localized pages and static assets, including canonical HTTPS URLs, 404 fallback and /api/analytics returning 404; in-app browser inspection confirmed the live EN/FR headings, WebGL canvas, language navigation, static mailto form, GitHub Pages legal hosting copy and no-analytics privacy copy."
+          },
+          {
+            "index": 6,
+            "description": "Contrôle de disponibilité du site statique",
+            "completed_at": "2026-08-26T06:46:08.990Z",
+            "evidence": "Hourly .github/workflows/uptime.yml added with Node 24, no dependencies or secrets, plus manual dispatch; Monitor public site run 32939527776 completed successfully in 10s against https://ozastra.com using the 18-route static smoke script. Failures surface through GitHub Actions and account notification preferences."
           }
         ],
         "blocked_deliverables": [],
-        "verification": null,
-        "last_updated_at": "2026-08-26T06:43:54.551Z"
+        "verification": {
+          "verified_at": "2026-08-26T06:46:09.070Z",
+          "evidence": "GitHub Pages deployment automated and green; ozastra.com and www resolve through Cloudflare DNS-only records; HTTPS is enforced with valid 301/200 behavior; all 18 EN/FR public routes, canonical metadata, technical assets, 404 fallback and no-API contract passed the public smoke; contact uses mailto without server submission; hourly GitHub Actions monitoring and revert-based rollback are documented and verified."
+        },
+        "last_updated_at": "2026-08-26T06:46:09.071Z"
       },
       "deliverables": [
         "Environnement preview validé",
