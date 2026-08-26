@@ -87,7 +87,19 @@ GitHub Pages ne permet pas de définir les en-têtes HTTP personnalisés de
 l’ancien runtime Caddy. Cette limite est acceptée pour la version statique,
 sans données ni secrets ; HTTPS reste obligatoire.
 
-## 6. Rollback
+## 6. Contrôle de disponibilité
+
+Le workflow **Monitor public site** exécute chaque heure le smoke test des 18
+pages publiques, des assets techniques, de la page 404 et du contrat sans API.
+Il peut aussi être lancé manuellement depuis l’onglet **Actions**. Un échec est
+visible dans GitHub Actions et suit les préférences de notification du compte
+propriétaire du dépôt.
+
+Le contrôle n’installe aucune dépendance et ne possède aucun secret : il
+utilise Node.js 24 et `scripts/smoke-github-pages.mjs` directement depuis le
+dépôt.
+
+## 7. Rollback
 
 1. Identifier le dernier commit dont le workflow Pages était vert.
 2. Revenir au contenu précédent avec un nouveau commit de revert, sans réécrire
