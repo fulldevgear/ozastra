@@ -35,6 +35,7 @@ for (const viewport of viewports) {
     page,
   }, testInfo) => {
     test.skip(testInfo.project.name !== 'chromium')
+    test.setTimeout(120_000)
     await page.setViewportSize(viewport)
 
     for (const route of publicRoutes) {
@@ -59,6 +60,7 @@ test('has no automatically detectable WCAG A/AA violations', async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name !== 'chromium')
+  test.setTimeout(120_000)
 
   for (const route of publicRoutes) {
     await page.goto(route)

@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-26",
-    "revision": 271
+    "revision": 272
   },
   "brand": {
     "name": "Ozastra",
@@ -138,14 +138,8 @@
     },
     "motion": {
       "character": "Lent, précis, organique, presque physique et jamais gaming.",
-      "micro_interactions_ms": [
-        200,
-        300
-      ],
-      "section_transitions_ms": [
-        400,
-        500
-      ],
+      "micro_interactions_ms": [200, 300],
+      "section_transitions_ms": [400, 500],
       "principles": [
         "Utiliser des accélérations et décélérations douces.",
         "Éviter les rebonds exagérés.",
@@ -302,12 +296,7 @@
   },
   "site_architecture": {
     "navigation": {
-      "items": [
-        "Projets",
-        "Expertises",
-        "Approche",
-        "À propos"
-      ],
+      "items": ["Projets", "Expertises", "Approche", "À propos"],
       "primary_cta": "Démarrer un projet",
       "behavior": "Navigation légère, lisible, éventuellement translucide après le premier scroll."
     },
@@ -420,12 +409,7 @@
         "name": "Contact et CTA final",
         "goal": "Transformer l’intérêt en conversation qualifiée.",
         "headline": "Let’s build something with gravity.",
-        "fields": [
-          "Nom",
-          "Email",
-          "Type de projet",
-          "Message"
-        ],
+        "fields": ["Nom", "Email", "Type de projet", "Message"],
         "artifact_state": "Produit construit intégré à la constellation orbitale autour d’Ozastra."
       }
     ]
@@ -932,11 +916,7 @@
         "Smoke test statique public",
         "Contrôle de disponibilité"
       ],
-      "environments": [
-        "local",
-        "artefact GitHub Actions",
-        "production"
-      ],
+      "environments": ["local", "artefact GitHub Actions", "production"],
       "rollback": "Redéployer le dernier commit validé par GitHub Actions ; ne modifier les enregistrements Cloudflare que lors d’un changement explicite de cible d’hébergement."
     },
     "dependency_policy": {
@@ -1031,7 +1011,7 @@
     "current_phase": 9,
     "current_deliverable": 4,
     "overall_progress_percent": 97,
-    "last_activity_at": "2026-08-26T06:20:45.716Z",
+    "last_activity_at": "2026-08-26T06:31:28.724Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -3190,6 +3170,12 @@
         "deliverable": 4,
         "description": "Domaine GitHub Pages et HTTPS",
         "note": "Configure ozastra.com as the verified GitHub Pages custom domain, publish Cloudflare DNS-only apex/www records, enable HTTPS and validate the public route."
+      },
+      {
+        "timestamp": "2026-08-26T06:31:28.715Z",
+        "event": "note",
+        "phase": 9,
+        "message": "Launch hardening: the first Quality run exposed an obsolete server-contact E2E expectation and stale English static-hosting copy; correct the cross-browser contact test, translated copy and Actions runtime before final HTTPS validation."
       }
     ]
   },
@@ -3265,9 +3251,7 @@
       "phase": 2,
       "name": "Bootstrap TanStack Start",
       "status": "completed",
-      "dependencies": [
-        1
-      ],
+      "dependencies": [1],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3356,10 +3340,7 @@
       "phase": 3,
       "name": "Architecture éditoriale et contenu",
       "status": "completed",
-      "dependencies": [
-        1,
-        2
-      ],
+      "dependencies": [1, 2],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3441,10 +3422,7 @@
       "phase": 4,
       "name": "Design system Tailwind et shell accessible",
       "status": "completed",
-      "dependencies": [
-        2,
-        3
-      ],
+      "dependencies": [2, 3],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3534,10 +3512,7 @@
       "phase": 5,
       "name": "Prototype de l’artefact React Three Fiber",
       "status": "completed",
-      "dependencies": [
-        2,
-        4
-      ],
+      "dependencies": [2, 4],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3634,10 +3609,7 @@
       "phase": 6,
       "name": "Narration orbitale au scroll",
       "status": "completed",
-      "dependencies": [
-        4,
-        5
-      ],
+      "dependencies": [4, 5],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3727,11 +3699,7 @@
       "phase": 7,
       "name": "Contenus, preuves et conversion",
       "status": "in_progress",
-      "dependencies": [
-        3,
-        4,
-        6
-      ],
+      "dependencies": [3, 4, 6],
       "tracking": {
         "progress_percent": 90,
         "active_deliverable": null,
@@ -3826,11 +3794,7 @@
       "phase": 8,
       "name": "Hardening qualité",
       "status": "ready_for_review",
-      "dependencies": [
-        5,
-        6,
-        7
-      ],
+      "dependencies": [5, 6, 7],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -3924,9 +3888,7 @@
       "phase": 9,
       "name": "Déploiement et lancement",
       "status": "in_progress",
-      "dependencies": [
-        8
-      ],
+      "dependencies": [8],
       "tracking": {
         "progress_percent": 67,
         "active_deliverable": 4,
@@ -4009,12 +3971,7 @@
       "phase": 10,
       "name": "Thème clair et continuité orbitale",
       "status": "completed",
-      "dependencies": [
-        4,
-        5,
-        6,
-        8
-      ],
+      "dependencies": [4, 5, 6, 8],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4070,12 +4027,7 @@
       "phase": 11,
       "name": "Internationalisation et lancement multilingue",
       "status": "completed",
-      "dependencies": [
-        2,
-        3,
-        4,
-        10
-      ],
+      "dependencies": [2, 3, 4, 10],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4183,13 +4135,7 @@
       "phase": 12,
       "name": "De l’idée à l’étoile — constellation de produits",
       "status": "completed",
-      "dependencies": [
-        5,
-        6,
-        8,
-        10,
-        11
-      ],
+      "dependencies": [5, 6, 8, 10, 11],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4245,10 +4191,7 @@
       "phase": 13,
       "name": "Sélecteur de langue déroulant et extensible",
       "status": "completed",
-      "dependencies": [
-        4,
-        11
-      ],
+      "dependencies": [4, 11],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4290,10 +4233,7 @@
       "phase": 14,
       "name": "Continuité visuelle du chargement Three.js",
       "status": "completed",
-      "dependencies": [
-        10,
-        12
-      ],
+      "dependencies": [10, 12],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4335,10 +4275,7 @@
       "phase": 15,
       "name": "Activation automatique du Hero Three.js",
       "status": "completed",
-      "dependencies": [
-        12,
-        14
-      ],
+      "dependencies": [12, 14],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4380,10 +4317,7 @@
       "phase": 16,
       "name": "Suppression du flash 2D avant Three.js",
       "status": "completed",
-      "dependencies": [
-        14,
-        15
-      ],
+      "dependencies": [14, 15],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4425,10 +4359,7 @@
       "phase": 17,
       "name": "Révélation progressive de la surface Three.js",
       "status": "completed",
-      "dependencies": [
-        15,
-        16
-      ],
+      "dependencies": [15, 16],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4470,10 +4401,7 @@
       "phase": 18,
       "name": "Fluidité du scroll après la révélation Three.js",
       "status": "completed",
-      "dependencies": [
-        12,
-        17
-      ],
+      "dependencies": [12, 17],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4515,10 +4443,7 @@
       "phase": 19,
       "name": "Respiration typographique du Hero",
       "status": "completed",
-      "dependencies": [
-        4,
-        18
-      ],
+      "dependencies": [4, 18],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4552,11 +4477,7 @@
       "phase": 20,
       "name": "Verrouillage définitif du thème sombre",
       "status": "completed",
-      "dependencies": [
-        10,
-        12,
-        19
-      ],
+      "dependencies": [10, 12, 19],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4592,11 +4513,7 @@
       "phase": 21,
       "name": "Crédibilité matérielle de l’instrument orbital",
       "status": "completed",
-      "dependencies": [
-        12,
-        18,
-        20
-      ],
+      "dependencies": [12, 18, 20],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,
@@ -4638,11 +4555,7 @@
       "phase": 22,
       "name": "Constellation de produits numériques",
       "status": "completed",
-      "dependencies": [
-        12,
-        18,
-        21
-      ],
+      "dependencies": [12, 18, 21],
       "tracking": {
         "progress_percent": 100,
         "active_deliverable": null,

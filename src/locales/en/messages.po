@@ -186,7 +186,7 @@ msgstr "Data collected"
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "privacy.recipientsText"
-msgstr "Data is neither sold nor rented. Technical providers strictly necessary for hosting or message delivery may process it under their own contractual safeguards. The list will be specified before public launch."
+msgstr "Data is neither sold nor rented. GitHub Pages serves the public website, Cloudflare provides DNS, and your chosen email provider handles any message you decide to send."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -526,7 +526,7 @@ msgstr "Prefer your own email client? Write directly to"
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "contact.submit"
-msgstr "Send request ↗"
+msgstr "Prepare email ↗"
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
@@ -756,17 +756,17 @@ msgstr "This orbit leads nowhere."
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "privacy.analyticsText"
-msgstr "Ozastra measures only page views through an internal endpoint. It sends no URL parameters, identifiers or browser fingerprint, sets no cookies and respects Do Not Track and Global Privacy Control signals. Technical events are kept in short-lived rotating logs. No advertising cookies are used."
+msgstr "This static version of Ozastra does not run audience analytics, set advertising cookies or store tracking identifiers in your browser."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "privacy.collectedText"
-msgstr "When you contact Ozastra, the information you voluntarily provide — identity, email address and message content — is used only to process your request and follow up on the relationship."
+msgstr "This website does not submit form data to an Ozastra server. The contact form prepares a draft in your email application; only information you choose to send is received by Ozastra and used to process your request."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts
 msgid "legal.hostingText"
-msgstr "The hosting provider’s details will be added once the production platform is selected."
+msgstr "This website is hosted with GitHub Pages, a service operated by GitHub, Inc. — github.com."
 
 #. js-lingui-explicit-id
 #: src/i18n/messages.ts

@@ -109,6 +109,7 @@ test('starts Three.js automatically after a refresh without user input', async (
   page,
 }, testInfo) => {
   test.skip(['firefox', 'webkit'].includes(testInfo.project.name))
+  test.setTimeout(90_000)
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
 
@@ -116,35 +117,45 @@ test('starts Three.js automatically after a refresh without user input', async (
   const canvasShell = page.locator('[data-orbital-canvas="true"]')
   const fallback = page.locator('.orbital-layer .orbital-fallback')
   await expect(canvas).toBeVisible({ timeout: 15_000 })
-  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true')
+  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true', {
+    timeout: 15_000,
+  })
   await expect
-    .poll(() =>
-      canvasShell.evaluate((element) =>
-        Number.parseFloat(getComputedStyle(element).opacity),
-      ),
+    .poll(
+      () =>
+        canvasShell.evaluate((element) =>
+          Number.parseFloat(getComputedStyle(element).opacity),
+        ),
+      { timeout: 15_000 },
     )
     .toBeGreaterThan(0.99)
   await expect
-    .poll(() =>
-      canvasShell.evaluate((element) => {
-        const style = getComputedStyle(element)
-        return {
-          transform: style.transform,
-          willChange: style.willChange,
-        }
-      }),
+    .poll(
+      () =>
+        canvasShell.evaluate((element) => {
+          const style = getComputedStyle(element)
+          return {
+            transform: style.transform,
+            willChange: style.willChange,
+          }
+        }),
+      { timeout: 15_000 },
     )
     .toEqual({ transform: 'none', willChange: 'auto' })
   await expect(fallback).toBeHidden()
 
   await page.reload({ waitUntil: 'domcontentloaded' })
   await expect(canvas).toBeVisible({ timeout: 15_000 })
-  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true')
+  await expect(canvasShell).toHaveAttribute('data-orbital-ready', 'true', {
+    timeout: 15_000,
+  })
   await expect
-    .poll(() =>
-      canvasShell.evaluate((element) =>
-        Number.parseFloat(getComputedStyle(element).opacity),
-      ),
+    .poll(
+      () =>
+        canvasShell.evaluate((element) =>
+          Number.parseFloat(getComputedStyle(element).opacity),
+        ),
+      { timeout: 15_000 },
     )
     .toBeGreaterThan(0.99)
   await expect(fallback).toBeHidden()
@@ -293,24 +304,35 @@ test('maps real section positions to orbital story stages', async ({
   )
 })
 
-test('validates and submits the contact form through the server function', async ({
+test('exposes a valid static contact email form without an API call', async ({
   page,
 }) => {
+  const apiRequests: string[] = []
+  page.on('request', (request) => {
+    if (new URL(request.url()).pathname.startsWith('/api/')) {
+      apiRequests.push(request.url())
+    }
+  })
+
   await page.goto('/contact')
-  await expect(page.getByRole('button', { name: 'Send request' })).toBeEnabled()
+  const form = page.locator('form')
+  await expect(
+    page.getByRole('button', { name: 'Prepare email' }),
+  ).toBeEnabled()
+  await expect(form).toHaveAttribute('action', 'mailto:hello@ozastra.com')
+  await expect(form).toHaveAttribute('method', 'post')
+  await expect(form).toHaveAttribute('enctype', 'text/plain')
   await page.getByLabel('Name').fill('Ada Lovelace')
   await page.getByLabel('Work email').fill('ada@example.com')
   await page.getByLabel('Project type').selectOption('ai')
   await page
     .getByLabel('Your project')
     .fill('We want to turn a complex business workflow into a clear product.')
-  await page.waitForTimeout(850)
-  await page.getByRole('button', { name: 'Send request' }).click()
 
-  await expect(page.getByRole('alert')).toContainText(
-    'Automatic delivery is unavailable',
-  )
-  await expect(
-    page.getByRole('link', { name: 'hello@ozastra.com' }).first(),
-  ).toHaveAttribute('href', /mailto:/)
+  expect(
+    await form.evaluate((element) =>
+      (element as HTMLFormElement).checkValidity(),
+    ),
+  ).toBe(true)
+  expect(apiRequests).toEqual([])
 })
