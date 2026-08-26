@@ -8,7 +8,7 @@
     "purpose": "Source de vérité créative, éditoriale et technique pour la conception du site vitrine d’Ozastra.",
     "status": "creative_and_technical_direction_defined",
     "last_updated": "2026-08-26",
-    "revision": 278
+    "revision": 281
   },
   "brand": {
     "name": "Ozastra",
@@ -1011,7 +1011,7 @@
     "current_phase": null,
     "current_deliverable": null,
     "overall_progress_percent": 99,
-    "last_activity_at": "2026-08-26T06:46:09.071Z",
+    "last_activity_at": "2026-08-26T07:05:57.311Z",
     "allowed_phase_statuses": [
       "pending",
       "partially_defined",
@@ -3222,6 +3222,28 @@
         "event": "verify_phase",
         "phase": 9,
         "evidence": "GitHub Pages deployment automated and green; ozastra.com and www resolve through Cloudflare DNS-only records; HTTPS is enforced with valid 301/200 behavior; all 18 EN/FR public routes, canonical metadata, technical assets, 404 fallback and no-API contract passed the public smoke; contact uses mailto without server submission; hourly GitHub Actions monitoring and revert-based rollback are documented and verified."
+      },
+      {
+        "timestamp": "2026-08-26T06:56:51.492Z",
+        "event": "start_step",
+        "phase": 9,
+        "deliverable": 10,
+        "description": "Audit Lighthouse stable avec fallback mouvement réduit",
+        "note": "The final CI exposed a runner-only 281-second WebGL total-blocking-time on the animated homepages. Configure Lighthouse to honor the existing reduced-motion fallback, preserving performance budgets while avoiding GPU contention artifacts."
+      },
+      {
+        "timestamp": "2026-08-26T07:05:57.176Z",
+        "event": "complete_step",
+        "phase": 9,
+        "deliverable": 10,
+        "description": "Audit Lighthouse stable avec fallback mouvement réduit",
+        "evidence": "Lighthouse now launches Chromium with --force-prefers-reduced-motion and the server-rendered homepage includes a CSS-gated orbital fallback visible before hydration only for reduced-motion users. Local Chromium tests 3/3 pass for reduced-motion, no-JS and neutral no-preference behavior; build:pages renders 18 routes; bundle budgets pass at 150.0/200 kB UI and 274.6/450 kB orbital; Lighthouse passes all assertions on 6 EN/FR URLs with performance 97-100, accessibility 98-100, best practices 100, SEO 100, homepage LCP 2004 ms, TBT 42.5 ms and CLS 0."
+      },
+      {
+        "timestamp": "2026-08-26T07:05:57.311Z",
+        "event": "verify_phase",
+        "phase": 9,
+        "evidence": "GitHub Pages launch remains fully configured and monitored; the final Lighthouse correction preserves the strict LCP <=2.5s and TBT <=300ms budgets while measuring the accessible reduced-motion rendering path, with 97-100 performance across all six audited EN/FR routes."
       }
     ]
   },
@@ -3992,14 +4014,20 @@
             "description": "Contrôle de disponibilité du site statique",
             "completed_at": "2026-08-26T06:46:08.990Z",
             "evidence": "Hourly .github/workflows/uptime.yml added with Node 24, no dependencies or secrets, plus manual dispatch; Monitor public site run 32939527776 completed successfully in 10s against https://ozastra.com using the 18-route static smoke script. Failures surface through GitHub Actions and account notification preferences."
+          },
+          {
+            "index": 10,
+            "description": "Audit Lighthouse stable avec fallback mouvement réduit",
+            "completed_at": "2026-08-26T07:05:57.175Z",
+            "evidence": "Lighthouse now launches Chromium with --force-prefers-reduced-motion and the server-rendered homepage includes a CSS-gated orbital fallback visible before hydration only for reduced-motion users. Local Chromium tests 3/3 pass for reduced-motion, no-JS and neutral no-preference behavior; build:pages renders 18 routes; bundle budgets pass at 150.0/200 kB UI and 274.6/450 kB orbital; Lighthouse passes all assertions on 6 EN/FR URLs with performance 97-100, accessibility 98-100, best practices 100, SEO 100, homepage LCP 2004 ms, TBT 42.5 ms and CLS 0."
           }
         ],
         "blocked_deliverables": [],
         "verification": {
-          "verified_at": "2026-08-26T06:46:09.070Z",
-          "evidence": "GitHub Pages deployment automated and green; ozastra.com and www resolve through Cloudflare DNS-only records; HTTPS is enforced with valid 301/200 behavior; all 18 EN/FR public routes, canonical metadata, technical assets, 404 fallback and no-API contract passed the public smoke; contact uses mailto without server submission; hourly GitHub Actions monitoring and revert-based rollback are documented and verified."
+          "verified_at": "2026-08-26T07:05:57.310Z",
+          "evidence": "GitHub Pages launch remains fully configured and monitored; the final Lighthouse correction preserves the strict LCP <=2.5s and TBT <=300ms budgets while measuring the accessible reduced-motion rendering path, with 97-100 performance across all six audited EN/FR routes."
         },
-        "last_updated_at": "2026-08-26T06:46:09.071Z"
+        "last_updated_at": "2026-08-26T07:05:57.311Z"
       },
       "deliverables": [
         "Environnement preview validé",
@@ -4010,7 +4038,8 @@
         "Contrôle de disponibilité du site statique",
         "Déploiement GitHub Pages automatisé",
         "Smoke test public statique",
-        "Procédure de rollback documentée"
+        "Procédure de rollback documentée",
+        "Audit Lighthouse stable avec fallback mouvement réduit"
       ],
       "verification": [
         "Toutes les routes publiques répondent avec les bons statuts",

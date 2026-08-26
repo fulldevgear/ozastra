@@ -8,12 +8,17 @@ export function OrbitalLoadingPlaceholder() {
   )
 }
 
-export function OrbitalFallback() {
+export function OrbitalFallback({
+  preHydration = false,
+}: {
+  preHydration?: boolean
+} = {}) {
   return (
     <div
-      className="orbital-fallback"
+      className={`orbital-fallback${preHydration ? ' orbital-fallback--pre-hydration' : ''}`}
       data-orbital-fallback="true"
       data-orbital-fallback-state="hero"
+      data-orbital-pre-hydration={preHydration ? 'true' : undefined}
       aria-hidden="true"
     >
       <span className="orbital-fallback__atmosphere" />

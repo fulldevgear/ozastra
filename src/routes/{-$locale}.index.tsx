@@ -108,7 +108,7 @@ function OrbitalLayer() {
 
   return (
     <div className="orbital-layer">
-      <ClientOnly fallback={<OrbitalLoadingPlaceholder />}>
+      <ClientOnly fallback={<OrbitalFallback preHydration />}>
         {shouldEnhance ? (
           <Suspense fallback={<OrbitalLoadingPlaceholder />}>
             <OrbitalExperience />
@@ -116,7 +116,7 @@ function OrbitalLayer() {
         ) : shouldEnhance === false ? (
           <OrbitalFallback />
         ) : (
-          <OrbitalLoadingPlaceholder />
+          <OrbitalFallback preHydration />
         )}
       </ClientOnly>
     </div>

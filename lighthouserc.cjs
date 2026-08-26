@@ -16,7 +16,8 @@ module.exports = {
       numberOfRuns: 1,
       chromePath: chromium.executablePath(),
       settings: {
-        chromeFlags: '--headless --no-sandbox --disable-dev-shm-usage',
+        chromeFlags:
+          '--headless --no-sandbox --disable-dev-shm-usage --force-prefers-reduced-motion',
         maxWaitForLoad: 90000,
       },
     },

@@ -712,6 +712,10 @@ select {
   --fallback-seed-top: 41%;
 }
 
+.orbital-fallback--pre-hydration {
+  display: none;
+}
+
 .orbital-fallback > span {
   position: absolute;
 }
@@ -1324,6 +1328,10 @@ select {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .orbital-fallback--pre-hydration {
+    display: block;
   }
 
   *,

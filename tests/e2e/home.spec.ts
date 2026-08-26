@@ -253,9 +253,31 @@ test('keeps the initial HTML neutral before Three.js starts', async ({
   const page = await context.newPage()
   await page.goto('/')
 
-  await expect(page.locator('[data-orbital-loading="true"]')).toBeVisible()
-  await expect(page.locator('.orbital-fallback')).toHaveCount(0)
-  await expect(page.locator('.orbital-fallback__planet')).toHaveCount(0)
+  await expect(page.locator('[data-orbital-pre-hydration="true"]')).toBeHidden()
+  await expect(
+    page.getByRole('heading', {
+      level: 1,
+      name: /Digital products, engineered with taste/i,
+    }),
+  ).toBeVisible()
+
+  await context.close()
+})
+
+test('serves the static orbital fallback before hydration for reduced motion', async ({
+  browser,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium')
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    reducedMotion: 'reduce',
+  })
+  const page = await context.newPage()
+  await page.goto('/')
+
+  const fallback = page.locator('[data-orbital-pre-hydration="true"]')
+  await expect(fallback).toBeVisible()
+  await expect(fallback.locator('.orbital-fallback__planet')).toBeVisible()
   await expect(
     page.getByRole('heading', {
       level: 1,
